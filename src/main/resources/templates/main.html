@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
 
     <!-- 부트스트랩 적용방법 (min or 일반 파일중 하나를 링크) -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
 
     <!-- jQuery경로 넣기 (링크 순서 중요)-->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     
-    <script src="js/bootstrap.js"></script>
+    <script src="../js/bootstrap.js"></script>
 
     <!-- 공통 css디자인 -->
-    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="../css/common.css">
 
     <!-- 스타일 css디자인 -->
-    <link rel="stylesheet" href="css/main_style.css">
+    <link rel="stylesheet" href="../css/main.css">
 
 </head>
-<body>
 
+<th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .wrap} ) }">
+	<section class="wrap">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-9 col-lg-6 form-study">
@@ -38,15 +36,15 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="img/banner-img1.jpg" alt="img1">
+                                <img src="../img/group/banner-img1.jpg" alt="img1">
                             </div>
 
                             <div class="item">
-                                <img src="img/banner-img2.jpg" alt="img2">
+                                <img src="../img/group/banner-img2.jpg" alt="img2">
                             </div>
 
                             <div class="item">
-                                <img src="img/banner-img3.jpg" alt="img3">
+                                <img src="../img/group/banner-img3.jpg" alt="img3">
                             </div>
                         </div>
 
@@ -139,7 +137,7 @@
                     <ul>
                         <li>
                             <a href="#">
-                                <img src="img/1.png">
+                                <img src="../img/group/1.png">
         
                                 <div class="group_main_list_searchresult_detail">
                                         
@@ -164,7 +162,7 @@
 
                         <li>
                             <a href="#">
-                                <img src="img/1.png">
+                                <img src="../img/group/1.png">
         
                                 <div class="group_main_list_searchresult_detail">
                                         
@@ -189,7 +187,7 @@
 
                         <li>
                             <a href="#">
-                                <img src="img/1.png">
+                                <img src="../img/group/1.png">
         
                                 <div class="group_main_list_searchresult_detail">
                                         
@@ -214,7 +212,7 @@
 
                         <li>
                             <a href="#">
-                                <img src="img/1.png">
+                                <img src="../img/group/1.png">
         
                                 <div class="group_main_list_searchresult_detail">
                                         
@@ -239,7 +237,7 @@
 
                         <li>
                             <a href="#">
-                                <img src="img/1.png">
+                                <img src="../img/group/1.png">
         
                                 <div class="group_main_list_searchresult_detail">
                                         
@@ -264,7 +262,7 @@
 
                         <li>
                             <a href="#">
-                                <img src="img/1.png">
+                                <img src="../img/group/1.png">
         
                                 <div class="group_main_list_searchresult_detail">
                                         
@@ -320,8 +318,6 @@
         </section>
 
     </section>
-
-
-
-</body>
+    </section>
+</th:block>
 </html>
