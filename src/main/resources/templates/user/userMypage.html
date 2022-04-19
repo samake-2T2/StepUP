@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- 아이콘이 표시되지않아 직접 링크찾아 넣어줌 -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../css/user/userMypage.css">
+</head>
+
+<th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .wrap} ) }">
+
+
+    <section class="wrap">
+        <div class="mypage-box">
+            <div class="row">
+                <div class="col-xs-12 col-md-9 col-lg-6 mypage-inner">
+                  
+                    <div class="mypage-modify">
+                        회원정보 수정
+                    </div>
+                    
+
+                    <form class="box-form">
+                          <div class="mypage-group">
+                            <label>비밀번호</label>
+                            <input type="password" class="form-control" placeholder="수정할 비밀번호를 입력하세요">
+                          </div>
+
+                          <div class="mypage-group">
+                            <label>비밀번호 확인</label>
+                            <input type="password" class="form-control" placeholder="비밀번호를 입력하세요">
+                          </div>
+
+                          <div class="mypage-group">
+                            <label>닉네임</label>
+                            <input type="text" class="form-control" placeholder="수정할 닉네임을 입력하세요">
+                          </div>
+
+                          <div class="mypage-group">
+                            <label>관심분야</label>
+                            <select class="user-sel">
+                              <option name="field">입시</option>
+                              <option name="field">취업/창업</option>
+                              <option name="field">자격증</option>
+                              <option name="field">외국어회화</option>
+                              <option name="field">IT/인터넷</option>
+                              <option name="field">취미/문화</option>
+                            </select>
+                          </div>
+
+                          <div class="mypage-group">
+                            <div class="mypage-btn">
+                              <button type="button" class="w-btn btn-danger btn-block1">탈퇴</button>
+                              <button type="button" class="w-btn btn-block">수정</button>
+                           </div>
+                          </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </th:block>
+</html>

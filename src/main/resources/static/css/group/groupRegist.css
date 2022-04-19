@@ -1,0 +1,109 @@
+.form-control {
+    border-radius: 0;
+}
+
+.form-join {
+    margin: 0 auto;
+    float: none;
+    width: 450px;
+    padding: 0;
+    /* 
+    부트스트랩의 클래스가 
+    기본적으로 float: left속성을 가지고 있어서 
+    없애주어야 가운데 정렬 가능
+     */
+}
+
+.form-join form {
+    /* 가로, 아래, 흐릿한정도, 색상 */
+    padding: 30px 40px;
+}
+
+.form-group {
+    margin: 0px;
+}
+
+.titlebox>h4 {
+    margin: 40px auto;
+    width: 250px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 35px;
+    border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+.form-group>label {
+    text-align: left;
+}
+
+/* 버튼 */
+
+.btn {
+    background-color: #f18888;
+    color: white;
+}
+
+.btn-group {
+    margin: 10px 0;
+}
+
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 2px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    margin: 10px 10px;
+}
+
+.w-btn-indigo {
+    background-color: #d263c9;
+    color: white;
+}
+
+.img-btn {
+    background-color: #e4a8d6;
+    color: white;
+}
+
+.w-btn:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.w-btn:active {
+    transform: scale(1.5);
+}
+
+.img {
+    width: 100%;
+    height: 300px;
+}
+
+#comment {
+    width: 100%;
+    height: 190px;
+    resize: none;
+}
+
+.reg_form {
+    margin-bottom: 50px;
+    border: 1px solid #cdcdcd;
+    /* text-align: center; */
+}
+
+.btn-align {
+    text-align: right;
+}
+
+.btn-align1 {
+    text-align: center;
+}

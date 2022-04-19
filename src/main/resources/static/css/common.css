@@ -1,0 +1,45 @@
+/* 공통 디자인 */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 웹 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+body,
+html {
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 100%;
+    min-width: 350px;
+}
+
+/* . 형식 제거 */
+ul,
+li,
+ol,
+dd,
+dl,
+a {
+    list-style: none;
+    text-decoration: none;
+}
+
+/* 이미지가 너비에 맞춰서 자동지정 */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 브라우저 별로 고유하게 정의된 디자인 사용하지 않음 */
+input,
+textarea,
+button,
+select {
+	 /*
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;	
+	*/
+}

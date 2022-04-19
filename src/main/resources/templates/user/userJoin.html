@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- 아이콘이 표시되지않아 직접 링크찾아 넣어줌 -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="../js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../css/user/userJoin.css">
+</head>
+
+<th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .wrap} ) }">
+
+    <section class="wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-9 col-lg-6 form-join">
+                    
+                    <div class="title-box">
+                        회원가입
+                    </div>
+                   
+                    <form class="form-box">
+                            <!--버튼달린 인풋--> 
+                          <!--<div class="form-group">
+                            <label>아이디</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="아이디는 8~12글자 입니다.">
+                                <div class="input-group-btn">
+                                  <button class="btn btn-success" type="button">중복확인하기</button>
+                                </div>
+                            </div>
+                          </div>-->
+                       
+                          
+                       
+                        <div class="profile">
+                        <label>프로필사진</label>
+                        <div class="img-box">
+                            <img class="profile-img" src="/img/user/1.png">
+                        </div>
+                        <button class="w-btn btn-nomal" type="button">파일업로드</button>
+                        <button class="w-btn btn-nomal" type="button">기본이미지</button>
+                        </div>
+
+                          <!-- 버튼이 없는유형 -->
+                          <div class="form-group">
+                            <label>이메일</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="예)abcde@gmail.com">
+                                <div class="input-group-btn">
+                                  <button class="btn btn-block2" type="button">이메일인증하기</button>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label>비밀번호</label>
+                            <input type="password" class="form-control" placeholder="영문 + 숫자 8자리를 입력하세요">
+                          </div>
+                        
+                          <div class="form-group">
+                            <label>비밀번호 확인</label>
+                            <input type="password" class="form-control" placeholder="비밀번호를 입력하세요">
+                          </div>
+
+                          <div class="form-group">
+                            <label>닉네임</label>
+                            <input type="text" class="form-control" placeholder="닉네임을 입력하세요">
+                          </div>
+
+                          <div class="form-group">
+                            <label>관심분야</label><br>
+                            <select class="user-sel">
+                              <option name="field">입시</option>
+                              <option name="field">취업/창업</option>
+                              <option name="field">자격증</option>
+                              <option name="field">외국어회화</option>
+                              <option name="field">IT/인터넷</option>
+                              <option name="field">취미/문화</option>
+                          </select>
+                          </div>
+
+                          <div class="form-group">
+                              <button type="button" class="w-btn btn-block3">가입하기</button>
+                          </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <th:block>
+</html>

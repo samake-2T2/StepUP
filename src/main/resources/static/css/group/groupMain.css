@@ -1,0 +1,310 @@
+.container {
+    width: 1250px;
+    padding: 0;
+}
+
+.row {
+    width: 1250px;
+    margin: 0 auto;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.form-study {
+    margin: 50px auto;
+    float: none;
+    width: 100%;
+    height: 100%;
+    padding: 30px 30px;
+    overflow: hidden;
+    /* 
+    부트스트랩의 클래스가 
+    기본적으로 float: left속성을 가지고 있어서 
+    없애주어야 가운데 정렬 가능
+     */
+}
+
+.item {
+    height: 400px;
+}
+
+.item > img {
+    object-fit: fill;
+}
+
+
+
+
+.title {
+    text-align: center;
+}
+
+.title > h3 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.titlebox {
+    overflow: hidden;
+    margin: 50px 0px;
+}
+
+.titlebox > h1 {
+    margin: 40 auto;
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section-wrap {
+    overflow: hidden;
+    padding: 30px;
+}
+
+.section-wrap > .section-label {
+    font-size: 30px;
+    font-weight: 600;
+    width: 60%;
+    margin: 0;
+    display: inline-block;
+}
+
+.section-content {
+    display: inline;
+}
+
+.section-wrap > .section-content > p {
+    width: 60%;
+    float: left;
+}
+
+.study-img > img{
+    width: 15%;
+    height: 100%;
+    float: right;
+}
+
+/* 버튼 */
+
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px;
+    border-radius: 2px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    margin: 10px 10px;
+}
+
+.w-btn:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.w-btn:active {
+    transform: scale(1.5);
+}
+
+.w-btn-indigo {
+    background-color: #d263c9;
+    color: white;
+}
+
+.img-btn {
+    background-color: #f18888;
+    color: white;
+}
+
+.atd-btn {
+    border-bottom: 1px solid black;
+    padding: 30px;
+}
+
+.ext-btn {
+    background-color: #ed2a61;
+}
+
+.src-btn {
+    background-color: #e4a8d6;
+    color: white;
+}
+
+.reg-btn-wrap {
+    padding-left: 15px;
+}
+
+/* 일정 */
+.todoList {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    margin-top: 40px;
+}
+
+.todoList > input {
+    width: 60%;
+}
+
+.input-group {
+    width: 60%;
+}
+
+.todoList-tb {
+    margin-top: 30px;
+}
+
+/* 캘린더 */
+/* section calendar */
+
+.cal {
+    height: 580px;
+    padding: 30px;
+    border-bottom: 1px solid black;
+}
+
+.cal > label {
+    text-align: center;
+}
+
+.sec_cal {
+    width: 48%;
+    height: 100%;
+    margin: 10px 0;
+    font-family: "NotoSansR";
+    float: right;
+}
+
+.sec_cal .cal_nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 78px;
+}
+
+.sec_cal .cal_nav .year-month {
+    width: 500px;
+    text-align: center;
+    font-size: 4vmin;
+    line-height: 1;
+}
+
+.sec_cal .cal_nav .nav {
+    display: flex;
+    border: 1px solid #333333;
+}
+
+.sec_cal .cal_nav .go-prev,
+.sec_cal .cal_nav .go-next {
+    display: block;
+    width: 50px;
+    height: 78px;
+    font-size: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec_cal .cal_nav .go-prev::before,
+.sec_cal .cal_nav .go-next::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #000;
+    border-width: 3px 3px 0 0;
+    transition: border 0.1s;
+}
+
+.sec_cal .cal_nav .go-prev:hover::before,
+.sec_cal .cal_nav .go-next:hover::before {
+    border-color: #ed2a61;
+}
+
+.sec_cal .cal_nav .go-prev::before {
+    transform: rotate(-135deg);
+}
+
+.sec_cal .cal_nav .go-next::before {
+    transform: rotate(45deg);
+}
+
+.sec_cal .cal_wrap {
+    padding-top: 40px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.sec_cal .cal_wrap .days {
+    display: flex;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sec_cal .cal_wrap .days > .day {
+    /* display: flex; */
+    width: calc(100% / 7);
+    font-size: 2vmin;
+    text-align: center;
+    align-items: center;
+    border: none;
+}
+
+.sec_cal .cal_wrap::after {
+    top: 368px;
+}
+
+.sec_cal .cal_wrap .dates > .day {
+    display: flex;
+    justify-content: center;
+    width: calc(100% / 7);
+    color: black;
+    font-size: 2vmin;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    border: none;
+    background-color: white;
+}
+
+.sec_cal .cal_wrap .day.current.today {
+    background-color: #d263c9;
+    color: white;
+    border-radius: 2px;
+}
+
+.sec_cal .cal_wrap .dates {
+    display: flex;
+    flex-flow: wrap;
+    height: 300px;
+}
+
+.sec_cal .cal_wrap .day:nth-child(7n -1) {
+    color: #3c6ffa;
+}
+
+.sec_cal .cal_wrap .day:nth-child(7n) {
+    color: #ed2a61;
+}
+
+.sec_cal .cal_wrap .day.disable {
+    color: #ddd;
+}
+
+/* 그룹 내 게시판 */
+.board-wrap {
+    padding: 0 30px 30px 30px; 
+}
+
+.group-tb {
+    margin-top: 30px;
+}

@@ -1,0 +1,263 @@
+/* 공통 디자인 */
+* {padding: 0; margin: 0; box-sizing: border-box;}
+/* 웹 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+body, html {font-family: 'Noto Sans KR', sans-serif;
+            width: 100%;
+            min-width: 350px;}
+/* . 형식 제거 */
+ul, li, ol, dd, dl, a{list-style: none; text-decoration: none;}
+/* 이미지가 너비에 맞춰서 자동지정 */
+img {max-width: 100%; height: auto;}
+/* 브라우저 별로 고유하게 정의된 디자인 사용하지 않음 */
+input, textarea, button, select {appearance: none;}
+
+
+
+
+
+@media(min-width: 1200px){ /*1200이상*/
+    .container-login {max-width: 450px;
+                      margin: 0 auto;
+
+                      }
+    .login-title-box {text-align: center;
+                      font-size: 30px;}
+    .login-main-box {border: 1px solid #cdcdcd}
+    .login-main-box .login-form-inner{background-color: white;
+                                      padding-top: 30px;
+                                      padding-left: 40px;
+                                      padding-right: 40px;
+                                      padding-bottom: 30px;
+                                      overflow: hidden;
+                                      }
+    .login-main-box .login-form-inner .form-group input {width: 100%;
+                                                        box-sizing: border-box;
+                                                        border: 1px solid #d1d1d1;
+                                                        padding: 5px;
+                                                        }
+    .login-title-box{width: 250px;
+                     margin: 40px auto;
+                     border-top: 1px solid #d1d1d1;
+                     border-bottom: 1px solid #d1d1d1;
+                     height: 60px;
+                     line-height: 60px;
+                     text-align: center;
+                     font-size: 35px;}
+    .form-group-right {float: right; }
+    .form-group-right a {text-decoration: none; 
+                        font-size: small;
+                        color: black;} 
+    .button {text-align: center;}             
+    button{background-color: #F0d9ff;
+           border: 0;
+           padding: 10px 50px;
+           width: 100%;
+        }
+    button:hover{background-color: #BFA2DB;
+                cursor: pointer;}
+                .login-form-inner .form-group .kakao {background-image: url('/img/user/kakao_login_medium_narrow.png');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-color: #fee500;
+                    border: none;
+                    height: 45px;
+                    width: 100%;
+                    cursor: pointer;}
+    .login-form-inner .form-group .naver {background-image: url('/img/user/naver_login.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-color: rgba(3, 199, 90);
+                    border: none;
+                    height: 45px;
+                    width: 100%;
+                    cursor: pointer;}
+/* button {margin: 20px;}  */
+.w-btn {position: relative;
+        border: none;
+        display: inline-block;
+        padding: 15px 30px;
+        border-radius: 2px;
+        font-family: "paybooc-Light", sans-serif;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.25s;}
+.w-btn-indigo {background-color: #663399;
+               color: white;}
+.w-btn:hover {letter-spacing: 2px;
+              transform: scale(1.02);
+              cursor: pointer;
+              background-color: #663399} /*#282854;*/
+.w-btn:active {transform: scale(1.03);}   
+}
+
+
+
+
+
+
+
+
+@media(min-width:768px) and (max-width: 1199px){ /*768~1199까지*/
+body{background-color: white;}
+    .container-login {max-width: 450px;
+                      margin: 0 auto;
+                      }
+    .login-title-box {text-align: center;
+                      font-size: 30px;}
+    .login-main-box{border: 1px solid #cdcdcd}
+    .login-main-box .login-form-inner{background-color: white;
+                                      padding-top: 30px;
+                                      padding-left: 40px;
+                                      padding-right: 40px;
+                                      padding-bottom: 30px;
+                                      overflow: hidden;
+                                      }
+    .login-main-box .login-form-inner .form-group input {width: 100%;
+                                                        box-sizing: border-box;
+                                                        border: 1px solid #d1d1d1;
+                                                        padding: 5px;
+                                                        }
+    .login-title-box{width: 250px;
+                    margin: 40px auto;
+                    border-top: 1px solid #d1d1d1;
+                    border-bottom: 1px solid #d1d1d1;
+                    height: 60px;
+                    line-height: 60px;
+                    text-align: center;
+                    font-size: 35px;}
+    .form-group-right {float: right; }
+    .form-group-right a {text-decoration: none; 
+                        font-size: small;
+                        color: black;} 
+    /* .button {text-align: center;}              */
+    button{background-color: #F0d9ff;
+           border: 0;
+           padding: 10px 50px;
+           width: 100%;
+        }
+    button:hover{background-color: #BFA2DB;
+                 cursor: pointer;}
+    .login-form-inner .form-group .kakao {background-image: url('/img/user/kakao_login_medium_narrow.png');
+                                          background-repeat: no-repeat;
+                                          background-position: center;
+                                          background-color: #fee500;
+                                          border: none;
+                                          height: 45px;
+                                          width: 100%;
+                                          cursor: pointer;}
+    .login-form-inner .form-group .naver {background-image: url('/img/user/naver_login.png');
+                                          background-size: contain;
+                                          background-repeat: no-repeat;
+                                          background-position: center;
+                                          background-color: rgba(3, 199, 90);
+                                          border: none;
+                                          height: 45px;
+                                          width: 100%;
+                                          cursor: pointer;}
+    /* button {margin: 20px;}  */
+    .w-btn {position: relative;
+        border: none;
+        display: inline-block;
+        padding: 15px 30px;
+        border-radius: 2px;
+        font-family: "paybooc-Light", sans-serif;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.25s;}
+.w-btn-indigo {background-color: #663399;
+               color: white;}
+.w-btn:hover {letter-spacing: 2px;
+              transform: scale(1.02);
+              cursor: pointer;
+              background-color: #663399} /*#282854;*/
+.w-btn:active {transform: scale(1.03);}   
+}
+
+
+
+
+
+
+@media(max-width: 767px){ /*767이하*/
+body{background-color: white}
+    .container-login {max-width: 450px;
+                      margin: 0 auto;
+                    
+                }
+    .login-title-box {text-align: center;
+                      font-size: 30px;}
+    .login-main-box{border: 1px solid #cdcdcd}
+    .login-main-box .login-form-inner{background-color: white;
+                                      padding-top: 30px;
+                                      padding-left: 40px;
+                                      padding-right: 40px;
+                                      padding-bottom: 30px;
+                                      overflow: hidden;
+                                      }
+    .login-main-box .login-form-inner .form-group input {width: 100%;
+                                                        box-sizing: border-box;
+                                                        border: 1px solid #d1d1d1;
+                                                        padding: 5px;
+                                                        }
+    .login-title-box{width: 250px;
+                    margin: 40px auto;
+                    border-top: 1px solid #d1d1d1;
+                    border-bottom: 1px solid #d1d1d1;
+                    height: 60px;
+                    line-height: 60px;
+                    text-align: center;
+                    font-size: 35px;}
+    .form-group-right {float: right; }
+    .form-group-right a {text-decoration: none; 
+                        font-size: small;
+                        color: black;} 
+    .button {text-align: center;}             
+    button{background-color: #F0d9ff;
+           border: 0;
+           padding: 10px 50px;
+           width: 100%;
+        }
+    button:hover{background-color: #BFA2DB;
+                 cursor: pointer;}
+                 .login-form-inner .form-group .kakao {background-image: url('/img/user/kakao_login_medium_narrow.png');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-color: #fee500;
+                    border: none;
+                    height: 45px;
+                    width: 100%;
+                    cursor: pointer;}
+    .login-form-inner .form-group .naver {background-image: url('/img/user/naver_login.png');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-color: rgba(3, 199, 90);
+                        border: none;
+                        height: 45px;
+                        width: 100%;
+                        cursor: pointer;}
+    /* button {margin: 20px;}  */
+    .w-btn {position: relative;
+        border: none;
+        display: inline-block;
+        padding: 15px 30px;
+        border-radius: 2px;
+        font-family: "paybooc-Light", sans-serif;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.25s;}
+.w-btn-indigo {background-color: #663399;
+               color: white;}
+.w-btn:hover {letter-spacing: 2px;
+              transform: scale(1.02);
+              cursor: pointer;
+              background-color: #663399} /*#282854;*/
+.w-btn:active {transform: scale(1.05);}   
+}
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+    <link rel="stylesheet" href="../css/user/user_login.css">
+</head>
+
+<th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .container-login} ) }">
+
+<body>
+
+    <!-- <div style="position: sticky; top: 42px; left: 0;">.....</div> -->
+    <div class="container-login">
+        <div class="row">
+            <div class="login-title-box">
+                로 그 인
+            </div>
+            <div class="login-main-box">
+                <form class="login-form-inner">
+                    <!-- 버튼 없는 인풋 -->
+                    <div class="form-group"  >
+                        <label style="font-weight: bold;">이메일</label><br>
+                        <input type="text" class="form-control" placeholder="이메일을 입력해주세요">
+                    </div><br>
+                    <!-- 버튼 없는 인풋 -->
+                    <div class="form-group">
+                        <label style="font-weight: bold;">비밀번호</label><br>
+                        <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요">
+                    </div><br>
+                    <div class="form-group button">
+                        <button type="button" class="w-btn w-btn-indigo">로그인</button><br>
+                    </div><br>
+                    <div class="form-group button">
+                        <button type="button" class=" w-btn w-btn-indigo kakao"></button><br>
+                    </div><br>
+                    <div class="form-group button">
+                        <button type="button" class=" w-btn w-btn-indigo naver"></button><br>
+                    </div><br>
+                    <div class="form-group-right">
+                        <a href=""><span>가입하기</span></a>
+                        <span> | </span>
+                        <a href=""><span>비밀번호 찾기</span></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</th:block>
+
+
+</body>
+</html>

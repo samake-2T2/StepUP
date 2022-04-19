@@ -1,0 +1,227 @@
+/* 헤더, 푸터 CSS */
+
+@media(min-width: 1200px){ /*1200이상*/
+header{text-align: center;}
+.web_header_logo > a > img {
+                            margin: 0 auto ;
+                            text-align: center;
+                            width: 250px;
+                            padding-top: 35px;
+                            padding-bottom: 35px; 
+                        }
+.web_header {height: 42px; /*4.5rem*/
+             padding: 0; 
+             background-color: #fff;
+             /* overflow: hidden; */
+             text-align: center; 
+             position: sticky;
+             top: 0;    
+             left: 0;
+             box-shadow: 0 0 1.5px grey;
+             z-index: 9999;}
+.web_header ul > li {display: inline;
+                    padding: 5px;}
+.web_header ul  >li > a {display: inline-block;
+                     width: 80px; 
+                     height: 30px;
+                     line-height: 30px;
+                     font-size: 15px;
+                     color: rgb(96, 93, 93);
+                     background-color:  #fff;
+                     }
+.web_header ul > li > a.joinbutton {display: inline-block;
+                    width: 80px; 
+                    height: 30px;
+                    line-height: 30px;
+                    font-size: 15px;
+                    color: #fff;
+                    background-color:  #663399;
+                    }
+.web_header ul > li > a.joinbutton:hover {color:#fff;
+                                          font-weight: bold;
+                                          background-color: #663399;}
+.web_header .logo_image {float: left; 
+                         width: 30px;
+                         padding-top: 5px;
+                         margin-left: 20px;}
+.navbar-right {float: right;
+               padding-right: 10px;
+               padding-top: 7px;
+
+               text-align: center;}     
+/* 푸터 */
+footer{
+    background-color: #f5f5f5;
+    margin-top: 180px;}
+footer .copyright{color: black;
+                  padding: 30px;}
+footer address{margin: 0;}
+footer .footer-menu{overflow: hidden;
+                    padding: 30px 0;
+                    text-align: center;}
+footer .footer-menu .copyright-menu{float: right;}
+footer .footer-menu .copyright-menu li{display: inline-block;
+                                       padding: 0 10px;}
+footer .footer-menu .copyright-menu li a{color: black} 
+.rowf {padding: 0; 
+      overflow: hidden;}
+.rowf .left {float: left;}
+.rowf .right {float: right;}
+.copyright-menu {padding-right: 30px;}
+}
+
+
+
+
+
+
+
+
+
+
+
+@media(min-width:768px) and (max-width: 1199px){ /*768~1199까지*/
+header{text-align: center;}
+.web_header_logo > a > img {
+    margin: 0 auto ;
+    text-align: center;
+     width: 250px;
+     padding-top: 35px;
+     padding-bottom: 35px; 
+                        }
+.web_header {height: 42px; /*4.5rem*/
+                padding: 0; 
+                background-color: #fff;
+                /* overflow: hidden; */
+                text-align: center; 
+                position: sticky;
+                top: 0;    
+                left: 0;
+                box-shadow: 0 0 1.5px grey;
+                z-index: 9999;}
+.web_header ul > li {display: inline;
+                   padding: 10px;}
+.web_header ul > li > a {display: inline-block;
+                        width: 80px; 
+                        height: 30px;
+                        line-height: 30px;
+                        font-size: 15px;
+                        color: rgb(96, 93, 93);
+                        background-color:  #fff;
+                        }
+.web_header ul > li > a.joinbutton {display: inline-block;
+                        width: 80px; 
+                        height: 30px;
+                        line-height: 30px;
+                        font-size: 15px;
+                        color: #fff;
+                        background-color:  #663399;
+                        }
+.web_header ul > li > a.joinbutton:hover {color:#fff;
+                                        font-weight: bold;
+                                        background-color: #663399;}
+.web_header .logo_image {float: left; 
+                         width: 30px;
+                         padding-top: 5px;
+                         margin-left: 20px;}
+.navbar-right {float: right;
+               padding-right: 10px;
+               padding-top: 7px;
+               text-align: center;}
+/* 푸터 */
+footer{
+    background-color: #f5f5f5;
+    margin-top: 180px;}
+footer .copyright{
+    color: black;
+    padding: 30px;}
+footer address{margin: 0;}
+footer .footer-menu{overflow: hidden;
+                    padding: 30px 0;
+                    text-align: center;}
+footer .footer-menu .copyright-menu{float: right;}
+footer .footer-menu .copyright-menu li{display: inline-block;
+                                       padding: 0 10px;}
+footer .footer-menu .copyright-menu li a{color: black;}
+.rowf {padding: 0; 
+      overflow: hidden;}
+.copyright-menu {padding-right: 30px;}
+}        
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 767px){ /*767이하*/
+header{text-align: center;}
+.web_header_logo > a > img {
+    margin: 0 auto ;
+    text-align: center;
+     width: 250px;
+                            padding-top: 35px;
+                            padding-bottom: 35px; 
+                        }
+/* 헤더 */
+.web_header {height: 42px; /*4.5rem*/
+            padding: 0; 
+            background-color: #fff;
+            /* overflow: hidden; */
+             text-align: center; 
+             position: sticky;
+             top: 0;    
+             left: 0;
+            box-shadow: 0 0 1.5px grey;
+            z-index: 9999;}
+.web_header ul > li {display: inline;
+                   padding: 9px;}
+.web_header ul > li > a {display: inline-block;
+                        width: 80px; 
+                        height: 30px;
+                        line-height: 30px;
+                        font-size: 15px;
+                        color: rgb(96, 93, 93);
+                        background-color:  #fff;
+                        }
+.web_header ul > li > a.joinbutton {display: inline-block;
+                        width: 80px; 
+                        height: 30px;
+                        line-height: 30px;
+                        font-size: 15px;
+                        color: #fff;
+                        background-color:  #663399;
+                        }
+.web_header ul > li > a.joinbutton:hover {color:#fff;
+                                        font-weight: bold;
+                                        background-color: #663399;}
+.web_header .logo_image {float: left; 
+                        width: 30px;
+                        padding-top: 5px;
+                        margin-left: 20px;}
+.navbar-right {float: right;
+               padding-right: 10px;
+               padding-top: 5px;
+               text-align: center;}
+/* 푸터 */
+footer{
+    background-color: #f5f5f5;
+    margin-top: 180px;}
+footer .copyright{
+    color: black;
+    padding: 30px;}
+footer address{margin: 0;}
+footer .footer-menu{overflow: hidden;
+                    text-align: center;}
+footer .footer-menu .copyright-menu{text-align: center;}
+footer .footer-menu .copyright-menu li{display: inline-block;}
+footer .footer-menu .copyright-menu li a{color: black;}
+.rowf {padding: 0; 
+      overflow: hidden;}
+.copyright-menu {padding-right: 30px;}
+}
+
+

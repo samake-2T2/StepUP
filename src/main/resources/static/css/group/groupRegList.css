@@ -1,0 +1,130 @@
+/* 기본설정 */
+* {margin: 0; padding: 0; list-style: none;}
+
+/* 참여 신청 목록 페이지 */
+/* 버튼 */
+.w-btn-indigo {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 30px 30px;
+    border-radius: 2px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.25s;
+    width: 100%;
+}
+.w-btn-ok {
+    background-color: green;
+    color: white;
+    margin-bottom: 160px;
+}
+.w-btn-no {
+    background-color: red;
+    color: white;
+}
+.w-btn-indigo:hover {
+    letter-spacing: 2px;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.w-btn-indigo:active {
+    transform: scale(1.1);
+}
+/* apply_list 영역 전체 */
+.apply_list {
+    border-bottom: 1px solid #999;
+    width: 1250px;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-decoration: none;
+}
+.apply_list_page {
+    overflow: hidden;
+}
+/* apply_list_background 영역(배너 이미지) */
+.apply_list_background > img {
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    /* border-radius: 15px; */
+}
+/* apply_list_title 영역(제목) */
+
+.apply_list_title > div {
+    margin: 40px auto;
+    width: 250px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 35px;
+    border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+}
+/* apply_list_applicant 영역(신청자 명단) */
+.apply_list_applicant {
+    overflow: hidden;
+}
+.apply_list_applicant ul li {
+    float: left;
+    width: 16.8%;
+    padding: 30px;
+    margin: 20px 20px 50px 20px;
+    border: 1px solid #cdcdcd;
+    box-sizing: border-box;
+    /* border-radius: 15px; */
+}
+.apply_list_applicant_info {
+    overflow: hidden;
+}
+.apply_list_applicant_info > span {
+    display: block;
+}
+/* 호버 영역 */
+.apply_list_applicant ul li {
+    position: relative;
+}
+.apply_list_applicant ul li:hover .apply_list_applicant_info_hover {
+    opacity: 1;
+}
+.apply_list_applicant .apply_list_applicant_info_hover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background-color: white;
+    opacity: 0;
+    /* border-radius: 15px; */
+}
+.apply_list_applicant .apply_list_applicant_info_hover a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+    text-decoration: none;
+}
+
+/* 페이지네이션 영역 */
+.apply_list_pagenation {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.apply_list_pagenation ul {
+    text-align: center;
+}
+.apply_list_pagenation ul li {
+    display: inline;
+    margin: 10px;
+}
+.apply_list_pagenation ul li a {
+    display: inline-block;
+    font-size: 30px;
+}
+

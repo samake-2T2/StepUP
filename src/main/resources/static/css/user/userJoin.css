@@ -1,0 +1,142 @@
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 2px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 400;
+    transition: 0.25s;
+}
+
+.w-btn-indigo {
+    background-color: #BFA2DB;
+    color: #7F7C82;
+}
+
+.w-btn:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.w-btn:active {
+    transform: scale(1.5);
+}
+
+
+/* 회원가입 */
+
+
+.title-box {
+    margin: 40px auto;
+    width: 250px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 500;
+    border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+.form-box {
+    border: 1px solid #cdcdcd;
+    padding: 30px 40px;
+    height: 800px;
+    margin-bottom: 50px;
+    
+}
+
+.boxbox {
+    overflow: hidden;
+}
+
+.form-join {
+    margin: 0px auto;
+    width: 450px;
+    float: none;
+}
+
+.img-box {
+    width: 150px;
+    height: 150px; 
+    border-radius: 70%;
+    overflow: hidden;
+    margin: 10px auto;
+}
+
+.profile {
+    overflow: hidden;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 40px;
+    margin-bottom: 30px
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn-nomal {
+    border: 1px solid rgba(0, 0, 0, 0.467);
+    width: 125px;
+    height: 45px;
+    margin: 0px 10px;
+    background-color: #e2a1d3eb;
+    color: white;
+    border: none;
+    font-size: small;
+}
+
+.btn-nomal:hover {
+    background-color: rgb(214, 79, 185);
+    color: white;
+    width: 135px;
+}
+
+.img-form{
+    margin: 0px auto;
+}
+
+.user-sel {
+    width: 100%;
+    height: 34px
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+.btn-block3 {
+    margin:  5px 0px 0px 5px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 35%;
+    height: 45px;
+    background-color: rgb(210, 99, 201); 
+    color: rgb(254, 254, 254);
+    float: right;
+}
+
+.btn-block3:hover {
+    background-color: #95189c;
+    color: rgb(254, 254, 254);
+    width: 38%;
+    
+}
+
+.btn-block2 {
+    background-color: rgb(241, 136, 136);
+    color: rgb(254, 254, 254);
+}
+
+.btn-block2:hover {
+    background-color: rgb(243, 103, 103);
+    color: rgb(254, 254, 254);
+}
+

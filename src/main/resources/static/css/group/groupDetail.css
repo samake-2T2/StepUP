@@ -1,0 +1,226 @@
+/* 기본설정 */
+
+*{margin: 0; padding: 0; list-style: none;}
+    
+.group_list_detail {
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 1250px;
+    margin-top: 50px;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.group_list_detail_title {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #d1d1d1;
+    border-top: 1px solid #d1d1d1;
+    height: 60px;
+    line-height: 60px;
+    width: 500px;
+    font-size: 35px;    
+    margin: 40px auto;
+}
+
+.detail_profile {
+    float: left;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 300px;
+    text-align: center;
+    margin-top: 60px;
+    padding: 20px 20px 20px 20px;
+    border: 1px solid #cdcdcd;
+}
+
+.detail_profile img {
+    border-radius: 100%;
+}
+
+.detail_profile h4 {
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.detail_btn {
+   /* margin-left: 55px; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px 30px;
+    border-radius: 2px;
+    /*float: left; */
+    border: none;
+    background-color: #663399;
+    font-size: x-large;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.detail_box {
+    width: 930px;
+    height: 100%;
+    float: right;
+    margin-top: 60px;
+    margin-bottom: 168px;
+    font-weight: 600;
+}
+
+.detail_title {
+    text-align: center;
+    font-size: 20px;
+}
+
+.detail_day {
+    margin-top: 0px;
+    text-align: center;
+    
+}
+
+.detail_category {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.tag {
+    font-size: 20px;
+    border-radius: 10px;
+    width: 100px;
+    background-color: rgb(213, 212, 212);
+    overflow: hidden;
+    display: inline-block;
+    margin-left: 5px;
+    text-align: center;
+}
+
+.detail_subbtn span {
+    background-color: #ffbf00;
+    border: none;
+    color: white;
+    border-radius: 2px;
+    font-size: 25px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 3px 3px;   
+    float: right;
+}
+
+.detail_boxbtn {
+    margin-top: 70px;
+    display: block;
+}
+
+/* group_list_detail 영역 전체 적용될 css */
+.detail_btn2 {
+    border: none;
+    text-align: right;
+    background-color: #663399;
+    font-size: 34px;
+    color: white;
+    padding: 5px 15px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 2px;
+    float: right;
+}
+
+.detail-wrap {
+    padding: 10px;
+    margin: 20px auto;
+    width: 1250px;
+}
+
+.detail_content {
+    /*margin-bottom: 10px; */
+    padding: 10px;
+    min-height: 600px;
+    text-align: left;
+    font-size: 20px;
+    border: 1px solid #cdcdcd;
+}
+
+.younggi {
+    margin: 0 auto; 
+    float: none;
+    width: 1250px;
+    padding: 10px;
+}
+
+.reply-wrap {
+    border:  1px solid #ddd;
+    background-color: #f5f5f5;
+    position: relative;
+}
+
+.reply-img {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    margin-right: 30px;
+    border-radius: 100%;
+}
+
+.reply-content {
+    padding: 10px 10px 10px 60px;
+    overflow: hidden;
+}
+
+.reply-control {
+    overflow: hidden;
+    overflow: left;
+}
+
+.reply-content textarea {
+    resize: none; /* 수직이동 */
+    height: 100px;
+    width: 1100px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out 0s;
+    width: 810px;
+}
+.reply-content textarea:focus {
+    height: 250px;
+}
+.reply-content input {
+    width: 200px;
+    margin-bottom: 5px;
+    height: 30px;
+}
+
+.reply-control > button {
+    float: right;
+}
+
+.reply-input {
+    display: inline-block;
+    width: 440px;
+}
+
+
+.btn-btn-info {
+    border: none;
+    background-color: #663399;
+    font-size: large;
+    color: white;
+    padding: 5px 15px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 2px;
+
+}
+
+/* 아래 댓글*/
+.reply-group {
+    overflow: hidden;
+}
+.reply-group > a {
+    float: right;
+    color: #777;
+}
+.reply-content > p {
+    margin: 0;
+}
+

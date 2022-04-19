@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- 베이직 레이아웃1 -->
+<th:block th:fragment="setContent(content)">
+
+	<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!--공통 -->
+<!-- 경로는 절대경로 -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/include/header_footer.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap/bootstrap.css}" />
+
+</head>
+
+	<body>
+		<!-- 헤더 -->
+		<header>
+			<div class="web_header_logo">
+				<a class="logo_image" href="#"> <img
+					src="../img/include/Logo.png">
+				</a>
+			</div>
+			<div class="web_header">
+				<!-- 로고 영역 -->
+				<a class="logo_image" href="#"> <img
+					src="../img/include/LogoIcon.png">
+				</a>
+				<!-- 헤더 우측  -->
+				<ul class="navbar-right">
+					<li><a href="#"><span>로그인</span></a></li>
+					<li><a class="joinbutton" href="#"><span>회원가입</span></a></a></li>
+				</ul>
+			</div>
+		</header>
+
+		<!-- 본문 -->
+		<th:block th:replace=${content}></th:block>
+
+		<!-- 푸터 -->
+		<footer>
+			<div class="container-fluid">
+				<div class="rowf">
+					<div class="left">
+						<div class="copyright">
+							<a href="#"> <img src="../img/include/LogoIcon.png"
+								width="30">
+							</a> 팀명팀명 | 대표자: 팀팀팀 | email: teamStudyro@naver.com <br> 사업자번호:
+							1255-8659514-4445 | 개인정보보호책임자: 홍길동 | 통신판매업: 2326-서울강남-551225<br>
+							주소: 서울시 강남구
+							<address>Copyright ⓒ 1999 - 2021 팀명팀명 all rights
+								reserved.</address>
+						</div>
+					</div>
+					<div class="right">
+						<div class="footer-menu">
+							<ul class="copyright-menu">
+								<li><a href="footer_team_info.html">팀팀소개</a></li>
+								<li><a href="#">이용약관</a></li>
+								<li><a href="#">문의사항</a></li>
+								<li><a href="#">개인정보취급방침</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</body>
+
+</th:block>
+
+</html>

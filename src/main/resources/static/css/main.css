@@ -1,0 +1,232 @@
+/* 기본설정 */
+* {margin: 0; padding: 0; list-style: none;}
+
+.container {
+    width: 1250px;
+    padding: 0;
+    margin: 0 auto;
+
+}
+
+.row {
+    width: 100%;
+    margin: 0;
+}
+
+.form-study {
+    margin: 0;
+    float: none;
+    width: 1250px;
+    height: 100%;
+    padding: 30px 0;
+    overflow: hidden;
+    /* 
+    부트스트랩의 클래스가 
+    기본적으로 float: left속성을 가지고 있어서 
+    없애주어야 가운데 정렬 가능
+     */
+}
+
+.carousel {
+    width: 100%;
+}
+
+.item {
+    height: 400px;
+}
+
+.item > img {
+    object-fit: fill;
+}
+
+/* 그룹 리스트(메인) 페이지 */
+/* group_main_list_page영역 전체 */
+.group_main_list_page {
+    border-bottom: 1px solid #999;
+    width: 1250px;
+    margin: 0 auto;
+    text-decoration: none;
+}
+.group_main_list_page > h3 {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* group_main_list_page_background영역(배너사진) */
+.group_main_list_background > img {
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    /* border-radius: 15px; */
+}
+
+/* 검색영역 전체 */
+.group_main_list_total_search {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #dae1e6; 
+    background-color: #f7f9fa;
+    margin-bottom: 10px;
+}
+.group_main_list_total_search_form {
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* 검색영역(카테고리 검색) */
+.group_main_list_category_search {
+    overflow: hidden;
+    padding: 30px;
+    padding-bottom: 0;
+}
+.group_main_list_category_label {
+    float: left;
+    width: 15%;
+    font-size: x-large;
+}
+#major_option {
+    float: left;
+    width: 40%;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 30px;
+    /* border-radius: 15px; */
+}
+#major_option:focus {
+    color: black;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+#minor_option {
+    float: left;
+    width: 40%;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    /* border-radius: 15px; */
+}
+#minor_option:focus {
+    color: black;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+/* 검색영역(키워드 검색) */
+.group_main_list_common_search {
+    overflow: hidden;
+    padding: 30px;
+}
+.group_main_list_common_label {
+    float: left;
+    width: 15%;
+    font-size: x-large;
+}
+#keywordSearch {
+    float: left;
+    width: 40%;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    /* border-radius: 15px; */
+    border:1px solid #333333;
+    margin-right: 1px;
+}
+#keywordSearch:focus {
+    color: black;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+#common_input_btn {
+    box-sizing: border-box;
+    height: 50px;
+    width: 50px;
+    border: 0;
+    outline: 0;
+    background-color: #fff;
+    color: #777;
+    animation: moveInBottom 0s ease-out;
+    animation-fill-mode: backwards;
+}
+/* group_main_list_searchcount영역 (검색결과 개수) */
+.group_main_list_searchcount {
+    width: 100%;
+    height: 75px;
+    padding: 0;
+    overflow: hidden;
+    border:1px solid #dae1e6;
+    background-color: #f7f9fa;
+    margin-bottom: 10px;
+}
+.group_main_list_searchcount > h2 {
+    float: left;
+    margin: 20px;
+}
+.group_main_list_searchcount_amount {
+    float: right;
+    height: 50px;
+    width: 100px;
+    margin: 12.5px;
+    text-align: center;
+    font-size: large;
+    /* border-radius: 15px; */
+}
+
+
+/* group_main_list_searchresult영역 (검색결과) */
+.group_main_list_searchresult {
+    overflow: hidden;
+    height: 50%;
+}
+
+/* group_main_list_searchresult_box영역 (썸네일 포함 영역) */
+.group_main_list_searchresult_box ul li {
+    float: left;
+    width: 30.1%;
+    padding: 30px;
+    margin: 20px 20px 50px 20px;
+    box-shadow: 0px 8px 16px rgb(0, 0, 0, 15%);
+    box-sizing: border-box;
+    /* border-radius: 15px; */
+}
+.group_main_list_searchresult_box ul li > a > img {
+    /* border-radius: 15px; */
+    width: 100%;
+}
+/* 내용 영역 */
+.group_main_list_searchresult_detail {
+    overflow: hidden;
+}
+.group_main_list_searchresult_left {
+    float: left;
+    
+}
+.group_main_list_searchresult_right {
+    float: right;
+}
+.group_main_list_searchresult_viewcount {
+    float: right;
+}
+
+/* 페이지네이션 영역 */
+.group_main_list_pagenation {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.group_main_list_pagenation ul {
+    text-align: center;
+}
+.group_main_list_pagenation ul li {
+    display: inline;
+    margin: 10px;
+}
+.group_main_list_pagenation ul li a {
+    display: inline-block;
+    font-size: 30px;
+}

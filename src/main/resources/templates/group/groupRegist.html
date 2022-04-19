@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/group/groupRegist.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="../js/bootstrap.js"></script>
+</head>
+
+<th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .wrap} ) }">
+
+  <section class="wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-9 col-lg-6 form-join">
+
+          <div class="titlebox">
+            <h4>스터디 생성</h4>
+          </div>
+          
+          <form class="reg_form">
+            <img src="../img/group/no_photo.png" class="img img-rounded" alt="Cinque Terre"><br>
+
+            <div class="form-group">
+              <div class="btn-align1">
+                <button type="button" class="w-btn img-btn">기본 이미지</button>
+                <button type="button" class="w-btn img-btn">이미지 추가</button>
+              </div>
+
+              <br>
+              <br>
+
+              <label>스터디 이름</label>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="스터디명은 4글자 이상 입니다.">
+                <div class="input-group-btn">
+                  <button class="btn btn-default btnimg" type="button">중복확인하기</button>
+                </div>
+              </div>
+
+              <br>
+
+              <label for="sel1">분야</label>
+              <select class="form-control" id="sel1">
+                <option>개발</option>
+                <option>어학</option>
+                <option>취업</option>
+                <option>자격증</option>
+              </select>
+              <select class="form-control" id="sel1">
+                <option>python</option>
+                <option>jsp</option>
+                <option>html</option>
+                <option>css</option>
+              </select>
+
+              <br>
+
+              <label for="sel1">지역</label>
+              <select class="form-control" id="sel1">
+                <option>서울</option>
+                <option>경기</option>
+                <option>인천</option>
+                <option>부산</option>
+              </select>
+              <select class="form-control" id="sel1">
+                <option>도봉구</option>
+                <option>동작구</option>
+                <option>관악구</option>
+              </select>
+
+              <br>
+
+              <label for="sel1">모집인원</label>
+              <select class="form-control" id="sel1">
+                <option>1명</option>
+                <option>2명</option>
+                <option>3명</option>
+                <option>4명</option>
+              </select>
+
+              <br>
+
+              <label for="comment">스터디 홍보글</label>
+              <textarea class="form-control" rows="5" id="comment" placeholder="홍보할 내용을 적어주세요."></textarea>
+
+              <br>
+
+              <div class="btn-align">
+                <input type="button" class="w-btn w-btn-indigo" value="등록" href="#">
+                <input type="button" class="w-btn w-btn-indigo" value="취소" href="#">
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+ </th:block>
+
+</html>
