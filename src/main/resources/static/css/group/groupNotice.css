@@ -1,0 +1,120 @@
+.board-size {
+    width: 1250px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.board-content {
+    margin: 0px 50px;
+    margin-bottom: 60px;
+}
+
+.board-title {
+    margin: 40px auto;
+    width: 250px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 500;
+    border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+.board-list {
+    margin: 0 auto;
+    margin-top: 13px;
+    table-layout: fixed;
+    width: 80%;
+    border-collapse: collapse;
+    border-bottom: 1px solid #d5d9df;
+}
+
+.board-list thead {
+    border-top: 1px solid #d5d9df;
+    border-bottom: 1px solid #d5d9df;
+}
+
+.board-list th {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+    color: #333;
+    padding: 15px 0;
+    position: relative;
+    text-align: center;
+}
+
+.board-list thead tr td {
+    font-size: 13px;
+    line-height: 20px;
+    color: #333;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    padding: 15px;
+}
+
+.col_num {
+    width: 10%;
+}
+
+.col_num.notice {
+    padding: 15px;
+    text-align: center;
+}
+.col_title {
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.col_title.notice {
+    padding: 15px;
+    text-align: left;
+}
+
+.col_title.notice > a {
+    color: #333;
+}
+
+.col_date {
+    width: 12%;
+}
+
+.col_date.notice {
+    padding: 15px;
+    text-align: center;
+}
+
+.col_hit {
+    width: 10%;
+}
+
+.col_hit.notice {
+    padding: 15px;
+    text-align: center;
+}
+
+/*페이지네이션*/
+.board-list-footer{
+position: relative;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.board-list-footer > ul {
+    text-align: center;
+}
+
+.board-list-footer > ul > li {
+    display: inline;
+    margin: 10px;
+}
+
+.board-list-footer > ul > li > a {
+    display: inline-block;
+    font-size: 30px;
+    color: #663399;
+}
