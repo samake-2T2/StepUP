@@ -123,11 +123,11 @@
             <div class="group_main_list_searchcount">
                 <h2>000개의 스터디를 찾았습니다.</h2>
 
-                <select class="group_main_list_searchcount_amount">
-                    <option>10개 보기</option>
-                    <option>20개 보기</option>
-                    <option>40개 보기</option>
-                    <option>80개 보기</option>
+                <select class="group_main_list_searchcount_amount" th:onchange="|group_dataHandler(this)|">
+                    <option value="10">10개 보기</option>
+                    <option value="20">20개 보기</option>
+                    <option value="40">40개 보기</option>
+                    <option value="80">80개 보기</option>
                 </select>
 
             </div>
@@ -320,4 +320,15 @@
     </section>
     </section>
 </th:block>
+
+<script th:inline="javascript">
+
+	//데이터 개수 변경 JS
+	function group_dataHandler(a) {
+	
+		location.href='/main?page=1&amount=' + a.value;
+	}
+
+
+</script>
 </html>

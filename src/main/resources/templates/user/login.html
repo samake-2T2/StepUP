@@ -16,22 +16,22 @@
                 로 그 인
             </div>
             <div class="login-main-box">
-                <form class="login-form-inner">
+                <form class="login-form-inner" action="login" method="post">
                     <!-- 버튼 없는 인풋 -->
                     <div class="form-group"  >
                         <label style="font-weight: bold;">이메일</label><br>
-                        <input type="text" class="form-control" placeholder="이메일을 입력해주세요">
+                        <input type="text" class="form-control" name="email" placeholder="이메일을 입력해주세요">
                     </div><br>
                     <!-- 버튼 없는 인풋 -->
                     <div class="form-group">
                         <label style="font-weight: bold;">비밀번호</label><br>
-                        <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요">
+                        <input type="password" class="form-control" name="password" placeholder="비밀번호를 입력해주세요">
                     </div><br>
                     <div class="form-group button">
-                        <button type="button" class="w-btn w-btn-indigo">로그인</button><br>
+                        <button type="submit" class="w-btn w-btn-indigo">로그인</button><br>
                     </div><br>
                     <div class="form-group button">
-                        <button type="button" class=" w-btn w-btn-indigo kakao"></button><br>
+                        <button type="button" class=" w-btn w-btn-indigo kakao" onclick=kakaoLogin()></button><br>
                     </div><br>
                     <div class="form-group button">
                         <button type="button" class=" w-btn w-btn-indigo naver"></button><br>
@@ -47,6 +47,31 @@
     </div>
 
 </th:block>
+
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+Kakao.init('9fa30995b7cd00ec24fd1457246c0f4e'); //발급받은 키 중 javascript키를 사용해준다.
+console.log(Kakao.isInitialized()); // sdk초기화여부판단
+//카카오로그인
+function kakaoLogin() {
+    Kakao.Auth.login({
+      success: function (response) {
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+        	  console.log(response)
+          },
+          fail: function (error) {
+            console.log(error)
+          },
+        })
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+    })
+  }
+</script>
 
 
 </body>
