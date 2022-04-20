@@ -145,13 +145,15 @@
 #common_input_btn {
     box-sizing: border-box;
     height: 50px;
-    width: 50px;
+    width: 10%;
     border: 0;
     outline: 0;
     background-color: #fff;
     color: #777;
     animation: moveInBottom 0s ease-out;
     animation-fill-mode: backwards;
+    float: right;
+    margin-right: 30px;
 }
 /* group_main_list_searchcount영역 (검색결과 개수) */
 .group_main_list_searchcount {

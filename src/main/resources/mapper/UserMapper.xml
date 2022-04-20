@@ -10,4 +10,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into user(email, password, user_name, interest)
 		values(#{email}, #{password}, #{user_name}, #{interest}) 
 	</insert>
+  
+	<delete id="userDelete">
+    	DELETE FROM USER WHERE user_no = #{user_no} ;
+	</delete>
+
+	<select id="getUserList" resultType="UserVO"> 
+		<![CDATA[
+		SELECT *
+		FROM (SELECT A.*,
+		             @ROWNUM := @ROWNUM + 1 AS RN
+		      FROM (SELECT *
+		            FROM user
+		            WHERE user_name = 'admin'
+		            ORDER BY user_no DESC) A, (SELECT @ROWNUM := 0) D
+	 	)B
+	 	WHERE RN > (#{page}-1) * #{amount} AND RN <= #{page} * #{amount}
+	 	]]>
+		
+	</select>
+	
+	<select id="getUserTotal" resultType="int">
+		SELECT COUNT(*) AS TOTAL
+		FROM user
+		WHERE user_name = 'admin'
+	</select>
+	
+	<select id="login" resultType="UserVO">
+		select * from user where email=#{email} and password=#{password}
+	</select>
+	
+	
+	<update id="update">
+		update user
+		set password = #{password},
+			user_name = #{user_name},
+			interest = #{interest}
+		where user_no = #{user_no}
+	</update>
+	
 </mapper>

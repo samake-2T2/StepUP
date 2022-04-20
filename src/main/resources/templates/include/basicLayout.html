@@ -12,32 +12,37 @@
 
 <!--공통 -->
 <!-- 경로는 절대경로 -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap/bootstrap.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/include/header_footer.css}" />
-<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap/bootstrap.css}" />
+
 
 </head>
-
 	<body>
 		<!-- 헤더 -->
-		<header>
-			<div class="web_header_logo">
-				<a class="logo_image" href="#"> <img
-					src="../img/include/Logo.png">
-				</a>
-			</div>
-			<div class="web_header">
-				<!-- 로고 영역 -->
-				<a class="logo_image" href="#"> <img
-					src="../img/include/LogoIcon.png">
-				</a>
-				<!-- 헤더 우측  -->
-				<ul class="navbar-right">
-					<li><a href="#"><span>로그인</span></a></li>
-					<li><a class="joinbutton" href="/user/userJoin"><span>회원가입</span></a></a></li>
-				</ul>
-			</div>
-		</header>
+    <header>
+		<div class="web_header">
+			<!-- 로고 영역 -->
+			<a class="logo_image" href="/main"> <img
+				src="../img/include/LogoIcon.png">
+			</a>
+			<!-- 헤더 우측  -->
+			<ul class="navbar-right">
+				<li th:if="${session.userVO} == null"><a href="/user/login"><span>로그인</span></a></li>
+				<li th:if="${session.userVO} == null"><a class="joinbutton" href="/user/userJoin"><span>회원가입</span></a></li>
+				<div class="dropdown" th:if="${session.userVO} != null">
+                    <button class="dropbtn">스터디관리</button>
+                    <button class="dropbtn">[[${session.userVO.user_name}]]님</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">회원정보</a></li>
+                            <li><a href="/user/logout">로그아웃</a></li>
+                        </ul>
+                    </div>
+                </div>
+			</ul>
+		</div>
+  </header>
 
 		<!-- 본문 -->
 		<th:block th:replace=${content}></th:block>
@@ -50,7 +55,7 @@
 						<div class="copyright">
 							<a href="#"> <img src="../img/include/LogoIcon.png"
 								width="30">
-							</a> 팀명팀명 | 대표자: 팀팀팀 | email: teamStudyro@naver.com <br> 사업자번호:
+							</a> StepUp | 대표자: 팀이름 | email: teamStepUp@naver.com <br> 사업자번호:
 							1255-8659514-4445 | 개인정보보호책임자: 홍길동 | 통신판매업: 2326-서울강남-551225<br>
 							주소: 서울시 강남구
 							<address>Copyright ⓒ 1999 - 2021 팀명팀명 all rights

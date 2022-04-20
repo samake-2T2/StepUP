@@ -13,34 +13,38 @@
 
 
     <section class="wrap">
-        <div class="mypage-box">
+       
             <div class="row">
-                <div class="col-xs-12 col-md-9 col-lg-6 mypage-inner">
+                <div class="mypage-inner2">
                   
                     <div class="mypage-modify">
                         회원정보 수정
                     </div>
                     
 
-                    <form class="box-form">
+                    <form class="box-form" name="userUpdate" action="####" method="post">
+                    
+                    	  <div class="mypage-group" display="none">
+                            <input type="hidden" name="user_no" th:value="${userVO?.user_no}">
+                          </div>
+                    	  <div class="mypage-group">
+                            <label>이메일</label>
+                            <input type="text" name="email" value="abcdef@naver.com" class="form-control" readonly>
+                          </div>
+                    	
                           <div class="mypage-group">
                             <label>비밀번호</label>
-                            <input type="password" class="form-control" placeholder="수정할 비밀번호를 입력하세요">
-                          </div>
-
-                          <div class="mypage-group">
-                            <label>비밀번호 확인</label>
-                            <input type="password" class="form-control" placeholder="비밀번호를 입력하세요">
+                            <input type="password" id="password" name="password" th:value="${userVO?.password}" class="form-control" placeholder="수정할 비밀번호를 입력하세요">
                           </div>
 
                           <div class="mypage-group">
                             <label>닉네임</label>
-                            <input type="text" class="form-control" placeholder="수정할 닉네임을 입력하세요">
+                            <input type="text"  name="user_name" th:value="${userVO?.user_name}" class="form-control" placeholder="수정할 닉네임을 입력하세요">
                           </div>
 
                           <div class="mypage-group">
                             <label>관심분야</label>
-                            <select class="user-sel">
+                            <select class="user-sel"  name="interest" th:value="${userVO?.interest}" >
                               <option name="field">입시</option>
                               <option name="field">취업/창업</option>
                               <option name="field">자격증</option>
@@ -52,16 +56,28 @@
 
                           <div class="mypage-group">
                             <div class="mypage-btn">
-                              <button type="button" class="w-btn btn-danger btn-block1">탈퇴</button>
-                              <button type="button" class="w-btn btn-block">수정</button>
+                              <!-- 탈퇴 버튼에 넣기 th:onClick="|location.href='@{/user/userDelete(user_no=${브이오이름.user_no})}'|" -->
+                              <button type="button" class="w-btn btn-danger btn-block1" >탈퇴</button>
+                              <a th:href="@{수정JS}" class="w-btn btn-block10" th:onclick="|user_valid()|">수정</a>
                            </div>
                           </div>
 
                     </form>
                 </div>
-            </div>
+            
         </div>
     </section>
 
     </th:block>
+    
+    <script th:inline="javascript">
+    	function user_valid() {
+    		this.event.preventDefault();
+    		
+    		document.userUpdate.action = "userUpdate";
+    		document.userUpdate.submit();
+    	}
+    	
+    </script>
+    
 </html>

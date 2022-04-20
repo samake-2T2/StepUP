@@ -87,14 +87,14 @@
     width: 125px;
     height: 45px;
     margin: 0px 10px;
-    background-color: #e2a1d3eb;
+    background-color: #646496;
     color: white;
     border: none;
     font-size: small;
 }
 
 .btn-nomal:hover {
-    background-color: rgb(214, 79, 185);
+    background-color: #663399;
     color: white;
     width: 135px;
 }
@@ -118,8 +118,8 @@
     box-sizing: border-box;
     width: 35%;
     height: 45px;
-    background-color: rgb(210, 99, 201); 
-    color: rgb(254, 254, 254);
+    background-color: #663399; 
+    color : white;
     float: right;
 }
 
@@ -131,12 +131,12 @@
 }
 
 .btn-block2 {
-    background-color: rgb(241, 136, 136);
+    background-color: #329632;
     color: rgb(254, 254, 254);
 }
 
 .btn-block2:hover {
-    background-color: rgb(243, 103, 103);
+    background-color: #9AD756;
     color: rgb(254, 254, 254);
 }
 
