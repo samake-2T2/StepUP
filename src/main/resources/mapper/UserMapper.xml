@@ -5,6 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <mapper namespace="com.teampjt.StepUP.user.UserMapper">
+
+	<insert id="userJoin"> 
+		insert into user(email, password, user_name, interest)
+		values(#{email}, #{password}, #{user_name}, #{interest}) 
+	</insert>
   
 	<delete id="userDelete">
     	DELETE FROM USER WHERE user_no = #{user_no} ;

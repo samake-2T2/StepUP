@@ -16,6 +16,14 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 
 	@Override
+	public int userJoin(UserVO vo) {
+		
+		return userMapper.userJoin(vo);
+	}
+
+	
+	 
+  @Override
 	public int userDelete(int user_no) {
 		
 		return userMapper.userDelete(user_no);
@@ -43,5 +51,4 @@ public class UserServiceImpl implements UserService {
 		
 		return userMapper.login(vo);
 	}
-
 }

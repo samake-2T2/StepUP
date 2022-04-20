@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -24,9 +25,17 @@ import com.teampjt.StepUP.user.UserService;
 import com.teampjt.StepUP.command.UserVO;
 import com.teampjt.StepUP.user.UserService;
 
+import com.teampjt.StepUP.command.UserVO;
+import com.teampjt.StepUP.user.UserService;
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	
+	@Autowired
+	@Qualifier("userService")
+	private UserService userService;
+	
 
 	@Autowired
 	@Qualifier("userService")
@@ -47,6 +56,15 @@ public class UserController {
 		return "user/userMypage";
 	}
 	
+	@PostMapping("/joinForm")
+	public String userJoin(UserVO vo) {
+		
+		userService.userJoin(vo);
+		
+		return  "redirect:/main";
+		
+}
+  
 	@GetMapping("/userDelete")
 	public String userDelete(@RequestParam("user_no") int user_no, 
 							 RedirectAttributes RA) {
