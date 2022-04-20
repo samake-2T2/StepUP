@@ -10,6 +10,8 @@ import com.teampjt.StepUP.util.Criteria;
 
 @Mapper
 public interface UserMapper {
+  
+	public int userDelete(int user_no);
 	
 	//그룹 신청인 목록 조회 메서드
 	public ArrayList<UserVO> getUserList(Criteria cri);

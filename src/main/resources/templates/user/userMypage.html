@@ -56,7 +56,8 @@
 
                           <div class="mypage-group">
                             <div class="mypage-btn">
-                              <button type="button" class="w-btn btn-danger btn-block1">탈퇴</button>
+                              <!-- 탈퇴 버튼에 넣기 th:onClick="|location.href='@{/user/userDelete(user_no=${브이오이름.user_no})}'|" -->
+                              <button type="button" class="w-btn btn-danger btn-block1" >탈퇴</button>
                               <a th:href="@{수정JS}" class="w-btn btn-block10" th:onclick="|user_valid()|">수정</a>
                            </div>
                           </div>
