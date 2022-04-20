@@ -15,6 +15,7 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 
 	@Override
+
 	public ArrayList<UserVO> getUserList(Criteria cri) {
 
 		return userMapper.getUserList(cri);
@@ -24,6 +25,12 @@ public class UserServiceImpl implements UserService {
 	public int getUserTotal() {
 
 		return userMapper.getUserTotal();
+  }
+  
+  @Override
+	public UserVO login(UserVO vo) {
+		
+		return userMapper.login(vo);
 	}
 
 }

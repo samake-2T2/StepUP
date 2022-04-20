@@ -5,7 +5,8 @@ create table user (
     email varchar(50) not null,
     password varchar(50) not null,
     user_name varchar(10) not null,
-    interest varchar(50)
+    interest varchar(50),
+    logintype int
 );
 
 ## 회원 프로필 사진 업로드정보 테이블
