@@ -17,3 +17,27 @@ create table user_upload (
     uuid varchar(50) not null,
     user_no int not null
 );
+## 스터디 그룹 테이블
+create table studyGroup (
+	group_no int primary key auto_increment,
+    group_name varchar(50) not null, ##그룹명
+    group_content varchar(500) not null, ##그룹설명
+    group_participant_amount int not null, ##그룹원 규모
+    group_leader_name varchar(20) not null, ##그룹장 이름
+    group_filename varchar(100) not null, ##그룹 프로필 사진 이름
+    group_filepath varchar(100) not null, ##그룹 프로필 사진 경로
+    group_fileuuid varchar(50) not null, ##그룹 프로필 사진 이름 랜덤값
+    category_parent_name varchar(30) not null, ##카테고리 대분류
+    category_child_name varchar(30) not null ##카테고리 소분류
+);
+
+## 신청목록 테이블
+create table request (
+	req_no int primary key auto_increment,
+    group_no int not null, ##FK
+    user_no int not null, ##FK
+    user_name varchar(10) not null,
+    email varchar(50) not null,
+    req_level varchar(10) not null,
+    req_about_me varchar(20) not null
+);
