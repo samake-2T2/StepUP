@@ -5,5 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <mapper namespace="com.teampjt.StepUP.user.UserMapper">
-	
+	<delete id="userDelete">
+    	DELETE FROM USER WHERE user_no = #{user_no} ;
+	</delete>
 </mapper>
