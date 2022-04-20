@@ -21,7 +21,7 @@
                         회원가입
                     </div>
                    
-                    <form class="form-box">
+                    <form class="form-box" action="joinForm" method="post">
                             <!--버튼달린 인풋--> 
                           <!--<div class="form-group">
                             <label>아이디</label>
@@ -48,7 +48,7 @@
                           <div class="form-group">
                             <label>이메일</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="예)abcde@gmail.com">
+                                <input name="email" type="text" class="form-control" placeholder="예)abcde@gmail.com">
                                 <div class="input-group-btn">
                                   <button class="btn btn-block2" type="button">이메일인증하기</button>
                                 </div>
@@ -57,33 +57,34 @@
 
                           <div class="form-group">
                             <label>비밀번호</label>
-                            <input type="password" class="form-control" placeholder="영문 + 숫자 8자리를 입력하세요">
+                            <input name="password" type="password" class="form-control" id="pw1" placeholder="영문 + 숫자 8자리를 입력하세요">
                           </div>
                         
                           <div class="form-group">
                             <label>비밀번호 확인</label>
-                            <input type="password" class="form-control" placeholder="비밀번호를 입력하세요">
+                            <input name="passwordcheck" type="password" class="form-control" id="pw2" placeholder="비밀번호를 입력하세요"  onfocusout="young()">
+                            <span id="pwmsg"></span>
                           </div>
 
                           <div class="form-group">
                             <label>닉네임</label>
-                            <input type="text" class="form-control" placeholder="닉네임을 입력하세요">
+                            <input name="user_name" type="text" class="form-control" placeholder="닉네임을 입력하세요">
                           </div>
 
                           <div class="form-group">
                             <label>관심분야</label><br>
-                            <select class="user-sel">
-                              <option name="field">입시</option>
-                              <option name="field">취업/창업</option>
-                              <option name="field">자격증</option>
-                              <option name="field">외국어회화</option>
-                              <option name="field">IT/인터넷</option>
-                              <option name="field">취미/문화</option>
+                            <select class="user-sel" name="interest">
+                              <option >입시</option>
+                              <option >취업/창업</option>
+                              <option >자격증</option>
+                              <option >외국어회화</option>
+                              <option >IT/인터넷</option>
+                              <option >취미/문화</option>
                           </select>
                           </div>
 
                           <div class="form-group">
-                              <button type="button" class="w-btn btn-block3">가입하기</button>
+                              <button type="submit" class="w-btn btn-block3">가입하기</button>
                           </div>
 
 
@@ -92,6 +93,23 @@
             </div>
         </div>
     </section>
+</th:block>
 
-   <th:block>
+
+<script th:inline="javascript">
+   function young() {
+    var aa = document.getElementById("pw1");
+    var bb = document.getElementById("pw2");
+    var cc = document.getElementById("pwmsg");
+
+    if(aa.value != bb.value) {
+      cc.innerHTML = "비밀번호가 틀립니다.";
+      //alert("비밀번호가 틀립니다.")
+    } else {
+      cc.innerHTML = "비밀번호가 일치합니다.";
+    }
+   }
+
+ </script>
+
 </html>
