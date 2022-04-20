@@ -62,4 +62,8 @@ public class GroupController {
 		return "group/groupDetail";
 	}
 	
+	@GetMapping("/groupNotice")
+	public String groupNotice() {
+		return "group/groupNotice";
+	}
 }

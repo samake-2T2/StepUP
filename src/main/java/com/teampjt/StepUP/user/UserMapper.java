@@ -17,6 +17,8 @@ public interface UserMapper {
 	//그룹 신청인 전체 인원 수
 	public int getUserTotal();
 
+	public int update(UserVO userVO);
+  
 	public UserVO login(UserVO vo);
 	
 }

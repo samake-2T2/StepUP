@@ -11,9 +11,8 @@ public interface UserService {
 	public ArrayList<UserVO> getUserList(Criteria cri);
 	//그룹 신청인 전체 인원 수
 	public int getUserTotal();
-=======
-import com.teampjt.StepUP.command.UserVO;
-
-public interface UserService {
-	public UserVO login(UserVO vo);
+  
+  public int update(UserVO userVO);
+  
+  public UserVO login(UserVO vo);
 }

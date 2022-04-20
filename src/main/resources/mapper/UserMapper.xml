@@ -32,4 +32,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
+	<update id="update">
+		update user
+		set password = #{password},
+			user_name = #{user_name},
+			interest = #{interest}
+		where user_no = #{user_no}
+	</update>
+	
 </mapper>
