@@ -35,12 +35,7 @@ public class UserController {
 	@Autowired
 	@Qualifier("userService")
 	private UserService userService;
-	
-
-	@Autowired
-	@Qualifier("userService")
-	private UserService userService;
-	
+		
 	@GetMapping("/login")
 	public String login() {
 		return "user/login";
@@ -71,15 +66,15 @@ public class UserController {
 		userService.userDelete(user_no);
 		
 		int result = userService.userDelete(user_no);
-		if(result == 1) { // 성공
-			RA.addFlashAttribute("msg", "탈퇴에 성공하였습니다.");
-		}else { // 실패
-			RA.addFlashAttribute("msg", "탈퇴에 실패하였습니다. 관리자에게 문의하세요.");
+		if(result == 1) { // �꽦怨�
+			RA.addFlashAttribute("msg", "�깉�눜�뿉 �꽦怨듯븯���뒿�땲�떎.");
+		}else { // �떎�뙣
+			RA.addFlashAttribute("msg", "�깉�눜�뿉 �떎�뙣�븯���뒿�땲�떎. 愿�由ъ옄�뿉寃� 臾몄쓽�븯�꽭�슂.");
 		}
 		return "user/login";
   }
 
-	//업데이트 폼
+	//�뾽�뜲�씠�듃 �뤌
 	@PostMapping("/userUpdate")
 	public String userUpdate(UserVO userVO,
 							 RedirectAttributes RA) {
@@ -87,11 +82,11 @@ public class UserController {
 		System.out.println(userVO.toString());
 		int result = userService.update(userVO);
 		
-		if(result == 1) {//성공
-			RA.addFlashAttribute("msg", "게시물이 정상수정되었습니다");
+		if(result == 1) {//�꽦怨�
+			RA.addFlashAttribute("msg", "寃뚯떆臾쇱씠 �젙�긽�닔�젙�릺�뿀�뒿�땲�떎");
 			
-		}else {//실패
-			RA.addFlashAttribute("msg", "수정실패, 관리자에게 문의하세요");
+		}else {//�떎�뙣
+			RA.addFlashAttribute("msg", "�닔�젙�떎�뙣, 愿�由ъ옄�뿉寃� 臾몄쓽�븯�꽭�슂");
 			
 		}
 		return "redirect:/main";
