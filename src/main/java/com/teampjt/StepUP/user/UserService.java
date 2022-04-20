@@ -1,5 +1,7 @@
 package com.teampjt.StepUP.user;
 
-public interface UserService {
+import com.teampjt.StepUP.command.UserVO;
 
+public interface UserService {
+	public UserVO login(UserVO vo);
 }
