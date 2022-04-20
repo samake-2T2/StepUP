@@ -21,25 +21,33 @@
 	<body>
 		<!-- 헤더 -->
 		<header>
-	        <div class="web_header_logo">
-	            <a class="logo_image" href="#">
-	                <img src="../img/include/Logo.png">
-	            </a>
-	        </div>
-	    </header>
-	    <div class="web_header">
-	        <!-- 로고 영역 -->
-	        <a class="logo_image" href="#">
-	            <img src="../img/include/LogoIcon.png">
-	        </a>
-	        <!-- 헤더 우측  -->
-	        <ul class="navbar-right">
-	            <li><a href="#"><span>자유게시판</span></a></li>
-	            <li><a href="#"><span>QnA</span></a></li>
-	            <li><a href="#"><span>로그인</span></a></li>
-	            <li><a class="joinbutton" href="#"><span>회원가입</span></a></a></li>
-	        </ul>
-	    </div>
+			<div class="web_header_logo">
+				<a class="logo_image" href="/main"> <img
+					src="../img/include/Logo.png">
+				</a>
+			</div>
+		</header>
+		<div class="web_header">
+			<!-- 로고 영역 -->
+			<a class="logo_image" href="/main"> <img
+				src="../img/include/LogoIcon.png">
+			</a>
+			<!-- 헤더 우측  -->
+			<ul class="navbar-right">
+				<li th:if="${session.userVO} == null"><a href="/user/login"><span>로그인</span></a></li>
+				<li th:if="${session.userVO} == null"><a class="joinbutton" href="/user/userJoin"><span>회원가입</span></a></li>
+				<div class="dropdown" th:if="${session.userVO} != null">
+                    <button class="dropbtn">스터디관리</button>
+                    <button class="dropbtn">[[${session.userVO.user_name}]]님</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">회원정보</a></li>
+                            <li><a href="/user/logout">로그아웃</a></li>
+                        </ul>
+                    </div>
+                </div>
+			</ul>
+		</div>
 
 		<!-- 본문 -->
 		<th:block th:replace=${content}></th:block>

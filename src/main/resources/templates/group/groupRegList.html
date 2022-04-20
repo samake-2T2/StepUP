@@ -30,8 +30,8 @@
                         <div class="apply_list_applicant_info">
                             <span>닉네임</span><br>
                             <span>수준</span><br>
-                            <span>소개</span><br>
-                            <span>바라는점</span>
+                            <span>한줄소개</span><br>
+                            <span></span>
                         </div>
                                                   
                         <div class="apply_list_applicant_info_hover">
@@ -46,8 +46,8 @@
                         <div class="apply_list_applicant_info">
                             <span>닉네임</span><br>
                             <span>수준</span><br>
-                            <span>소개</span><br>
-                            <span>바라는점</span>
+                            <span>한줄소개</span><br>
+                            <span></span>
                         </div>
                                                   
                         <div class="apply_list_applicant_info_hover">
@@ -62,8 +62,8 @@
                         <div class="apply_list_applicant_info">
                             <span>닉네임</span><br>
                             <span>수준</span><br>
-                            <span>소개</span><br>
-                            <span>바라는점</span>
+                            <span>한줄소개</span><br>
+                            <span></span>
                         </div>
                                                   
                         <div class="apply_list_applicant_info_hover">
@@ -78,8 +78,8 @@
                         <div class="apply_list_applicant_info">
                             <span>닉네임</span><br>
                             <span>수준</span><br>
-                            <span>소개</span><br>
-                            <span>바라는점</span>
+                            <span>한줄소개</span><br>
+                            <span></span>
                         </div>
                                                   
                         <div class="apply_list_applicant_info_hover">
@@ -94,8 +94,8 @@
                         <div class="apply_list_applicant_info">
                             <span>닉네임</span><br>
                             <span>수준</span><br>
-                            <span>소개</span><br>
-                            <span>바라는점</span>
+                            <span>한줄소개</span><br>
+                            <span></span>
                         </div>
                                                   
                         <div class="apply_list_applicant_info_hover">
@@ -110,8 +110,8 @@
                         <div class="apply_list_applicant_info">
                             <span>닉네임</span><br>
                             <span>수준</span><br>
-                            <span>소개</span><br>
-                            <span>바라는점</span>
+                            <span>한줄소개</span><br>
+                            <span></span>
                         </div>
                                                   
                         <div class="apply_list_applicant_info_hover">
@@ -126,8 +126,8 @@
                         <div class="apply_list_applicant_info">
                             <span>닉네임</span><br>
                             <span>수준</span><br>
-                            <span>소개</span><br>
-                            <span>바라는점</span>
+                            <span>한줄소개</span><br>
+                            <span></span>
                         </div>
                                                   
                         <div class="apply_list_applicant_info_hover">
@@ -142,8 +142,8 @@
                         <div class="apply_list_applicant_info">
                             <span>닉네임</span><br>
                             <span>수준</span><br>
-                            <span>소개</span><br>
-                            <span>바라는점</span>
+                            <span>한줄소개</span><br>
+                            <span></span>
                         </div>
                                                   
                         <div class="apply_list_applicant_info_hover">
@@ -158,8 +158,8 @@
                         <div class="apply_list_applicant_info">
                             <span>닉네임</span><br>
                             <span>수준</span><br>
-                            <span>소개</span><br>
-                            <span>바라는점</span>
+                            <span>한줄소개</span><br>
+                            <span></span>
                         </div>
                                                   
                         <div class="apply_list_applicant_info_hover">
@@ -174,8 +174,8 @@
                         <div class="apply_list_applicant_info">
                             <span>닉네임</span><br>
                             <span>수준</span><br>
-                            <span>소개</span><br>
-                            <span>바라는점</span>
+                            <span>한줄소개</span><br>
+                            <span></span>
                         </div>
                                                   
                         <div class="apply_list_applicant_info_hover">
@@ -193,27 +193,43 @@
 
         <div class="apply_list_pagenation">
             <ul>
-                <li>
-                    <a>◀</a>
-                </li>
-                <li>
-                    <a>1</a>
-                </li>
-                <li>
-                    <a>2</a>
-                </li>
-                <li>
-                    <a>3</a>
-                </li>
-                <li>
-                    <a>4</a>
-                </li>
-                <li>
-                    <a>5</a>
-                </li>
-                <li>
-                    <a>▶</a>
-                </li>
+            	<th:block th:if="${pageVO.realEnd != 0}">
+                	<li>
+                    	<a th:href="@{/group/groupRegList(page=1, amount=${pageVO.amount})}">
+                    		<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                    	</a>
+                	</li>
+                </th:block>
+                
+                <th:block th:if="${pageVO.prev}">
+                	<li style="margin-right:5px;">
+                		<a th:href="@{/group/groupRegList(page=${pageVO.start - 1}, amount=${pageVO.amount})}">
+                			<i class="fa fa-angle-left" aria-hidden="true"></i>
+                		</a>
+                	</li>
+                </th:block>
+                
+				<th:block th:each="page : ${pageVO.pageList}">
+					<li th:class="${pageVO.page == page? 'on' : ''}">
+						<a th:href="@{/group/groupRegList(page=${page}, amount=${pageVO.amount})}">[[${page}]]</a>
+					</li>
+				</th:block>   
+				             
+                <th:block th:if="${pageVO.next}">
+                	<li style="margin-left:5px;">
+                		<a th:href="@{/group/groupRegList(page=${pageVO.end + 1}, amount=${pageVO.amount})}">
+                			<i class="fa fa-angle-right" aria-hidden="true"></i>
+                		</a>
+                	</li>
+                </th:block>
+                
+                <th:block th:if="${pageVO.realEnd != 0}">
+	                <li>
+    	            	<a th:href="@{/group/groupRegList(page=${pageVO.realEnd), amount=${pageVO.amount})}">
+        	        		<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            	    	</a>
+                	</li>
+                </th:block>
             </ul>
         </div>
 
