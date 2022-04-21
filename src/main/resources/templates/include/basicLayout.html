@@ -16,11 +16,18 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/include/header_footer.css}" />
 
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 
 </head>
 	<body>
 		<!-- 헤더 -->
-    <header>
+    	<header>
+        <div class="web_header_logo">
+                <a class="logo_image" href="/main">
+                    <img src="../img/include/Logo.png">
+                </a>
+        </div>
+    	</header>
 		<div class="web_header">
 			<!-- 로고 영역 -->
 			<a class="logo_image" href="/main"> <img
@@ -42,7 +49,6 @@
                 </div>
 			</ul>
 		</div>
-  </header>
 
 		<!-- 본문 -->
 		<th:block th:replace=${content}></th:block>
