@@ -290,6 +290,13 @@
     color: #ddd;
 }
 
+/* 그룹 내 공지게시판 */
+.notice-wrap {
+	padding: 0 30px 30px 30px;
+	border-bottom: 1px solid black;
+}
+
+
 /* 그룹 내 게시판 */
 .board-wrap {
     padding: 0 30px 30px 30px; 

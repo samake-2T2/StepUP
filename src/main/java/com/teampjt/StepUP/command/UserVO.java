@@ -27,4 +27,7 @@ public class UserVO {
 	// 관심분야
 	private String interest;
 	
+	// 소셜 로그인 구분
+	private int logintype;
+	
 }
