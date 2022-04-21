@@ -35,15 +35,15 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-	public ArrayList<UserVO> getUserList(Criteria cri) {
+	public ArrayList<UserVO> getApplyList(Criteria cri) {
 
-		return userMapper.getUserList(cri);
+		return userMapper.getApplyList(cri);
 	}
 
 	@Override
-	public int getUserTotal() {
+	public int getApplyTotal() {
 
-		return userMapper.getUserTotal();
+		return userMapper.getApplyTotal();
   }
   
   @Override
