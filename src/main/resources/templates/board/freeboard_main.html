@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/include/header_footer.css">
+    <link rel="stylesheet" href="../css/board/freeboard_main.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../js/freeboard.js"></script>
+</head>
+<body>
+    
+    <th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .container-free} ) }">
+
+    <div class="container-free">
+        <div class="row_free">
+            <div class="free-title-box">
+                자유게시판
+            </div>
+            
+            <select class="quanti">
+                <option value="10">10개 보기</option>
+                <option value="20">20개 보기</option>
+                <option value="40">40개 보기</option>
+                <option value="80">80개 보기</option>
+            </select>
+
+
+            <div class="free-main-box">
+                <form class="free-form-inner">
+                    <div class="list_table_wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>번호</td>
+                                    <td>제목</td>
+                                    <td>글쓴이</td>
+                                    <td>날짜</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="on_data">
+                                    <td>1</td>
+                                    <td>안녕</td>
+                                    <td>abc111</td>
+                                    <td>2022-04-21</td>
+                                </tr>
+                                <tr class="on_data2">
+                                    <td colspan="4" class="clearfix">
+                                        <div class="b_content">
+                                        {{lsit.content}}
+
+                                        <textarea style="display:none;" name="" id="" cols="30" rows="10">{{lsit.content}}</textarea>
+                                        </div>
+                                        <div class="btn_wrap">
+                                            <button type="button">수정</button>
+                                            <button type="button">삭제</button>
+                                        </div>
+                                        <div><br>
+                                            <!-- 댓글창 -->
+                                            <div class="coment_box">
+                                                <div class="coment_info">
+                                                    <div class="user_pro">
+                                                        <div class="w_photo"><img src="img/Logo.png"></div>
+                                                        <div class="w_info">username_123 &nbsp&nbsp&nbsp<span class="w_regdate">( 22-04-21 )</span> </div> 
+                                                        
+                                                    <div class="w_contents">가나다라마바사아아아아아아아아아아아아아아아아아아아</div><br>
+                                                </div>
+                                                <br>
+                                                <div class="coment_textarea">
+                                                    <textarea placeholder="댓글을 작성하려면 로그인 해주세요."></textarea>
+                                                </div>
+                                                <br>
+                                                <div class="w-btn-p">
+                                                    <button type="submit" class="free_write">댓글등록</button><br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><br>
+                    <div class="w-btn-p">
+                        <button type="submit" class="free_write">글쓰기</button><br>
+                    </div>
+                </form>
+
+                <!-- 페이지네이션 -->
+                
+
+            </div>
+        </div>
+    </div>
+
+</th:block>
+</html>

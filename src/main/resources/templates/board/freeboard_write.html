@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/include/header_footer.css">
+    <link rel="stylesheet" href="../css/board/freeboard_write.css">
+</head>
+
+<th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .container-free} ) }">
+
+    <div class="container-free">
+        <div class="row_free">
+            <div class="free-title-box">
+                자유게시판
+            </div>
+            <div class="free-main-box">
+                <form class="free-form-inner">
+                    <div class="list_table_wrap">
+                    
+                        <input type="text" placeholder="제목을 입력해주세요"><br><br>
+                        <textarea placeholder="내용을 입력해주세요"></textarea>
+                    </div>
+                    <br>
+                    <div class="w-btn-p">
+                        <button type="submit" class="free_write">등록하기</button><br>
+                    </div>
+                </form>
+                </div>
+            </div>
+    </div>
+
+</th:block>
+
+</html>
