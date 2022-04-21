@@ -1,0 +1,581 @@
+
+@media(min-width: 1200px){ /*1200이상*/
+
+   /* 게시판 */
+   .container-free {max-width: 1250px;
+                  margin: 0 auto;
+                  }
+   .quanti{
+      padding: 5px 10px;
+      margin-bottom: 10px;
+      margin-left: 1169px;
+   }
+   .free-main-box {border: 1px solid #cdcdcd}
+   .free-main-box .free-form-inner{background-color: white;
+                                 padding-top: 30px;
+                                 padding-left: 40px;
+                                 padding-right: 40px;
+                                 padding-bottom: 30px;
+                                 overflow: hidden;
+                                 }
+   .free-title-box{width: 250px;
+                  margin: 40px auto;
+                  border-top: 1px solid #d1d1d1;
+                  border-bottom: 1px solid #d1d1d1;
+                  height: 60px;
+                  line-height: 60px;
+                  text-align: center;
+                  font-size: 35px;
+                  }
+   .free_write{
+      float: right;
+      background-color: #663399;
+      color: white;
+      padding: 6px 10px;
+      border: none;
+   }
+   .free_write:hover{
+      cursor: pointer;
+   }
+/* 테이블 */
+   .list_table_wrap table{
+      width: 100%;
+   }
+   .list_table_wrap table tbody tr:nth-child(2n){
+      display: none;
+      background-color: #EF2;
+   }
+   .list_table_wrap table tbody .btn_wrap{
+      float: right;
+      position: relative;
+      margin-right: 40px;
+   }
+   .list_table_wrap table tbody .btn_wrap > button{
+      background-color: #663399;
+      color: white;
+      padding: 6px 10px;
+      border: none;
+   }
+/* 테이블 헤드 */
+   .list_table_wrap table thead {
+      width: 100%;
+      background-color: #fbfbfb;
+      text-align: center;  
+   }
+   .list_table_wrap table thead tr {
+      box-sizing: border-box;
+      padding: 5px 0px;
+   }
+   .list_table_wrap table thead tr td{
+      height:  50px;
+      padding: 5px 0px;
+      border-top: 1px solid #d1d1d1;
+      border-bottom: 1px solid #d1d1d1;
+   }
+   .list_table_wrap table thead tr td:nth-child(1){
+      width: 10%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table thead tr td:nth-child(2){
+      width: 50%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table thead tr td:nth-child(3){
+      width: 20%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table thead tr:nth-child(4){
+      width: 20%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+
+/* 테이블 바디 */
+   .list_table_wrap table tbody {
+      width: 100%;
+      text-align: center;  
+   }
+   .list_table_wrap table tbody tr {
+      box-sizing: border-box;
+      padding: 5px 0px;
+   }
+   .list_table_wrap table tbody tr td{
+      height:  50px;
+      padding: 5px 0px;
+
+   }
+   .list_table_wrap table tbody tr:hover{
+      background-color: #fbfbfb;
+   }
+   .list_table_wrap table tbody tr td:nth-child(1){
+      width: 10%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table tbody tr td:nth-child(2){
+      width: 50%;
+      padding: 5px 0px;
+      text-align: left;
+   }
+   .list_table_wrap table tbody tr td:nth-child(3){
+      width: 20%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table tbody tr td:nth-child(4){
+      width: 20%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+
+   .list_table_wrap table tbody .on_data2 .b_content {
+      display: block;
+      margin: 0 auto;
+      /* width: 930px; */
+      width: 100%;
+      background: #fbfbfb;
+      text-align: left;
+      padding: 40px; 
+   }
+
+   /* CSS */
+   .clearfix:before, .clearfix:after {
+      display: block;
+      content: '';
+      line-height: 0;
+   }
+   .clearfix:after {
+      clear:both;
+   }
+   .clearfix {
+      *zoom: 1;
+      background-color: #fbfbfb;
+   }
+
+   /* 댓글창 */
+   .coment_box {
+      background-color: #fbfbfb;
+      padding-top: 30px;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-bottom: 30px;
+   }
+   .coment_box .user_pro .w_photo{
+      width: 50px;
+      height: 50px;
+      float: left;
+      margin-right: 20px;
+   }
+   /* .coment_box .user_pro .w_photo > img{
+      border-radius: 100%;
+   } */
+   .coment_box .user_pro .w_info{
+      width: 100%;
+      text-align: left;
+   }
+   .w_contents{
+      text-align: left;
+   }
+   .coment_box .coment_textarea > textarea{
+      width: 100%;
+      resize: none;
+      height: 80px;
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media(min-width:768px) and (max-width: 1199px){ /*768~1199까지*/
+   /* 게시판 */
+   .container-free {max-width: 700px;
+                   margin: 0 auto;
+                   }
+   .quanti{
+      padding: 5px 10px;
+      margin-bottom: 10px;
+      margin-left: 619px;
+   }
+   .free-main-box {border: 1px solid #cdcdcd}
+   .free-main-box .free-form-inner{background-color: white;
+                        padding-top: 30px;
+                        padding-left: 40px;
+                        padding-right: 40px;
+                        padding-bottom: 30px;
+                        overflow: hidden;
+                        }
+   .free-title-box{width: 250px;
+         margin: 40px auto;
+         border-top: 1px solid #d1d1d1;
+         border-bottom: 1px solid #d1d1d1;
+         height: 60px;
+         line-height: 60px;
+         text-align: center;
+         font-size: 35px;
+         }
+   .free_write{
+         float: right;
+         background-color: #663399;
+         color: white;
+         padding: 6px 10px;
+         border: none;
+         }
+         .free_write:hover{
+         cursor: pointer;
+         }
+
+   /* 테이블 */
+   .list_table_wrap table{
+      width: 100%;
+   }
+   .list_table_wrap table tbody tr:nth-child(2n){
+      display: none;
+      background-color: #EF2;
+   }
+   .list_table_wrap table tbody .btn_wrap{
+      float: right;
+      position: relative;
+      margin-right: 40px;
+   }
+   .list_table_wrap table tbody .btn_wrap > button{
+      background-color: #663399;
+      color: white;
+      padding: 6px 10px;
+      border: none;
+   }
+
+   /* 테이블 헤드 */
+   .list_table_wrap table thead {
+      width: 100%;
+      background-color: #fbfbfb;
+      text-align: center;  
+   }
+   .list_table_wrap table thead tr {
+      box-sizing: border-box;
+      padding: 5px 0px;
+   }
+   .list_table_wrap table thead tr td{
+      height:  50px;
+      padding: 5px 0px;
+      border-top: 1px solid #d1d1d1;
+      border-bottom: 1px solid #d1d1d1;
+   }
+   .list_table_wrap table thead tr td:nth-child(1){
+      width: 10%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table thead tr td:nth-child(2){
+      width: 50%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table thead tr td:nth-child(3){
+      width: 20%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table thead tr:nth-child(4){
+      width: 20%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+
+   /* 테이블 바디 */
+   .list_table_wrap table tbody {
+      width: 100%;
+      text-align: center;  
+   }
+   .list_table_wrap table tbody tr {
+      box-sizing: border-box;
+      padding: 5px 0px;
+   }
+   .list_table_wrap table tbody tr td{
+      height:  50px;
+      padding: 5px 0px;
+
+   }
+   .list_table_wrap table tbody tr:hover{
+      background-color: #fbfbfb;
+   }
+   .list_table_wrap table tbody tr td:nth-child(1){
+      width: 10%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table tbody tr td:nth-child(2){
+      width: 50%;
+      padding: 5px 0px;
+      text-align: left;
+   }
+   .list_table_wrap table tbody tr td:nth-child(3){
+      width: 20%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table tbody tr td:nth-child(4){
+      width: 20%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+
+   .list_table_wrap table tbody .on_data2 .b_content {
+      display: block;
+      margin: 0 auto;
+      /* width: 930px; */
+      width: 100%;
+      background: #fbfbfb;
+      text-align: left;
+      padding: 40px; 
+   }
+
+   /* CSS */
+   .clearfix:before, .clearfix:after {
+      display: block;
+      content: '';
+      line-height: 0;
+   }
+   .clearfix:after {
+      clear:both;
+   }
+   .clearfix {
+      *zoom: 1;
+      background-color: #fbfbfb;
+   }
+
+   /* 댓글창 */
+   .coment_box {
+      background-color: #fbfbfb;
+      padding-top: 30px;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-bottom: 30px;
+   }
+   .coment_box .user_pro .w_photo{
+      width: 50px;
+      height: 50px;
+      float: left;
+      margin-right: 20px;
+   }
+   .coment_box .user_pro .w_info{
+      width: 100%;
+      text-align: left;
+   }
+   .w_contents{
+      text-align: left;
+   }
+   .coment_box .coment_textarea > textarea{
+      width: 100%;
+      resize: none;
+      height: 80px;
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 767px){ /*767이하*/
+   /* 게시판 */
+   .container-free {max-width: 400px;
+                    margin: 0 auto;
+      }
+   .quanti{
+      padding: 5px 10px;
+      margin-bottom: 10px;
+      margin-left: 320px;
+   }
+   .free-main-box {border: 1px solid #cdcdcd}
+   .free-main-box .free-form-inner{background-color: white;
+            padding-top: 30px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 30px;
+            overflow: hidden;
+            }
+   .free-title-box{width: 250px;
+      margin: 40px auto;
+      border-top: 1px solid #d1d1d1;
+      border-bottom: 1px solid #d1d1d1;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      font-size: 35px;
+   }
+   .free_write{
+      float: right;
+      background-color: #663399;
+      color: white;
+      padding: 6px 10px;
+      border: none;
+   }
+   .free_write:hover{
+      cursor: pointer;
+   }
+
+   /* 테이블 */
+   .list_table_wrap table{
+      width: 100%;
+   }
+   .list_table_wrap table tbody tr:nth-child(2n){
+      display: none;
+      background-color: #EF2;
+   }
+   .list_table_wrap table tbody .btn_wrap{
+      float: right;
+      position: relative;
+      margin-right: 40px;
+   }
+   .list_table_wrap table tbody .btn_wrap > button{
+      background-color: #663399;
+      color: white;
+      padding: 6px 10px;
+      border: none;
+   }
+
+   /* 테이블 헤드 */
+   .list_table_wrap table thead {
+      width: 100%;
+      background-color: #fbfbfb;
+      text-align: center;  
+   }
+   .list_table_wrap table thead tr {
+      box-sizing: border-box;
+      padding: 5px 0px;
+   }
+   .list_table_wrap table thead tr td{
+      height:  50px;
+      padding: 5px 0px;
+      border-top: 1px solid #d1d1d1;
+      border-bottom: 1px solid #d1d1d1;
+   }
+   .list_table_wrap table thead tr td:nth-child(1){
+      width: 10%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table thead tr td:nth-child(2){
+      width: 50%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table thead tr td:nth-child(3){
+      width: 20%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table thead tr:nth-child(4){
+      width: 20%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+
+   /* 테이블 바디 */
+   .list_table_wrap table tbody {
+      width: 100%;
+      text-align: center;  
+   }
+   .list_table_wrap table tbody tr {
+      box-sizing: border-box;
+      padding: 5px 0px;
+   }
+   .list_table_wrap table tbody tr td{
+      height:  50px;
+      padding: 5px 0px;
+   }
+   .list_table_wrap table tbody tr:hover{
+      background-color: #fbfbfb;
+   }
+   .list_table_wrap table tbody tr td:nth-child(1){
+      width: 10%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table tbody tr td:nth-child(2){
+      width: 50%;
+      padding: 5px 0px;
+      text-align: left;
+   }
+   .list_table_wrap table tbody tr td:nth-child(3){
+      width: 20%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table tbody tr td:nth-child(4){
+      width: 20%;
+      padding: 5px 0px;
+      text-align: center;
+   }
+   .list_table_wrap table tbody .on_data2 .b_content {
+   display: block;
+   margin: 0 auto;
+   /* width: 930px; */
+      width: 100%;
+      background: #fbfbfb;
+      text-align: left;
+      padding: 40px; 
+   }
+
+   /* CSS */
+   .clearfix:before, .clearfix:after {
+      display: block;
+      content: '';
+      line-height: 0;
+   }
+   .clearfix:after {
+      clear:both;
+   }
+   .clearfix {
+      *zoom: 1;
+      background-color: #fbfbfb;
+   }
+
+   /* 댓글창 */
+   .coment_box {
+      background-color: #fbfbfb;
+      padding-top: 30px;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-bottom: 30px;
+   }
+   .coment_box .user_pro .w_photo{
+      width: 50px;
+      height: 50px;
+      float: left;
+      margin-right: 20px;
+   }
+   .coment_box .user_pro .w_info{
+      width: 100%;
+      text-align: left;
+   }
+   .w_contents{
+      text-align: left;
+   }
+   .coment_box .coment_textarea > textarea{
+      width: 100%;
+      resize: none;
+      height: 80px;
+   }
+}
