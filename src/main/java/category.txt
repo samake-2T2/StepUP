@@ -1,125 +1,125 @@
 ## 카테고리 테이블
-CREATE TABLE SEARCH_CATEGORY(
-	CATEGORY_ID INT PRIMARY KEY AUTO_INCREMENT,
-    GROUP_ID VARCHAR(10),
-    CATEGORY_LV INT, ##1,2,3
-    CATEGORY_NM VARCHAR(100), ##대분류중분류소분류
-    CATEGORY_DETAIL_LV INT, ##ORDER순서
-    CATEGORY_DETAIL_NM VARCHAR(100), ##이름
-    CATEGORY_PARENT_LV INT , ##1,2,3에 대한 부모컬럼
-    CATEGORY_DETAIL_PARENT_LV INT ##ORDER순서에 대한 부모컬럼
+CREATE TABLE search_category(
+	category_id INT PRIMARY KEY AUTO_INCREMENT,
+    category_category_group_id VARCHAR(10),
+    category_lv INT, ##1,2,3
+    category_nm VARCHAR(100), ##대분류중분류소분류
+    category_detail_lv INT, ##ORDER순서
+    category_detail_nm VARCHAR(100), ##이름
+    category_parent_lv INT , ##1,2,3에 대한 부모컬럼
+    category_detail_parent_lv INT ##ORDER순서에 대한 부모컬럼
 );
 
-DROP TABLE SEARCH_CATEGORY;
+DROP TABLE search_category;
 
 #### 첫 번째 카테고리(입시) ####
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('A', 1, '대분류', 1, '입시', 0, 0);
 
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('A', 2, '소분류', 1, '수시/정시', 1, 1);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
        VALUES ('A', 2, '소분류', 2, '편입', 1, 1);     
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
        VALUES ('A', 2, '소분류', 3, '대학원', 1, 1);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
        VALUES ('A', 2, '소분류', 4, '외국대학', 1, 1);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
        VALUES ('A', 2, '소분류', 5, '기타', 1, 1);
        
 #### 두 번째 카테고리(취업/창업) ####
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('B', 1, '대분류', 2, '취업/창업', 0, 0);
 
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('B', 2, '소분류', 1, '공무원', 1, 2);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('B', 2, '소분류', 2, '공기업/공공기관', 1, 2);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('B', 2, '소분류', 3, '사기업', 1, 2);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('B', 2, '소분류', 4, '창업', 1, 2);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('B', 2, '소분류', 5, '기타', 1, 2);
 
 #### 세 번째 카테고리(자격증) ####
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('C', 1, '대분류', 3, '자격증', 0, 0);
 
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('C', 2, '소분류', 1, '외국어', 1, 3);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('C', 2, '소분류', 2, '회계/세무', 1, 3);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('C', 2, '소분류', 3, '기사', 1, 3);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('C', 2, '소분류', 4, '부동산', 1, 3);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('C', 2, '소분류', 5, '기타', 1, 3);
 
 #### 네 번째 카테고리(회화) ####
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('D', 1, '대분류', 4, '회화', 0, 0);
 
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('D', 2, '소분류', 1, '영어', 1, 4);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('D', 2, '소분류', 2, '중국어', 1, 4);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('D', 2, '소분류', 3, '일본어', 1, 4);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('D', 2, '소분류', 4, '통번역', 1, 4);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('D', 2, '소분류', 5, '기타', 1, 4);
        
 #### 다섯 번째 카테고리(IT/인터넷) ####
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('E', 1, '대분류', 5, 'IT/인터넷', 0, 0);
 
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('E', 2, '소분류', 1, '웹', 1, 5);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('E', 2, '소분류', 2, '앱', 1, 5);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('E', 2, '소분류', 3, '언어', 1, 5);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('E', 2, '소분류', 4, '디자인', 1, 5);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('E', 2, '소분류', 5, '기타', 1, 5);
        
 #### 여섯 번째 카테고리(취미/문화) ####
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('F', 1, '대분류', 6, '취미/문화', 0, 0);
 
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('F', 2, '소분류', 1, '건강', 1, 6);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('F', 2, '소분류', 2, '미술', 1, 6);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('F', 2, '소분류', 3, '음악', 1, 6);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('F', 2, '소분류', 4, '독서', 1, 6);
-INSERT INTO SEARCH_CATEGORY (GROUP_ID, CATEGORY_LV, CATEGORY_NM, CATEGORY_DETAIL_LV, CATEGORY_DETAIL_NM, CATEGORY_PARENT_LV, CATEGORY_DETAIL_PARENT_LV)
+INSERT INTO search_category (category_group_id, category_lv, category_nm, category_detail_lv, category_detail_nm, category_parent_lv, category_detail_parent_lv)
 	   VALUES ('F', 2, '소분류', 5, '기타', 1, 6);
 
 ## 카테고리 조회
 # 모든 카테고리 조회
-SELECT * FROM SEARCH_CATEGORY;
+SELECT * FROM search_category;
 # 대분류만 조회
-SELECT * FROM SEARCH_CATEGORY WHERE CATEGORY_LV = 1;
+SELECT * FROM search_category WHERE category_lv = 1;
 # 특정 소분류 조회
-SELECT * FROM SEARCH_CATEGORY WHERE GROUP_ID = 'A' AND CATEGORY_PARENT_LV = 1 AND CATEGORY_DETAIL_PARENT_LV = 1;
+SELECT * FROM search_category WHERE category_group_id = 'A' AND category_parent_lv = 1 AND category_detail_parent_lv = 1;
 
 ## 카테고리 JOIN
-SELECT CONCAT(A1.group_ID, A1.CATEGORY_ID) AS CATEGORY_KEY, ##카테고리 키 (그룹 + 키 형태로 카테고리분류)
- 	   CASE A1.category_parent_LV
- 	        WHEN 0 THEN A1.category_detail_NM
- 			WHEN 1 THEN CONCAT(A2.category_detail_NM,' > ', A1.category_detail_NM)
- 			WHEN 2 THEN CONCAT(A3.category_detail_NM, ' > ', A2.category_detail_NM,' > ', A1.category_detail_NM)
- 	   END as CATEGORY_NAV
-FROM SEARCH_CATEGORY A1
-LEFT OUTER JOIN SEARCH_CATEGORY A2
-ON A1.CATEGORY_PARENT_LV = A2.CATEGORY_LV AND A1.CATEGORY_DETAIL_PARENT_LV = A2.CATEGORY_DETAIL_LV AND A1.GROUP_ID = A2.GROUP_ID
-LEFT OUTER JOIN SEARCH_CATEGORY A3
-ON A2.CATEGORY_PARENT_LV = A3.CATEGORY_LV AND A2.CATEGORY_DETAIL_PARENT_LV = A3.CATEGORY_DETAIL_LV
-ORDER BY CATEGORY_KEY ASC;
+SELECT CONCAT(A1.category_group_id, A1.category_id) AS category_key, ##카테고리 키 (그룹 + 키 형태로 카테고리분류)
+ 	   CASE A1.category_parent_lv
+ 	        WHEN 0 THEN A1.category_detail_nm
+ 			WHEN 1 THEN CONCAT(A2.category_detail_nm,' > ', A1.category_detail_nm)
+ 			WHEN 2 THEN CONCAT(A3.category_detail_nm, ' > ', A2.category_detail_nm,' > ', A1.category_detail_nm)
+ 	   END as category_nav
+FROM search_category A1
+LEFT OUTER JOIN search_category A2
+ON A1.category_parent_lv = A2.category_lv AND A1.category_detail_parent_lv = A2.category_detail_lv AND A1.category_group_id = A2.category_group_id
+LEFT OUTER JOIN search_category A3
+ON A2.category_parent_lv = A3.category_lv AND A2.category_detail_parent_lv = A3.category_detail_lv
+ORDER BY category_key ASC;

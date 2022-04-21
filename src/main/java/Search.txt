@@ -1,0 +1,13 @@
+## 스터디 그룹 찾는 sql문(키워드 검색)
+## EX)스터디명에 test라는 단어가 들어간 스터디를 그룹명 순서대로 10개 찾기
+SELECT *
+FROM (SELECT A.*,
+             @ROWNUM := @ROWNUM + 1 AS RN
+	  FROM (SELECT *
+			  FROM studygroup
+             WHERE group_name LIKE CONCAT('%', 'test', '%')
+             ORDER BY group_name ASC) A, (SELECT @ROWNUM := 0) D
+) B
+WHERE RN > 0 AND RN <= 10;
+
+## 스터디 그룹 찾는 sql문(카테고리 검색) - 아직 생각중입니다.
