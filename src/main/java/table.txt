@@ -1,4 +1,3 @@
-
 ## 회원정보 테이블
 create table user (
 	user_no int primary key auto_increment,
@@ -31,7 +30,7 @@ create table studyGroup (
     category_child_name varchar(30) not null ##카테고리 소분류
 );
 
-## 신청목록 테이블
+## 신청인 명단 테이블
 create table request (
 	req_no int primary key auto_increment,
     group_no int not null, ##FK
@@ -40,4 +39,22 @@ create table request (
     email varchar(50) not null,
     req_level varchar(10) not null,
     req_about_me varchar(20) not null
+);
+
+## QnA게시판 테이블
+create table qna_board (
+	qna_board_no int primary key auto_increment,
+    qna_title varchar(30) not null,
+    user_name varchar(10) not null, ##FK
+    qna_content varchar(500) not null,
+    qna_regdate timestamp default now()
+);
+
+## 자유게시판 테이블
+create table free_board (
+	free_board_no int primary key auto_increment,
+    free_title varchar(30) not null,
+    user_name varchar(10) not null, ##FK
+    free_content varchar(500) not null,
+    free_regdate timestamp default now()
 );

@@ -40,13 +40,13 @@ public class GroupController {
 	public String groupRegList(Model model, Criteria cri) {
 		
 		//페이징 처리
-		ArrayList<UserVO> list = userService.getUserList(cri);
-		int total = userService.getUserTotal();
+		ArrayList<UserVO> list = userService.getApplyList(cri);
+		int total = userService.getApplyTotal();
 		
 		PageVO pageVO = new PageVO(cri, total);
 		
 		//데이터 저장
-		model.addAttribute("userlist", list);
+		model.addAttribute("applylist", list);
 		
 		//페이지네이션 저장
 		model.addAttribute("pageVO", pageVO);
