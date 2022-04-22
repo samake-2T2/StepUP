@@ -72,8 +72,8 @@ public class GroupController {
 		return "group/groupNoticeDetail";
 	}
 	
-	@GetMapping("/groupNoticeMake")
-	public String groupNoticeMake() {
-		return "group/groupNoticeMake";
+	@GetMapping("/groupNoticeReg")
+	public String groupNoticeReg() {
+		return "group/groupNoticeReg";
 	}
 }
