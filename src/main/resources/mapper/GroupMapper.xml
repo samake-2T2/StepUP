@@ -5,7 +5,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <mapper namespace="com.teampjt.StepUP.group.GroupMapper">
-
+	<!-- 공지등록 -->
+	<insert id="noticeRegist">
+		insert into groupnotice (groupnotice_title,
+								 groupnotice_writer,
+								 groupnotice_content,
+								 groupnotice_regdate,
+								 groupnotice_count								 
+								 )
+		value(#{groupnotice_title},
+			  #{groupnotice_writer},
+			  #{groupnotice_content},
+			  NOW(),
+			  #{groupnotice_count}
+			  )
+	</insert>
 	
-
+	<!-- 공지목록 -->
+	<select id="getNoticeList" resultType="GroupNoticeVO">
+		select * from groupnotice 
+		where groupnotice_no 
+		order by groupnotice_no desc
+	</select>
+	
+	<!-- 공지상세보기 -->
+	<select id="getNoticeDetail" resultType="GroupNoticeVO">
+		select * from groupnotice
+		where groupnotice_no = #{groupnotice_no}
+	</select>
+	
+	<!-- 조회수 올리기 -->
+	<update id="updatecount">
+		update groupnotice set groupnotice_count = groupnotice_count + 1 
+		where groupnotice_no = #{groupnotice_no}
+	</update>
 </mapper>
