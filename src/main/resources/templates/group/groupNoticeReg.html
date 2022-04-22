@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 부트스트랩 적용방법 (min or 일반 파일중 하나를 링크) -->
+    <!-- 링크 순서 중요 -->
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- 아이콘이 표시되지않아 직접 링크찾아 넣어줌 -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <script src="../js/bootstrap.js"></script>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" href="../css/common.css"><!-- 공통 -->
+    <link rel="stylesheet" href="../css/group/groupNoticeReg.css">
+
+</head>
+    <th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .container} ) }">
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="form-join2">
+                    
+                    <div class="app-title">
+                        그룹 공지사항
+                    </div>
+                    
+                    <form class="app-form" name="groupNoticeForm" action="groupNoticeForm" method="post">
+                          
+                        <div class="app-box">
+                            <label>작성번호</label>
+                            <input type="text" class="form-control" value="1" readonly>
+                        </div>
+
+                        <div class="app-box">
+                            <label>작성자</label>
+                            <input type="text" class="form-control" value="홍길동" readonly>
+                        </div>
+
+                        <div class="app-box">
+                            <label>제목</label>
+                            <input type="text" class="form-control" value="공지사항입니다">
+                        </div>
+
+                        <div class="app-box">
+                        <label>내용</label><br>
+                        <textarea class="app-text" rows="50" cols="500" placeholder="내용을 입력해주세요"></textarea>
+                        <div></div>
+
+                        <a href="/group/groupMain" class="w-btn btn-danger btn-block5">취소</a>
+                        <button type="submit" class="w-btn btn-block4">작성</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    </th:block>
+</html>

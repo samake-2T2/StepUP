@@ -140,3 +140,25 @@
     color: rgb(254, 254, 254);
 }
 
+
+.profile > .pro-label { 
+	display: inline-block;
+	line-height: normal; 
+	cursor: pointer; 
+	border-bottom-color: #e2e2e2; 
+	border-radius: 2px; 
+
+	
+}
+
+.profile > input[type="file"] { 
+	/* 파일 필드 숨기기 */ 
+	position: absolute; 
+	width: 1px; 
+	height: 1px; 
+	padding: 0; 
+	margin: -1px; 
+	overflow: hidden; 
+	clip:rect(0,0,0,0); 
+	border: 0; 
+}

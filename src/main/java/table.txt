@@ -58,3 +58,14 @@ create table free_board (
     free_content varchar(500) not null,
     free_regdate timestamp default now()
 );
+
+
+## 스터디그룹 공지사항 테이블
+create table groupnotice (
+	groupnotice_no int primary key auto_increment, ##글번호
+    groupnotice_title varchar(100) not null, ##제목
+    groupnotice_writer varchar(30) not null, ##작성자
+    groupnotice_content varchar(500) not null, ##내용
+    groupnotice_regdate timestamp default now(), ##작성일자
+    groupnotice_count int ##조회수
+);
