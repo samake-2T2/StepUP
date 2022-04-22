@@ -44,8 +44,9 @@ create table request (
 ## QnA게시판 테이블
 create table qna_board (
 	qna_board_no int primary key auto_increment,
+    user_no int not null,
+    user_name varchar(10) not null, 
     qna_title varchar(30) not null,
-    user_name varchar(10) not null, ##FK
     qna_content varchar(500) not null,
     qna_regdate timestamp default now()
 );
@@ -53,8 +54,9 @@ create table qna_board (
 ## 자유게시판 테이블
 create table free_board (
 	free_board_no int primary key auto_increment,
+    user_no int not null,
+    user_name varchar(10) not null, 
     free_title varchar(30) not null,
-    user_name varchar(10) not null, ##FK
     free_content varchar(500) not null,
     free_regdate timestamp default now()
 );

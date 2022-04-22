@@ -66,10 +66,10 @@ public class UserController {
 		userService.userDelete(user_no);
 
 		int result = userService.userDelete(user_no);
-		if(result == 1) { // �꽦怨�
-			RA.addFlashAttribute("msg", "�깉�눜�뿉 �꽦怨듯븯���뒿�땲�떎.");
-		}else { // �떎�뙣
-			RA.addFlashAttribute("msg", "�깉�눜�뿉 �떎�뙣�븯���뒿�땲�떎. 愿�由ъ옄�뿉寃� 臾몄쓽�븯�꽭�슂.");
+		if(result == 1) { 
+			RA.addFlashAttribute("msg", "탈퇴에 성공했습니다. ");
+		}else { 
+			RA.addFlashAttribute("msg", "탈퇴에 실패했습니다. 관리자에게 문의하세요");
 		}
 		return "user/login";
 	}

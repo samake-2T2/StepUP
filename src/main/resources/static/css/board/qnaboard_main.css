@@ -60,12 +60,9 @@
    }
    .list_table_wrap table tbody .btn_wrap > button{
       background-color: #663399;
+      color: white;
       padding: 6px 10px;
       border: none;
-   }
-   .list_table_wrap table tbody .btn_wrap > button > a{
-	  color:white;
-	  text-decoration:none;
    }
 /* 테이블 헤드 */
    .list_table_wrap table thead {
@@ -274,10 +271,7 @@
       padding: 6px 10px;
       border: none;
    }
-   .list_table_wrap table tbody .btn_wrap > button > a{
-	  color:white;
-	  text-decoration:none;
-   }
+
    /* 테이블 헤드 */
    .list_table_wrap table thead {
       width: 100%;
@@ -485,10 +479,7 @@
       padding: 6px 10px;
       border: none;
    }
-   .list_table_wrap table tbody .btn_wrap > button > a{
-	  color:white;
-	  text-decoration:none;
-   }
+
    /* 테이블 헤드 */
    .list_table_wrap table thead {
       width: 100%;
