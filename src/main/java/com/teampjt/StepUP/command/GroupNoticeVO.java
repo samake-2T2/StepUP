@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class GroupNoticeVO {
-
+	
 	private Integer groupnotice_no;
 	private String groupnotice_title;
 	private String groupnotice_writer;
