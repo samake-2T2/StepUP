@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.teampjt.StepUP.command.UserVO;
+import com.teampjt.StepUP.group.GroupService;
 import com.teampjt.StepUP.user.UserService;
 import com.teampjt.StepUP.util.Criteria;
 import com.teampjt.StepUP.util.PageVO;
@@ -16,9 +17,10 @@ import com.teampjt.StepUP.util.PageVO;
 @Controller
 @RequestMapping("/group")
 public class GroupController {
-	
+		
 	@Autowired
 	public UserService userService;
+	
 
 	@GetMapping("/groupApplication")
 	public String groupApplication() {

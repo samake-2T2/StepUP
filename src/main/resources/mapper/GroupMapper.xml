@@ -6,6 +6,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.teampjt.StepUP.group.GroupMapper">
 
+	<select id="getCategory" resultType="SearchCategoryVO">
+		SELECT * 
+		FROM search_category
+		WHERE category_lv = 1
+	</select>
 	
+	<select id="getCategoryChild" resultType="SearchCategoryVO">
+		
+	
+	</select>
 
 </mapper>
