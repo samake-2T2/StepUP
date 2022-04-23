@@ -14,154 +14,172 @@
 
 <th:block
 	th:replace="~{/include/basicLayout :: setContent( ~{:: .wrap} ) }">
-<section class="wrap">
-	<div class="group_list_detail">
-		<div class="group_list_detail_title">
-			<h3>스터디 디테일</h3>
-		</div>
+	<section class="wrap">
+		<div class="group_list_detail">
+			<div class="group_list_detail_title">
+				<h3>스터디 디테일</h3>
+			</div>
 
-		<div class="detail_profile">
-			<img src="../img/group/o.png" alt="방장">
-			<div>
-				<h4>
-					오드리
+			<div class="detail_profile">
+				<img src="../img/group/o.png" alt="방장">
+				<div>
 					<h4>
-						<button class="detail_btn" type="button" href="">프로필 보기</button>
+						오드리
+						<h4>
+							<button class="detail_btn" type="button" href="">프로필 보기</button>
+				</div>
+			</div>
+
+			<div class="detail_box">
+				<div class="detail_title">
+					<div class="detail_day">모집기간: 2022-04-18 ~ 2022-5-18</div>
+					<div class="detail_category">자격증</div>
+				</div>
+			</div>
+
+			<div class="tag">#IT</div>
+			<div class="tag">#JAVA</div>
+			<div class="tag">#SPRING</div>
+			<div class="tag">#MYSQL</div>
+
+
+			<div class="detail_subbtn">
+				<span>모집중</span>
+			</div>
+
+			<div class="detail_boxbtn">
+				<button class="detail_btn2" type="button" href="">참여신청</button>
+			</div>
+
+		</div>
+
+
+		<div class="detail-wrap">
+			<div class="detail_content">
+
+
+				🔮 역사에 진심인 사람들 모여라!!! <br> <br> 🔆 모집 기간: 3.30 (수) - 4.5
+				(화) <br> 🔆 장소: 카페 (구체적인 장소는 모집 후 상의할 예정) <br> 🔅 모집 대상:
+				20대 초중반 ‼️ <br> <br> <br> ⏱ 역사는 그냥 암기과목이고,, 재미가 없고,,
+				지루하다고⁉️ <br> 🤫 역사는 완전 이해과목이고 재미있는 과목!! <br> " 역사를 잊은 민족에겐
+				미래란 없다 " 역사 속 그 과거를 거울 삼아<br> 나의 앞으로의 미래를 계획하여 나라는 사람이 하나의 문명이
+				될 수 있도록!<br> 나의 삶을 개척하고 변화시키기 위해 반드시 필요한 역사!
+
 			</div>
 		</div>
 
-		<div class="detail_box">
-			<div class="detail_title">
-				<div class="detail_day">모집기간: 2022-04-18 ~ 2022-5-18</div>
-				<div class="detail_category">자격증</div>
-			</div>
-		</div>
 
-		<div class="tag">#IT</div>
-		<div class="tag">#JAVA</div>
-		<div class="tag">#SPRING</div>
-		<div class="tag">#MYSQL</div>
+		<!--댓글영역-->
+		<!--form-control은 부트스트랩 클래스-->
+		<div class="container"
+			style="margin-top: 50px; width: 1250px; padding: 10px;">
+			<div class="row">
+
+				<div class="col-xs-12 younggi">
+					<div class="reply-wrap">
 
 
-		<div class="detail_subbtn">
-			<span>모집중</span>
-		</div>
-
-		<div class="detail_boxbtn">
-			<button class="detail_btn2" type="button" href="">참여신청</button>
-		</div>
-
-	</div>
 
 
-	<div class="detail-wrap">
-		<div class="detail_content">
 
 
-			🔮 역사에 진심인 사람들 모여라!!! <br>
-			<br> 🔆 모집 기간: 3.30 (수) - 4.5 (화) <br> 🔆 장소: 카페 (구체적인 장소는
-			모집 후 상의할 예정) <br> 🔅 모집 대상: 20대 초중반 ‼️ <br>
-			<br> <br> ⏱ 역사는 그냥 암기과목이고,, 재미가 없고,, 지루하다고⁉️ <br> 🤫
-			역사는 완전 이해과목이고 재미있는 과목!! <br> " 역사를 잊은 민족에겐 미래란 없다 " 역사 속 그 과거를
-			거울 삼아<br> 나의 앞으로의 미래를 계획하여 나라는 사람이 하나의 문명이 될 수 있도록!<br> 나의
-			삶을 개척하고 변화시키기 위해 반드시 필요한 역사!
 
-		</div>
-	</div>
-
-
-	<!--댓글영역-->
-	<!--form-control은 부트스트랩 클래스-->
-	<div class="container" style="margin-top: 50px; width:1250px; padding:10px;">
-		<div class="row">
-
-			<div class="col-xs-12 younggi">
-				<div class="reply-wrap">
-					<!--전체영역ㄴ-->
-					<div class="reply-img">
-						<!--이미지영역-->
-						<img src="/img/group/profile.png" alt="프로필">
-					</div>
-					<div class="reply-content">
-						<!--내용-->
-						<textarea class="form-control" placeholder="내용입력" style="border-radius: 2px; width:100%; "></textarea>
-						<div class="reply-control">
-							<!--버튼영역-->
-							<div class="reply-input">
-								<!--왼 -->
-								<input type="text" class="form-control" placeholder="아이디"
-									style="border-radius: 2px; display: inline;"> 
-								<input type="text"
-									class="form-control" placeholder="비밀번호"
-									style="border-radius: 2px; display: inline;">
+						<form>
+							<!--전체영역ㄴ-->
+							<div class="reply-img">
+								<!--이미지영역-->
+								<img src="/img/group/profile.png" alt="프로필">
 							</div>
+							<div class="reply-content">
+								<!--내용-->
+								<textarea class="form-control" placeholder="내용입력"
+									style="border-radius: 2px; width: 100%;"></textarea>
+								<div class="reply-control">
+									<!--버튼영역-->
+									<div class="reply-input">
+										<!--왼 -->
+										<input type="text" class="form-control" placeholder="아이디"
+											style="border-radius: 2px; display: inline;"> <input
+											type="text" class="form-control" placeholder="비밀번호"
+											style="border-radius: 2px; display: inline;">
+									</div>
 
-							<!--오른쪽-->
+									<!--오른쪽-->
+								</div>
+							</div>
 							<button type="button" class="btn-btn-info">등록하기</button>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="reply-wrap">
-					<div class="reply-img">
-						<img src="/img/group/profile.png" alt="프로필">
-					</div>
-					<div class="reply-content">
-						<div class="reply-group">
-							<strong>이봉주</strong> <small>2022/02/17</small> <a href="#"><i
-								class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#"><i
-								class="glyhpicon glyphicon-remove"></i>삭제</a>
-						</div>
-						<p>알려줘~알려줘~~</p>
-
-					</div>
-				</div>
-				<div class="reply-wrap">
-					<div class="reply-img">
-						<img src="/img/group/profile.png" alt="프로필">
-					</div>
-					<div class="reply-content">
-						<div class="reply-group">
-							<strong>류현진</strong> <small>2022/02/17</small> <a href="#"><i
-								class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#"><i
-								class="glyhpicon glyphicon-remove"></i>삭제</a>
-						</div>
-						<p>궁금궁금궁금궁금~</p>
-
-					</div>
-				</div>
-				<div class="reply-wrap">
-					<div class="reply-img">
-						<img src="/img/group/profile.png" alt="프로필">
-					</div>
-					<div class="reply-content">
-						<div class="reply-group">
-							<strong>박지성</strong> <small>2022/02/17</small> <a href="#"><i
-								class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#"><i
-								class="glyhpicon glyphicon-remove"></i>삭제</a>
-						</div>
-						<p>과목좀 자세하게 알려주세요~</p>
-					</div>
-				</div>
-				<div class="reply-wrap">
-					<div class="reply-img">
-						<img src="/img/group/profile.png" alt="프로필">
-					</div>
-					<div class="reply-content">
-						<div class="reply-group">
-							<strong>박찬호</strong> <small>2022/02/17</small> <a href="#"><i
-								class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#"><i
-								class="glyhpicon glyphicon-remove"></i>삭제</a>
-						</div>
-						<p>과목좀 자세하게 알려주세요~</p>
+						</form>
 					</div>
 
+
+
+
+
+
+
+
+
+
+
+					<div class="reply-wrap">
+						<div class="reply-img">
+							<img src="/img/group/profile.png" alt="프로필">
+						</div>
+						<div class="reply-content">
+							<div class="reply-group">
+								<strong>이봉주</strong> <small>2022/02/17</small> <a href="#"><i
+									class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#"><i
+									class="glyhpicon glyphicon-remove"></i>삭제</a>
+							</div>
+							<p>알려줘~알려줘~~</p>
+
+						</div>
+					</div>
+					<div class="reply-wrap">
+						<div class="reply-img">
+							<img src="/img/group/profile.png" alt="프로필">
+						</div>
+						<div class="reply-content">
+							<div class="reply-group">
+								<strong>류현진</strong> <small>2022/02/17</small> <a href="#"><i
+									class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#"><i
+									class="glyhpicon glyphicon-remove"></i>삭제</a>
+							</div>
+							<p>궁금궁금궁금궁금~</p>
+
+						</div>
+					</div>
+					<div class="reply-wrap">
+						<div class="reply-img">
+							<img src="/img/group/profile.png" alt="프로필">
+						</div>
+						<div class="reply-content">
+							<div class="reply-group">
+								<strong>박지성</strong> <small>2022/02/17</small> <a href="#"><i
+									class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#"><i
+									class="glyhpicon glyphicon-remove"></i>삭제</a>
+							</div>
+							<p>과목좀 자세하게 알려주세요~</p>
+						</div>
+					</div>
+					<div class="reply-wrap">
+						<div class="reply-img">
+							<img src="/img/group/profile.png" alt="프로필">
+						</div>
+						<div class="reply-content">
+							<div class="reply-group">
+								<strong>박찬호</strong> <small>2022/02/17</small> <a href="#"><i
+									class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#"><i
+									class="glyhpicon glyphicon-remove"></i>삭제</a>
+							</div>
+							<p>과목좀 자세하게 알려주세요~</p>
+						</div>
+
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
 </th:block>
 
