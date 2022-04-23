@@ -8,7 +8,7 @@
 
     <!-- 부트스트랩 적용방법 (min or 일반 파일중 하나를 링크) -->
     <!-- 링크 순서 중요 -->
-    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <!-- 아이콘이 표시되지않아 직접 링크찾아 넣어줌 -->
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
@@ -17,9 +17,10 @@
 
     <!-- 개인디자인(부트스트랩 아래에 위치) -->
     <link rel="stylesheet" href="../css/common.css"><!-- 공통 -->
-    <link rel="stylesheet" href="../css/group/groupNoticeReg.css">
+    <link rel="stylesheet" href="../css/group/groupNoticeModify.css">
 
 </head>
+<body>
     <th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .container} ) }">
     <section>
         <div class="container">
@@ -30,7 +31,7 @@
                         그룹 공지사항
                     </div>
                     
-                    <form class="app-form" name="groupNoticeForm" action="groupNoticeForm" method="post">
+                    <form class="app-form">
                           
                         <div class="app-box">
                             <label>작성날짜</label>
@@ -39,31 +40,29 @@
 
                         <div class="app-box">
                             <label>작성자</label>
-                            <input type="text" name="groupnotice_writer" class="form-control" value="홍길동" readonly>
+                            <input type="text" class="form-control" value="홍길동" readonly>
                         </div>
 
                         <div class="app-box">
                             <label>제목</label>
-                            <input type="text" name="groupnotice_title" class="form-control" placeholder="제목을 입력해주세요">
+                            <input type="text" class="form-control" value="공지사항입니다">
                         </div>
-						
+
                         <div class="app-box">
                         <label>내용</label><br>
-                        <textarea name="groupnotice_content" class="app-text" rows="50" cols="500" placeholder="내용을 입력해주세요"></textarea>
+                        <textarea class="app-text" rows="50" cols="500" placeholder="내용을 입력해주세요"></textarea>
                         </div>
-                        
-						<input name="groupnotice_count" type="hidden" value="0">
-						
-                        <a href="/group/groupMain" class="w-btn btn-danger btn-block5">취소</a>
-                        <button type="submit" class="w-btn btn-block4">작성</button>
+
+                        <a href="#" class="w-btn btn-danger btn-block5">취소</a>
+                        <button type="submit" class="w-btn btn-block4">수정</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
     </th:block>
-    
-   <script>
+    <script>
    document.getElementById('todayDate').value = new Date().toISOString().substring(0, 10);
    </script>
+</body>
 </html>

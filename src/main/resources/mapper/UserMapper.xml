@@ -7,8 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.teampjt.StepUP.user.UserMapper">
 
 	<insert id="userJoin"> 
-		insert into user(email, password, user_name, interest, logintype)
-		values(#{email}, #{password}, #{user_name}, #{interest}, #{logintype}) 
+		insert into user(email, password, user_name, interest)
+		values(#{email}, #{password}, #{user_name}, #{interest}) 
 	</insert>
   
 	<delete id="userDelete">
@@ -42,11 +42,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<update id="update">
-		update user
-		set password = #{password},
-			user_name = #{user_name},
-			interest = #{interest}
+			update user
+			set password = #{password},
+				user_name = #{user_name},
+				interest = #{interest}
 		where user_no = #{user_no}
 	</update>
+	
+	<insert id="registFile">
+		<selectKey resultType="int" order="BEFORE" keyProperty="user_no">
+			select max(user_no) as user_no
+			from user
+			where 
+		</selectKey>
+	
+	
+		insert into user_upload(
+					upload_no,
+					filename,
+					filepath,
+					uuid,
+					user_no)
+		values (#{upload_no},
+				#{filename},
+				#{filepath},
+				#{uuid},
+				#{user_no}
+				)							
+	</insert>
 	
 </mapper>

@@ -109,3 +109,19 @@
     color: white;
     text-decoration: none;
 }
+
+.btn-danger {
+	margin-left: 10px;
+}
+
+.list-btn2 {
+	float: left;
+	background-color: #663399;
+    color: white;
+}
+
+.list-btn2:hover {
+    background-color: #8e43d3;
+    color: white;
+    text-decoration: none;
+}
