@@ -30,30 +30,13 @@
 
         <div class="board-box">
             <div class="board-main">
-                <div class="board-top">
-                    [안내] 2021년 8월 대체휴일에 따른 두부플러스 휴무 안내
+            	<input type="hidden" name="groupnotice_no" th:value="${gnVO.groupnotice_no}"/>
+            	
+                <div class="board-top" name="groupnotice_title" th:value="${gnVO.groupnotice_title}">
+                   [[${gnVO.groupnotice_title}]]
                 </div>
-                <div class="board-content">
-                    안녕하세요. 두부플러스입니다.  <br> 
-
-                    2021년 8월 대체휴일에 따른 두부플러스 휴무 안내 드립니다.<br> 
-
-                    해당 기간동안 상담 외 두부플러스 제작관련 업무는 운영되지 않음을 양해 요청드립니다.<br> 
-
-
-                    [두부플러스 8월 휴무 안내]<br> 
-
-                    - 2021/08/16 (월) : 대체휴일<br> 
-
-
-
-                    두부플러스를 사용하시는 고객님들의 원활한 서비스 이용을 위해 서버관리는 정상적으로 이뤄지고 있으며,<br> 
-
-                    이메일 또는 1:1 문의 게시판을 통해 문의사항을 남겨주신다면, 휴무 익일 순차적으로 답변이 처리 될 예정입니다.<br> 
-
-                    보다 편리하고 쉬운 두부플러스 사용을 위해 노력하겠습니다. <br> 
-
-                    감사합니다.
+                <div class="board-content" name="groupnotice_content" th:value="${groupnotice_content}">
+                    [[${gnVO.groupnotice_content}]]
                 </div>
             </div>
             <div class="board-footer">
@@ -68,7 +51,9 @@
                     </li>
                 </ul>
                 <div class="box-btn">
-                    <a href="/group/groupNotice" class="w-btn list-btn">목록</a>
+                    <a th:href="@{삭제JS}" class="w-btn btn-danger list-btn">삭제</a>
+                    <a th:href="@{/group/groupNoticeModify(groupnotice_no=${gnVO.groupnotice_no})}" class="w-btn list-btn" th:onclick="|notice_valid()|">수정</a>
+                    <a href="/group/groupNotice" class="w-btn list-btn2">목록</a>
                 </div>
             </div>
         </div>

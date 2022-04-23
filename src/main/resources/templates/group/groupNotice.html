@@ -38,23 +38,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="col_num notice">1</td>
-                        <td class="col_title notice"><a href="/group/groupNoticeDetail">[안내] 두부플러스 고객센터 상담 서비스 변경 안내 (06/17)</a></td>
-                        <td class="col_date notice">2019.05.30</td>
-                        <td class="col_hit notice">512</td>
-                    </tr>
-                    <tr>
-                        <td class="col_num notice">1</td>
-                        <td class="col_title notice"><a href="#">[안내] 두부플러스 고객센터 상담 서비스 변경 안내 (06/17)</a></td>
-                        <td class="col_date notice">2019.05.30</td>
-                        <td class="col_hit notice">512</td>
-                    </tr>
-                    <tr>
-                        <td class="col_num notice">1</td>
-                        <td class="col_title notice"><a href="#">[안내] 두부플러스 고객센터 상담 서비스 변경 안내 (06/17)</a></td>
-                        <td class="col_date notice">2019.05.30</td>
-                        <td class="col_hit notice">512</td>
+                    <tr th:each="gnVO, state : ${noticeList}">
+                        <td class="col_num notice">[[${state.index + 1}]]</td>
+                        <td class="col_title notice"><a th:href="@{/group/groupNoticeDetail(groupnotice_no=${gnVO.groupnotice_no})}">[[${gnVO.groupnotice_title}]]</a></td>
+                        <td class="col_date notice">[[${#temporals.format(gnVO.groupnotice_regdate, 'yyyy-MM-dd')}]]</td>
+                        <td class="col_hit notice">[[${gnVO.groupnotice_count}]]</td>
                     </tr>
                 </tbody>
             </table>

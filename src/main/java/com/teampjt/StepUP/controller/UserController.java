@@ -74,7 +74,7 @@ public class UserController {
 		return "user/login";
 	}
 
-	//�뾽�뜲�씠�듃 �뤌
+	//업데이트폼
 	@PostMapping("/userUpdate")
 	public String userUpdate(UserVO userVO,
 			RedirectAttributes RA) {
@@ -82,11 +82,11 @@ public class UserController {
 		System.out.println(userVO.toString());
 		int result = userService.update(userVO);
 
-		if(result == 1) {//�꽦怨�
-			RA.addFlashAttribute("msg", "寃뚯떆臾쇱씠 �젙�긽�닔�젙�릺�뿀�뒿�땲�떎");
+		if(result == 1) {
+			RA.addFlashAttribute("msg", "정보수정이 완료되었습니다");
 
-		}else {//�떎�뙣
-			RA.addFlashAttribute("msg", "�닔�젙�떎�뙣, 愿�由ъ옄�뿉寃� 臾몄쓽�븯�꽭�슂");
+		}else {
+			RA.addFlashAttribute("msg", "정보수정에 실패하였습니다");
 
 		}
 		return "redirect:/main";
