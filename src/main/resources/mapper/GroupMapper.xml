@@ -5,6 +5,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <mapper namespace="com.teampjt.StepUP.group.GroupMapper">
+
+	<select id="getCategory" resultType="SearchCategoryVO">
+		SELECT * 
+		FROM search_category
+		WHERE category_lv = 1
+	</select>
+	
+	<select id="getCategoryChild" resultType="SearchCategoryVO">
+		
+	
+	</select>
+
 	<!-- 공지등록 -->
 	<insert id="noticeRegist">
 		insert into groupnotice (groupnotice_title,
@@ -39,4 +51,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update groupnotice set groupnotice_count = groupnotice_count + 1 
 		where groupnotice_no = #{groupnotice_no}
 	</update>
+
 </mapper>

@@ -1,7 +1,7 @@
 ## 카테고리 테이블
 CREATE TABLE search_category(
 	category_id INT PRIMARY KEY AUTO_INCREMENT,
-    category_category_group_id VARCHAR(10),
+    category_group_id VARCHAR(10),
     category_lv INT, ##1,2,3
     category_nm VARCHAR(100), ##대분류중분류소분류
     category_detail_lv INT, ##ORDER순서

@@ -1,0 +1,45 @@
+## 스터디 그룹 찾는 sql문(카테고리 검색) ####################################################################
+## 대분류를 클릭했을 때 이에 맞는 소분류가 튀어나오도록 하는 SQL문
+# 모든 카테고리 조회
+SELECT * FROM search_category;
+# 대분류만 조회(클릭 한번)
+SELECT * FROM search_category WHERE category_lv = 1;
+# 특정 소분류 조회(클릭 두번)
+SELECT * FROM search_category WHERE category_group_id = 'A' AND category_parent_lv = 1 AND category_detail_parent_lv = 1;
+
+## 카테고리를 선택하고 검색 버튼을 누를 때 해당하는 스터디가 나오도록 하는 SQL문
+SELECT *
+FROM (SELECT A.*,
+             @ROWNUM := @ROWNUM + 1 AS RN
+	  FROM (SELECT *
+			  FROM (SELECT *
+					FROM studygroup st
+					LEFT OUTER JOIN (SELECT CASE  A1.category_parent_lv
+											WHEN 0 THEN A1.category_detail_nm
+											WHEN 1 THEN CONCAT(A2.category_detail_nm,' > ', A1.category_detail_nm)
+											END as category_nav,
+											IF(A1.category_parent_lv = 0 , A1.category_detail_nm, A2.category_detail_nm) AS parent_nm,
+											IF(A1.category_parent_lv = 1 , A1.category_detail_nm, 'NULL') AS child_nm
+									FROM search_category A1
+									LEFT OUTER JOIN search_category A2
+									ON A1.category_parent_lv = A2.category_lv AND A1.category_detail_parent_lv = A2.category_detail_lv AND A1.category_group_id = A2.category_group_id) AS JC
+					on st.category_parent_name = JC.parent_nm and st.category_child_name = JC.child_nm) AS xxx
+                    
+      #######WHERE category_parent_name = '입시' or category_child_name = '공무원'
+             
+             ORDER BY group_no DESC) A, (SELECT @ROWNUM := 0) D
+) B
+WHERE RN > 0 AND RN <= 10;
+
+
+## 스터디 그룹 찾는 sql문(키워드 검색) #####################################################################
+## EX)스터디명에 test라는 단어가 들어간 스터디를 그룹명 순서대로 10개 찾기
+SELECT *
+FROM (SELECT A.*,
+             @ROWNUM := @ROWNUM + 1 AS RN
+	  FROM (SELECT *
+			  FROM studygroup
+             WHERE group_name LIKE CONCAT('%', 'test', '%')
+             ORDER BY group_name ASC) A, (SELECT @ROWNUM := 0) D
+) B
+WHERE RN > 0 AND RN <= 10;

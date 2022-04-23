@@ -23,7 +23,7 @@ import com.teampjt.StepUP.util.PageVO;
 @Controller
 @RequestMapping("/group")
 public class GroupController {
-	
+		
 	@Autowired
 	public UserService userService;
 	
