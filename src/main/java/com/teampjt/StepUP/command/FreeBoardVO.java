@@ -13,17 +13,17 @@ import lombok.NoArgsConstructor;
 @Builder
 public class FreeBoardVO {
 
-   //자유게시판 글 고유 번호(자동증가값)
-   private Integer free_board;
-
+	//자유게시판 글 고유 번호(자동증가값)
+	private Integer free_board_no;
+  
    //자유게시판 글 제목
    private String free_title;
 
-   //자유게시판 글 작성자(user_no)
-   private String user_no;
-   
-   //자유게시판 글 작성자(free_writer)
-   private String free_writer;
+	//자유게시판 글 작성자 고유번호
+	private Integer user_no;
+	
+	//자유게시판 글 작성자 닉네임
+	private String user_name;
 
    //자유게시판 글 내용
    private String free_content;

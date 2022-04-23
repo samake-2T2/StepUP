@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/include/header_footer.css">
-    <link rel="stylesheet" href="../css/board/freeboard_main.css">
+    <link rel="stylesheet" href="../css/board/qnaboard_main.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="../js/freeboard.js"></script>
 </head>
@@ -15,7 +15,7 @@
     <div class="container-free">
         <div class="row_free">
             <div class="free-title-box">
-                자유게시판
+                QnA
             </div>
             
             <select class="quanti">
@@ -38,28 +38,23 @@
                                     <td>날짜</td>
                                 </tr>
                             </thead>
-                            <tbody th:each="vo, state : ${list}">
-                                
-                                
-                                
-                                
-                                
-                                <tr class="on_data" >
-                                    <td>[[${state.index + 1}]]</td>
-                                    <td class="ondata_title">[[${vo.free_title}]]</td>
-                                    <td>[[${vo.user_name}]]</td>
-                                    <td>[[${#temporals.format(vo.free_regdate, 'yy-MM-dd')}]]</td>
+                            <tbody>
+                                <tr class="on_data">
+                                    <td>1</td>
+                                    <td>안녕</td>
+                                    <td>abc111</td>
+                                    <td>2022-04-21</td>
                                 </tr>
-                                <tr class="on_data2" >
+                                <tr class="on_data2">
                                     <td colspan="4" class="clearfix">
                                         <div class="b_content">
-                                        [[${vo.free_content}]]
+                                        {{lsit.content}}
 
-                                        <textarea style="display:none;" name="" id="" cols="30" rows="10">[[${vo.free_content}]]</textarea>
+                                        <textarea style="display:none;" name="" id="" cols="30" rows="10">{{lsit.content}}</textarea>
                                         </div>
                                         <div class="btn_wrap">
-                                            <button type="button"><a th:href="@{/board/freeboard_update(free_board_no=${vo.free_board_no}, user_no=${vo.user_no})}">수정</a></button>
-                                            <button type="button"><a th:href="@{/board/boardDelete(free_board_no=${vo.free_board_no}, user_no=${vo.user_no})}">삭제</a></button>
+                                            <button type="button">수정</button>
+                                            <button type="button">삭제</button>
                                         </div>
                                         <div><br>
                                             <!-- 댓글창 -->
@@ -83,10 +78,6 @@
                                         </div>
                                     </td>
                                 </tr>
-                                
-                                
-                                
-                                
                             </tbody>
                         </table>
                     </div><br>

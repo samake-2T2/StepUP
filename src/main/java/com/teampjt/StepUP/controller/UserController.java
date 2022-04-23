@@ -94,10 +94,11 @@ public class UserController {
 		userService.userDelete(user_no);
 
 		int result = userService.userDelete(user_no);
-		if(result == 1) { // �꽦怨�
-			RA.addFlashAttribute("msg", "탈퇴 성공하셨습니다.");
-		}else { // �떎�뙣
-			RA.addFlashAttribute("msg", "탈퇴에 실패하였습니다. 관리자에게 문의하세요.");
+    
+		if(result == 1) { 
+			RA.addFlashAttribute("msg", "탈퇴에 성공했습니다. ");
+		}else { 
+			RA.addFlashAttribute("msg", "탈퇴에 실패했습니다. 관리자에게 문의하세요");
 		}
 		return "user/login";
 	}

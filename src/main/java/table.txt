@@ -45,18 +45,18 @@ create table request (
 create table qna_board (
 	qna_board_no int primary key auto_increment,
     user_no int not null,
+    user_name varchar(10) not null, 
     qna_title varchar(30) not null,
-    qna_writer varchar(10) not null, 
     qna_content varchar(500) not null,
     qna_regdate timestamp default now()
 );
 
 ## 자유게시판 테이블
 create table free_board (
-   	free_board_no int primary key auto_increment,
+	  free_board_no int primary key auto_increment,
     user_no int not null,
+    user_name varchar(10) not null, 
     free_title varchar(30) not null,
-    free_writer varchar(10) not null, 
     free_content varchar(500) not null,
     free_regdate timestamp default now()
 );

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/include/header_footer.css">
+    <link rel="stylesheet" href="../css/board/qnaboard_write.css">
+</head>
+
+<th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .container-qna} ) }">
+
+    <div class="container-qna">
+        <div class="row_qna">
+            <div class="qna-title-box">
+                QnA
+            </div>
+            <div class="qna-main-box">
+                <form class="qna-form-inner" action="boardForm" method="post">
+                    <div class="list_table_wrap">
+                    	<input type="hidden" value="${session.userVO.user_no}">
+                    	<input type="hidden" value="${session.userVO.user_name}">
+                    
+                        <input type="text" name="qna_title"  placeholder="제목을 입력해주세요"><br><br>
+                        <textarea name="qna_content"  placeholder="내용을 입력해주세요"></textarea>
+                    </div>
+                    <br>
+                    <div class="w-btn-p">
+                        <button type="submit" class="qna_write">등록하기</button><br>
+                    </div>
+                </form>
+                </div>
+            </div>
+    </div>
+
+</th:block>
+
+</html>
