@@ -76,7 +76,7 @@
 
                 // 지난달
                 for (var i = prevDate - prevDay + 1; i <= prevDate; i++) {
-                    calendar.innerHTML = calendar.innerHTML + '<input type="button" class="day prev disable" value="' + i + '">'
+                    calendar.innerHTML = calendar.innerHTML + '<div class="day prev disable">' + i + '</div>'
                 }
                 // 이번달
                 for (var i = 1; i <= nextDate; i++) {
@@ -84,14 +84,14 @@
                 }
                 // 다음달
                 for (var i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
-                    calendar.innerHTML = calendar.innerHTML + '<input type="button" class="day next disable" value="' + i + '">'
+                    calendar.innerHTML = calendar.innerHTML + '<div class="day next disable">' + i + '</div>'
                 }
 
                 // 오늘 날짜 표기
                 if (today.getMonth() == currentMonth) {
                     todayDate = today.getDate();
                     var currentMonthDate = document.querySelectorAll('.dates .current');
-                    currentMonthDate[todayDate - 1].classList.add('today');
+                    currentMonthDate[todayDate - 1].classList.add('active');
                 }
             }
 
@@ -106,6 +106,10 @@
                 thisMonth = new Date(currentYear, currentMonth + 1, 1);
                 renderCalender(thisMonth);
             });
+            
+            for (var i = 1; i <= nextDate; i++) {
+                
+            }
         }
     </script>
 
@@ -194,8 +198,10 @@
 					</div>
 
 					<div class="cal">
+						
 						<div class="todoList">
 
+						<form action="todoReg" method="post">
 							<label>날짜</label> <input type="text" class="form-control"
 								placeholder="클릭한 날짜(리드온리)" readonly> <br> <label>장소</label>
 							<div class="input-group">
@@ -210,45 +216,46 @@
 							<br> <label>내용</label> <input type="text"
 								class="form-control" placeholder="내용을 입력해주세요.">
 
-
-							<table class="todoList-tb" cellpadding="0" cellspacing="0"
-								width="90%;">
+							
+						</form>
+								
+							<table class="todoList-tb" cellpadding="0" cellspacing="0" width="90%;">
 								<tr>
 									<th>순서</th>
-									<th>날짜</th>
 									<th>장소</th>
 									<th>내용</th>
+									<th>수정/삭제</th>
 								</tr>
 
 								<tr>
 									<td>1</td>
-									<td>2022-05-16</td>
 									<td>스타벅스 강남점</td>
 									<td>스터디 그룹 정기회의</td>
+									<td><a href="#">수정/삭제</a></td>
 								</tr>
 								<tr>
 									<td>1</td>
-									<td>2022-05-16</td>
 									<td>스타벅스 강남점</td>
 									<td>스터디 그룹 정기회의</td>
+									<td><a href="#">수정/삭제</a></td>
 								</tr>
 								<tr>
 									<td>1</td>
-									<td>2022-05-16</td>
 									<td>스타벅스 강남점</td>
 									<td>스터디 그룹 정기회의</td>
+									<td><a href="#">수정/삭제</a></td>
 								</tr>
 								<tr>
 									<td>1</td>
-									<td>2022-05-16</td>
 									<td>스타벅스 강남점</td>
 									<td>스터디 그룹 정기회의</td>
+									<td><a href="#">수정/삭제</a></td>
 								</tr>
 								<tr>
 									<td>1</td>
-									<td>2022-05-16</td>
 									<td>스타벅스 강남점</td>
 									<td>스터디 그룹 정기회의</td>
+									<td><a href="#">수정/삭제</a></td>
 								</tr>
 							</table>
 						</div>
@@ -297,28 +304,28 @@
 
 							<tr>
 								<td>1</td>
-								<td>[필독!] 그룹이용규칙입니다(2022년 oo월 oo일 수정)</td>
+								<td><a title="상세보기(클릭)" href="#">[필독!] 그룹이용규칙입니다(2022년 oo월 oo일 수정)</a></td>
 								<td>2022-04-21</td>
 								<td>31</td>
 							</tr>
 							
 							<tr>
 								<td>1</td>
-								<td>[필독!] 그룹이용규칙입니다(2022년 oo월 oo일 수정)</td>
+								<td><a title="상세보기(클릭)" href="#">[필독!] 그룹이용규칙입니다(2022년 oo월 oo일 수정)</a></td>
 								<td>2022-04-21</td>
 								<td>31</td>
 							</tr>
 							
 							<tr>
 								<td>1</td>
-								<td>[필독!] 그룹이용규칙입니다(2022년 oo월 oo일 수정)</td>
+								<td><a title="상세보기(클릭)" href="#">[필독!] 그룹이용규칙입니다(2022년 oo월 oo일 수정)</a></td>
 								<td>2022-04-21</td>
 								<td>31</td>
 							</tr>
 							
 							<tr>
 								<td>1</td>
-								<td>[필독!] 그룹이용규칙입니다(2022년 oo월 oo일 수정)</td>
+								<td><a title="상세보기(클릭)" href="#">[필독!] 그룹이용규칙입니다(2022년 oo월 oo일 수정)</a></td>
 								<td>2022-04-21</td>
 								<td>31</td>
 							</tr>

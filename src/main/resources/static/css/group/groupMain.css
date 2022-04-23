@@ -266,7 +266,7 @@
     background-color: white;
 }
 
-.sec_cal .cal_wrap .day.current.today {
+.sec_cal .cal_wrap .day.current.active {
     background-color: #d263c9;
     color: white;
     border-radius: 2px;
