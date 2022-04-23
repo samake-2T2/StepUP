@@ -3,12 +3,19 @@ package com.teampjt.StepUP.controller;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.UserVO;
+import com.teampjt.StepUP.group.GroupService;
 import com.teampjt.StepUP.user.UserService;
 import com.teampjt.StepUP.util.Criteria;
 import com.teampjt.StepUP.util.PageVO;
@@ -16,9 +23,13 @@ import com.teampjt.StepUP.util.PageVO;
 @Controller
 @RequestMapping("/group")
 public class GroupController {
-	
+		
 	@Autowired
 	public UserService userService;
+	
+	@Autowired
+	@Qualifier("/groupService")
+	private GroupService groupService;
 
 	@GetMapping("/groupApplication")
 	public String groupApplication() {
@@ -62,18 +73,56 @@ public class GroupController {
 		return "group/groupDetail";
 	}
 	
+	//공지목록페이지
 	@GetMapping("/groupNotice")
-	public String groupNotice() {
+	public String groupNotice(Model model) {
+		
+		ArrayList<GroupNoticeVO> noticeList = groupService.getNoticeList();
+		model.addAttribute("noticeList", noticeList);
+		
 		return "group/groupNotice";
 	}
 	
+	//공지상세보기
 	@GetMapping("/groupNoticeDetail")
-	public String groupNoticeDetail() {
+	public String groupNoticeDetail(@RequestParam("groupnotice_no") int groupnotice_no,
+									Model model) {
+		
+		GroupNoticeVO gnVO = groupService.getNoticeDetail(groupnotice_no);
+		model.addAttribute("gnVO", gnVO);
+		
+		groupService.updatecount(groupnotice_no);
+		
 		return "group/groupNoticeDetail";
 	}
 	
+	//공지등록페이지
 	@GetMapping("/groupNoticeReg")
 	public String groupNoticeReg() {
 		return "group/groupNoticeReg";
+	}
+	
+	//그룹공지등록 폼
+	@PostMapping("/groupNoticeForm")
+	public String groupNoticeForm(GroupNoticeVO gnVO,
+								  RedirectAttributes RA) {
+		
+		
+		
+		int result = groupService.noticeRegist(gnVO);
+		
+		if(result == 1) {
+			RA.addFlashAttribute("msg", "공지가 등록되었습니다"); 
+		}else {
+			RA.addFlashAttribute("msg", "공지등록에 실패하였습니다");
+		}
+		
+		return "redirect:/group/groupNotice";
+	}
+	
+	//그룹공지수정페이지
+	@GetMapping("/groupNoticeModify")
+	public String groupNoticeModify() {
+		return "group/groupNoticeModify";
 	}
 }
