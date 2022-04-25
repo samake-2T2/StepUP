@@ -37,13 +37,20 @@
 			<ul class="navbar-right">
 				<li th:if="${session.userVO} == null"><a href="/user/login"><span>로그인</span></a></li>
 				<li th:if="${session.userVO} == null"><a class="joinbutton" href="/user/userJoin"><span>회원가입</span></a></li>
-				<div class="dropdown" th:if="${session.userVO} != null">
+                <div class="dropdown" th:if="${session.userVO} != null">
                     <button class="dropbtn">스터디관리</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="group/groupList">내 스터디그룹</a></li>
+                        </ul>
+                    </div>
+                </div>
+				<div class="dropdown" th:if="${session.userVO} != null">
                     <button class="dropbtn">[[${session.userVO.user_name}]]님</button>
                     <div class="dropdown-content">
                         <ul>
-                            <li><a href="#">회원정보</a></li>
-                            <li><a href="/user/logout">로그아웃</a></li>
+                            <li><a href="user/userMypage">회원정보</a></li>
+                            <li><a href="user/logout">로그아웃</a></li>
                         </ul>
                     </div>
                 </div>
