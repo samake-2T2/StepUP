@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.UserVO;
 import com.teampjt.StepUP.group.GroupService;
@@ -122,5 +123,31 @@ public class GroupController {
 	@GetMapping("/groupNoticeModify")
 	public String groupNoticeModify() {
 		return "group/groupNoticeModify";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+
+	@PostMapping("/groupCommentForm")
+	public String groupNoticeForm(GroupDetailCommentVO gdcVO,
+								  RedirectAttributes RA) {
+	
+		System.out.println(gdcVO.toString());
+		
+		int result = groupService.commentRegist(gdcVO);
+		
+		if(result == 1) {
+			RA.addFlashAttribute("msg", "공지가 등록되었습니다"); 
+		}else {
+			RA.addFlashAttribute("msg", "공지등록에 실패하였습니다");
+		}
+		
+		
+		return "redirect:/group/groupDetail";
 	}
 }
