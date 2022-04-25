@@ -35,9 +35,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 공지목록 -->
 	<select id="getNoticeList" resultType="GroupNoticeVO">
-		select * from groupnotice 
-		where groupnotice_no 
-		order by groupnotice_no desc
+		<![CDATA[
+		select *
+		from (select A.*,
+		@ROWNUM := @ROWNUM + 1 as RN
+		from (select * 
+			from groupnotice
+			where groupnotice_no
+			order by groupnotice_no desc) A, (select @ROWNUM := 0) D
+		) B
+		where RN > (#{page}-1)*#{amount} and RN <= #{page}*#{amount};
+		]]>
 	</select>
 	
 	<!-- 공지상세보기 -->
@@ -51,5 +59,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update groupnotice set groupnotice_count = groupnotice_count + 1 
 		where groupnotice_no = #{groupnotice_no}
 	</update>
-
+	
+	<!-- 공지수정페이지 -->
+	<select id="getNoticeModify" resultType="GroupNoticeVO">
+		select * from groupnotice
+		where groupnotice_no = #{groupnotice_no}
+	</select>
+	
+	<!-- 수정하기 -->
+	<update id="noticeUpdate">
+		update groupnotice 
+		set groupnotice_title = #{groupnotice_title},
+			groupnotice_content = #{groupnotice_content}
+		where groupnotice_no = #{groupnotice_no}
+	</update>
+	
+	<!-- 삭제하기 -->
+	<delete id="noticeDelete">
+		delete from groupnotice
+		where groupnotice_no = #{groupnotice_no}
+	</delete>
+	
+	<!-- 총 게시글 수 -->
+	<select id="getTotal" resultType="int">
+		select count(*) AS total
+		from groupnotice
+		where groupnotice_no = #{groupnotice_no}
+	</select>
 </mapper>

@@ -31,29 +31,29 @@
                         그룹 공지사항
                     </div>
                     
-                    <form class="app-form">
-                          
+                    <form class="app-form" name="noticeUpdate" action="noticeUpdate" method="post">
+                          <input type="hidden" name="groupnotice_no" th:value="${gnVO.groupnotice_no}"/>
                         <div class="app-box">
                             <label>작성날짜</label>
-                            <input type="date" class="form-control" id="todayDate" readonly>
+                            <input type="text" class="form-control" th:value="${#temporals.format(gnVO.groupnotice_regdate, 'yyyy-MM-dd')}" readonly>
                         </div>
 
                         <div class="app-box">
                             <label>작성자</label>
-                            <input type="text" class="form-control" value="홍길동" readonly>
+                            <input type="text" class="form-control" name="groupnotice_writer" th:value="${gnVO.groupnotice_writer}" readonly>
                         </div>
 
                         <div class="app-box">
                             <label>제목</label>
-                            <input type="text" class="form-control" value="공지사항입니다">
+                            <input type="text" class="form-control" name="groupnotice_title" th:value="${gnVO.groupnotice_title}">
                         </div>
 
                         <div class="app-box">
                         <label>내용</label><br>
-                        <textarea class="app-text" rows="50" cols="500" placeholder="내용을 입력해주세요"></textarea>
+                        <textarea class="app-text" rows="50" cols="500" name="groupnotice_content" th:value="${gnVO.groupnotice_content}">[[${gnVO.groupnotice_content}]]</textarea>
                         </div>
 
-                        <a href="#" class="w-btn btn-danger btn-block5">취소</a>
+                        <a href="/group/groupNotice" class="w-btn btn-danger btn-block5">취소</a>
                         <button type="submit" class="w-btn btn-block4">수정</button>
                     </form>
                 </div>
@@ -61,8 +61,6 @@
         </div>
     </section>
     </th:block>
-    <script>
-   document.getElementById('todayDate').value = new Date().toISOString().substring(0, 10);
-   </script>
+
 </body>
 </html>
