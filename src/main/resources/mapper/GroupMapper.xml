@@ -12,9 +12,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE category_lv = 1
 	</select>
 	
+	<!-- 2, 3번째 카테고리 -->
 	<select id="getCategoryChild" resultType="SearchCategoryVO">
-		
-	
+		SELECT *
+		FROM search_category
+		WHERE category_group_id = #{category_group_id}
+		AND category_parent_lv = #{category_lv}
+		AND category_detail_parent_lv = #{category_detail_lv}
 	</select>
 
 	<!-- 공지등록 -->

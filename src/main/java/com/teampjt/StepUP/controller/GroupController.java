@@ -28,7 +28,6 @@ public class GroupController {
 	public UserService userService;
 	
 	@Autowired
-	@Qualifier("/groupService")
 	private GroupService groupService;
 
 	@GetMapping("/groupApplication")
