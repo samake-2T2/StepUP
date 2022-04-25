@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
 
@@ -43,6 +45,18 @@ public class GroupServiceImpl implements GroupService {
 	@Override
 	public int updatecount(int groupnotice_no) {
 		return groupMapper.updatecount(groupnotice_no);
+	}
+
+	@Override
+	public ArrayList<GroupDetailCommentVO> getComment() {
+		
+		return groupMapper.getComment();
+	}
+
+	@Override
+	public int commentRegist(GroupDetailCommentVO gdcVO) {
+		// TODO Auto-generated method stub
+		return groupMapper.commentRegist(gdcVO);
 	}
 
 }

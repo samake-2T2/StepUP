@@ -84,30 +84,20 @@
 
 
 
-						<form>
-							<!--전체영역ㄴ-->
+						<form action="groupCommentForm" method="post">
+							<!--전체영역-->
 							<div class="reply-img">
 								<!--이미지영역-->
-								<img src="/img/group/profile.png" alt="프로필">
-							</div>
+								<img src="/img/group/profile.png" alt="프로필">						
+								</div>
 							<div class="reply-content">
 								<!--내용-->
-								<textarea class="form-control" placeholder="내용입력"
-									style="border-radius: 2px; width: 100%;"></textarea>
-								<div class="reply-control">
-									<!--버튼영역-->
-									<div class="reply-input">
-										<!--왼 -->
-										<input type="text" class="form-control" placeholder="아이디"
-											style="border-radius: 2px; display: inline;"> <input
-											type="text" class="form-control" placeholder="비밀번호"
-											style="border-radius: 2px; display: inline;">
-									</div>
-
-									<!--오른쪽-->
-								</div>
+								<textarea class="form-control" placeholder="내용입력" name="comment_content"
+									style="border-radius: 2px; width: 100%;"></textarea>	
 							</div>
-							<button type="button" class="btn-btn-info">등록하기</button>
+							<input name="user_name" type="hidden" th:value="${session.userVO.user_name}">
+							<input name="user_no" type="hidden" th:value="${session.userVO.user_no}">
+							<button type="submit" class="btn-btn-info">등록하기</button>
 						</form>
 					</div>
 

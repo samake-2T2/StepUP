@@ -55,5 +55,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update groupnotice set groupnotice_count = groupnotice_count + 1 
 		where groupnotice_no = #{groupnotice_no}
 	</update>
+	
+	
+	<select id=""></select>
+	
+	<!-- 댓글등록 -->
+	<insert id="commentRegist">
+		insert into group_detail_comment(
+										 user_name,
+										 comment_content,										 
+										 user_no)
+		values(
+			   #{user_name},
+			   #{comment_content},			
+			   #{user_no}
+			   )
+	
+	</insert>
 
 </mapper>
