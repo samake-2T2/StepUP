@@ -46,22 +46,43 @@
                     </tr>
                 </tbody>
             </table>
+            <a href="/group/groupNoticeReg" class="w-btn btn-block4">글작성</a>
         </div>
     </div>
-    <div class="board-list-footer">
+    
+    
+    <div class="board-list-footer page">
         <ul>
-          <li><a>◀</a></li>
-          <li><a>1</a></li>
-          <li><a>2</a></li>
-          <li><a>3</a></li>
-          <li><a>4</a></li>
-          <li><a>5</a></li>
-          <li><a>6</a></li>
-          <li><a>7</a></li>
-          <li><a>8</a></li>
-          <li><a>9</a></li>
-          <li><a>10</a></li>
-          <li><a>▶</a></li>
+      	
+        <th:block th:if="${pageVO.realEnd != 0}">
+          <li>
+          	<a th:href="@{/group/groupNotice(page=1, amount=${pageVO.amount})}">◀◀</a>
+          </li>
+        </th:block>
+        
+        <th:block th:if="${pageVO.prev}">
+          <li>
+          	<a th:href="@{/group/groupNotice(page=${pageVO.start - 1}, amount=${pageVO.amount})}">◀</a>
+          </li>
+        </th:block>
+        
+        <th:block th:each="page : ${pageVO.pageList}">
+          <li th:class="${pageVO.page == page ? 'on' : ''}">
+          	<a th:href="@{/group/groupNotice(page=${page}, amount=${pageVO.amount})}">[[${page}]]</a>
+          </li>
+        </th:block>
+        
+        <th:block th:if="${pageVO.next}">
+          <li>
+          	<a th:href="@{/group/groupNotice(page=${pageVO.end + 1}, amount=${pageVO.amount})}">▶</a>
+          </li>
+        </th:block>
+        
+        <th:block th:if="${pageVO.realEnd != 0}">
+          <li>
+          	<a th:href="@{/group/groupNotice(page=${pageVO.realEnd}, amount=${pageVO.amount})}">▶▶</a>
+          </li>
+        </th:block>  
         </ul>
       </div>
 </section>

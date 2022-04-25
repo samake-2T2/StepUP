@@ -81,10 +81,14 @@ public class GroupController {
 	
 	//공지목록페이지
 	@GetMapping("/groupNotice")
-	public String groupNotice(Model model) {
+	public String groupNotice(Model model, Criteria cri) {
 		
-		ArrayList<GroupNoticeVO> noticeList = groupService.getNoticeList();
+		ArrayList<GroupNoticeVO> noticeList = groupService.getNoticeList(cri);
+		int total = groupService.getTotal();
+		PageVO pageVO = new PageVO(cri, total);
+		
 		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("pageVO", pageVO);
 		
 		return "group/groupNotice";
 	}
@@ -128,17 +132,39 @@ public class GroupController {
 	
 	//그룹공지수정페이지
 	@GetMapping("/groupNoticeModify")
-	public String groupNoticeModify() {
+	public String groupNoticeModify(@RequestParam("groupnotice_no") int groupnotice_no,
+									Model model) {
+		
+		GroupNoticeVO gnVO = groupService.getNoticeModify(groupnotice_no);
+		model.addAttribute("gnVO", gnVO);
+		
 		return "group/groupNoticeModify";
 	}
 	
+	//공지수정 폼
+	@PostMapping("/noticeUpdate")
+	public String noticeUpdate(GroupNoticeVO gnVO,
+							   RedirectAttributes RA) {
+		
+		int result = groupService.noticeUpdate(gnVO);
+		
+		if(result == 1) {
+			RA.addFlashAttribute("msg", "공지가 수정되었습니다");
+		}else {
+			RA.addFlashAttribute("msg", "공지가 수정되지않았습니다");
+		}
+		
+		return "redirect:/group/groupNotice";
+	}
 	
-	
-	
-	
-	
-	
-	
+	//공지 삭제폼
+	@PostMapping("/noticeDelete")
+	public String noticeDelete(@RequestParam("groupnotice_no") int groupnotice_no) {
+		
+		int result = groupService.noticeDelete(groupnotice_no);
+		
+		return "redirect:/group/groupNotice";
+	}
 
 	@PostMapping("/groupCommentForm")
 	public String groupNoticeForm(GroupDetailCommentVO gdcVO,

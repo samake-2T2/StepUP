@@ -28,7 +28,7 @@
          그룹 공지사항
         </div>
 
-        <div class="board-box">
+        <form class="board-box" name="noticeDelete" action="noticeDelete" method="post">
             <div class="board-main">
             	<input type="hidden" name="groupnotice_no" th:value="${gnVO.groupnotice_no}"/>
             	
@@ -51,13 +51,14 @@
                     </li>
                 </ul>
                 <div class="box-btn">
-                    <a th:href="@{삭제JS}" class="w-btn btn-danger list-btn">삭제</a>
-                    <a th:href="@{/group/groupNoticeModify(groupnotice_no=${gnVO.groupnotice_no})}" class="w-btn list-btn" th:onclick="|notice_valid()|">수정</a>
+                    <button type="submit" class="w-btn btn-danger list-btn">삭제</button>
+                    <a th:href="@{/group/groupNoticeModify(groupnotice_no=${gnVO.groupnotice_no})}" class="w-btn list-btn" >수정</a>
                     <a href="/group/groupNotice" class="w-btn list-btn2">목록</a>
                 </div>
             </div>
-        </div>
-
+        </form>
 </th:block>
+
+
 </body>
 </html>
