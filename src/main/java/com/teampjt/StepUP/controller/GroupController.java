@@ -44,6 +44,13 @@ public class GroupController {
 		return "group/groupRegist";
 	}
 	
+	// 내가 가입한 그룹리스트
+	@GetMapping("/groupList")
+	public String groupList() {
+		
+		return "group/groupList";
+	}
+	
 	//그룹 신청인 목록 조회(그룹장이 확인)
 	@GetMapping("/groupRegList")
 	public String groupRegList(Model model, Criteria cri) {
