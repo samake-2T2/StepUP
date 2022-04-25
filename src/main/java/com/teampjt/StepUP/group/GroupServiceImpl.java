@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
 import com.teampjt.StepUP.util.Criteria;
@@ -64,6 +66,16 @@ public class GroupServiceImpl implements GroupService {
 	@Override
 	public int getTotal() {
 		return groupMapper.getTotal();
+
+	public ArrayList<GroupDetailCommentVO> getComment() {
+		
+		return groupMapper.getComment();
+	}
+
+	@Override
+	public int commentRegist(GroupDetailCommentVO gdcVO) {
+		
+		return groupMapper.commentRegist(gdcVO);
 	}
 
 }

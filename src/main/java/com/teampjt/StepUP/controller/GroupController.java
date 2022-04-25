@@ -8,11 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.UserVO;
 import com.teampjt.StepUP.group.GroupService;
@@ -43,6 +43,13 @@ public class GroupController {
 	@GetMapping("/groupRegist")
 	public String groupRegist() {
 		return "group/groupRegist";
+	}
+	
+	// 내가 가입한 그룹리스트
+	@GetMapping("/groupList")
+	public String groupList() {
+		
+		return "group/groupList";
 	}
 	
 	//그룹 신청인 목록 조회(그룹장이 확인)
@@ -158,7 +165,22 @@ public class GroupController {
 		
 		return "redirect:/group/groupNotice";
 	}
+
+	@PostMapping("/groupCommentForm")
+	public String groupNoticeForm(GroupDetailCommentVO gdcVO,
+								  RedirectAttributes RA) {
 	
-	
-	
+		System.out.println(gdcVO.toString());
+		
+		int result = groupService.commentRegist(gdcVO);
+		
+		if(result == 1) {
+			RA.addFlashAttribute("msg", "공지가 등록되었습니다"); 
+		}else {
+			RA.addFlashAttribute("msg", "공지등록에 실패하였습니다");
+		}
+		
+		
+		return "redirect:/group/groupDetail";
+	}
 }

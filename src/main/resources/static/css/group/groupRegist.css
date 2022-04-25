@@ -2,21 +2,9 @@
     border-radius: 0;
 }
 
-.form-join {
-    margin: 0 auto;
-    float: none;
-    width: 450px;
-    padding: 0;
-    /* 
-    부트스트랩의 클래스가 
-    기본적으로 float: left속성을 가지고 있어서 
-    없애주어야 가운데 정렬 가능
-     */
-}
-
-.form-join form {
-    /* 가로, 아래, 흐릿한정도, 색상 */
-    padding: 30px 40px;
+.wrap {
+	margin: 0 auto;
+	width: 1250px;
 }
 
 .form-group {
@@ -95,9 +83,10 @@
 }
 
 .reg_form {
-    margin-bottom: 50px;
+	width: 450px;
     border: 1px solid #cdcdcd;
-    /* text-align: center; */
+    padding: 30px 40px;
+    margin: 0 auto;
 }
 
 .btn-align {

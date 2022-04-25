@@ -36,7 +36,17 @@ public class AjaxController {
 		System.out.println(category_detail_lv);
 		System.out.println("-------------------");
 		
-		return null;
+		
+		//마이바티스 전달을 위해 vo에 저장
+		SearchCategoryVO vo = SearchCategoryVO.builder()
+				                              .category_group_id(category_group_id)
+				                              .category_lv(category_lv)
+				                              .category_detail_lv(category_detail_lv)
+				                              .build();
+		
+		ArrayList<SearchCategoryVO> list = groupService.getCategoryChild(vo);
+		
+		return list;
 	}
 			
 		

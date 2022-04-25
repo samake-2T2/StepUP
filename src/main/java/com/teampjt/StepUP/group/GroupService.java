@@ -2,12 +2,18 @@ package com.teampjt.StepUP.group;
 
 import java.util.ArrayList;
 
+import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 
 import com.teampjt.StepUP.command.SearchCategoryVO;
 import com.teampjt.StepUP.util.Criteria;
 
 public interface GroupService {
+	
+	
+	public ArrayList<GroupDetailCommentVO> getComment();
+	
+	public int commentRegist(GroupDetailCommentVO gdcVO); //글 등록
 
 	//카테고리 조회
 	public ArrayList<SearchCategoryVO> getCategory();
