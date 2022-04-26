@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="../js/bootstrap.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../js/freeboard.js"></script>
 
 <link rel="stylesheet" href="../css/common.css">
 <!-- 공통 -->
@@ -79,11 +81,6 @@
 					<div class="reply-wrap">
 
 
-
-
-
-
-
 						<form action="groupCommentForm" method="post">
 							<!--전체영역-->
 							<div class="reply-img">
@@ -93,7 +90,7 @@
 							<div class="reply-content">
 								<!--내용-->
 								<textarea class="form-control" placeholder="내용입력" name="comment_content"
-									style="border-radius: 2px; width: 100%;"></textarea>	
+									style="border-radius: 2px; width: 100%;" required="required"></textarea>	
 							</div>
 							<input name="user_name" type="hidden" th:value="${session.userVO.user_name}">
 							<input name="user_no" type="hidden" th:value="${session.userVO.user_no}">
@@ -102,75 +99,47 @@
 					</div>
 
 
-
-
-
-
-
-
-
-
-
+				
+					<th:block th:each="commentVO:${list}">
 					<div class="reply-wrap">
 						<div class="reply-img">
 							<img src="/img/group/profile.png" alt="프로필">
 						</div>
 						<div class="reply-content">
 							<div class="reply-group">
-								<strong>이봉주</strong> <small>2022/02/17</small> <a href="#"><i
-									class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#"><i
-									class="glyhpicon glyphicon-remove"></i>삭제</a>
+								<strong>[[${commentVO.user_name}]]</strong> <small>[[${commentVO.comment_regdate}]]</small> <a href="#">
+								<i class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#">
+								<i class="glyhpicon glyphicon-remove"></i>삭제</a>
 							</div>
-							<p>알려줘~알려줘~~</p>
+							<p>[[${commentVO.comment_content}]]</p>
 
 						</div>
 					</div>
-					<div class="reply-wrap">
-						<div class="reply-img">
-							<img src="/img/group/profile.png" alt="프로필">
-						</div>
-						<div class="reply-content">
-							<div class="reply-group">
-								<strong>류현진</strong> <small>2022/02/17</small> <a href="#"><i
-									class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#"><i
-									class="glyhpicon glyphicon-remove"></i>삭제</a>
-							</div>
-							<p>궁금궁금궁금궁금~</p>
-
-						</div>
-					</div>
-					<div class="reply-wrap">
-						<div class="reply-img">
-							<img src="/img/group/profile.png" alt="프로필">
-						</div>
-						<div class="reply-content">
-							<div class="reply-group">
-								<strong>박지성</strong> <small>2022/02/17</small> <a href="#"><i
-									class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#"><i
-									class="glyhpicon glyphicon-remove"></i>삭제</a>
-							</div>
-							<p>과목좀 자세하게 알려주세요~</p>
-						</div>
-					</div>
-					<div class="reply-wrap">
-						<div class="reply-img">
-							<img src="/img/group/profile.png" alt="프로필">
-						</div>
-						<div class="reply-content">
-							<div class="reply-group">
-								<strong>박찬호</strong> <small>2022/02/17</small> <a href="#"><i
-									class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#"><i
-									class="glyhpicon glyphicon-remove"></i>삭제</a>
-							</div>
-							<p>과목좀 자세하게 알려주세요~</p>
-						</div>
-
-					</div>
+					<div class="r_contentsx1">
+                    	 <textarea name="comment_contents" id="" cols="30" rows="10"></textarea>
+                     	 <button type="submit" class="re-coment-btn" name="comment_contents"><a>수정하기</a></button>
+                     	 </div><br>
+					</th:block>
+					
+					
+			
+					
 				</div>
 			</div>
 		</div>
 	</section>
 
 </th:block>
+
+<script th:inline="javascript">
+	//메시지 출력문
+	(function() {
+		var msg = JSON.parse('[[${msg}]]');	
+		if(msg != null) {
+			alert(msg);
+		}
+	})();
+</script>
+
 
 </html>

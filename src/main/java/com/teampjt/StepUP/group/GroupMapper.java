@@ -45,5 +45,8 @@ public interface GroupMapper {
   
 	public int getTotal(); //전체게시글
 	
+	public ArrayList<GroupDetailCommentVO> getGroupList();
+
 	public GroupNoticeVO movePage(int groupnotice_no); //이전글,다음글
+
 }

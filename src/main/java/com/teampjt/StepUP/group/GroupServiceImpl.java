@@ -93,6 +93,12 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
+	public ArrayList<GroupDetailCommentVO> getGroupList() {
+		
+		return groupMapper.getGroupList();
+}
+  
+  @Override
 	public GroupNoticeVO movePage(int groupnotice_no) {
 		return groupMapper.movePage(groupnotice_no);
 	}
