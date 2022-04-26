@@ -92,8 +92,9 @@ public class GroupServiceImpl implements GroupService {
 		return groupMapper.commentRegist(gdcVO);
 	}
 
-	
-
-	
+	@Override
+	public GroupNoticeVO movePage(int groupnotice_no) {
+		return groupMapper.movePage(groupnotice_no);
+	}
 
 }
