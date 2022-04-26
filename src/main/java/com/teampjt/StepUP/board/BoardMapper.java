@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.teampjt.StepUP.command.FreeBoardVO;
+import com.teampjt.StepUP.command.MainCommentsVO;
 
 
 @Mapper
@@ -24,4 +25,16 @@ public interface BoardMapper {
 	
 	//글 삭제
 	public int fb_delete(FreeBoardVO freeBoardVO);
+	
+	//댓글 등록
+	public int mc_regist(MainCommentsVO mainContentsVO);
+	
+	//댓글 목록 불러오기
+    public ArrayList<MainCommentsVO> mc_getList(MainCommentsVO mainComentsVo);
+
+	//댓글 삭제
+	public int mc_delete(MainCommentsVO mainCommentsVO);
+
+	//댓글 업데이트
+	public int mc_UpdateContents(MainCommentsVO MainCommentsVO);
 }

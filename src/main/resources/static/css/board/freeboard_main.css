@@ -195,7 +195,32 @@
       resize: none;
       height: 80px;
    }
+   
+   
+   
+   
+   
+   /* 댓글영역 */
+	.coment_info .r_contents{
+	   display: none;
+	}
+	.coment_info .active{
+	   display: block;
+	}
+   	.coment_info .active > textarea,
+   	.coment_info .active > .re-coment-btn
+   	{
+   		width:100%;
+   		height: 25px;
+   		resize: none;
+   		
+   	}
+ 
+ 
+   
 }
+
+
 
 
 
