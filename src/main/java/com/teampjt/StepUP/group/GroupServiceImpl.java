@@ -4,8 +4,11 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
+import com.teampjt.StepUP.util.Criteria;
 
 @Service("groupService")
 public class GroupServiceImpl implements GroupService {
@@ -31,8 +34,8 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public ArrayList<GroupNoticeVO> getNoticeList() {
-		return groupMapper.getNoticeList();
+	public ArrayList<GroupNoticeVO> getNoticeList(Criteria cri) {
+		return groupMapper.getNoticeList(cri);
 	}
 
 	@Override
@@ -43,6 +46,36 @@ public class GroupServiceImpl implements GroupService {
 	@Override
 	public int updatecount(int groupnotice_no) {
 		return groupMapper.updatecount(groupnotice_no);
+	}
+
+	@Override
+	public GroupNoticeVO getNoticeModify(int groupnotice_no) {
+		return groupMapper.getNoticeModify(groupnotice_no);
+	}
+
+	@Override
+	public int noticeUpdate(GroupNoticeVO gnVO) {
+		return groupMapper.noticeUpdate(gnVO);
+	}
+
+	@Override
+	public int noticeDelete(int groupnotice_no) {
+		return groupMapper.noticeDelete(groupnotice_no);
+	}
+
+	@Override
+	public int getTotal() {
+		return groupMapper.getTotal();
+
+	public ArrayList<GroupDetailCommentVO> getComment() {
+		
+		return groupMapper.getComment();
+	}
+
+	@Override
+	public int commentRegist(GroupDetailCommentVO gdcVO) {
+		
+		return groupMapper.commentRegist(gdcVO);
 	}
 
 }

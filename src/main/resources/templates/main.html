@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 
-
 <!-- 부트스트랩 적용방법 (min or 일반 파일중 하나를 링크) -->
 <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
 
@@ -16,9 +15,6 @@
 
 <!-- 스타일 css디자인 -->
 <link rel="stylesheet" href="../css/main.css">
-
-<!-- 스타일 js선언 -->
-<script src="../js/style.js"></script>
 
 </head>
 
@@ -85,26 +81,16 @@
 										<label> 카테고리 </label>
 									</div>
 
+									<input type="hidden" name="group_category" value="#">
+									
 									<div class="group_main_list_category_major">
-										<select id="major_option" class="major_option">
-											<option value>선택하세요</option>
-											<!-- <option>입시</option>
-                                        <option>취업/창업</option>
-                                        <option>자격증</option>
-                                        <option>어학/회화</option>
-                                        <option>IT/인터넷</option>
-                                        <option>취미/문화</option> -->
-										</select>
+										<!-- 대분류 -->
 									</div>
 
 									<div class="group_main_list_category_minor">
-										<select id="minor_option" class="minor_option">
-											<option value>없음</option>
-											<!-- <option></option>
-                                        <option></option>
-                                        <option></option>
-                                        <option></option>
-                                        <option></option> -->
+										<!-- 소분류 -->	
+										<select class="minor_option" id="minor_option" >
+											<option>선택하세요</option>
 										</select>
 									</div>
 								</div>
@@ -289,34 +275,102 @@
 
 	$(document).ready(function() {
 		
-		console.log(11);
-		
 		$.getJSON("../getCategory", 
 				  function(data) {
+			
+				  console.log(data);
 				
-			      console.log(data);
-			      
-                  /* 
-                  <option>입시</option>
-                  <option>취업/창업</option>
-                  <option>자격증</option>
-                  <option>어학/회화</option>
-                  <option>IT/인터넷</option>
-                  <option>취미/문화</option> 
-                  */
-              
                   var category01 = "";
+                  
+                  category01 += '<select class="major_option" id="major_option" onchange="getCategory_List(event);"><option class="c1 please">선택하세요</option>';
+                  
                   data.forEach(function(result, index) {
                 	  
-                	  category01 += '<option data-set=' + JSON.stringify(result) + '>' + result.category_detail_nm + '</option>';
+                	  category01 += '<option class="c1" data-set=' + JSON.stringify(result) + '>' + result.category_detail_nm + '</option>';
                   })
+                  
+                  category01 += '</select>';
                   
                   console.log(category01);
                   
-                  $(".major_option").append(category01);
+                  $(".group_main_list_category_major").append(category01);
                   
+                  $(".minor").remove(category02);
 		});
 	})
+	
+	/* 카테고리 */
+	function getCategory_List(e) {
+    	//e.preventDefault(); //고유이벤트중지
+    	//if( e.target.tagName != 'SELECT') return; //태그검증
+    
+    	var obj = $(e.target).find('option:selected').data("set"); //.data("set"); //데이터셋을 가져옴 
+		console.log(obj);
+    //태그처리
+    if(obj.category_lv == 1 || obj.category_lv == 2) {
+       console.log('1lv');
+       //$().loading(); //로딩
+       $(e.currentTarget).category_remove(); //이전 카테고리삭제
+       //////////////////////////////////////////////////
+       //비동기콜백에서 category_create() 호출
+       //비동기호출후 category_set() 호출 
+       //console.log(obj);
+       $.ajax({
+          type: "get",
+          url: "../getCategoryChild/"+obj.category_group_id+"/"+obj.category_lv+"/"+obj.category_detail_lv,
+          dataType: "json", 
+          //data:,
+          //contentType:,
+          success:function(data){
+	
+		   category_create(data); //응답 받은 데이터를 카테고리 생성함수에 전달
+            
+          },
+          error: function(error, status){
+             alert("카테고리 조회 실패. 관리자에 문의하세요.");
+          }
+       })
+
+    }
+    
+    
+    var p = $(e.target).category_set();
+	console.log(p);
+}
+ 	//카테고리세팅
+	$.fn.category_set = function() {
+	
+	var category_id = this.data("set").category_id;
+	var group_id = this.data("set").category_group_id;
+	$("input[name='group_category']").val(category_group_id + category_id ); //name이 group_category인 곳에 추가
+}
+	//이전카테고리 삭제JS
+	$.fn.category_remove = function() {
+	
+	while(this.next().length != 0) {
+		$(this).next().remove();
+	}
+}
+	//다음카테고리 생성JS
+	function category_create(data) {
+		
+    var category02 = "";
+	 
+    
+	data.forEach(function(result, index) {
+                	
+    category02 += '<option class="minor" data-set=' + JSON.stringify(result) + '>' + result.category_detail_nm + '</option>';
+    
+	})
+     
+    console.log(category02);
+    
+	
+    $('option.minor').remove();
+    $(".minor_option").append(category02);
+    	
+      	
+}
 
 	//데이터 개수 변경 JS
 	function group_dataHandler(a) {

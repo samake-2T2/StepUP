@@ -23,6 +23,9 @@ public class StudyGroupVO {
 	//스터디 그룹원 규모
 	private Integer group_participant_amount;
 	
+	// 스터디 그룹장 회원번호
+	private Integer group_leader_no;
+	
 	//스터디 그룹장 이름
 	private String group_leader_name;
 	
