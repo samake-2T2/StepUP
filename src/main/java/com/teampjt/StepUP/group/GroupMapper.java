@@ -5,12 +5,19 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.teampjt.StepUP.command.SearchCategoryVO;
+import com.teampjt.StepUP.command.StudyGroupVO;
 import com.teampjt.StepUP.util.Criteria;
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 
 @Mapper
 public interface GroupMapper {
+	
+	//메인화면 스터디그룹 조회메서드
+	public ArrayList<StudyGroupVO> getGroupList(Criteria cri); 
+	
+	//전체 그룹 조회메서드
+	public int getGroupTotal(Criteria cri);
 
 	public ArrayList<GroupDetailCommentVO> getComment();
 

@@ -9,6 +9,9 @@ public class Criteria {
 	private int page;
 	private int amount;
 	
+	//검색 키워드 추가
+	private String searchKeyword;
+	
 	//아무 값도 안 넘어오면 1페이지, 데이터 양 10개
 	public Criteria() {
 		this(1, 10);
