@@ -145,6 +145,8 @@ public class UserController {
 			return "user/login";
 		} else {			
 			session.setAttribute("userVO", userVO);
+			session.setAttribute("user_no", userVO.getUser_no());
+			
 
 			return "redirect:/main";
 		}
