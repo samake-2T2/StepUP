@@ -66,6 +66,7 @@ public class GroupServiceImpl implements GroupService {
 	@Override
 	public int getTotal() {
 		return groupMapper.getTotal();
+	}		
 
 	public ArrayList<GroupDetailCommentVO> getComment() {
 		
