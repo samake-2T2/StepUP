@@ -72,7 +72,13 @@
 					원하는 스터디 그룹을 찾아보세요</h3>
 
 				<div class="group_main_list_total_search">
-					<form class="group_main_list_total_search_form">
+				
+					<form class="group_main_list_total_search_form" name="main" action="main" method="get">
+					
+					<!-- 폼에 page값을 1, 데이터 개수, 서치 키워드를 보냄 -->
+					<input type="hidden" name="page" th:value="1">
+					<input type="hidden" name="amount" th:value="${pageVO.amount}">
+					
 						<div class="group_main_list_search_box">
 							<div class="group_main_list_search">
 								<div class="group_main_list_category_search">
@@ -81,7 +87,7 @@
 										<label> 카테고리 </label>
 									</div>
 
-									<input type="hidden" name="group_category" value="#">
+									<input type="hidden" name="group_category" value="">
 									
 									<div class="group_main_list_category_major">
 										<!-- 대분류 -->
@@ -89,8 +95,9 @@
 
 									<div class="group_main_list_category_minor">
 										<!-- 소분류 -->	
-										<select class="minor_option" id="minor_option" >
+										<select class="minor_option" id="minor_option">
 											<option>선택하세요</option>
+											
 										</select>
 									</div>
 								</div>
@@ -103,7 +110,7 @@
 
 									<div class="group_main_list_common_input">
 										<input type="text" id="keywordSearch"
-											placeholder="찾고 있는 스터디를 검색해보세요.">
+											placeholder="찾고 있는 스터디를 검색해보세요." name="searchKeyword">
 										<button id="common_input_btn" type="submit"
 											class="glyphicon glyphicon-search"></button>
 									</div>
@@ -255,14 +262,59 @@
 
 				<div class="group_main_list_pagenation">
 					<ul>
-						<li><a>◀</a></li>
-						<li><a>1</a></li>
-						<li><a>2</a></li>
-						<li><a>3</a></li>
-						<li><a>4</a></li>
-						<li><a>5</a></li>
-						<li><a>▶</a></li>
-					</ul>
+            			<th:block th:if="${pageVO.realEnd != 0}">
+                			<li>
+                    			<a th:href="@{/group/groupRegList(page=1, 
+                    											  amount=${pageVO.amount},
+                    											  searchKeyword=${pageVO.cri.searchKeyword}
+                    											  )}">
+                    				<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                    			</a>
+                			</li>
+                		</th:block>
+                
+                		<th:block th:if="${pageVO.prev}">
+                			<li style="margin-right:5px;">
+                				<a th:href="@{/group/groupRegList(page=${pageVO.start - 1}, 
+                				                                  amount=${pageVO.amount},
+                				                                  searchKeyword=${pageVO.cri.searchKeyword}
+                				                                  )}">
+              		  				<i class="fa fa-angle-left" aria-hidden="true"></i>
+              		  			</a>
+             		   		</li>
+            		    </th:block>
+                
+						<th:block th:each="page : ${pageVO.pageList}">
+							<li th:class="${pageVO.page == page? 'on' : ''}">
+								<a th:href="@{/group/groupRegList(page=${page}, 
+								                                  amount=${pageVO.amount},
+								                                  searchKeyword=${pageVO.cri.searchKeyword}
+								                                  )}">[[${page}]]</a>
+							</li>
+						</th:block>   
+				             
+              		  	<th:block th:if="${pageVO.next}">
+             			   	<li style="margin-left:5px;">
+              			  		<a th:href="@{/group/groupRegList(page=${pageVO.end + 1},
+              			  		                                  amount=${pageVO.amount},
+              			  		                                  searchKeyword=${pageVO.cri.searchKeyword}
+              			  		                                  )}">
+               			 			<i class="fa fa-angle-right" aria-hidden="true"></i>
+                				</a>
+                			</li>
+                	  	</th:block>
+                
+                		<th:block th:if="${pageVO.realEnd != 0}">
+	                		<li>
+    	            			<a th:href="@{/group/groupRegList(page=${pageVO.realEnd), 
+    	            			                                  amount=${pageVO.amount},
+    	            			                                  searchKeyword=${pageVO.cri.searchKeyword}
+    	            			                                  )}">
+        	        				<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            	    			</a>
+                			</li>
+                		</th:block>
+            		</ul>
 				</div>
 
 			</section>
@@ -282,11 +334,12 @@
 				
                   var category01 = "";
                   
-                  category01 += '<select class="major_option" id="major_option" onchange="getCategory_List(event);"><option class="c1 please">선택하세요</option>';
+                  category01 += '<select class="major_option" id="major_option" onchange="getCategory_List(event);" >';
                   
+                  category01 += '<option class="reset">선택하세요</option>';
                   data.forEach(function(result, index) {
                 	  
-                	  category01 += '<option class="c1" data-set=' + JSON.stringify(result) + '>' + result.category_detail_nm + '</option>';
+                	  category01 += '<option class="major" data-set=' + JSON.stringify(result) + '>' + result.category_detail_nm + '</option>';
                   })
                   
                   category01 += '</select>';
@@ -295,89 +348,116 @@
                   
                   $(".group_main_list_category_major").append(category01);
                   
-                  $(".minor").remove(category02);
+                  //$(".minor").remove(category02);
+                  
 		});
 	})
 	
 	/* 카테고리 */
 	function getCategory_List(e) {
-    	//e.preventDefault(); //고유이벤트중지
+    	e.preventDefault(); //고유이벤트중지
     	//if( e.target.tagName != 'SELECT') return; //태그검증
     
-    	var obj = $(e.target).find('option:selected').data("set"); //.data("set"); //데이터셋을 가져옴 
+    	var obj = $(e.target).find('option:selected').data("set"); //데이터셋을 가져옴 
 		console.log(obj);
+		
+    	
     //태그처리
-    if(obj.category_lv == 1 || obj.category_lv == 2) {
-       console.log('1lv');
-       //$().loading(); //로딩
-       $(e.currentTarget).category_remove(); //이전 카테고리삭제
-       //////////////////////////////////////////////////
-       //비동기콜백에서 category_create() 호출
-       //비동기호출후 category_set() 호출 
-       //console.log(obj);
-       $.ajax({
-          type: "get",
-          url: "../getCategoryChild/"+obj.category_group_id+"/"+obj.category_lv+"/"+obj.category_detail_lv,
-          dataType: "json", 
-          //data:,
-          //contentType:,
-          success:function(data){
-	
-		   category_create(data); //응답 받은 데이터를 카테고리 생성함수에 전달
-            
-          },
-          error: function(error, status){
-             alert("카테고리 조회 실패. 관리자에 문의하세요.");
-          }
-       })
+    if(obj != null) {
+    	
+        if(obj.category_lv == 1 || obj.category_lv == 2) {
+            console.log('1lv');
+            //$().loading(); //로딩
+            $(e.currentTarget).category_remove(); //이전 카테고리삭제
+            //////////////////////////////////////////////////
+            //비동기콜백에서 category_create() 호출
+            //비동기호출후 category_set() 호출 
+            //console.log(obj);
+            $.ajax({
+               type: "get",
+               url: "../getCategoryChild/"+obj.category_group_id+"/"+obj.category_lv+"/"+obj.category_detail_lv,
+               dataType: "json", 
+               //data:,
+               //contentType:,
+               success:function(data){
+     	
+     		   category_create(data); //응답 받은 데이터를 카테고리 생성함수에 전달
 
+               },
+               error: function(error, status){
+                  alert("카테고리 조회 실패. 관리자에 문의하세요.");
+               }
+            })
+
+         } 
+         
+         var p = $(e.target).category_set();
+     	
+     } else {
+    	 
+    	 category_reset();
+     }
+    	
     }
-    
-    
-    var p = $(e.target).category_set();
-	console.log(p);
-}
+
  	//카테고리세팅
 	$.fn.category_set = function() {
 	
-	var category_id = this.data("set").category_id;
-	var group_id = this.data("set").category_group_id;
+ 	var obj = this.find('option:selected').data("set");
+ 	console.log(obj);
+ 	
+ 	var category_group_id = this.find('option:selected').data("set").category_group_id;
+	var category_id = this.find('option:selected').data("set").category_id; 
 	$("input[name='group_category']").val(category_group_id + category_id ); //name이 group_category인 곳에 추가
+	
 }
 	//이전카테고리 삭제JS
 	$.fn.category_remove = function() {
 	
 	while(this.next().length != 0) {
 		$(this).next().remove();
+		
 	}
 }
 	//다음카테고리 생성JS
 	function category_create(data) {
 		
-    var category02 = "";
-	 
-    
-	data.forEach(function(result, index) {
-                	
-    category02 += '<option class="minor" data-set=' + JSON.stringify(result) + '>' + result.category_detail_nm + '</option>';
-    
-	})
+	    var category02 = "";
+		 
+	    
+		data.forEach(function(result, index) {
+	                	
+	    category02 += '<option class="minor" data-set=' + JSON.stringify(result) + '>' + result.category_detail_nm + '</option>';
+	    
+		})
      
-    console.log(category02);
+	    $('option.minor').remove();
+	    $(".minor_option").append(category02);
     
-	
-    $('option.minor').remove();
-    $(".minor_option").append(category02);
-    	
-      	
-}
+	    
+	}
 
+	//선택하세요를 눌렀을 때 (카테고리 데이터 리셋)
+	function category_reset() {
+		
+		$('option.minor').remove();
+	
+	}
+	
 	//데이터 개수 변경 JS
 	function group_dataHandler(a) {
 	
 		location.href='/main?page=1&amount=' + a.value;
 	}
 
+	//검색 버튼
+	var common_input_btn = document.getElementById("common_input_btn");
+	common_input_btn.onclick = function() {
+		
+
+		event.preventDefault(); //기본 이벤트 중지
+		document.main.submit(); //폼 전송
+	}
 
 </script>
 </html>
