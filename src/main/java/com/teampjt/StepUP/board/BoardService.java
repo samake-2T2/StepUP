@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.teampjt.StepUP.command.FreeBoardVO;
 import com.teampjt.StepUP.command.MainCommentsVO;
+import com.teampjt.StepUP.util.Criteria;
 
 
 
@@ -13,7 +14,10 @@ public interface BoardService {
 	public int fb_regist(FreeBoardVO freeBoardVO);
 	
 	//글 목록 불러오기
-	public ArrayList<FreeBoardVO> fb_getList();
+	public ArrayList<FreeBoardVO> fb_getList(Criteria cri);
+	
+	//글 게시글 수 불러오기 (total)
+	public int fb_getTotal();
 	
 	//글 내용 불러오기
 	public FreeBoardVO fb_getUpdateList(int free_board_no);

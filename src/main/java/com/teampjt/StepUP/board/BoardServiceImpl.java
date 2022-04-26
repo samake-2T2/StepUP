@@ -9,6 +9,7 @@ import com.teampjt.StepUP.command.FreeBoardVO;
 import com.teampjt.StepUP.command.MainCommentsVO;
 import com.teampjt.StepUP.command.SubComentsVO;
 import com.teampjt.StepUP.command.UserVO;
+import com.teampjt.StepUP.util.Criteria;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
@@ -22,8 +23,14 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public ArrayList<FreeBoardVO> fb_getList() {
-		return boardMapper.fb_getList();
+	public ArrayList<FreeBoardVO> fb_getList(Criteria cri) {
+		return boardMapper.fb_getList(cri);
+	}
+	
+	@Override
+	public int fb_getTotal() {
+		
+		return boardMapper.fb_getTotal();
 	}
 
 	@Override
@@ -61,6 +68,8 @@ public class BoardServiceImpl implements BoardService {
 
 		return boardMapper.mc_UpdateContents(mainCommentsVO);
 	}
+
+
 
 
 

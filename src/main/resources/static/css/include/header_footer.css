@@ -1,5 +1,5 @@
 /* 헤더, 푸터 CSS */
-@media(min-width: 1200px){ /*1200이상*/
+
 header{text-align: center;}
 .web_header_logo > a > img {
                             margin: 0 auto ;
@@ -18,83 +18,74 @@ header{text-align: center;}
              left: 0;
              box-shadow: 0 0 1.5px grey;
              z-index: 9999;}
-.web_header ul > li {display: inline;
-                    padding: 5px;}
+.web_header ul > li {
+					width:100%;
+					display: inline;
+                    }
 .web_header ul  >li > a {display: inline-block;
                      height: 30px;
                      line-height: 30px;
                      font-size: 15px;
                      color: rgb(96, 93, 93);
                      background-color:  #fff;
+                     text-decoration: none;
                      }
 .web_header ul > li > a.joinbutton {display: inline-block;
                     width: 80px; 
-                    height: 30px;
-                    line-height: 30px;
+
                     font-size: 15px;
                     color: #fff;
                     background-color:  #663399;
+                    text-decoration: none;
                     }
 .web_header ul > li > a.joinbutton:hover {color:#fff;
                                           font-weight: bold;
-                                          background-color: #663399;}
+                                          background-color: #663399;
+                                          text-decoration: none;}
 .web_header .logo_image {float: left; 
                          width: 30px;
                          padding-top: 5px;
                          margin-left: 20px;}
 .navbar-right {float: right;
+				width: 50%;
                padding-right: 10px;
                background-color: #fff;
                padding-top: 7px;
-               text-align: center;}
-               .dropbtn { background-color: #663399;
+               text-align: right;}
+               
+.dropbtn { 
+	background-color: #663399;
                 color: white;
-                padding: 5px;
-                width: 100px;
-                font-size: 14px;
+                padding: 5px 16px;
+                width: 125px;
+                font-size: 16px;
                 font-weight: bolder;
                 border: none;
                 cursor: pointer;
                 border-radius: 1px;}
 
-  
-.dropbtn {
-    background-color: #663399;
-    color: white;
-    padding: 5px 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 150px
-  }
   .dropdown {
+  	
     position: relative;
     display: inline-block;
   }
   .dropdown-content {
+
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    text-align: center;
   }
-  
-  .dropdown-content > ul {
-  	width: 100%;
-  }
-  
-  .dropdown-content > ul > li {
-  	width: 100%;
-  }
-  
   .dropdown-content a {
+  width: 100%;
     color: black;
     padding: 5px 16px;
     float: left;
     text-decoration: none;
     display: block;
-    width: 100%
   }
   .dropdown-content a:hover {background-color: #f1f1f1}
   .dropdown:hover .dropdown-content {
@@ -104,6 +95,7 @@ header{text-align: center;}
     background-color: #663399;
   }
 /* 푸터 */
+
 footer{
     background-color: #f5f5f5;
     margin-top: 40px;}
@@ -122,121 +114,6 @@ footer .footer-menu .copyright-menu li a{color: black}
 .row .left {float: left;}
 .row .right {float: right;} */
 .copyright-menu {padding-right: 30px;}
-}
-
-
-
-
-
-
-
-
-
-
-
-@media(min-width:768px) and (max-width: 1199px){ /*768~1199까지*/
-header{text-align: center;}
-.web_header_logo > a > img {
-    margin: 0 auto ;
-    text-align: center;
-     width: 250px;
-     padding-top: 35px;
-     padding-bottom: 35px; 
-                        }
-.web_header {height: 42px; /*4.5rem*/
-                padding: 0; 
-                background-color: #fff;
-                overflow: hidden;
-                text-align: center; 
-                position: sticky;
-                top: 0;    
-                left: 0;
-                box-shadow: 0 0 1.5px grey;
-                z-index: 9999;}
-.web_header ul > li {display: inline;
-                   padding: 10px;}
-.web_header ul > li > a {display: inline-block;
-                        width: 80px; 
-                        height: 30px;
-                        line-height: 30px;
-                        font-size: 15px;
-                        color: rgb(96, 93, 93);
-                        background-color:  #fff;
-                        }
-.web_header ul > li > a.joinbutton {display: inline-block;
-                        width: 80px; 
-                        height: 30px;
-                        line-height: 30px;
-                        font-size: 15px;
-                        color: #fff;
-                        background-color:  #663399;
-                        }
-.web_header ul > li > a.joinbutton:hover {color:#fff;
-                                        font-weight: bold;
-                                        background-color: #663399;}
-.web_header .logo_image {float: left; 
-                         width: 30px;
-                         padding-top: 5px;
-                         margin-left: 20px;}
-.navbar-right {float: right;
-               padding-right: 10px;
-               padding-top: 7px;
-               text-align: center;
-               background-color: #fff;}
-.dropbtn {
-                background-color: #663399;
-                color: white;
-                padding: 5px 16px;
-                font-size: 16px;
-                border: none;
-                cursor: pointer;
-              }
-              
-.dropdown {
-                position: relative;
-                display: inline-block;
-              }
-.dropdown-content {
-                display: none;
-                position: absolute;
-                background-color: #f9f9f9;
-                min-width: 160px;
-                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                z-index: 1;
-              }
-.dropdown-content a {
-                color: black;
-                padding: 5px 18px;
-                float: left;
-                text-decoration: none;
-                display: block;
-              }
-.dropdown-content a:hover {background-color: #f1f1f1}
-.dropdown:hover .dropdown-content {
-                display: block;
-              }
-.dropdown:hover .dropbtn {
-                background-color: #663399;
-              }
-/* 푸터 */
-footer{
-    background-color: #f5f5f5;
-    margin-top: 180px;}
-footer .copyright{
-    color: black;
-    padding: 30px;}
-footer address{margin: 0;}
-footer .footer-menu{overflow: hidden;
-                    padding: 30px 0;
-                    text-align: center;}
-footer .footer-menu .copyright-menu{float: right;}
-footer .footer-menu .copyright-menu li{display: inline-block;
-                                       padding: 0 10px;}
-footer .footer-menu .copyright-menu li a{color: black;}
-.copyright-menu {padding-right: 30px;}
-}        
-
-
 
 
 
@@ -251,90 +128,98 @@ footer .footer-menu .copyright-menu li a{color: black;}
 @media(max-width: 767px){ /*767이하*/
 header{text-align: center;}
 .web_header_logo > a > img {
-    margin: 0 auto ;
-    text-align: center;
-    width: 250px;
-    padding-top: 35px;
-    padding-bottom: 35px; 
+                            margin: 0 auto ;
+                            text-align: center;
+                            width: 250px;
+                            padding-top: 35px;
+                            padding-bottom: 35px; 
                         }
-/* 헤더 */
 .web_header {height: 42px; /*4.5rem*/
-            padding: 0; 
-            background-color: #fff;
-            /* overflow: hidden; */
+             padding: 0; 
+             background-color: #fff;
+             /* overflow: hidden; */
              text-align: center; 
              position: sticky;
              top: 0;    
              left: 0;
-            box-shadow: 0 0 1.5px grey;
-            z-index: 9999;}
-.web_header ul > li {display: inline;
-                   padding: 9px;
-                   }
-.web_header ul > li > a {display: inline-block;
-                        width: 80px; 
-                        height: 30px;
-                        line-height: 30px;
-                        font-size: 15px;
-                        color: rgb(96, 93, 93);
-                        background-color:  #fff;
-                        }
+             box-shadow: 0 0 1.5px grey;
+             z-index: 9999;}
+.web_header ul > li {
+					width:100%;
+					display: inline;
+                    }
+.web_header ul  >li > a {display: inline-block;
+                     height: 30px;
+                     line-height: 30px;
+                     font-size: 15px;
+                     color: rgb(96, 93, 93);
+                     background-color:  #fff;
+                     text-decoration: none;
+                     }
 .web_header ul > li > a.joinbutton {display: inline-block;
-                        width: 80px; 
-                        height: 30px;
-                        line-height: 30px;
-                        font-size: 15px;
-                        color: #fff;
-                        background-color:  #663399;
-                        }
-.web_header ul > li > a.joinbutton:hover {color:#fff;
-                                        font-weight: bold;
-                                        background-color: #663399;}
-.web_header .logo_image {float: left; 
-                        width: 30px;
-                        padding-top: 5px;
-                        margin-left: 20px;}
-.navbar-right {float: right;
-               padding-right: 10px;
-               padding-top: 5px;
-               text-align: center;
-               background-color: #fff;}
+                    width: 80px; 
 
-.dropbtn {
-                background-color: #663399;
+                    font-size: 15px;
+                    color: #fff;
+                    background-color:  #663399;
+                    text-decoration: none;
+                    }
+.web_header ul > li > a.joinbutton:hover {color:#fff;
+                                          font-weight: bold;
+                                          background-color: #663399;
+                                          text-decoration: none;}
+.web_header .logo_image {float: left; 
+                         width: 30px;
+                         padding-top: 5px;
+                         margin-left: 20px;}
+.navbar-right {float: right;
+			   width: 90%;
+               padding-right: 10px;
+               background-color: #fff;
+               padding-top: 7px;
+               text-align: right;}
+               
+.dropbtn { 
+	background-color: #663399;
                 color: white;
                 padding: 5px 16px;
+                width: 125px;
                 font-size: 16px;
+                font-weight: bolder;
                 border: none;
                 cursor: pointer;
-              }
-              
-.dropdown {
-                position: relative;
-                display: inline-block;
-              }
-.dropdown-content {
-                display: none;
-                position: absolute;
-                background-color: #f9f9f9;
-                min-width: 160px;
-                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                z-index: 1;
-              }
-.dropdown-content a {
-                color: black;
-                padding: 5px 18px;
-                float: left;
-                text-decoration: none;
-                display: block;
-              }
-.dropdown-content a:hover {background-color: #f1f1f1}
-.dropdown:hover .dropdown-content {
-                display: block;
-              }
-.dropdown:hover .dropbtn {
-                background-color: #663399;
-              }                
+                border-radius: 1px;}
+
+  .dropdown {
+  	
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content {
+
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    text-align: center;
+  }
+  .dropdown-content a {
+  width: 100%;
+    color: black;
+    padding: 5px 16px;
+    float: left;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown:hover .dropbtn {
+    background-color: #663399;
+  }           
                   
 /* 푸터 */
 footer{
@@ -351,5 +236,8 @@ footer .footer-menu .copyright-menu li{display: inline-block;}
 footer .footer-menu .copyright-menu li a{color: black;}
 .copyright-menu {padding-right: 30px;}
 }
+
+
+
 
 

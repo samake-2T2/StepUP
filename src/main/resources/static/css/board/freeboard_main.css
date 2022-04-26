@@ -8,7 +8,7 @@
    .quanti{
       padding: 5px 10px;
       margin-bottom: 10px;
-      margin-left: 1169px;
+      margin-left: 1139px;
    }
    .free-main-box {border: 1px solid #cdcdcd}
    .free-main-box .free-form-inner{background-color: white;
@@ -195,7 +195,35 @@
       resize: none;
       height: 80px;
    }
-   
+
+
+	/* 페이지네이션 */
+   .pagination {
+      margin: 0 auto;
+      height: 50px;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    .pagination > ul{
+      margin: 0 auto;
+      height: 50px;
+      width: 30%;
+    }
+
+    .pagination a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+    .pagination a.active {
+      background-color: #c0a5da;
+      color: black;
+      text-decoration: none;
+    }
+    .pagination a:hover:not(.active) {background-color: #f9f9f9; text-decoration: none;}
+	
    
    
    
@@ -241,7 +269,7 @@
    .quanti{
       padding: 5px 10px;
       margin-bottom: 10px;
-      margin-left: 619px;
+      margin-left: 588px;
    }
    .free-main-box {border: 1px solid #cdcdcd}
    .free-main-box .free-form-inner{background-color: white;
@@ -428,6 +456,34 @@
       resize: none;
       height: 80px;
    }
+   
+   /* 페이지네이션 */
+   .pagination {
+      margin: 0 auto;
+      height: 50px;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    .pagination > ul{
+      margin: 0 auto;
+      height: 50px;
+      width: 50%;
+    }
+
+    .pagination a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+    .pagination a.active {
+      background-color: #c0a5da;
+      color: black;
+      text-decoration: none;
+    }
+    .pagination a:hover:not(.active) {background-color: #f9f9f9; text-decoration: none;}
+	
 }
 
 
@@ -453,7 +509,7 @@
    .quanti{
       padding: 5px 10px;
       margin-bottom: 10px;
-      margin-left: 320px;
+      margin-left: 290px;
    }
    .free-main-box {border: 1px solid #cdcdcd}
    .free-main-box .free-form-inner{background-color: white;
@@ -637,4 +693,31 @@
       resize: none;
       height: 80px;
    }
+   /* 페이지네이션 */
+   .pagination {
+      margin: 0 auto;
+      height: 50px;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    .pagination > ul{
+      margin: 0 auto;
+      height: 50px;
+      width: 95%;
+    }
+
+    .pagination a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+    .pagination a.active {
+      background-color: #c0a5da;
+      color: black;
+      text-decoration: none;
+    }
+    .pagination a:hover:not(.active) {background-color: #f9f9f9; text-decoration: none;}
+	
 }
