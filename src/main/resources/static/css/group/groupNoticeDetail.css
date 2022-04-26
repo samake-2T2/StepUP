@@ -125,3 +125,26 @@
     color: white;
     text-decoration: none;
 }
+
+.box-btn {
+	height: 55px
+}
+
+
+.b-prev > a {
+	color: black;
+}
+
+.b-prev > a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+.b-next > a {
+	color: black;
+}
+
+.b-next > a:hover {
+	color: black;
+	text-decoration: none;
+}

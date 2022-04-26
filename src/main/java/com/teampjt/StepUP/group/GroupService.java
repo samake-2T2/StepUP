@@ -29,4 +29,5 @@ public interface GroupService {
 	public int noticeUpdate(GroupNoticeVO gnVO);//수정
 	public int noticeDelete(int groupnotice_no); //공지삭제
 	public int getTotal(); //전체게시글
+	public GroupNoticeVO movePage(int groupnotice_no); //이전글,다음글
 }

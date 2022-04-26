@@ -20,4 +20,9 @@ public class GroupNoticeVO {
 	private LocalDateTime groupnotice_regdate;
 	private Integer groupnotice_count;
 	
+	//이전글 다음글
+	private int next;
+	private int prev;
+	private String nexttitle;
+	private String prevtitle;
 }
