@@ -74,8 +74,15 @@ public class GroupController {
 		return "group/groupRegList";
 	}
 	
+	// 댓글 리스트
 	@GetMapping("/groupDetail")
-	public String groupDetail() {
+	public String groupDetail(Model model) {
+		
+		ArrayList<GroupDetailCommentVO> list = groupService.getGroupList();
+		System.out.println(list.toString());
+		
+		model.addAttribute("list", list);
+		
 		return "group/groupDetail";
 	}
 	
@@ -175,10 +182,13 @@ public class GroupController {
 		int result = groupService.commentRegist(gdcVO);
 		
 		if(result == 1) {
-			RA.addFlashAttribute("msg", "공지가 등록되었습니다"); 
+			RA.addFlashAttribute("msg", "댓글이 등록되었습니다"); 
 		}else {
-			RA.addFlashAttribute("msg", "공지등록에 실패하였습니다");
+			RA.addFlashAttribute("msg", "댓글등록이 실패하였습니다");
 		}
+		
+		
+		
 		
 		
 		return "redirect:/group/groupDetail";

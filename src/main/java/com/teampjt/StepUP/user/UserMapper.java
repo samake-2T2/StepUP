@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.UserVO;
 import com.teampjt.StepUP.command.userUploadVO;
 import com.teampjt.StepUP.util.Criteria;
@@ -29,6 +30,9 @@ public interface UserMapper {
 	public int update(UserVO userVO);
   
 	public UserVO login(UserVO vo);
+	
+	public ArrayList<GroupDetailCommentVO> getGroupList();
+
 
 	
 	

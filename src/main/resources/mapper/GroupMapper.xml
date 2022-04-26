@@ -93,15 +93,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 댓글등록 -->
 	<insert id="commentRegist">
-		insert into group_detail_comment(
-										 user_name,
+		insert into group_detail_comment(user_name,
 										 comment_content,										 
 										 user_no)
-		values(
-			   #{user_name},
+		values(#{user_name},
 			   #{comment_content},			
 			   #{user_no}
 			   )
 	
 	</insert>
+	
+	<select id="getGroupList" resultType="com.teampjt.StepUP.command.GroupDetailCommentVO">
+		select * from group_detail_comment
+	
+	</select>
+	
+	
+	
+	
 </mapper>

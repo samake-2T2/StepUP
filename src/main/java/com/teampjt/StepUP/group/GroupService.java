@@ -15,6 +15,11 @@ public interface GroupService {
 	
 	public int commentRegist(GroupDetailCommentVO gdcVO); //글 등록
 
+	public ArrayList<GroupDetailCommentVO> getGroupList(); //댓글 목록
+	
+	
+	
+	
 	//카테고리 조회
 	public ArrayList<SearchCategoryVO> getCategory();
 	

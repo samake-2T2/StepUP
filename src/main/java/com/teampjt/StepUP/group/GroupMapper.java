@@ -37,4 +37,6 @@ public interface GroupMapper {
 	public int noticeDelete(int groupnotice_no); //공지삭제
   
 	public int getTotal(); //전체게시글
+	
+	public ArrayList<GroupDetailCommentVO> getGroupList();
 }

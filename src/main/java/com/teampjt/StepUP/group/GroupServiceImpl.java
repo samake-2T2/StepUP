@@ -79,4 +79,10 @@ public class GroupServiceImpl implements GroupService {
 		return groupMapper.commentRegist(gdcVO);
 	}
 
+	@Override
+	public ArrayList<GroupDetailCommentVO> getGroupList() {
+		
+		return groupMapper.getGroupList();
+	}
+
 }
