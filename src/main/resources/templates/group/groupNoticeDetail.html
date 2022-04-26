@@ -41,13 +41,21 @@
             </div>
             <div class="board-footer">
                 <ul>
-                    <li class="board-prev">
-                        <span class="b-prev">이전글 ▼</span>
-                        <p class="txt-prev"><a href="#">[안내] 2021년 8월 대체휴일에 따른 두부플러스 휴무 안내</a></p>
+                 
+                    <li class="board-prev" th:if="${move.next != 9999}">
+                        <span class="b-prev"><a th:href="@{/group/groupNoticeDetail(groupnotice_no=${move.next})}">다음글 ▲</span>
+                        <p class="txt-prev"><a th:href="@{/group/groupNoticeDetail(groupnotice_no=${move.next})}">[[${move.nexttitle}]]</a></p>
                     </li>
-                    <li class="board-next">
-                        <span class="b-next">다음글 ▲</span>
-                        <p class="txt-next"><a href="#">[안내] 2021년 8월 대체휴일에 따른 두부플러스 휴무 안내</a></p>
+                    
+                    <li class="board-prev" th:if="${move.next == 9999}" style="display: none">
+                        <span class="b-prev">다음글 ▲</span>
+                        <p class="txt-prev"><a th:href="@{/group/groupNoticeDetail(groupnotice_no=${move.next})}">[[${move.nexttitle}]]</a></p>
+                    </li>
+                    
+                    
+                    <li class="board-next" th:if="${move.prev != 9999}">
+                        <span class="b-next"><a th:href="@{/group/groupNoticeDetail(groupnotice_no=${move.prev})}">이전글 ▼</span>
+                        <p class="txt-next"><a th:href="@{/group/groupNoticeDetail(groupnotice_no=${move.prev})}">[[${move.prevtitle}]]</a></p>
                     </li>
                 </ul>
                 <div class="box-btn">
@@ -57,6 +65,7 @@
                 </div>
             </div>
         </form>
+</section>
 </th:block>
 
 
