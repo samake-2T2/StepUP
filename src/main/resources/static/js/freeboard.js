@@ -13,6 +13,17 @@ $(function() {
 
 
 
+    $('.coment_box .coment_info .w_contents .re-coment').on('click',function(){
+
+        if($(this).parent().next().hasClass('active')){
+           $(this).parent().next().removeClass('active');
+        }else{
+            $(this).parent().next().addClass('active');
+        }
+    });
+
+
+
 
 
 

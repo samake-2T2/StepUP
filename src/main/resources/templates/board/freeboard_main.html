@@ -27,7 +27,7 @@
 
 
             <div class="free-main-box">
-                <form class="free-form-inner">
+                 <div class="free-form-inner"> <!-- 폼 -->
                     <div class="list_table_wrap">
                         <table>
                             <thead>
@@ -40,10 +40,6 @@
                             </thead>
                             <tbody th:each="vo, state : ${list}">
                                 
-                                
-                                
-                                
-                                
                                 <tr class="on_data" >
                                     <td>[[${state.index + 1}]]</td>
                                     <td class="ondata_title">[[${vo.free_title}]]</td>
@@ -55,7 +51,7 @@
                                         <div class="b_content">
                                         [[${vo.free_content}]]
 
-                                        <textarea style="display:none;" name="" id="" cols="30" rows="10">[[${vo.free_content}]]</textarea>
+                                        <textarea style="display:none;" name="free_content" id="" cols="30" rows="10">[[${vo.free_content}]]</textarea>
                                         </div>
                                         <div class="btn_wrap">
                                             <button type="button"><a th:href="@{/board/freeboard_update(free_board_no=${vo.free_board_no}, user_no=${vo.user_no})}">수정</a></button>
@@ -63,24 +59,67 @@
                                         </div>
                                         <div><br>
                                             <!-- 댓글창 -->
-                                            <div class="coment_box">
-                                                <div class="coment_info">
-                                                    <div class="user_pro">
-                                                        <div class="w_photo"><img src="img/Logo.png"></div>
-                                                        <div class="w_info">username_123 &nbsp&nbsp&nbsp<span class="w_regdate">( 22-04-21 )</span> </div> 
-                                                        
-                                                    <div class="w_contents">가나다라마바사아아아아아아아아아아아아아아아아아아아</div><br>
-                                                </div>
-                                                <br>
-                                                <div class="coment_textarea">
-                                                    <textarea placeholder="댓글을 작성하려면 로그인 해주세요."></textarea>
-                                                </div>
-                                                <br>
-                                                <div class="w-btn-p">
-                                                    <button type="submit" class="free_write">댓글등록</button><br>
-                                                </div>
-                                            </div>
-                                        </div>
+                      
+	                                            <div class="coment_box">
+	                                                <div class="coment_info">
+	                                                	
+	                                                    <div class="user_pro" th:each="vo2, state : ${vo.main_comments_list}">
+	                                                    <input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.userVO.user_no}">
+	                    								<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.userVO.user_name}">
+	                    								<input type="hidden" name="writer" th:value="${vo.user_no}">
+	                    								<input type="hidden" name="comment_no" th:value="${vo2.comment_no}">
+	                    								<input type="hidden" name="free_board_no" th:value="${vo2.free_board_no}">
+	                                                        <div class="w_photo"><img src="img/Logo.png"></div>
+	                                                        <div class="w_info">[[${vo2.user_name}]]   &nbsp
+	                                                        	<span class="w_regdate"><span> 
+	                                                        	| 
+	                                                        	</span> &nbsp [[${#temporals.format(vo2.comment_regdate, 'yy-MM-dd')}]] </span> 
+	                                                        </div> 
+	                                            			
+	                                            			
+	                                            			<form th:action="updateComment" method="post" name="updateComment">
+			                                                    <div class="w_contents">
+			                                                    	<div name="comment_contents">[[${vo2.comment_contents}]]</div>
+			                                                    	<input type="hidden" name="comment_no" th:value="${vo2.comment_no}">
+			                                                    	<input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.userVO.user_no}">
+			                                                    	<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.userVO.user_name}">
+			                                                    	<input type="hidden" name="writer" th:value="${vo.user_no}">
+			                                                    	[[${vo.user_no}]] --> 실제 글쓴이
+			                                                    	[[${session.user_no}]] --> 로그인 한 유저의 값 
+			                                                    	<th:block th:if="${vo.user_no == session.user_no}"> 바로 꺼내 쓸 수 있는 키 값을 세션에 넣어줘야 함.
+			                                                        <button type="button" class="re-coment" ><a>수정</a></button>
+			                                                        <button type="button"><a th:href="@{/board/deleteComment(comment_no=${vo2.comment_no}, user_no=${vo.user_no})}">삭제</a></button>
+			                                                    	</th:block>
+			                                                    </div>
+			                                                    <div class="r_contents">
+			                                                        <textarea  name="comment_contents" id="" cols="30" rows="10"></textarea>
+			                                                        <button type="submit" class="re-coment-btn" name="comment_contents"><a>수정하기</a></button>
+			                                                    </div><br>
+		                                                    </form>
+		                                                    
+		                                                    
+		                                                    </div>
+		                                                
+	                                                	</div>
+	                                                <br>
+	                                                <form th:action="mainCommentForm" method="post" name="mainCommentForm">
+	                                                	<input type="hidden" name="user_no" th:value="${session.userVO} != null? ${session.userVO.user_no} ">
+	                    								<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.userVO.user_name}">
+	                    								<input type="hidden" name="writer" th:value="${vo.user_no}">
+	                    								<input type="hidden" name="free_board_no" th:value="${vo.free_board_no}">
+		                                                <div class="coment_textarea" >
+		                                                    <textarea placeholder="댓글을 작성하려면 로그인 해주세요." th:name="comment_contents"></textarea>
+		                                                </div>
+		                                                <br>
+		                                                <div class="w-btn-p">
+		                                                	<button type="button" class="free_write">댓글등록</button><br>
+		                                                </div>
+	                                                </form>
+	                                                
+	                                                
+	                                            </div>
+	                                        </div>
+                             
                                     </td>
                                 </tr>
                                 
@@ -93,8 +132,7 @@
                     <div class="w-btn-p">
                         <button type="submit" class="free_write" ><a href="/board/freeboard_write">글쓰기</a></button><br>
                     </div>
-                </form>
-
+                <div><!-- 폼  -->
                 <!-- 페이지네이션 -->
                 
 
@@ -103,4 +141,33 @@
     </div>
 
 </th:block>
+
+<script th:inline="javascript">
+/* 	function m_CommentHandler1(){
+		 this.event.preventDefault();
+		document.forms["mainCommentForm"].action="mainCommentForm"; 
+		document.forms["mainCommentForm"].submit();
+	} */
+	(function(){
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg!=null){
+			alert(msg);
+		}
+		
+	})();
+	
+	function sub_CommentHandler1(){
+		document.forms["subCommentForm"].action="subCommentForm"; 
+		document.forms["subCommentForm"].submit();
+	}
+	$(function(){
+		$('.free_write').on('click',function(){
+			
+			$(this).parent().parent().submit();
+			
+		})
+	})
+	
+
+</script>
 </html>

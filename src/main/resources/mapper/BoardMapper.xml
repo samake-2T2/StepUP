@@ -38,4 +38,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	
+	
+	
+	<insert id="mc_regist">
+		insert into main_comment(user_no, user_name, comment_contents, free_board_no)
+      	values (#{user_no}, #{user_name}, #{comment_contents}, #{free_board_no})
+	</insert>
+	
+	
+	
+	
+	<select id="mc_getList" resultType="MainCommentsVO">
+		select * from main_comment where free_board_no = #{free_board_no}
+	</select>
+	
+	
+	
+	
+<!-- 	<insert id="sc_regist">
+		insert into sub_comment(user_no, user_name, sub_coment_contents, coment_no)
+      	values (#{user_no}, #{user_name}, #{sub_coment_contents}, #{coment_no})
+	</insert> -->
+	
+	
+	
+	<delete id="mc_delete">
+		delete from main_comment where comment_no = #{comment_no}
+	</delete>
+	
+	
+	
+	
+	<update id="mc_UpdateContents">
+		update main_comment
+   			set comment_contents = #{comment_contents}
+   		where comment_no = #{comment_no}
+	</update>
+	
+	
+	
+	
+
 </mapper>

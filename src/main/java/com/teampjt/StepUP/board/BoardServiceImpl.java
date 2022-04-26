@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.teampjt.StepUP.command.FreeBoardVO;
+import com.teampjt.StepUP.command.MainCommentsVO;
+import com.teampjt.StepUP.command.SubComentsVO;
 import com.teampjt.StepUP.command.UserVO;
 
 @Service("boardService")
@@ -38,6 +40,32 @@ public class BoardServiceImpl implements BoardService {
 	public int fb_delete(FreeBoardVO freeBoardVO) {
 		return boardMapper.fb_delete(freeBoardVO);
 	}
+
+	@Override
+	public int mc_regist(MainCommentsVO mainCommentsVO) {
+		return boardMapper.mc_regist(mainCommentsVO);
+	}
+
+	@Override
+	public ArrayList<MainCommentsVO> mc_getList(MainCommentsVO mainCommentsVO) {
+		return boardMapper.mc_getList(mainCommentsVO);
+	}
+
+	@Override
+	public int mc_delete(MainCommentsVO mainCommentsVO) {
+		return boardMapper.mc_delete(mainCommentsVO);
+	}
+
+	@Override
+	public int mc_UpdateContents(MainCommentsVO mainCommentsVO) {
+
+		return boardMapper.mc_UpdateContents(mainCommentsVO);
+	}
+
+
+
+
+
 
 
 
