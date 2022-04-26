@@ -3,7 +3,6 @@ package com.teampjt.StepUP.controller;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -78,7 +77,7 @@ public class GroupController {
 	@GetMapping("/groupDetail")
 	public String groupDetail(Model model) {
 		
-		ArrayList<GroupDetailCommentVO> list = groupService.getGroupList();
+		ArrayList<GroupDetailCommentVO> list = groupService.getGroupCommentList();
 		System.out.println(list.toString());
 		
 		model.addAttribute("list", list);
@@ -174,7 +173,7 @@ public class GroupController {
 	@PostMapping("/noticeDelete")
 	public String noticeDelete(@RequestParam("groupnotice_no") int groupnotice_no) {
 		
-		int result = groupService.noticeDelete(groupnotice_no);
+		groupService.noticeDelete(groupnotice_no);
 		
 		return "redirect:/group/groupNotice";
 	}

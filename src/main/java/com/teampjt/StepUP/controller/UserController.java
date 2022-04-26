@@ -1,7 +1,6 @@
 package com.teampjt.StepUP.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -16,16 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.teampjt.StepUP.command.UserVO;
-import com.teampjt.StepUP.user.UserService;
-
-import com.teampjt.StepUP.command.UserVO;
-import com.teampjt.StepUP.user.UserService;
 
 import com.teampjt.StepUP.command.UserVO;
 import com.teampjt.StepUP.user.UserService;

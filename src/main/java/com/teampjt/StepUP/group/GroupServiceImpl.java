@@ -93,9 +93,9 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public ArrayList<GroupDetailCommentVO> getGroupList() {
+	public ArrayList<GroupDetailCommentVO> getGroupCommentList() {
 		
-		return groupMapper.getGroupList();
+		return groupMapper.getGroupCommentList();
 }
   
   @Override

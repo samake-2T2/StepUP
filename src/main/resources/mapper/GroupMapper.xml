@@ -140,7 +140,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	</insert>
 	
-	<select id="getGroupList" resultType="com.teampjt.StepUP.command.GroupDetailCommentVO">
+	<select id="getGroupCommentList" resultType="com.teampjt.StepUP.command.GroupDetailCommentVO">
 		select * from group_detail_comment
 	
 	</select>
