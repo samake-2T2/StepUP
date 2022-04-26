@@ -88,11 +88,14 @@ public class GroupController {
 	
 	//공지목록페이지
 	@GetMapping("/groupNotice")
-	public String groupNotice(Model model, Criteria cri) {
+	public String groupNotice( Model model, Criteria cri ) {
+		
+		
 		
 		ArrayList<GroupNoticeVO> noticeList = groupService.getNoticeList(cri);
 		int total = groupService.getTotal();
 		PageVO pageVO = new PageVO(cri, total);
+		
 		
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("pageVO", pageVO);
@@ -107,6 +110,7 @@ public class GroupController {
 		
 		GroupNoticeVO gnVO = groupService.getNoticeDetail(groupnotice_no);
 		model.addAttribute("gnVO", gnVO);
+		model.addAttribute("move", groupService.movePage(groupnotice_no));
 		
 		groupService.updatecount(groupnotice_no);
 		
@@ -133,6 +137,8 @@ public class GroupController {
 		}else {
 			RA.addFlashAttribute("msg", "공지등록에 실패하였습니다");
 		}
+		
+		
 		
 		return "redirect:/group/groupNotice";
 	}

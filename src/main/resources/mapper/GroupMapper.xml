@@ -6,6 +6,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.teampjt.StepUP.group.GroupMapper">
 
+	<select id="getGroupList" resultType="StudyGroupVO">
+		<![CDATA[
+		SELECT *
+		FROM (SELECT A.*,
+       			     @ROWNUM := @ROWNUM + 1 AS RN
+	  		  FROM (SELECT *
+			  	    FROM (SELECT *
+						  FROM studygroup st
+					      LEFT OUTER JOIN (SELECT CASE  A1.category_parent_lv
+												  WHEN 0 THEN A1.category_detail_nm
+											      WHEN 1 THEN CONCAT(A2.category_detail_nm,' > ', A1.category_detail_nm)
+											      END as category_nav,
+												  IF(A1.category_parent_lv = 0 , A1.category_detail_nm, A2.category_detail_nm) AS parent_nm,
+												  IF(A1.category_parent_lv = 1 , A1.category_detail_nm, 'NULL') AS child_nm
+										   FROM search_category A1
+										   LEFT OUTER JOIN search_category A2
+										   ON A1.category_parent_lv = A2.category_lv AND A1.category_detail_parent_lv = A2.category_detail_lv AND A1.category_group_id = A2.category_group_id) AS JC
+					ON st.category_parent_name = JC.parent_nm and st.category_child_name = JC.child_nm) AS xxx
+	    ]]>
+	    	        <if test="searchKeyword != '' and searchKeyword != null">
+	    	        WHERE group_name LIKE CONCAT('%', #{searchKeyword}, '%')
+	    	        </if>
+	    	        ORDER BY group_name ASC) A, (SELECT @ROWNUM := 0) D
+	    <![CDATA[
+	    )B
+	    WHERE RN > (#{page}-1) * #{amount} AND RN <= #{page} * #{amount}
+	    ]]>
+	</select>
+
+	<select id="getGroupTotal" resultType="int">
+		SELECT COUNT(*) AS TOTAL
+		FROM studygroup
+		<if test="searchKeyword != '' and searchKeyword != null">
+	    	WHERE group_name LIKE CONCAT('%', #{searchKeyword}, '%')
+	    </if>
+	</select>
+
 	<select id="getCategory" resultType="SearchCategoryVO">
 		SELECT * 
 		FROM search_category
@@ -88,7 +125,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTotal" resultType="int">
 		select count(*) AS total
 		from groupnotice
-		where groupnotice_no = #{groupnotice_no}
+		
 	</select>
 	
 	<!-- 댓글등록 -->
@@ -108,7 +145,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	</select>
 	
-	
-	
-	
+	<!-- 이전글, 다음글 -->
+	<select id="movePage" parameterType="int" resultType="GroupNoticeVO">
+	select * from(SELECT 
+		groupnotice_no,
+         LEAD(groupnotice_no,1,9999) OVER(ORDER BY groupnotice_no) as next,
+         LAG(groupnotice_no,1,9999) OVER(ORDER BY groupnotice_no) as prev,
+         groupnotice_title,
+         LEAD(groupnotice_title,1,9999) OVER(ORDER BY groupnotice_no) as nexttitle,
+         LAG(groupnotice_title,1,9999) OVER(ORDER BY groupnotice_no) as prevtitle
+		FROM groupnotice
+        order by groupnotice_no DESC) M
+        WHERE groupnotice_no = #{groupnotice_no}
+	</select>
 </mapper>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
+import com.teampjt.StepUP.command.StudyGroupVO;
 import com.teampjt.StepUP.util.Criteria;
 
 @Service("groupService")
@@ -15,6 +16,18 @@ public class GroupServiceImpl implements GroupService {
 
 	@Autowired
 	public GroupMapper groupMapper;
+	
+	@Override
+	public ArrayList<StudyGroupVO> getGroupList(Criteria cri) {
+
+		return groupMapper.getGroupList(cri);
+	}
+	
+	@Override
+	public int getGroupTotal(Criteria cri) {
+
+		return groupMapper.getGroupTotal(cri);
+	}
 	
 	@Override
 	public ArrayList<SearchCategoryVO> getCategory() {
@@ -83,6 +96,11 @@ public class GroupServiceImpl implements GroupService {
 	public ArrayList<GroupDetailCommentVO> getGroupList() {
 		
 		return groupMapper.getGroupList();
+}
+  
+  @Override
+	public GroupNoticeVO movePage(int groupnotice_no) {
+		return groupMapper.movePage(groupnotice_no);
 	}
 
 }

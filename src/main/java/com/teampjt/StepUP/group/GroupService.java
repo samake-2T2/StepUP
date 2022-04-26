@@ -6,10 +6,16 @@ import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 
 import com.teampjt.StepUP.command.SearchCategoryVO;
+import com.teampjt.StepUP.command.StudyGroupVO;
 import com.teampjt.StepUP.util.Criteria;
 
 public interface GroupService {
 	
+	//메인화면 스터디그룹 조회메서드
+	public ArrayList<StudyGroupVO> getGroupList(Criteria cri); 
+	
+	//전체 그룹 조회메서드
+	public int getGroupTotal(Criteria cri);
 	
 	public ArrayList<GroupDetailCommentVO> getComment();
 	
@@ -34,4 +40,5 @@ public interface GroupService {
 	public int noticeUpdate(GroupNoticeVO gnVO);//수정
 	public int noticeDelete(int groupnotice_no); //공지삭제
 	public int getTotal(); //전체게시글
+	public GroupNoticeVO movePage(int groupnotice_no); //이전글,다음글
 }
