@@ -13,9 +13,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<select id="fb_getList" resultType="FreeBoardVO">
-		select * from free_board order by free_board_no desc
+		<!-- select * from free_board order by free_board_no desc -->
+		<![CDATA[
+		select *
+		from (select A.*,
+			         @ROWNUM := @ROWNUM + 1 AS RN
+			  FROM (SELECT *
+					FROM free_board
+		            order by free_board_no desc) A, (select @ROWNUM := 0) D
+		) B
+		where RN > (#{page}-1) * #{amount} AND RN <= #{page} * #{amount};
+		]]>
 	</select>
 	
+	
+	<select id="fb_getTotal" resultType="int">
+		select count(*) as total from free_board
+	</select>
 	
 	
 	<select id="fb_getUpdateList" resultType="FreeBoardVO">
