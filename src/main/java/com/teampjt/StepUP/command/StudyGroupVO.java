@@ -38,10 +38,10 @@ public class StudyGroupVO {
 	//스터디 그룹 프로필 사진 저장명(랜덤값)
 	private String group_fileuuid;
 	
-	//카데고리 대분류
+	//카데고리 대분류명
 	private String category_parent_name;
 	
-	//카테고리 소분류
+	//카테고리 소분류명
 	private String category_child_name;
 
 }
