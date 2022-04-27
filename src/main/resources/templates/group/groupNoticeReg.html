@@ -39,7 +39,7 @@
 
                         <div class="app-box">
                             <label>작성자</label>
-                            <input type="text" name="groupnotice_writer" class="form-control" value="홍길동" readonly>
+                            <input type="text" name="groupnotice_writer" class="form-control" th:value="${session.userVO.user_name}" readonly>
                         </div>
 
                         <div class="app-box">

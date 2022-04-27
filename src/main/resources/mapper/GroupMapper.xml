@@ -12,25 +12,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM (SELECT A.*,
        			     @ROWNUM := @ROWNUM + 1 AS RN
 	  		  FROM (SELECT *
-			  	    FROM (SELECT *
-						  FROM studygroup st
-					      LEFT OUTER JOIN (SELECT CASE  A1.category_parent_lv
-												  WHEN 0 THEN A1.category_detail_nm
-											      WHEN 1 THEN CONCAT(A2.category_detail_nm,' > ', A1.category_detail_nm)
-											      END as category_nav,
-												  IF(A1.category_parent_lv = 0 , A1.category_detail_nm, A2.category_detail_nm) AS parent_nm,
-												  IF(A1.category_parent_lv = 1 , A1.category_detail_nm, 'NULL') AS child_nm
-										   FROM search_category A1
-										   LEFT OUTER JOIN search_category A2
-										   ON A1.category_parent_lv = A2.category_lv AND A1.category_detail_parent_lv = A2.category_detail_lv AND A1.category_group_id = A2.category_group_id) AS JC
-					ON st.category_parent_name = JC.parent_nm and st.category_child_name = JC.child_nm) AS xxx
+			  	    FROM studygroup
 	    ]]>
 	    	        <if test="searchKeyword != '' and searchKeyword != null">
 	    	        WHERE group_name LIKE CONCAT('%', #{searchKeyword}, '%')
 	    	        </if>
+	    	        <if test="searchCategoryParent != '' and searchCategoryParent != null">
+	    	        AND category_parent_name LIKE #{searchCategoryParent}
+	    	        </if>
+	    	        <if test="searchCategoryChild != '' and searchCategoryChild != null">
+	    	        AND category_child_name LIKE #{searchCategoryChild}
+	    	        </if>
 	    	        ORDER BY group_name ASC) A, (SELECT @ROWNUM := 0) D
 	    <![CDATA[
 	    )B
+	    
+	    
 	    WHERE RN > (#{page}-1) * #{amount} AND RN <= #{page} * #{amount}
 	    ]]>
 	</select>
@@ -137,8 +134,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			   #{comment_content},			
 			   #{user_no}
 			   )
-	
 	</insert>
+	
+	<!-- 댓글 수정하기 -->
+	<update id="commentUpdate">
+		update 	group_detail_comment
+		set  	comment_content = #{comment_content},
+		where 	comment_regdate = #{comment_regdate},
+		
+		
+	</update>
+	
 	
 	<select id="getGroupCommentList" resultType="com.teampjt.StepUP.command.GroupDetailCommentVO">
 		select * from group_detail_comment
@@ -158,4 +164,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         order by groupnotice_no DESC) M
         WHERE groupnotice_no = #{groupnotice_no}
 	</select>
+	
+	<!-- 그룹명 중복 체크 -->
+	<select id="nameChk" resultType="int">
+		select count(*) from studygroup where group_name = #{group_name}
+	</select>
+	
+	<!-- 그룹 생성 메서드 -->
+	<insert id="groupRegist">
+		insert into studygroup(group_name,
+							   group_content,
+							   group_participant_amount,
+							   group_leader_no,
+							   group_leader_name,
+							   group_filename,
+							   group_filepath,
+							   group_fileuuid,
+							   category_parent_name,
+							   category_child_name)
+		values (#{group_name},
+				#{group_content},
+				#{group_participant_amount},
+				#{group_leader_no},
+				#{group_leader_name},
+				#{group_filename},
+				#{group_filepath},
+				#{group_fileuuid},
+				#{category_parent_name},
+				#{category_child_name})
+	
+	</insert>
 </mapper>

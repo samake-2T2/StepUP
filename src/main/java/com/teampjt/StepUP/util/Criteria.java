@@ -9,7 +9,13 @@ public class Criteria {
 	private int page;
 	private int amount;
 	
-	//검색 키워드 추가
+	//카테고리 검색 추가(대분류)
+	private String searchCategoryParent;
+	
+	//카테고리 검색 추가(소분류)
+	private String searchCategoryChild;
+	
+	//키워드 검색 추가
 	private String searchKeyword;
 	
 	//아무 값도 안 넘어오면 1페이지, 데이터 양 10개

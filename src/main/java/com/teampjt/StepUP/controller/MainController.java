@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.teampjt.StepUP.command.StudyGroupVO;
 import com.teampjt.StepUP.group.GroupService;
@@ -18,11 +19,8 @@ public class MainController {
 	@Autowired
 	public GroupService groupService;
 	
-	
 	@GetMapping("/main")
 	public void main(Model model, Criteria cri) {
-		
-		System.out.println(cri.toString());
 		
 		//페이징처리
 		ArrayList<StudyGroupVO> list = groupService.getGroupList(cri);
@@ -35,9 +33,6 @@ public class MainController {
 		
 		//페이지네이션 저장
 		model.addAttribute("pageVO", pageVO);
-		
-		System.out.println(cri.toString());
-		
 		
 	}
 	
