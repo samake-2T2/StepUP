@@ -74,7 +74,7 @@ public class UserController {
 			RA.addFlashAttribute("msg", "등록실패, 관리자에게 문의하세요.");
 		}
 
-		return "redirect:/main";
+		return "user/login";
 
 	}
 
@@ -136,6 +136,7 @@ public class UserController {
 		} else {			
 			session.setAttribute("userVO", userVO);
 			session.setAttribute("user_no", userVO.getUser_no());
+			session.setAttribute("user_name", userVO.getUser_name());
 			
 
 			return "redirect:/main";

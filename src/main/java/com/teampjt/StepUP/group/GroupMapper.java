@@ -48,5 +48,9 @@ public interface GroupMapper {
 	public ArrayList<GroupDetailCommentVO> getGroupCommentList();
 
 	public GroupNoticeVO movePage(int groupnotice_no); //이전글,다음글
+	
+	public int groupRegist(StudyGroupVO vo); // 그룹 생성 메서드
+	
+	public int nameChk(StudyGroupVO vo); // 그룹명 중복체크
 
 }
