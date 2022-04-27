@@ -76,10 +76,9 @@
 					<form class="group_main_list_total_search_form" name="main" action="main" method="get">
 					
 					<!-- 폼에 page값을 1, 데이터 개수, 서치 키워드를 보냄 -->
-					<!-- 
 					<input type="hidden" name="page" th:value="1">
 					<input type="hidden" name="amount" th:value="${pageVO.amount}">
-					 -->
+					
 						<div class="group_main_list_search_box">
 							<div class="group_main_list_search">
 								<div class="group_main_list_category_search">
@@ -106,7 +105,7 @@
 								<div class="group_main_list_common_search">
 
 									<div class="group_main_list_common_label">
-										<label> 키워드 검색 </label>
+										<label> 스터디 검색 </label>
 									</div>
 
 									<div class="group_main_list_common_input">
@@ -122,14 +121,14 @@
 				</div>
 
 				<div class="group_main_list_searchcount">
-					<h2>000개의 스터디를 찾았습니다.</h2>
+					<h2>[[${pageVO.total}]]개의 스터디를 찾았습니다.</h2>
 
 					<select class="group_main_list_searchcount_amount"
 						th:onchange="|group_dataHandler(this)|">
-						<option value="10">10개 보기</option>
-						<option value="20">20개 보기</option>
-						<option value="40">40개 보기</option>
-						<option value="80">80개 보기</option>
+						<option value="10" th:selected="${pageVO.amount} == 10? 'selected' ">10개 보기</option>
+						<option value="20" th:selected="${pageVO.amount} == 20? 'selected' ">20개 보기</option>
+						<option value="40" th:selected="${pageVO.amount} == 40? 'selected' ">40개 보기</option>
+						<option value="80" th:selected="${pageVO.amount} == 80? 'selected' ">80개 보기</option>
 					</select>
 
 				</div>
@@ -137,187 +136,68 @@
 				<section class="group_main_list_searchresult">
 					<div class="group_main_list_searchresult_box">
 						<ul>
-							<li><a href="#"> <img src="../img/group/1.png">
-
+							<li th:each="vo, state : ${list}">
+								<a href="#"> 
+									<img src="../img/group/1.png">
+	
 									<div class="group_main_list_searchresult_detail">
-
+	
 										<div class="group_main_list_searchresult_left">
-											<span>스터디 분야</span><br> <span>스터디 이름</span><br> <span>스터디
-												리더(닉네임)</span>
+											<span>[[${vo.category_child_name}]]</span><br> 
+											<span>[[${vo.group_name}]]</span><br> 
+											<span>[[${vo.group_leader_name}]]</span>
 										</div>
-
+	
 										<div class="group_main_list_searchresult_right">
-											<span>스터디 기간</span><br> <span>스터디 시간</span><br>
+											<span>[[${vo.group_participant_amount}]]</span><br> 
 										</div>
-
+	
 									</div>
-
+	
 									<div class="group_main_list_searchresult_viewcount">
 										<span>조회 수</span>
 									</div>
-							</a></li>
-
-							<li><a href="#"> <img src="../img/group/1.png">
-
-									<div class="group_main_list_searchresult_detail">
-
-										<div class="group_main_list_searchresult_left">
-											<span>스터디 분야</span><br> <span>스터디 이름</span><br> <span>스터디
-												리더(닉네임)</span>
-										</div>
-
-										<div class="group_main_list_searchresult_right">
-											<span>스터디 기간</span><br> <span>스터디 시간</span><br>
-										</div>
-
-									</div>
-
-									<div class="group_main_list_searchresult_viewcount">
-										<span>조회 수</span>
-									</div>
-							</a></li>
-
-							<li><a href="#"> <img src="../img/group/1.png">
-
-									<div class="group_main_list_searchresult_detail">
-
-										<div class="group_main_list_searchresult_left">
-											<span>스터디 분야</span><br> <span>스터디 이름</span><br> <span>스터디
-												리더(닉네임)</span>
-										</div>
-
-										<div class="group_main_list_searchresult_right">
-											<span>스터디 기간</span><br> <span>스터디 시간</span><br>
-										</div>
-
-									</div>
-
-									<div class="group_main_list_searchresult_viewcount">
-										<span>조회 수</span>
-									</div>
-							</a></li>
-
-							<li><a href="#"> <img src="../img/group/1.png">
-
-									<div class="group_main_list_searchresult_detail">
-
-										<div class="group_main_list_searchresult_left">
-											<span>스터디 분야</span><br> <span>스터디 이름</span><br> <span>스터디
-												리더(닉네임)</span>
-										</div>
-
-										<div class="group_main_list_searchresult_right">
-											<span>스터디 기간</span><br> <span>스터디 시간</span><br>
-										</div>
-
-									</div>
-
-									<div class="group_main_list_searchresult_viewcount">
-										<span>조회 수</span>
-									</div>
-							</a></li>
-
-							<li><a href="#"> <img src="../img/group/1.png">
-
-									<div class="group_main_list_searchresult_detail">
-
-										<div class="group_main_list_searchresult_left">
-											<span>스터디 분야</span><br> <span>스터디 이름</span><br> <span>스터디
-												리더(닉네임)</span>
-										</div>
-
-										<div class="group_main_list_searchresult_right">
-											<span>스터디 기간</span><br> <span>스터디 시간</span><br>
-										</div>
-
-									</div>
-
-									<div class="group_main_list_searchresult_viewcount">
-										<span>조회 수</span>
-									</div>
-							</a></li>
-
-							<li><a href="#"> <img src="../img/group/1.png">
-
-									<div class="group_main_list_searchresult_detail">
-
-										<div class="group_main_list_searchresult_left">
-											<span>스터디 분야</span><br> <span>스터디 이름</span><br> <span>스터디
-												리더(닉네임)</span>
-										</div>
-
-										<div class="group_main_list_searchresult_right">
-											<span>스터디 기간</span><br> <span>스터디 시간</span><br>
-										</div>
-
-									</div>
-
-									<div class="group_main_list_searchresult_viewcount">
-										<span>조회 수</span>
-									</div>
-							</a></li>
-
+								</a>
+							</li>
 						</ul>
 					</div>
 				</section>
-			<!--
+			
 				<div class="group_main_list_pagenation">
 					<ul>
             			<th:block th:if="${pageVO.realEnd != 0}">
                 			<li>
-                    			<a th:href="@{/group/groupRegList(page=1, 
-                    											  amount=${pageVO.amount},
-                    											  searchKeyword=${pageVO.cri.searchKeyword}
-                    											  )}">
-                    				<i class="fa fa-angle-double-left" aria-hidden="true"></i>
-                    			</a>
+                    			<a th:href="@{/main(page=1, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">◀◀</a>
                 			</li>
                 		</th:block>
                 
                 		<th:block th:if="${pageVO.prev}">
-                			<li style="margin-right:5px;">
-                				<a th:href="@{/group/groupRegList(page=${pageVO.start - 1}, 
-                				                                  amount=${pageVO.amount},
-                				                                  searchKeyword=${pageVO.cri.searchKeyword}
-                				                                  )}">
-              		  				<i class="fa fa-angle-left" aria-hidden="true"></i>
-              		  			</a>
+                			<li>
+                				<a th:href="@{/main(page=${pageVO.start - 1}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">◀</a>
              		   		</li>
-            		    </th:block>
+            		    </th:block> 
                 
 						<th:block th:each="page : ${pageVO.pageList}">
 							<li th:class="${pageVO.page == page? 'on' : ''}">
-								<a th:href="@{/group/groupRegList(page=${page}, 
-								                                  amount=${pageVO.amount},
-								                                  searchKeyword=${pageVO.cri.searchKeyword}
-								                                  )}">[[${page}]]</a>
+								<a th:href="@{/main(page=${page}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">[[${page}]]</a>
 							</li>
 						</th:block>   
 				             
               		  	<th:block th:if="${pageVO.next}">
-             			   	<li style="margin-left:5px;">
-              			  		<a th:href="@{/group/groupRegList(page=${pageVO.end + 1},
-              			  		                                  amount=${pageVO.amount},
-              			  		                                  searchKeyword=${pageVO.cri.searchKeyword}
-              			  		                                  )}">
-               			 			<i class="fa fa-angle-right" aria-hidden="true"></i>
-                				</a>
+             			   	<li>
+              			  		<a th:href="@{/main(page=${pageVO.end + 1}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">▶</a>
                 			</li>
                 	  	</th:block>
                 
                 		<th:block th:if="${pageVO.realEnd != 0}">
 	                		<li>
-    	            			<a th:href="@{/group/groupRegList(page=${pageVO.realEnd), 
-    	            			                                  amount=${pageVO.amount},
-    	            			                                  searchKeyword=${pageVO.cri.searchKeyword}
-    	            			                                  )}">
-        	        				<i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            	    			</a>
+    	            			<a th:href="@{/main(page=${pageVO.realEnd}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">▶▶</a>
                 			</li>
                 		</th:block>
+                		
             		</ul>
 				</div>
- -->
+ 
 
 			</section>
 
@@ -352,7 +232,9 @@
                   
                   //$(".minor").remove(category02);
                   
-		});
+		
+				  console.log('[[${list}]]')
+	});
 	})
 	
 	/* 카테고리 */
