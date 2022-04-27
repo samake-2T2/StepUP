@@ -49,7 +49,9 @@ public class BoardController {
 			mainCommentsVO.setFree_board_no(list.get(listCnt).getFree_board_no());
 			ArrayList<MainCommentsVO> c_list = boardService.mc_getList(mainCommentsVO);
 			list.get(listCnt).setMain_comments_list(c_list);
+			System.out.println("list.get(listCnt)="+list.get(listCnt));
 		}
+		
 		// 데이터 저장
 		model.addAttribute("list", list);
 		// 페이지네이션 저장 
@@ -65,7 +67,6 @@ public class BoardController {
 	@GetMapping("/freeboard_write")
 	public String freeboard_write() {	
 		
-		//인터셉터 - 조장님
 		return "board/freeboard_write";
 	}
 
@@ -152,7 +153,7 @@ public class BoardController {
 	//댓글 등록
 	@PostMapping("/mainCommentForm")
 	public String mainCommentForm(MainCommentsVO mainCommentsVO,
-						  		    HttpSession session) {
+						  		    HttpSession session, RedirectAttributes RA) {
 		//유저확인
 		UserVO userVO = (UserVO)session.getAttribute("userVO");  
 		if(userVO == null || userVO.getUser_no() != mainCommentsVO.getUser_no()) {
@@ -160,11 +161,15 @@ public class BoardController {
 			return "redirect:/board/freeboard_main";
 		}
 		//실행
-		boardService.mc_regist(mainCommentsVO);	
+		int result = boardService.mc_regist(mainCommentsVO);	
+		if(result == 1) { 
+			RA.addFlashAttribute("msg", "댓글이 등록되었습니다. ");
+			}else { 
+			RA.addFlashAttribute("msg", "등록실패, 관리자에게 문의하세요.");
+			}
 		return "redirect:/board/freeboard_main";
 	}
 
-	
 	
 	
 
