@@ -43,6 +43,10 @@ public interface GroupMapper {
 	public int getTotal(); //전체게시글
 	
 	public GroupNoticeVO movePage(int groupnotice_no); //이전글,다음글
+	
+	public int groupRegist(StudyGroupVO vo); // 그룹 생성 메서드
+	
+	public int nameChk(StudyGroupVO vo); // 그룹명 중복체크
 
 	public int commentRegist(GroupDetailCommentVO gdcVO); // 글 등록
 	

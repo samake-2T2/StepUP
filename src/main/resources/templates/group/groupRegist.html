@@ -17,13 +17,14 @@
             <h4>스터디 생성</h4>
           </div>
           
-          <form class="reg_form" action="regForm" method="post">
+          <form class="group_reg_form" action="group_reg_form" method="post" enctype="multipart/form-data">
             <img src="../img/group/no_photo.png" class="img img-rounded" alt="Cinque Terre"><br>
 
             <div class="form-group">
               <div class="btn-align1">
                 <button type="button" class="w-btn img-btn">기본 이미지</button>
-                <button type="button" class="w-btn img-btn">이미지 추가</button>
+                <label for="group_img" class="w-btn img-btn">이미지 추가</label>
+                <input type="file" name="file" id="group_img" style="display:none">
               </div>
 
               <br>
@@ -31,22 +32,22 @@
 
               <label>스터디 이름</label>
               <div class="input-group">
-                <input type="text" class="form-control" name="group_name" placeholder="스터디명은 4글자 이상 입니다.">
+                <input type="text" class="form-control" id="group_name" name="group_name" placeholder="스터디명은 4글자 이상 입니다.">
                 <div class="input-group-btn">
-                  <button class="btn btn-default btnimg" type="button">중복확인하기</button>
+                  <button class="btn btn-default btnimg" type="button" onclick="nameChk();">중복확인하기</button>
                 </div>
               </div>
 
               <br>
 
               <label for="sel1">분야</label>
-              <select class="form-control" id="sel1">
+              <select class="form-control" id="sel1" name="category_parent_name">
                 <option>개발</option>
                 <option>어학</option>
                 <option>취업</option>
                 <option>자격증</option>
               </select>
-              <select class="form-control" id="sel1">
+              <select class="form-control" id="sel2" name="category_child_name">
                 <option>python</option>
                 <option>jsp</option>
                 <option>html</option>
@@ -57,14 +58,14 @@
 
               <label for="sel1">모집인원</label>
               <select name="group_participant_amount" class="form-control" id="sel1">
-                <option>1명</option>
-                <option>2명</option>
-                <option>3명</option>
-                <option>4명</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
               </select>
               
-              <input type="hidden" name="group_leader_no" th:value="${userVO?.user_no}">
-              <input type="hidden" name="group_leader_name" th:value="${userVO?.user_name}">
+              <input type="hidden" name="group_leader_no" th:value="${session.userVO.user_no}">
+              <input type="hidden" name="group_leader_name" th:value="${session.userVO.user_name}">
 
               <br>
 
@@ -83,5 +84,31 @@
 
   </section>
  </th:block>
+ 
+ <script type="text/javascript">
+ 	
+ 	function nameChk() {
+ 		
+ 		$.ajax({
+ 			url : "/group/nameChk",
+ 			type : "post",
+ 			dataType : "json",
+ 			data : {"group_name" : $("#group_name").val()},
+ 			success : function(data) {
+ 				if(data == 1) {
+ 					alert("중복된 이름입니다.")
+ 				} else if(data == 0) {
+ 					alert("사용가능한 이름입니다.")
+ 				}
+ 			},
+ 			error : function() {
+ 				alert("에러 입니다.");
+ 			}
+ 			
+ 		});
+ 		
+ 	}
+ 
+ </script>
 
 </html>

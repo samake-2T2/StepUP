@@ -17,7 +17,7 @@ create table user_upload (
     user_no int not null
 );
 ## 스터디 그룹 테이블
-create table studyGroup (
+create table studygroup (
 	group_no int primary key auto_increment,
     group_name varchar(50) not null, ##그룹명
     group_content varchar(500) not null, ##그룹설명

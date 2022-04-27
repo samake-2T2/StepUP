@@ -167,4 +167,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         order by groupnotice_no DESC) M
         WHERE groupnotice_no = #{groupnotice_no}
 	</select>
+	
+	<!-- 그룹명 중복 체크 -->
+	<select id="nameChk" resultType="int">
+		select count(*) from studygroup where group_name = #{group_name}
+	</select>
+	
+	<!-- 그룹 생성 메서드 -->
+	<insert id="groupRegist">
+		insert into studygroup(group_name,
+							   group_content,
+							   group_participant_amount,
+							   group_leader_no,
+							   group_leader_name,
+							   group_filename,
+							   group_filepath,
+							   group_fileuuid,
+							   category_parent_name,
+							   category_child_name)
+		values (#{group_name},
+				#{group_content},
+				#{group_participant_amount},
+				#{group_leader_no},
+				#{group_leader_name},
+				#{group_filename},
+				#{group_filepath},
+				#{group_fileuuid},
+				#{category_parent_name},
+				#{category_child_name})
+	
+	</insert>
 </mapper>
