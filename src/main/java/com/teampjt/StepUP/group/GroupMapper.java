@@ -19,9 +19,6 @@ public interface GroupMapper {
 	//전체 그룹 조회메서드
 	public int getGroupTotal(Criteria cri);
 
-	public ArrayList<GroupDetailCommentVO> getComment();
-
-	public int commentRegist(GroupDetailCommentVO gdcVO); // 글 등록
 
 	// 카테고리 조회
 	public ArrayList<SearchCategoryVO> getCategory();
@@ -45,8 +42,14 @@ public interface GroupMapper {
   
 	public int getTotal(); //전체게시글
 	
-	public ArrayList<GroupDetailCommentVO> getGroupCommentList();
-
 	public GroupNoticeVO movePage(int groupnotice_no); //이전글,다음글
 
+	public int commentRegist(GroupDetailCommentVO gdcVO); // 글 등록
+	
+	public ArrayList<GroupDetailCommentVO> getGroupCommentList();
+	
+	public ArrayList<GroupDetailCommentVO> getComment(); 
+	
+	public int commentUpdate(GroupDetailCommentVO gdcVO);
+	
 }

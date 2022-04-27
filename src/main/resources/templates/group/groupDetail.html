@@ -99,7 +99,7 @@
 					</div>
 
 
-				
+				<form action="groupCommentUpdate" method="post">
 					<th:block th:each="commentVO:${list}">
 					<div class="reply-wrap">
 						<div class="reply-img">
@@ -107,19 +107,26 @@
 						</div>
 						<div class="reply-content">
 							<div class="reply-group">
-								<strong>[[${commentVO.user_name}]]</strong> <small>[[${commentVO.comment_regdate}]]</small> <a href="#">
-								<i class="glyhpicon glyphicon-pencil"></i>수정</a> <a href="#">
-								<i class="glyhpicon glyphicon-remove"></i>삭제</a>
+								<strong>[[${commentVO.user_name}]]</strong> <small>[[${commentVO.comment_regdate}]]</small> 
+								<a href="#" class="replyUpadteBtn">
+									<i class="glyhpicon glyphicon-pencil " ></i>수정
+								</a> 
+								<a href="">
+									<i class="glyhpicon glyphicon-remove"></i>삭제
+								</a>
 							</div>
 							<p>[[${commentVO.comment_content}]]</p>
 
 						</div>
 					</div>
-					<div class="r_contentsx1">
-                    	 <textarea name="comment_contents" id="" cols="30" rows="10"></textarea>
-                     	 <button type="submit" class="re-coment-btn" name="comment_contents"><a>수정하기</a></button>
+					<div class="r_contentsx1" style="display: none; ">
+                    	 <textarea name="comment_content"  style="width: 100%;">[[${commentVO.comment_content}]]</textarea>
+                     	 <button type="submit" class="re-coment-btn">
+                     	 <a	>수정하기</a>
+                     	 </button>
                      	 </div><br>
 					</th:block>
+				</form>
 					
 					
 			
@@ -130,6 +137,18 @@
 	</section>
 
 </th:block>
+
+<script th:inline="javascript">
+	$(".replyUpadteBtn").click(function(e) {
+		
+		//나머지.....		
+		e.preventDefault();
+		$(e.target).closest(".reply-wrap").next().slideToggle();
+		
+	})
+	
+</script>
+
 
 <script th:inline="javascript">
 	//메시지 출력문
