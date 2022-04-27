@@ -20,12 +20,6 @@ public interface GroupService {
 	//전체 그룹 조회메서드
 	public int getGroupTotal(Criteria cri);
 	
-	public ArrayList<GroupDetailCommentVO> getComment();
-	
-	public int commentRegist(GroupDetailCommentVO gdcVO); //글 등록
-
-	public ArrayList<GroupDetailCommentVO> getGroupCommentList(); //댓글 목록
-	
 	//카테고리 조회
 	public ArrayList<SearchCategoryVO> getCategory();
 	
@@ -50,9 +44,17 @@ public interface GroupService {
 	
 	public GroupNoticeVO movePage(int groupnotice_no); //이전글,다음글
 	
+	public int commentRegist(GroupDetailCommentVO gdcVO); //글 등록
+	
+	public ArrayList<GroupDetailCommentVO> getGroupCommentList(); //댓글 목록
+	
+	public ArrayList<GroupDetailCommentVO> getComment();
+	
+	public int commentUpdate(GroupDetailCommentVO gdcVO);
+	
 	public int groupRegist(StudyGroupVO vo, MultipartFile f); // 그룹 생성 메서드
 	
 	public int nameChk(StudyGroupVO vo); // 그룹명 중복체크
 	
-	
 }
+

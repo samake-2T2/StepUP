@@ -131,6 +131,12 @@ public class GroupServiceImpl implements GroupService {
 		return groupMapper.movePage(groupnotice_no);
 	}
 
+  @Override
+  	public int commentUpdate(GroupDetailCommentVO gdcVO) {
+
+	  	return groupMapper.commentUpdate(gdcVO);
+}
+
 	@Override
 	public int groupRegist(StudyGroupVO vo, MultipartFile f) {
 
@@ -185,7 +191,4 @@ public class GroupServiceImpl implements GroupService {
 		
 		return groupMapper.nameChk(vo);
 	}
-
-
-
 }

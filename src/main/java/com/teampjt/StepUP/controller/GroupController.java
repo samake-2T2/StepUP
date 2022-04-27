@@ -78,18 +78,6 @@ public class GroupController {
 		return "group/groupRegList";
 	}
 
-	// 댓글 리스트
-	@GetMapping("/groupDetail")
-	public String groupDetail(Model model) {
-
-		ArrayList<GroupDetailCommentVO> list = groupService.getGroupCommentList();
-		System.out.println(list.toString());
-
-		model.addAttribute("list", list);
-
-		return "group/groupDetail";
-	}
-
 	//공지목록페이지
 	@GetMapping("/groupNotice")
 	public String groupNotice( Model model, Criteria cri ) {
@@ -182,11 +170,25 @@ public class GroupController {
 
 		return "redirect:/group/groupNotice";
 	}
+	
+	// 댓글목록페이지
+	@GetMapping("/groupDetail")
+	public String groupDetail(Model model) {
+		
+		ArrayList<GroupDetailCommentVO> list = groupService.getGroupCommentList();
+		System.out.println(list.toString());
+		
+		model.addAttribute("list", list);
+		
+		return "group/groupDetail";
+	}
 
+	
+	//댓글 등록폼
 	@PostMapping("/groupCommentForm")
-	public String groupNoticeForm(GroupDetailCommentVO gdcVO,
-			RedirectAttributes RA) {
-
+	public String groupCommentForm(GroupDetailCommentVO gdcVO,
+								  RedirectAttributes RA) {
+	
 		System.out.println(gdcVO.toString());
 
 		int result = groupService.commentRegist(gdcVO);
@@ -195,6 +197,25 @@ public class GroupController {
 			RA.addFlashAttribute("msg", "댓글이 등록되었습니다"); 
 		}else {
 			RA.addFlashAttribute("msg", "댓글등록이 실패하였습니다");
+		}
+	
+		return "redirect:/group/groupDetail";
+	}
+
+
+	//댓글 수정폼
+	@PostMapping("/groupCommentUpdate")
+	public String groupCommentUpdate(GroupDetailCommentVO gdcVO,
+									 RedirectAttributes RA) {
+		
+		System.out.println(gdcVO.toString());
+		
+	int result = groupService.commentUpdate(gdcVO);
+		
+		if(result == 1) {
+			RA.addFlashAttribute("msg", "공지가 수정되었습니다");
+		}else {
+			RA.addFlashAttribute("msg", "공지가 수정되지않았습니다");
 		}
 
 		return "redirect:/group/groupDetail";
@@ -235,6 +256,6 @@ public class GroupController {
 
 		
 	}
-
-
 }
+}
+
