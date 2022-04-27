@@ -169,6 +169,6 @@ public class UserController {
 
 		session.invalidate();
 
-		return "/main";
+		return "redirect:/main";
 	}
 }
