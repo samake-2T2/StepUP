@@ -18,6 +18,7 @@ public class PageVO {
 	private int page;
 	private int amount;
 	private int total;
+	private String searchKeyword;
 	
 	private int realEnd;
 	
@@ -32,6 +33,7 @@ public class PageVO {
 		this.amount = cri.getAmount();
 		this.total = total;
 		this.cri = cri;
+		this.searchKeyword = cri.getSearchKeyword();
 		
 		//끝 페이지 계산하기
 		this.end = (int)Math.ceil(this.page / 10.0) * 10;

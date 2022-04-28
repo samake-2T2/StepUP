@@ -19,6 +19,12 @@
             </div>
             
             
+            <div>
+            	<input type="text" class="search_value" th:value="${pageVO.searchKeyword}">
+            	<button class="search_btn">검색</button>
+            </div>
+            
+            
             <select class="quanti" th:onchange="|fb_dataHandler(this)|">
                 <option value="10" th:selected="${pageVO.amount} == 10? 'selected' ">10개 보기</option>
                 <option value="20" th:selected="${pageVO.amount} == 20? 'selected' ">20개 보기</option>
@@ -61,7 +67,7 @@
                                             	<button type="button"><a th:href="@{/board/boardDelete(free_board_no=${vo.free_board_no}, user_no=${vo.user_no})}">삭제</a></button>
                                         	</th:block>
                                         </div>
-                                        <div><br>
+                                        <div><br><br><br><br><br>
                                         
                                         
                                         
@@ -70,42 +76,40 @@
 	                                                <div class="coment_info">
 	                                                	
 	                                                    <div class="user_pro" th:each="vo2, state : ${vo.main_comments_list}">
-	                                                    <input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.user_no}">
-	                    								<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.user_name}">
-	                    								<input type="hidden" name="writer" th:value="${vo.user_no}">
-	                    								<input type="hidden" name="comment_no" th:value="${vo2.comment_no}">
-	                    								<input type="hidden" name="free_board_no" th:value="${vo2.free_board_no}">
+		                                                    <input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.user_no}">
+		                    								<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.user_name}">
+		                    								<input type="hidden" name="writer" th:value="${vo.user_no}">
+		                    								<input type="hidden" name="comment_no" th:value="${vo2.comment_no}">
+		                    								<input type="hidden" name="free_board_no" th:value="${vo2.free_board_no}">
 	                                                        <div class="w_photo"><img src="img/Logo.png"></div>
-	                                                        <div class="w_info">[[${vo2.user_name}]]   &nbsp;
-	                                                        	<span class="w_regdate"><span> 
-	                                                        	| 
-	                                                        	</span> &nbsp [[${#temporals.format(vo2.comment_regdate, 'yy-MM-dd')}]] </span> 
-	                                                        </div> 
-	                                            			
-	                                            			
-	                                            			<form th:action="updateComment" method="post" name="updateComment">
-			                                                    <div class="w_contents">
-			                                                    	<div name="comment_contents">[[${vo2.comment_contents}]]</div>
-			                                                    	<input type="hidden" name="comment_no" th:value="${vo2.comment_no}">
-			                                                    	<input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.user_no}">
-			                                                    	<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.user_name}">
-			                                                    	<input type="hidden" name="writer" th:value="${vo.user_no}">
-			                                                    	
-			                                                    	
-
-			                                                    	<th:block th:if="${vo2.user_no == session.user_no}"> 
-			                                                        	<button type="button" class="re-coment" ><a>수정</a></button>
-			                                                        	<button type="button"><a th:href="@{/board/deleteComment(comment_no=${vo2.comment_no}, user_no=${vo.user_no})}">삭제</a></button>
-			                                                    	</th:block>
-			                                                    </div>
-			                                                    <div class="r_contents">
-			                                                        <textarea  name="comment_contents" id="" cols="30" rows="10"></textarea>
-			                                                        <button type="submit" class="re-coment-btn" name="comment_contents"><a>수정하기</a></button>
-			                                                    </div><br>
-		                                                    </form>
-		                                                    
-		                                                    
-		                                                    </div>
+		                                                        <div class="w_info">[[${vo2.user_name}]]   &nbsp;
+		                                                        	<span class="w_regdate"><span> 
+		                                                        	| 
+		                                                        	</span> &nbsp [[${#temporals.format(vo2.comment_regdate, 'yy-MM-dd')}]] </span> 
+		                                                        	<th:block th:if="${vo2.user_no == session.user_no}"> 
+				                                                        <button type="button" class="re-coment" ><a>수정</a></button>
+				                                                        <button type="button"><a th:href="@{/board/deleteComment(comment_no=${vo2.comment_no}, user_no=${vo.user_no})}">삭제</a></button>
+				                                                    </th:block>
+		                                                        </div> 
+		                                            			<form th:action="updateComment" method="post" name="updateComment">
+				                                                    <div class="w_contents">
+				                                                    	<div name="comment_contents">[[${vo2.comment_contents}]]</div><br>
+				                                                    	<input type="hidden" name="comment_no" th:value="${vo2.comment_no}">
+				                                                    	<input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.user_no}">
+				                                                    	<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.user_name}">
+				                                                    	<input type="hidden" name="writer" th:value="${vo.user_no}">
+				                                                    	
+				                                                    	
+																		
+				                                                    	여기여기
+				                                                    	
+				                                                    </div>
+				                                                    <div class="r_contents">
+				                                                        <textarea  name="comment_contents" id="" cols="30" rows="10" class="comment_contents_value1"></textarea>
+				                                                        <button type="submit" class="re-coment-btn comment_btn1" name="comment_contents"><a>답글 수정하기</a></button>
+				                                                    </div><br>
+			                                                    </form>
+		                                                   </div>
 		                                                
 	                                                	</div>
 	                                                <br>
@@ -115,28 +119,19 @@
 	                    								<input type="hidden" name="writer" th:value="${vo.user_no}">
 	                    								<input type="hidden" name="free_board_no" th:value="${vo.free_board_no}">
 		                                                <div class="coment_textarea" >
-		                                                    <textarea placeholder="댓글을 작성하려면 로그인 해주세요." th:name="comment_contents" class="comment_contents_value"></textarea>
+		                                                    <textarea placeholder="댓글을 작성하려면 로그인 해주세요." th:name="comment_contents" class="comment_contents_value2"></textarea>
 		                                                </div>
 		                                                <br>
-		                                                
 		                                                <div class="w-btn-p">
-		                                                <th:block th:if="${session.user_no != null}">
-		                                                	<button type="button" class="free_write comment_btn">댓글등록</button><br>
-		                                                </th:block>
+			                                                <th:block th:if="${session.user_no != null}">
+			                                                	<button type="button" class="free_write comment_btn2">답글등록</button><br>
+			                                                </th:block>
 		                                                </div>
-		                                                
-                                      </form>
-	                                                
-	                                                
+                                      				</form>
 	                                            </div>
 	                                        </div>
-                             
-                                    </td>
-                                </tr>
-                                
-                                
-                                
-                                
+                                    	</td>
+                                	</tr>
                             </tbody>
                         </table>
                     </div><br>
@@ -160,7 +155,7 @@
                     
                        <th:block th:if="${pageVO.realEnd != 0}">
                                     <li>
-                                       <a th:href="@{/board/freeboard_main(page=1, amount=${pageVO.amount})}">
+                                       <a th:href="@{/board/freeboard_main(page=1, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword})}">
                                           왼왼
                                        </a>
                                     </li>
@@ -168,7 +163,7 @@
                                     
                                     <th:block th:if="${pageVO.prev}">
                                        <li style="margin-right:5px;">
-                                          <a th:href="@{/board/freeboard_main(page=${pageVO.start - 1}, amount=${pageVO.amount} ) }">
+                                          <a th:href="@{/board/freeboard_main(page=${pageVO.start - 1}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
                                              ◁
                                           </a>
                                        </li>
@@ -177,13 +172,13 @@
                                    
                                     <th:block th:each="page, state : ${pageVO.pageList}">
                                        <li th:class="${pageVO.page == page ? 'active' : ''}">
-                                          <a th:href="@{/board/freeboard_main(page=${page}, amount=${pageVO.amount})}">[[${page}]]</a>
+                                          <a th:href="@{/board/freeboard_main(page=${page}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword})}">[[${page}]]</a>
                                        </li>
                                     </th:block>
                                     
                                     <th:block th:if="${pageVO.next}">
                                        <li style="margin-left:5px;">
-                                          <a th:href="@{/board/freeboard_main(page=${pageVO.end + 1}, amount=${pageVO.amount} ) }">
+                                          <a th:href="@{/board/freeboard_main(page=${pageVO.end + 1}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
                                              ▷
                                           </a>
                                        </li>
@@ -191,7 +186,7 @@
                                     
                                     <th:block th:if="${pageVO.realEnd != 0}">
                                     <li>
-                                       <a th:href="@{/board/freeboard_main(page=${pageVO.realEnd}, amount=${pageVO.amount} ) }">
+                                       <a th:href="@{/board/freeboard_main(page=${pageVO.realEnd}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
                                           오오
                                        </a>
                                     </li>
@@ -227,18 +222,28 @@
 		document.forms["subCommentForm"].submit();
 	}
 	$(function(){
-		$('.comment_btn').on('click',function(){
-			const contentValue = $(this).parent().parent().find('.comment_contents_value').val();
-				
+		$('.comment_btn1').on('click',function(){
+			const contentValue = $(this).parent().find('.comment_contents_value1').val().trim();
 			if(contentValue == ''|| contentValue == null){
 				alert('내용을 입력해주세요');
 				return false;
 			}else{
 				$(this).parent().parent().submit();
 			}
-			
-			
-			
+		})
+	})
+	
+	
+		$(function(){
+		$('.comment_btn2').on('click',function(){
+			//alert(123);
+			const contentValue = $(this).parent().parent().find('.comment_contents_value2').val().trim();
+			if(contentValue == ''|| contentValue == null){
+				alert('내용을 입력해주세요');
+				return false;
+			}else{
+				$(this).parent().parent().submit();
+			}
 		})
 	})
 	
@@ -246,7 +251,5 @@
 		//console.log(a.value);
 		location.href='/board/freeboard_main?page1&amount='+a.value;
 	}
-	
-	
 </script>
 </html>
