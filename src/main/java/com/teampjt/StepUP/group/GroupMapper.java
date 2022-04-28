@@ -52,8 +52,10 @@ public interface GroupMapper {
 	
 	public ArrayList<GroupDetailCommentVO> getGroupCommentList();
 	
-	public ArrayList<GroupDetailCommentVO> getComment(); 
+	public ArrayList<GroupDetailCommentVO> getComment(); //댓글 등록
 	
-	public int commentUpdate(GroupDetailCommentVO gdcVO);
+	public int commentUpdate(GroupDetailCommentVO gdcVO); //댓글 수정
+	
+	public int commentDelete(int comment_no); //댓글 삭제
 	
 }
