@@ -5,10 +5,15 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.teampjt.StepUP.command.SearchCategoryVO;
+import com.teampjt.StepUP.command.StudyGroupVO;
 import com.teampjt.StepUP.group.GroupService;
+import com.teampjt.StepUP.util.Criteria;
 
 @RestController
 public class AjaxController {
@@ -16,6 +21,7 @@ public class AjaxController {
 	@Autowired
 	public GroupService groupService;
 	
+	//대분류 선택
 	@GetMapping("/getCategory")
 	public ArrayList<SearchCategoryVO> getCategory() {
 		
@@ -49,6 +55,5 @@ public class AjaxController {
 		return list;
 	}
 			
-		
 	
 }

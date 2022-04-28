@@ -22,10 +22,6 @@ public class GroupServiceImpl implements GroupService {
 	@Autowired
 	public GroupMapper groupMapper;
 
-
-
-
-
 	// 그룹 이미지 업로드할 경로(application.properties값을 참조)
 	@Value("${project.groupUpload.path}")
 	private String uploadPath;
@@ -48,7 +44,7 @@ public class GroupServiceImpl implements GroupService {
 	@Override
 	public ArrayList<StudyGroupVO> getGroupList(Criteria cri) {
 
-		return groupMapper.getGroupList(cri);
+		return groupMapper.getGroupList(@Rri);
 	}
 
 	@Override
@@ -181,10 +177,6 @@ public class GroupServiceImpl implements GroupService {
 		int result = groupMapper.groupRegist(groupVO);
 		return result;
 	}
-
-
-
-
 
 	@Override
 	public int nameChk(StudyGroupVO vo) {

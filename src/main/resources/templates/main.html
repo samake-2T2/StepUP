@@ -111,8 +111,7 @@
 									<div class="group_main_list_common_input">
 										<input type="text" id="keywordSearch"
 											placeholder="찾고 있는 스터디를 검색해보세요." name="searchKeyword">
-										<button id="common_input_btn" type="submit"
-											class="glyphicon glyphicon-search"></button>
+										<button id="common_input_btn" type="button" class="glyphicon glyphicon-search"></button>
 									</div>
 								</div>
 							</div>
@@ -163,7 +162,7 @@
 					</div>
 				</section>
 
-				<!-- <div class="group_main_list_pagenation">
+				<div class="group_main_list_pagenation">
 
 					<ul>
             			<th:block th:if="${pageVO.realEnd != 0}">
@@ -196,7 +195,7 @@
                 			</li>
                 		</th:block>
 
-            		</ul> -->
+            		</ul>
 
 				</div>
  
@@ -214,8 +213,6 @@
 		$.getJSON("../getCategory", 
 				  function(data) {
 			
-				  console.log(data);
-				
                   var category01 = "";
                   
                   category01 += '<select class="major_option" id="major_option" onchange="getCategory_List(event);" >';
@@ -228,14 +225,12 @@
                   
                   category01 += '</select>';
                   
-                  console.log(category01);
-                  
                   $(".group_main_list_category_major").append(category01);
                   
                   //$(".minor").remove(category02);
                   
 		
-				  console.log('[[${list}]]')
+				  //console.log('[[${list}]]')
 	});
 	})
 	
@@ -290,7 +285,6 @@
 	$.fn.category_set = function() {
 	
  	var obj = this.find('option:selected').data("set");
- 	console.log(obj);
  	
  	var category_group_id = this.find('option:selected').data("set").category_group_id;
 	var category_id = this.find('option:selected').data("set").category_id; 
@@ -336,14 +330,45 @@
 		location.href='/main?page=1&amount=' + a.value;
 	}
 
+	
 	//검색 버튼
 	var common_input_btn = document.getElementById("common_input_btn");
 	common_input_btn.onclick = function() {
+	
+	console.log($("#major_option").val());
+	console.log($("#minor_option").val());
+	console.log($("#keywordSearch").val());
 		
-
-		event.preventDefault(); //기본 이벤트 중지
-		document.main.submit(); //폼 전송
+ 		/* event.preventDefault(); //기본 이벤트 중지
+		document.groupList.submit(); */
+ 		
+ 		
+  		$.ajax({
+		
+			url : "/mainAjax",
+			type : "post",
+			//dataType : "json",
+			contentType: "application/json",
+			data : JSON.stringify({
+				parent_name : $("#major_option").val(),
+				child_name : $("#minor_option").val(),
+				group_name : $("#keywordSearch").val()
+				}),
+			success : function(data) {
+/* 				$("#major_option").val(parent_name)
+				$("#minor_option").val(child_name)
+				$("#keywordSearch").val(group_name) */
+			
+				console.log(data)
+			},
+			error : function() {
+				alert("검색 실패, 관리자에게 문의하세요.")
+			}
+		});
+		
 	}
+	
+		
 
 </script>
 </html>
