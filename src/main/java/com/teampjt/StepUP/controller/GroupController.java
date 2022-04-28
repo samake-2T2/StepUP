@@ -120,8 +120,8 @@ public class GroupController {
 	public String groupNoticeForm(GroupNoticeVO gnVO,
 			RedirectAttributes RA) {
 
-
-
+		
+		
 		int result = groupService.noticeRegist(gnVO);
 
 		if(result == 1) {
