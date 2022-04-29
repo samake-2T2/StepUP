@@ -47,9 +47,11 @@ public interface GroupService {
 	
 	public ArrayList<GroupDetailCommentVO> getGroupCommentList(); //댓글 목록
 	
-	public ArrayList<GroupDetailCommentVO> getComment();
+	public ArrayList<GroupDetailCommentVO> getComment(); // 댓글 등록
 	
-	public int commentUpdate(GroupDetailCommentVO gdcVO);
+	public int commentUpdate(GroupDetailCommentVO gdcVO); //댓글 수정
+	
+	public int commentDelete(int comment_no); //댓글 삭제
 	
 	public int groupRegist(StudyGroupVO vo, MultipartFile f); // 그룹 생성 메서드
 	

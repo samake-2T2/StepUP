@@ -127,7 +127,7 @@ public class GroupServiceImpl implements GroupService {
 		return groupMapper.movePage(groupnotice_no);
 	}
 
-  @Override
+	@Override
   	public int commentUpdate(GroupDetailCommentVO gdcVO) {
 
 	  	return groupMapper.commentUpdate(gdcVO);
@@ -178,9 +178,18 @@ public class GroupServiceImpl implements GroupService {
 		return result;
 	}
 
+
 	@Override
 	public int nameChk(StudyGroupVO vo) {
 		
 		return groupMapper.nameChk(vo);
+	}
+
+
+
+	@Override
+	public int commentDelete(int comment_no) {
+	
+		return groupMapper.commentDelete(comment_no);
 	}
 }

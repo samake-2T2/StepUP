@@ -11,7 +11,7 @@
     <div class="container-free">
         <div class="row_free">
             <div class="free-title-box">
-                자유게시판_수정
+                자유게시판(수정)
             </div>
            
             <div class="free-main-box">
@@ -24,12 +24,17 @@
                     	<input type="hidden" name="user_no" th:value="${session.userVO.user_no}">
                     	<input type="hidden" name="user_name" th:value="${session.userVO.user_name}">
                     
-                        <input type="text" name="free_title" th:value="${fb_VO.free_title}"><br><br>
-                        <textarea name="free_content" >[[${fb_VO.free_content}]]</textarea>
+                        <input type="text" name="free_title" th:value="${fb_VO.free_title}" class="free_title">
+                        <br>
+                        <span style="color:red; opacity:0" class="title_vail">제목을 입력해주세요</span>
+                        <br><br>
+                        <textarea name="free_content" class="free_content">[[${fb_VO.free_content}]]</textarea>
+                        <br>
+                        <span style="color:red; opacity:0" class="content_vail">내용을 입력해주세요</span>
                     </div>
                     <br>
                     <div class="w-btn-p">
-                        <button type="submit" class="free_write">수정하기</button><br>
+                        <button type="submit" class="free_write contents_sbm_btn">수정하기</button><br>
                     </div>
                 </form>
                 
@@ -40,5 +45,37 @@
     </div>
 
 </th:block>
-
+<script>
+$(function(){	
+	$('.free_title').on('keyup',function(){
+		if($(this).val() == '' ){	
+			$('.title_vail').css('opacity','1');
+		}else{
+			$('.title_vail').css('opacity','0');
+		}
+	})
+	
+	$('.free_content').on('keyup',function(){
+		if($(this).val() == ''){
+			$('.content_vail').css('opacity','1');
+		}else{
+			$('.content_vail').css('opacity','0');
+		}
+	})
+	
+	$('.contents_sbm_btn').on('click',function(){
+		const free_title = $('.free_title').val().trim();
+		const free_content = $('.free_content').val().trim();
+		if(free_title == ''||free_title == null){
+			$('.title_vail').css('opacity','1');
+			return false;
+		}
+		if(free_content == ''||free_content == null){
+			$('.content_vail').css('opacity','1');
+			return false;
+		}
+		$(this).parent().parent().submit();
+	});
+})
+</script>
 </html>

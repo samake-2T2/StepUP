@@ -36,11 +36,13 @@ public class BoardController {
 	
 	// 리스트 화면 
 	@GetMapping("/freeboard_main")
-	public String freeboard_main(Model model, Criteria cri) {
-		
+	public String freeboard_main(Model model, 
+			Criteria cri
+			) {
+		System.out.println("search_value = "+cri);
 		//페이징 처리
 		ArrayList<FreeBoardVO> list = boardService.fb_getList(cri);
-		int total = boardService.fb_getTotal();
+		int total = boardService.fb_getTotal(cri);
 		PageVO pageVO = new PageVO(cri, total);
 		
 		for(int listCnt = 0;listCnt <list.size();listCnt++) {	
@@ -51,7 +53,7 @@ public class BoardController {
 			list.get(listCnt).setMain_comments_list(c_list);
 			System.out.println("list.get(listCnt)="+list.get(listCnt));
 		}
-		
+		System.out.println("pageVO = "+pageVO);
 		// 데이터 저장
 		model.addAttribute("list", list);
 		// 페이지네이션 저장 

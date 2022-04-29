@@ -147,11 +147,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 댓글 수정하기 -->
 	<update id="commentUpdate">
-		update 	group_detail_comment
-		set  	comment_content = #{comment_content},
-		where 	comment_regdate = #{comment_regdate},
-		
-		
+		update group_detail_comment
+		   set comment_content = #{comment_content}	
+		 where comment_no = #{comment_no}		
 	</update>
 	
 	
@@ -159,6 +157,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from group_detail_comment
 	
 	</select>
+	
+	<delete id="commentDelete">
+    	delete from group_detail_comment
+    	where comment_no = #{comment_no}
+	
+	</delete>
+	
 	
 	<!-- 이전글, 다음글 -->
 	<select id="movePage" parameterType="int" resultType="GroupNoticeVO">
