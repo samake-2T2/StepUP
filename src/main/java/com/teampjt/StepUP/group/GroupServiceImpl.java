@@ -44,7 +44,7 @@ public class GroupServiceImpl implements GroupService {
 	@Override
 	public ArrayList<StudyGroupVO> getGroupList(Criteria cri) {
 
-		return groupMapper.getGroupList(@Rri);
+		return groupMapper.getGroupList(cri);
 	}
 
 	@Override
