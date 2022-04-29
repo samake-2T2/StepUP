@@ -1,12 +1,17 @@
 package com.teampjt.StepUP.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.teampjt.StepUP.command.StudyGroupVO;
 import com.teampjt.StepUP.group.GroupService;
@@ -20,7 +25,18 @@ public class MainController {
 	public GroupService groupService;
 	
 	@GetMapping("/main")
-	public void main(Model model, Criteria cri) {
+	public void main(Model model, 
+			         Criteria cri,
+			         @RequestParam(value="parent_name", required = false) String parent_name,
+			         @RequestParam(value="child_name", required = false) String child_name,
+			         @RequestParam(value="group_name", required = false) String group_name
+			         ) {
+		
+		cri.setSearchCategoryParent(parent_name);
+		cri.setSearchCategoryChild(child_name);
+		cri.setSearchKeyword(group_name);
+		
+		System.out.println(cri.toString());
 		
 		//페이징처리
 		ArrayList<StudyGroupVO> list = groupService.getGroupList(cri);
@@ -28,12 +44,44 @@ public class MainController {
 		
 		PageVO pageVO = new PageVO(cri, total);
 		
-		//데이터 저장
+		//스터디 그룹 데이터 저장
 		model.addAttribute("list", list);
+		
+		//검색 결과 데이터 저장
+		model.addAttribute("cri", cri);
 		
 		//페이지네이션 저장
 		model.addAttribute("pageVO", pageVO);
 		
+	}
+	
+
+	@ResponseBody
+	@PostMapping("/mainAjax")
+	public String main2(Model model, 
+			         Criteria cri,
+			         @RequestBody HashMap<String, Object> map
+			         ) {
+		
+		System.out.println(map.toString());
+//		System.out.println(cri.toString());
+		
+		//페이징처리
+		ArrayList<StudyGroupVO> list = groupService.getGroupList(cri);
+		int total = groupService.getGroupTotal(cri);
+		
+		PageVO pageVO = new PageVO(cri, total);
+		
+		//스터디 그룹 데이터 저장
+		model.addAttribute("list", list);
+		
+		//검색 결과 데이터 저장
+		model.addAttribute("cri", cri);
+		
+		//페이지네이션 저장
+		model.addAttribute("pageVO", pageVO);
+		
+		return "Xxxxxxxxxxx";
 	}
 	
 }

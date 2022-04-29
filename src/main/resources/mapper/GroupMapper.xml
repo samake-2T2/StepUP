@@ -7,12 +7,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.teampjt.StepUP.group.GroupMapper">
 
 	<select id="getGroupList" resultType="StudyGroupVO">
-		<![CDATA[
+						<![CDATA[
 		SELECT *
 		FROM (SELECT A.*,
-       			     @ROWNUM := @ROWNUM + 1 AS RN
-	  		  FROM (SELECT *
-			  	    FROM studygroup
+    		         @ROWNUM := @ROWNUM + 1 AS RN
+			  FROM (SELECT *
+					  FROM (SELECT *
+							FROM studygroup st
+							LEFT OUTER JOIN (SELECT CASE  A1.category_parent_lv
+													WHEN 0 THEN A1.category_detail_nm
+													WHEN 1 THEN CONCAT(A2.category_detail_nm,' > ', A1.category_detail_nm)
+													END as category_nav,
+													IF(A1.category_parent_lv = 0 , A1.category_detail_nm, A2.category_detail_nm) AS parent_nm,
+													IF(A1.category_parent_lv = 1 , A1.category_detail_nm, 'NULL') AS child_nm
+											FROM search_category A1
+											LEFT OUTER JOIN search_category A2
+											ON A1.category_parent_lv = A2.category_lv AND A1.category_detail_parent_lv = A2.category_detail_lv AND A1.category_group_id = A2.category_group_id) AS JC
+							on st.category_parent_name = JC.parent_nm and st.category_child_name = JC.child_nm) AS xxx
 	    ]]>
 	    	        <if test="searchKeyword != '' and searchKeyword != null">
 	    	        WHERE group_name LIKE CONCAT('%', #{searchKeyword}, '%')
@@ -26,8 +37,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    	        ORDER BY group_name ASC) A, (SELECT @ROWNUM := 0) D
 	    <![CDATA[
 	    )B
-	    
-	    
 	    WHERE RN > (#{page}-1) * #{amount} AND RN <= #{page} * #{amount}
 	    ]]>
 	</select>
@@ -199,4 +208,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				#{category_child_name})
 	
 	</insert>
+	
 </mapper>
