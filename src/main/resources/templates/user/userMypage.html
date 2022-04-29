@@ -25,39 +25,43 @@
                     <form class="box-form" name="userUpdate" action="####" method="post">
                     
                     	  <div class="mypage-group" display="none">
-                            <input type="hidden" name="user_no" th:value="${userVO?.user_no}">
+                            <input type="hidden" name="user_no" th:value="${session.userVO.user_no}">
                           </div>
                     	  <div class="mypage-group">
                             <label>이메일</label>
-                            <input type="text" name="email" value="abcdef@naver.com" class="form-control" readonly>
+                            <input type="text" name="email" th:value="${session.userVO.email}" class="form-control" readonly>
                           </div>
                     	
-                          <div class="mypage-group">
+                          <div class="mypage-group" >
                             <label>비밀번호</label>
-                            <input type="password" id="password" name="password" th:value="${userVO?.password}" class="form-control" placeholder="수정할 비밀번호를 입력하세요">
+                            <input type="password" id="password" name="password" th:value="${session.userVO.password}" class="form-control" th:readonly="${session.userVO.logintype == 1}">
                           </div>
 
                           <div class="mypage-group">
                             <label>닉네임</label>
-                            <input type="text"  name="user_name" th:value="${userVO?.user_name}" class="form-control" placeholder="수정할 닉네임을 입력하세요">
+                            <input type="text"  name="user_name" th:value="${session.userVO.user_name}" class="form-control" th:readonly="${session.userVO.logintype == 1}">
                           </div>
 
                           <div class="mypage-group">
                             <label>관심분야</label>
-                            <select class="user-sel"  name="interest" th:value="${userVO?.interest}" >
-                              <option name="field">입시</option>
-                              <option name="field">취업/창업</option>
-                              <option name="field">자격증</option>
-                              <option name="field">외국어회화</option>
-                              <option name="field">IT/인터넷</option>
-                              <option name="field">취미/문화</option>
+                            <select class="user-sel"  name="interest" th:value="${session.userVO.interest}">
+                              <option name="field" th:selected="${session.userVO.interest}=='입시'">입시</option>
+                              <option name="field" th:selected="${session.userVO.interest}=='취업/창업'">취업/창업</option>
+                              <option name="field" th:selected="${session.userVO.interest}=='자격증'">자격증</option>
+                              <option name="field" th:selected="${session.userVO.interest}=='외국어회화'">외국어회화</option>
+                              <option name="field" th:selected="${session.userVO.interest}=='IT/인터넷'">IT/인터넷</option>
+                              <option name="field" th:selected="${session.userVO.interest}=='취미/문화'">취미/문화</option>
                             </select>
+                          </div> 
+                          
+                          <div class="mypage-group" display="none">
+                            <input type="hidden" name="logintype" th:value="${session.userVO.logintype}">
                           </div>
 
                           <div class="mypage-group">
                             <div class="mypage-btn">
                               <!-- 탈퇴 버튼에 넣기 th:onClick="|location.href='@{/user/userDelete(user_no=${브이오이름.user_no})}'|" -->
-                              <button type="button" class="w-btn btn-danger btn-block1" >탈퇴</button>
+                              <button type="button" class="w-btn btn-danger btn-block1" th:onClick="|location.href='@{/user/userDelete(user_no=${session.userVO.user_no})}'|" >탈퇴</button>
                               <a th:href="@{수정JS}" class="w-btn btn-block10" th:onclick="|user_valid()|">수정</a>
                            </div>
                           </div>
@@ -76,7 +80,16 @@
     		
     		document.userUpdate.action = "userUpdate";
     		document.userUpdate.submit();
+    		
+    	
     	}
+    	(function() {
+    		var msg = JSON.parse('[[${msg}]]');
+    		if(msg != null){
+    			alert(msg);
+    		}
+    	})();
+    	
     	
     </script>
     

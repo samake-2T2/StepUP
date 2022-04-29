@@ -95,12 +95,15 @@ public class UserController {
 
 	//업데이트폼
 	@PostMapping("/userUpdate")
-	public String userUpdate(UserVO userVO,
-							 RedirectAttributes RA) {
-
-		System.out.println(userVO.toString());
+	public String userUpdate(UserVO userVO, HttpSession session,
+							 RedirectAttributes RA, Model model) {
+		
+		session.setAttribute("user_name", userVO.getUser_name());
+		
+		
 		int result = userService.update(userVO);
-
+		model.addAttribute("userVO", userVO);
+		
 		if(result == 1) {
 			RA.addFlashAttribute("msg", "정보수정이 완료되었습니다");
 

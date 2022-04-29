@@ -61,7 +61,7 @@
                 <div class="box-btn">
                     <button th:if="${gnVO.groupnotice_writer == session.userVO.user_name}"  type="submit" class="w-btn btn-danger list-btn">삭제</button>
                     <a th:if="${gnVO.groupnotice_writer == session.userVO.user_name}" th:href="@{/group/groupNoticeModify(groupnotice_no=${gnVO.groupnotice_no})}" class="w-btn list-btn" >수정</a>
-                    <a href="/group/groupNotice" class="w-btn list-btn2">목록</a>
+                    <a href="/group/groupNotice" class="w-btn list-btn2">목록</a> <!-- th:href="@{/group/groupNotice(vo.group_no=${vo.group_no})}" -->
                 </div>
             </div>
         </form>
