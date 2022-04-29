@@ -7,14 +7,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.teampjt.StepUP.group.GroupMapper">
 
 	<select id="getGroupList" resultType="StudyGroupVO">
-						<![CDATA[
-		SELECT *
-		FROM (SELECT A.*,
-    		         @ROWNUM := @ROWNUM + 1 AS RN
-			  FROM (SELECT *
-					  FROM (SELECT *
-							FROM studygroup st
-							LEFT OUTER JOIN (SELECT CASE  A1.category_parent_lv
+		<![CDATA[
+SELECT *
+FROM (SELECT A.*,
+		     @ROWNUM := @ROWNUM + 1 AS RN
+	    FROM (SELECT *
+   		        FROM (SELECT *
+						FROM studygroup st
+						LEFT OUTER JOIN (SELECT CASE  A1.category_parent_lv
 													WHEN 0 THEN A1.category_detail_nm
 													WHEN 1 THEN CONCAT(A2.category_detail_nm,' > ', A1.category_detail_nm)
 													END as category_nav,
@@ -25,16 +25,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 											ON A1.category_parent_lv = A2.category_lv AND A1.category_detail_parent_lv = A2.category_detail_lv AND A1.category_group_id = A2.category_group_id) AS JC
 							on st.category_parent_name = JC.parent_nm and st.category_child_name = JC.child_nm) AS xxx
 	    ]]>
+	    			
+	    			WHERE 1 = 1
+	    	        <if test="searchCategoryParent != '선택하세요' and searchCategoryParent != null">
+	    	        AND category_parent_name LIKE CONCAT('%', #{searchCategoryParent}, '%')
+	    	        </if>
+	    	        <if test="searchCategoryChild != '선택하세요' and searchCategoryChild != null">
+	    	        AND category_child_name LIKE CONCAT('%', #{searchCategoryChild}, '%')
+	    	        </if>
 	    	        <if test="searchKeyword != '' and searchKeyword != null">
-	    	        WHERE group_name LIKE CONCAT('%', #{searchKeyword}, '%')
+	    	        AND group_name LIKE CONCAT('%', #{searchKeyword}, '%')
 	    	        </if>
-	    	        <if test="searchCategoryParent != '' and searchCategoryParent != null">
-	    	        AND category_parent_name LIKE #{searchCategoryParent}
-	    	        </if>
-	    	        <if test="searchCategoryChild != '' and searchCategoryChild != null">
-	    	        AND category_child_name LIKE #{searchCategoryChild}
-	    	        </if>
-	    	        ORDER BY group_name ASC) A, (SELECT @ROWNUM := 0) D
+	    	        ORDER BY group_name DESC) A, (SELECT @ROWNUM := 0) D
 	    <![CDATA[
 	    )B
 	    WHERE RN > (#{page}-1) * #{amount} AND RN <= #{page} * #{amount}
