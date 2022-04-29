@@ -54,7 +54,7 @@ create table qna_board (
 
 ## 자유게시판 테이블
 create table free_board (
-	  free_board_no int primary key auto_increment,
+	free_board_no int primary key auto_increment,
     user_no int not null,
     user_name varchar(10) not null, 
     free_title varchar(30) not null,

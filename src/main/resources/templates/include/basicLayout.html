@@ -35,10 +35,10 @@
 			</a>
 			<!-- 헤더 우측  -->
 			<ul class="navbar-right">
-			    <li><a href="/board/freeboard_main"><span>커뮤니티</span></a></li>
-            	<li><a href=""><span>공지사항</span></a></li>
-				<li th:if="${session.userVO} == null"><a href="/user/login"><span>로그인</span></a></li>
-				<li th:if="${session.userVO} == null"><a class="joinbutton" href="/user/userJoin"><span>회원가입</span></a></li>
+			    <li><a href="/board/freeboard_main">커뮤니티</a></li>
+            	<li><a href="">공지사항</a></li>
+				<li th:if="${session.userVO} == null"><a href="/user/login">로그인</a></li>
+				<li th:if="${session.userVO} == null"><a class="joinbutton" href="/user/userJoin">회원가입</a></li>
                 <div class="dropdown" th:if="${session.userVO} != null">
                     <button class="dropbtn">스터디관리</button>
                     <div class="dropdown-content">

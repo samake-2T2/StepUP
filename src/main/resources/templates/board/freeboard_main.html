@@ -18,12 +18,7 @@
                 자유게시판
             </div>
             
-            
-            <div>
-            	<input type="text" class="search_value" th:value="${pageVO.searchKeyword}">
-            	<button class="search_btn">검색</button>
-            </div>
-            
+			여기여기여기로 되돌리기
             
             <select class="quanti" th:onchange="|fb_dataHandler(this)|">
                 <option value="10" th:selected="${pageVO.amount} == 10? 'selected' ">10개 보기</option>
@@ -197,6 +192,13 @@
                 
                 </div></div>
 
+            </div>
+            
+            
+            
+            <div class="search" style="float:right; margin-top:15px; margin-bottom:15px;">
+            	<input type="text" class="search_value" th:value="${pageVO.searchKeyword}">
+            	<button class="search_btn">검색</button>
             </div>
         </div>
     </div>
