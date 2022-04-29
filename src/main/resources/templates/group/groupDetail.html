@@ -92,14 +92,13 @@
 								<textarea class="form-control" placeholder="내용입력" name="comment_content"
 									style="border-radius: 2px; width: 100%;" required="required"></textarea>	
 							</div>
-							<input name="user_name" type="hidden" th:value="${session.userVO.user_name}">
-							<input name="user_no" type="hidden" th:value="${session.userVO.user_no}">
+							<input name="user_name" type="hidden" th:value="${session.userVO} != null ? ${session.userVO.user_name}">
+							<input name="user_no" type="hidden"   th:value="${session.userVO} != null ? ${session.userVO.user_no}">
 							<button type="submit" class="btn-btn-info">등록하기</button>
 						</form>
 					</div>
 
 
-				<form action="groupCommentUpdate" method="post">
 					<th:block th:each="commentVO:${list}">
 					<div class="reply-wrap">
 						<div class="reply-img">
@@ -108,25 +107,27 @@
 						<div class="reply-content">
 							<div class="reply-group">
 								<strong>[[${commentVO.user_name}]]</strong> <small>[[${commentVO.comment_regdate}]]</small> 
-								<a href="#" class="replyUpadteBtn">
-									<i class="glyhpicon glyphicon-pencil " ></i>수정
+								<a href="#" class="replyUpadteBtn" th:if="${commentVO.user_name == session.userVO.user_name}" >
+									<i class="glyhpicon glyphicon-pencil"></i>수정
 								</a> 
-								<a href="">
+								<form action="groupCommentDelete" method="post">
+								<a href="" >
 									<i class="glyhpicon glyphicon-remove"></i>삭제
 								</a>
+								</form>
 							</div>
 							<p>[[${commentVO.comment_content}]]</p>
-
 						</div>
 					</div>
-					<div class="r_contentsx1" style="display: none; ">
-                    	 <textarea name="comment_content"  style="width: 100%;">[[${commentVO.comment_content}]]</textarea>
-                     	 <button type="submit" class="re-coment-btn">
-                     	 <a	>수정하기</a>
-                     	 </button>
-                     	 </div><br>
+					<form action="groupCommentUpdate" method="post" class="r_contentsx1" style="display: none; ">
+							<input type="hidden" name="comment_no" th:value="${commentVO.comment_no}" >
+	                    	 <textarea name="comment_content"  style="width: 100%;">[[${commentVO.comment_content}]]</textarea>
+	                     	 <button type="submit" class="re-coment-btn" >
+	                     	 <a>수정하기</a>
+	                     	 </button>
+	                </form>
+	                     
 					</th:block>
-				</form>
 					
 					
 			

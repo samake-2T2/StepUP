@@ -189,7 +189,7 @@ public class GroupController {
 	public String groupCommentForm(GroupDetailCommentVO gdcVO,
 								  RedirectAttributes RA) {
 	
-		System.out.println(gdcVO.toString());
+		
 
 		int result = groupService.commentRegist(gdcVO);
 
@@ -208,18 +208,37 @@ public class GroupController {
 	public String groupCommentUpdate(GroupDetailCommentVO gdcVO,
 									 RedirectAttributes RA) {
 		
-		System.out.println(gdcVO.toString());
 		
-	int result = groupService.commentUpdate(gdcVO);
+		int result = groupService.commentUpdate(gdcVO);
 		
 		if(result == 1) {
-			RA.addFlashAttribute("msg", "공지가 수정되었습니다");
+			RA.addFlashAttribute("msg", "댓글이 수정되었습니다");
 		}else {
-			RA.addFlashAttribute("msg", "공지가 수정되지않았습니다");
+			RA.addFlashAttribute("msg", "댓글이 수정되지않았습니다");
 		}
 
 		return "redirect:/group/groupDetail";
 	}
+	
+	//댓글 삭제폼
+	@PostMapping("/groupCommentDelete")
+	public String groupCommentDelete(@RequestParam("comment_no") int comment_no,
+									 RedirectAttributes RA) {
+		
+		
+		int result = groupService.commentDelete(comment_no);
+		
+		if(result == 1) {
+			RA.addFlashAttribute("msg", "댓글이 삭제되었습니다");
+		}else {
+			RA.addFlashAttribute("msg", "댓글이 삭제되지않았습니다");
+		}
+
+		return "redirect:/group/groupDetail";
+
+		
+	}
+	
 
 	// 그룹 이름 중복체크
 	@PostMapping("/nameChk")
