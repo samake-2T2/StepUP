@@ -21,11 +21,11 @@
                     
                         <input type="text" name="free_title"  placeholder="제목을 입력해주세요" class="free_title">
                         <br>
-                        <span style="color:red;opacity:0" class="title_vail">제목을 입력해주세요</span>
+                        <span style="color:red; opacity:0" class="title_vail">제목을 입력해주세요</span>
                         <br><br>
                         <textarea name="free_content"  placeholder="내용을 입력해주세요" class="free_content"></textarea>
                         <br>
-                        <span style="color:red;opacity:0" class="content_vail">내용을 입력해주세요</span>
+                        <span style="color:red; opacity:0" class="content_vail">내용을 입력해주세요</span>
                     </div>
                     <br>
                     <div class="w-btn-p">
@@ -38,65 +38,35 @@
 
 </th:block>
 <script>
-$(function(){
-	
-	//제목 입력 이벤트
+$(function(){	
 	$('.free_title').on('keyup',function(){
-		
-		//값이 없을경우
-		if($(this).val() == ''){
-			
+		if($(this).val() == '' ){	
 			$('.title_vail').css('opacity','1');
-			
-		//값이 있을경우
 		}else{
 			$('.title_vail').css('opacity','0');
 		}
 	})
 	
-	
-	//내용 입력 이벤트
 	$('.free_content').on('keyup',function(){
-		
-		//값이 없을경우
 		if($(this).val() == ''){
-			
 			$('.content_vail').css('opacity','1');
-		
-		// 값이 있을 경우
 		}else{
 			$('.content_vail').css('opacity','0');
 		}
 	})
 	
-	//등록하기 버튼 클릭 이벤트
 	$('.contents_sbm_btn').on('click',function(){
-		
-		//제목 값
-		const free_title = $('.free_title').val();
-		
-		//내용 값
-		const free_content = $('.free_content').val();
-		
-		//제목 유효성 검사
+		const free_title = $('.free_title').val().trim();
+		const free_content = $('.free_content').val().trim();
 		if(free_title == ''||free_title == null){
-			
-			//값이 없을 경우 입력 안내 멘트 출력
 			$('.title_vail').css('opacity','1');
 			return false;
 		}
-		
-		//내용 유효성 검사
 		if(free_content == ''||free_content == null){
-			
-			//값이 없을 경우 입력 안내 멘트 출력
 			$('.content_vail').css('opacity','1');
 			return false;
 		}
-		
-		//제목과 내용의 값이 있을 경우 전송
 		$(this).parent().parent().submit();
-		
 	});
 })
 </script>

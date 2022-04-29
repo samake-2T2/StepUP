@@ -22,13 +22,14 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public ArrayList<FreeBoardVO> fb_getList(Criteria cri) {
+		System.out.println("cri="+cri);
 		return boardMapper.fb_getList(cri);
 	}
 	
 	@Override
-	public int fb_getTotal() {
+	public int fb_getTotal(Criteria cri) {
 		
-		return boardMapper.fb_getTotal();
+		return boardMapper.fb_getTotal(cri);
 	}
 
 	@Override

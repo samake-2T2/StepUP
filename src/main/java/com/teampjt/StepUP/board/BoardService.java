@@ -17,7 +17,7 @@ public interface BoardService {
 	public ArrayList<FreeBoardVO> fb_getList(Criteria cri);
 	
 	//글 게시글 수 불러오기 (total)
-	public int fb_getTotal();
+	public int fb_getTotal(Criteria cri);
 	
 	//글 내용 불러오기
 	public FreeBoardVO fb_getUpdateList(int free_board_no);
