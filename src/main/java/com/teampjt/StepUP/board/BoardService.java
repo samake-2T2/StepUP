@@ -39,4 +39,5 @@ public interface BoardService {
 	
 	//댓글 업데이트
 	public int mc_UpdateContents(MainCommentsVO mainCommentsVO);
+	
 }
