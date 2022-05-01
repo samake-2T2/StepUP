@@ -58,13 +58,19 @@ public class MainController {
 
 	@ResponseBody
 	@PostMapping("/mainAjax")
-	public String main2(Model model, 
-			         Criteria cri,
-			         @RequestBody HashMap<String, Object> map
-			         ) {
+	public HashMap<String, Object> main2(Model model, 
+			         					 Criteria cri,
+			         					 @RequestBody HashMap<String, String> map
+										 ) {
 		
-		System.out.println(map.toString());
-//		System.out.println(cri.toString());
+//		System.out.println(map.toString());
+		
+		cri.setSearchCategoryParent(map.get("parent_name"));
+		cri.setSearchCategoryChild(map.get("child_name"));
+		cri.setSearchKeyword(map.get("group_name"));
+		
+		
+		System.out.println(cri.toString());
 		
 		//페이징처리
 		ArrayList<StudyGroupVO> list = groupService.getGroupList(cri);
@@ -73,15 +79,18 @@ public class MainController {
 		PageVO pageVO = new PageVO(cri, total);
 		
 		//스터디 그룹 데이터 저장
-		model.addAttribute("list", list);
 		
 		//검색 결과 데이터 저장
-		model.addAttribute("cri", cri);
 		
 		//페이지네이션 저장
-		model.addAttribute("pageVO", pageVO);
 		
-		return "Xxxxxxxxxxx";
+		System.out.println(list.toString());
+		
+		HashMap<String, Object> maps = new HashMap<>();
+		maps.put("list", list);
+		maps.put("cri", cri);
+		maps.put("pageVO", pageVO);
+		return maps;
 	}
 	
 }

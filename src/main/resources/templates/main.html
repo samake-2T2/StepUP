@@ -111,7 +111,8 @@
 									<div class="group_main_list_common_input">
 										<input type="text" id="keywordSearch"
 											placeholder="찾고 있는 스터디를 검색해보세요." name="searchKeyword">
-										<button id="common_input_btn" type="button" class="glyphicon glyphicon-search"></button>
+										<button id="common_input_btn" type="button" 
+										class="glyphicon glyphicon-search" onclick="main_Search(event);"></button>
 									</div>
 								</div>
 							</div>
@@ -120,7 +121,7 @@
 				</div>
 
 				<div class="group_main_list_searchcount">
-					<h2>[[${pageVO.total}]]개의 스터디를 찾았습니다.</h2>
+					<h2 class="searchcount">[[${pageVO.total}]]개의 스터디를 찾았습니다.</h2>
 
 					<select class="group_main_list_searchcount_amount"
 						th:onchange="|group_dataHandler(this)|">
@@ -134,7 +135,7 @@
 
 				<section class="group_main_list_searchresult">
 					<div class="group_main_list_searchresult_box">
-						<ul>
+						<ul id="main_Search_ul">
 							<li th:each="vo, state : ${list}">
 								<a href="#"> 
 									<img src="../img/group/1.png">
@@ -331,6 +332,7 @@
 	}
 
 	
+	//검색 기능
 	//검색 버튼
 	var common_input_btn = document.getElementById("common_input_btn");
 	common_input_btn.onclick = function() {
@@ -358,8 +360,12 @@
 /* 				$("#major_option").val(parent_name)
 				$("#minor_option").val(child_name)
 				$("#keywordSearch").val(group_name) */
-			
+				
 				console.log(data)
+				
+				//데이터를 비동기로 받아오는 함수(~~개의 스터디를 찾았습니다 / 페이지네이션 / 검색된 데이터 목록)
+				ajax_data(data);
+				
 			},
 			error : function() {
 				alert("검색 실패, 관리자에게 문의하세요.")
@@ -367,6 +373,72 @@
 		});
 		
 	}
+	
+ 	//비동기 데이터 가져오는 전체 function
+	function ajax_data(data) {
+		var list = data.list
+		var pageVO = data.pageVO
+		
+ 		//검색된 데이터 목록
+		$("#main_Search_ul").remove()
+		
+		var main_Search = "";
+		
+		main_Search += "<ul id='main_Search_ul'>";
+		
+		list.forEach(function(result,index) {
+			
+			main_Search += "<li>";
+			
+ 			main_Search += "<a href='#'>";
+ 			
+			main_Search += "<img src='../img/group/1.png'>"
+			
+			main_Search += "<div class='group_main_list_searchresult_detail'>";
+			
+			main_Search += "<div class='group_main_list_searchresult_left'>";
+			main_Search += "<span>" + result.category_child_name + "</span><br>";
+			main_Search += "<span>" + result.group_name + "</span><br>";
+			main_Search += "<span>" + result.group_leader_name + "</span>";
+			main_Search += "</div>"
+			
+			main_Search += "<div class='group_main_list_searchresult_right'>";
+			main_Search += "<span>" + result.group_participant_amount + "</span><br>";
+			main_Search += "</div>";
+			
+			main_Search += "</div>";
+			
+			main_Search += "<div class='group_main_list_searchresult_viewcount'>";
+			main_Search += "<span>조회 수</span>";
+			main_Search += "</div>";
+			
+			main_Search += "</a>";
+			
+			main_Search += "</li>";
+		})
+		
+		main_Search += "</ul>"
+		
+		$("#main_Search").append(main_Search);
+		$(".group_main_list_searchresult_box").append(main_Search);
+		
+		//"~~개의 스터디를 찾았습니다."
+		$(".searchcount").remove()
+		
+		var searchcount = "";
+		
+		searchcount += "<h2 class='searchcount'>";
+		
+			
+		searchcount += pageVO.total + "개의 스터디를 찾았습니다.";
+			
+		
+		searchcount += "</h2>";
+		
+		$(".group_main_list_searchcount").append(searchcount);
+		
+		
+ 	} 
 	
 		
 
