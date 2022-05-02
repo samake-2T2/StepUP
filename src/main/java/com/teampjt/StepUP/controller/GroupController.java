@@ -221,7 +221,7 @@ public class GroupController {
 	}
 	
 	//댓글 삭제폼
-	@PostMapping("/groupCommentDelete")
+	@GetMapping("/groupCommentDelete")
 	public String groupCommentDelete(@RequestParam("comment_no") int comment_no,
 									 RedirectAttributes RA) {
 		

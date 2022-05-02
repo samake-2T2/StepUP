@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	
-	// multi insert작업(상품 insert -> 파일업로드 -> 업로드 테이블 insert)
+	//회원가입
 	@Override
 	public int regist(UserVO vo) {
 
