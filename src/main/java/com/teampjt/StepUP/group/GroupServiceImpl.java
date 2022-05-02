@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
+import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
 import com.teampjt.StepUP.util.Criteria;
@@ -191,5 +192,11 @@ public class GroupServiceImpl implements GroupService {
 	public int commentDelete(int comment_no) {
 	
 		return groupMapper.commentDelete(comment_no);
+	}
+
+
+	@Override
+	public int groupApplicationReg(RequestVO reqVO) {
+		return groupMapper.groupApplicationReg(reqVO);
 	}
 }
