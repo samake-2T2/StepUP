@@ -165,16 +165,16 @@
 
 				<div class="group_main_list_pagenation">
 
-					<ul>
-            			<th:block th:if="${pageVO.realEnd != 0}">
+					<ul class="group_main_list_pagenation_ul">
+            			<th:block th:if="${pageVO.realEnd != 0 && pageVO.page != 1}">
                 			<li>
                     			<a th:href="@{/main(page=1, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">◀◀</a>
                 			</li>
                 		</th:block>
                 
-                		<th:block th:if="${pageVO.prev}">
+                		<th:block th:if="${pageVO.prev != 0 && pageVO.page != 1}">
                 			<li>
-                				<a th:href="@{/main(page=${pageVO.start - 1}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">◀</a>
+                				<a th:href="@{/main(page=${pageVO.page - 1}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">◀</a>
              		   		</li>
             		    </th:block> 
                 
@@ -184,13 +184,13 @@
 							</li>
 						</th:block>   
 				             
-              		  	<th:block th:if="${pageVO.next}">
+              		  	<th:block th:if="${pageVO.next != 0 && pageVO.page != pageVO.realEnd}">
              			   	<li>
-              			  		<a th:href="@{/main(page=${pageVO.end + 1}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">▶</a>
+              			  		<a th:href="@{/main(page=${pageVO.page + 1}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">▶</a>
                 			</li>
                 	  	</th:block>
                 
-                		<th:block th:if="${pageVO.realEnd != 0}">
+                		<th:block th:if="${pageVO.realEnd != 0 && pageVO.page != pageVO.realEnd}">
 	                		<li>
     	            			<a th:href="@{/main(page=${pageVO.realEnd}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">▶▶</a>
                 			</li>
@@ -361,8 +361,6 @@
 				$("#minor_option").val(child_name)
 				$("#keywordSearch").val(group_name) */
 				
-				console.log(data)
-				
 				//데이터를 비동기로 받아오는 함수(~~개의 스터디를 찾았습니다 / 페이지네이션 / 검색된 데이터 목록)
 				ajax_data(data);
 				
@@ -376,8 +374,14 @@
 	
  	//비동기 데이터 가져오는 전체 function
 	function ajax_data(data) {
-		var list = data.list
+		
+ 		var list = data.list
+		var cri = data.cri
 		var pageVO = data.pageVO
+		
+		console.log(list);
+		console.log(cri);
+		console.log(pageVO);
 		
  		//검색된 데이터 목록
 		$("#main_Search_ul").remove()
@@ -419,7 +423,7 @@
 		
 		main_Search += "</ul>"
 		
-		$("#main_Search").append(main_Search);
+		//$("#main_Search").append(main_Search);
 		$(".group_main_list_searchresult_box").append(main_Search);
 		
 		//"~~개의 스터디를 찾았습니다."
@@ -432,10 +436,56 @@
 			
 		searchcount += pageVO.total + "개의 스터디를 찾았습니다.";
 			
-		
 		searchcount += "</h2>";
 		
 		$(".group_main_list_searchcount").append(searchcount);
+		
+		//페이지네이션 기능
+		
+		$(".group_main_list_pagenation_ul").remove()
+		
+		var pgnt = "";
+		
+		pgnt += "<ul class='group_main_list_pagenation_ul'>";
+		
+		//◀◀ 버튼
+		if(pageVO.realEnd != 0 && pageVO.page != 1) {
+			pgnt += "<li><a href='/main?page=1&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>◀◀</a></li>"
+		}
+		
+		//◀ 버튼
+		if(pageVO.prev != 0 && pageVO.page != 1) {
+			pgnt += "<li><a href='/main?page=" + (pageVO.page - 1) + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>◀</a></li>"  	
+		}
+				
+		//페이지네이션 숫자
+		list.forEach(function(result,index) {
+			
+			pgnt += "<li><a href='/main?page=" + (index+1) + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>" + (index+1) + "</a></li>"
+			console.log(result);
+			console.log(index);
+					
+		}) 
+		
+		//▶ 버튼
+		if(pageVO.next != 0 && pageVO.page != pageVO.realEnd) {
+			pgnt += "<li><a href='/main?page=" + (pageVO.page + 1) + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>▶</a></li>"
+			
+		}
+		
+		//▶▶ 버튼
+		if(pageVO.realEnd != 0 && pageVO.page != pageVO.realEnd) {
+			pgnt += "<li><a href='/main?page=" + pageVO.realEnd + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>▶▶</a></li>"
+			
+		}
+				
+		$(".group_main_list_pagenation").append(pgnt);
+		
+		
+		
+		
+		
+		
 		
 		
  	} 
