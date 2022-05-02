@@ -64,9 +64,10 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public int mc_UpdateContents(MainCommentsVO mainCommentsVO) {
-
 		return boardMapper.mc_UpdateContents(mainCommentsVO);
 	}
+
+
 
 
 

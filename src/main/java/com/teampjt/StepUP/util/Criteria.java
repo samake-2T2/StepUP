@@ -6,6 +6,8 @@ import lombok.Data;
 public class Criteria {
 
 	//sql문에 전달될 값을 가지고 다니는 클래스
+	
+	private Integer user_no;
 	private int page;
 	private int amount;
 	
