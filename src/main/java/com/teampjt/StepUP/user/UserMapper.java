@@ -12,7 +12,7 @@ import com.teampjt.StepUP.util.Criteria;
 @Mapper
 public interface UserMapper {
   
-	public int regist(UserVO vo); //등록
+	public int regist(UserVO vo); //회원등록
 	
 	public int registFile(userUploadVO vo); //파일 등록
 	
