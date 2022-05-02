@@ -62,8 +62,7 @@
 
 				<div class="group_main_list_category_minor">
 					<!-- 소분류 -->
-					<select class="minor_option form-control"
-						name="category_child_name" id="minor_option">
+					<select class="minor_option form-control" name="category_child_name" id="minor_option">
 						<option>선택하세요</option>
 
 					</select>
@@ -102,119 +101,122 @@
 </th:block>
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$.getJSON("../getCategory",function(data) {
-			var category01 = "";
-			category01 += '<select class="major_option form-control" id="major_option" name="category_parent_name" onchange="getCategory_List(event);" >';
-			category01 += '<option class="reset">선택하세요</option>';
-			data.forEach(function(result,index) {
-				category01 += '<option class="major" data-set='
-  						   + JSON.stringify(result)
-																+ '>'
-																+ result.category_detail_nm
-																+ '</option>';
-													})
 
-											category01 += '</select>';
+$(document).ready(function() {
+	
+	$.getJSON("../getCategory", 
+			  function(data) {
+		
+              var category01 = "";
+              
+              category01 += '<select class="major_option form-control" id="major_option" name="category_parent_name" onchange="getCategory_List(event);" >';
+              
+              category01 += '<option class="reset">선택하세요</option>';
+              data.forEach(function(result, index) {
+            	  
+            	  category01 += '<option class="major" data-set=' + JSON.stringify(result) + '>' + result.category_detail_nm + '</option>';
+              })
+              
+              category01 += '</select>';
+              
+              $(".group_main_list_category_major").append(category01);
+              
+              //$(".minor").remove(category02);
+              
+	
+			  //console.log('[[${list}]]')
+});
+})
 
-											$(".group_main_list_category_major")
-													.append(category01);
+/* 카테고리 */
+function getCategory_List(e) {
+	e.preventDefault(); //고유이벤트중지
+	//if( e.target.tagName != 'SELECT') return; //태그검증
 
-											//$(".minor").remove(category02);
+	var obj = $(e.target).find('option:selected').data("set"); //데이터셋을 가져옴 
+	console.log(obj);
+	
+	
+//태그처리
+if(obj != null) {
+	
+    if(obj.category_lv == 1 || obj.category_lv == 2) {
+        console.log('1lv');
+        //$().loading(); //로딩
+        $(e.currentTarget).category_remove(); //이전 카테고리삭제
+        //////////////////////////////////////////////////
+        //비동기콜백에서 category_create() 호출
+        //비동기호출후 category_set() 호출 
+        //console.log(obj);
+        $.ajax({
+           type: "get",
+           url: "../getCategoryChild/"+obj.category_group_id+"/"+obj.category_lv+"/"+obj.category_detail_lv,
+           dataType: "json", 
+           //data:,
+           //contentType:,
+           success:function(data){
+ 	
+ 		   category_create(data); //응답 받은 데이터를 카테고리 생성함수에 전달
 
-											//console.log('[[${list}]]')
-										});
-					})
+           },
+           error: function(error, status){
+              alert("카테고리 조회 실패. 관리자에 문의하세요.");
+           }
+        })
 
-	/* 카테고리 */
-	function getCategory_List(e) {
-		e.preventDefault(); //고유이벤트중지
-		//if( e.target.tagName != 'SELECT') return; //태그검증
-
-		var obj = $(e.target).find('option:selected').data("set"); //데이터셋을 가져옴 
-		console.log(obj);
-
-		//태그처리
-		if (obj != null) {
-
-			if (obj.category_lv == 1 || obj.category_lv == 2) {
-				console.log('1lv');
-				//$().loading(); //로딩
-				$(e.currentTarget).category_remove(); //이전 카테고리삭제
-				//////////////////////////////////////////////////
-				//비동기콜백에서 category_create() 호출
-				//비동기호출후 category_set() 호출 
-				//console.log(obj);
-				$.ajax({
-					type : "get",
-					url : "../getCategoryChild/" + obj.category_group_id + "/"
-							+ obj.category_lv + "/" + obj.category_detail_lv,
-					dataType : "json",
-					//data:,
-					//contentType:,
-					success : function(data) {
-
-						category_create(data); //응답 받은 데이터를 카테고리 생성함수에 전달
-
-					},
-					error : function(error, status) {
-						alert("카테고리 조회 실패. 관리자에 문의하세요.");
-					}
-				})
-
-			}
-
-			var p = $(e.target).category_set();
-
-		} else {
-
-			category_reset();
-		}
-
-	}
+     } 
+     
+     var p = $(e.target).category_set();
+ 	
+ } else {
+	 
+	 category_reset();
+ }
+	
+}
 
 	//카테고리세팅
-	$.fn.category_set = function() {
+$.fn.category_set = function() {
 
-		var obj = this.find('option:selected').data("set");
+	var obj = this.find('option:selected').data("set");
+	
+	var category_group_id = this.find('option:selected').data("set").category_group_id;
+var category_id = this.find('option:selected').data("set").category_id; 
+$("input[name='group_category']").val(category_group_id + category_id ); //name이 group_category인 곳에 추가
 
-		var category_group_id = this.find('option:selected').data("set").category_group_id;
-		var category_id = this.find('option:selected').data("set").category_id;
-		$("input[name='group_category']").val(category_group_id + category_id); //name이 group_category인 곳에 추가
+}
+//이전카테고리 삭제JS
+$.fn.category_remove = function() {
 
-	}
-	//이전카테고리 삭제JS
-	$.fn.category_remove = function() {
+while(this.next().length != 0) {
+	$(this).next().remove();
+	
+}
+}
+//다음카테고리 생성JS
+function category_create(data) {
+	
+    var category02 = "";
+	 
+    
+	data.forEach(function(result, index) {
+                	
+    category02 += '<option class="minor" data-set=' + JSON.stringify(result) + '>' + result.category_detail_nm + '</option>';
+    
+	})
+ 
+    $('option.minor').remove();
+    $(".minor_option").append(category02);
 
-		while (this.next().length != 0) {
-			$(this).next().remove();
+    
+}
 
-		}
-	}
-	//다음카테고리 생성JS
-	function category_create(data) {
+//선택하세요를 눌렀을 때 (카테고리 데이터 리셋)
+function category_reset() {
+	
+	$('option.minor').remove();
 
-		var category02 = "";
-
-		data.forEach(function(result, index) {
-
-			category02 += '<option class="minor" data-set='
-					+ JSON.stringify(result) + '>' + result.category_detail_nm
-					+ '</option>';
-
-		})
-
-		$('option.minor').remove();
-		$(".minor_option").append(category02);
-
-	}
-
-	//선택하세요를 눌렀을 때 (카테고리 데이터 리셋)
-	function category_reset() {
-
-		$('option.minor').remove();
-
-	}
+}
 
 	function nameChk() {
 
@@ -262,11 +264,6 @@
 		}
 	}
 
-	var fileCheck = document.getElementById("myFile").value;
-	if (!fileCheck) {
-		alert("파일을 첨부해 주세요");
-		return false;
-	}
 </script>
 
 </html>
