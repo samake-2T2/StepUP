@@ -1,114 +1,272 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/group/groupRegist.css">
+<link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/group/groupRegist.css">
 
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="../js/bootstrap.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="../js/bootstrap.js"></script>
 </head>
 
-<th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .wrap} ) }">
+<th:block
+	th:replace="~{/include/basicLayout :: setContent( ~{:: .wrap} ) }">
 
-  <section class="wrap">
+	<section class="wrap">
 
-          <div class="titlebox">
-            <h4>스터디 생성</h4>
-          </div>
-          
-          <form class="group_reg_form" action="group_reg_form" method="post" enctype="multipart/form-data">
-            <img src="../img/group/no_photo.png" class="img img-rounded" alt="Cinque Terre"><br>
+		<div class="titlebox">
+			<h4>스터디 생성</h4>
+		</div>
 
-            <div class="form-group">
-              <div class="btn-align1">
-                <button type="button" class="w-btn img-btn">기본 이미지</button>
-                <label for="group_img" class="w-btn img-btn">이미지 추가</label>
-                <input type="file" name="file" id="group_img" style="display:none">
-              </div>
+		<form class="group_reg_form" action="group_reg_form" method="post"
+			enctype="multipart/form-data">
+			<img src="../img/group/no_photo.png" class="img img-rounded"
+				id="View"><br>
 
-              <br>
-              <br>
+			<div class="form-group">
+				<div class="btn-align1">
+					<button type="button" class="w-btn img-btn default-btn">초기화</button>
+					<label for="myFile" class="w-btn img-btn">이미지 추가</label> <input
+						type="file" id="myFile" name=file style="display: none">
+				</div>
 
-              <label>스터디 이름</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="group_name" name="group_name" placeholder="스터디명은 4글자 이상 입니다.">
-                <div class="input-group-btn">
-                  <button class="btn btn-default btnimg" type="button" onclick="nameChk();">중복확인하기</button>
-                </div>
-              </div>
+				<br> <br> <label>스터디 이름</label>
+				<div class="input-group">
+					<input type="text" class="form-control" id="group_name"
+						name="group_name" placeholder="스터디명은 4글자 이상 입니다.">
+					<div class="input-group-btn">
+						<button class="btn btn-default btnimg" type="button"
+							onclick="nameChk();">중복확인하기</button>
+					</div>
+				</div>
 
-              <br>
+				<br> <label for="sel1">분야</label>
+				<!-- 
+				<select class="form-control"
+					id="sel1" name="category_parent_name">
+					<option>개발</option>
+					<option>어학</option>
+					<option>취업</option>
+					<option>자격증</option>
+				</select> <select class="form-control" id="sel2" name="category_child_name">
+					<option>python</option>
+					<option>jsp</option>
+					<option>html</option>
+					<option>css</option>
+				</select>
+				-->
 
-              <label for="sel1">분야</label>
-              <select class="form-control" id="sel1" name="category_parent_name">
-                <option>개발</option>
-                <option>어학</option>
-                <option>취업</option>
-                <option>자격증</option>
-              </select>
-              <select class="form-control" id="sel2" name="category_child_name">
-                <option>python</option>
-                <option>jsp</option>
-                <option>html</option>
-                <option>css</option>
-              </select>
+				<div class="group_main_list_category_major">
+					<!-- 대분류 -->
+				</div>
 
-              <br>
+				<div class="group_main_list_category_minor">
+					<!-- 소분류 -->
+					<select class="minor_option form-control"
+						name="category_child_name" id="minor_option">
+						<option>선택하세요</option>
 
-              <label for="sel1">모집인원</label>
-              <select name="group_participant_amount" class="form-control" id="sel1">
-                <option value=1>1</option>
-                <option value=2>2</option>
-                <option value=3>3</option>
-                <option value=4>4</option>
-              </select>
-              
-              <input type="hidden" name="group_leader_no" th:value="${session.userVO.user_no}">
-              <input type="hidden" name="group_leader_name" th:value="${session.userVO.user_name}">
+					</select>
+				</div>
 
-              <br>
+				<br> <label for="sel1">모집인원</label> <select
+					name="group_participant_amount" class="form-control" id="sel1">
+					<option value=1>2</option>
+					<option value=2>3</option>
+					<option value=3>4</option>
+					<option value=4>5</option>
+					<option value=4>6</option>
+					<option value=4>7</option>
+					<option value=4>8</option>
+					<option value=4>9</option>
+					<option value=4>10</option>
+				</select> <input type="hidden" name="group_leader_no"
+					th:value="${session.userVO.user_no}"> <input type="hidden"
+					name="group_leader_name" th:value="${session.userVO.user_name}">
 
-              <label for="comment">스터디 소개글</label>
-              <textarea class="form-control" rows="5" name="group_content" id="comment" placeholder="홍보할 내용을 적어주세요."></textarea>
+				<br> <label for="comment">스터디 소개글</label>
+				<textarea class="form-control" rows="5" name="group_content"
+					id="comment" placeholder="홍보할 내용을 적어주세요."></textarea>
 
-              <br>
+				<br>
 
-              <div class="btn-align">
-                <input type="submit" class="w-btn w-btn-indigo" value="등록">
-                <input type="button" class="w-btn w-btn-indigo" value="취소">
-              </div>
-            </div>
+				<div class="btn-align">
+					<input type="submit" class="w-btn w-btn-indigo" value="등록">
+					<input type="button" class="w-btn w-btn-indigo" value="취소">
+				</div>
+			</div>
 
-          </form>
+		</form>
 
-  </section>
- </th:block>
- 
- <script type="text/javascript">
- 	
- 	function nameChk() {
- 		
- 		$.ajax({
- 			url : "/group/nameChk",
- 			type : "post",
- 			dataType : "json",
- 			data : {"group_name" : $("#group_name").val()},
- 			success : function(data) {
- 				if(data == 1) {
- 					alert("중복된 이름입니다.")
- 				} else if(data == 0) {
- 					alert("사용가능한 이름입니다.")
- 				}
- 			},
- 			error : function() {
- 				alert("에러 입니다.");
- 			}
- 			
- 		});
- 		
- 	}
- 
- </script>
+	</section>
+</th:block>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.getJSON("../getCategory",function(data) {
+			var category01 = "";
+			category01 += '<select class="major_option form-control" id="major_option" name="category_parent_name" onchange="getCategory_List(event);" >';
+			category01 += '<option class="reset">선택하세요</option>';
+			data.forEach(function(result,index) {
+				category01 += '<option class="major" data-set='
+  						   + JSON.stringify(result)
+																+ '>'
+																+ result.category_detail_nm
+																+ '</option>';
+													})
+
+											category01 += '</select>';
+
+											$(".group_main_list_category_major")
+													.append(category01);
+
+											//$(".minor").remove(category02);
+
+											//console.log('[[${list}]]')
+										});
+					})
+
+	/* 카테고리 */
+	function getCategory_List(e) {
+		e.preventDefault(); //고유이벤트중지
+		//if( e.target.tagName != 'SELECT') return; //태그검증
+
+		var obj = $(e.target).find('option:selected').data("set"); //데이터셋을 가져옴 
+		console.log(obj);
+
+		//태그처리
+		if (obj != null) {
+
+			if (obj.category_lv == 1 || obj.category_lv == 2) {
+				console.log('1lv');
+				//$().loading(); //로딩
+				$(e.currentTarget).category_remove(); //이전 카테고리삭제
+				//////////////////////////////////////////////////
+				//비동기콜백에서 category_create() 호출
+				//비동기호출후 category_set() 호출 
+				//console.log(obj);
+				$.ajax({
+					type : "get",
+					url : "../getCategoryChild/" + obj.category_group_id + "/"
+							+ obj.category_lv + "/" + obj.category_detail_lv,
+					dataType : "json",
+					//data:,
+					//contentType:,
+					success : function(data) {
+
+						category_create(data); //응답 받은 데이터를 카테고리 생성함수에 전달
+
+					},
+					error : function(error, status) {
+						alert("카테고리 조회 실패. 관리자에 문의하세요.");
+					}
+				})
+
+			}
+
+			var p = $(e.target).category_set();
+
+		} else {
+
+			category_reset();
+		}
+
+	}
+
+	//카테고리세팅
+	$.fn.category_set = function() {
+
+		var obj = this.find('option:selected').data("set");
+
+		var category_group_id = this.find('option:selected').data("set").category_group_id;
+		var category_id = this.find('option:selected').data("set").category_id;
+		$("input[name='group_category']").val(category_group_id + category_id); //name이 group_category인 곳에 추가
+
+	}
+	//이전카테고리 삭제JS
+	$.fn.category_remove = function() {
+
+		while (this.next().length != 0) {
+			$(this).next().remove();
+
+		}
+	}
+	//다음카테고리 생성JS
+	function category_create(data) {
+
+		var category02 = "";
+
+		data.forEach(function(result, index) {
+
+			category02 += '<option class="minor" data-set='
+					+ JSON.stringify(result) + '>' + result.category_detail_nm
+					+ '</option>';
+
+		})
+
+		$('option.minor').remove();
+		$(".minor_option").append(category02);
+
+	}
+
+	//선택하세요를 눌렀을 때 (카테고리 데이터 리셋)
+	function category_reset() {
+
+		$('option.minor').remove();
+
+	}
+
+	function nameChk() {
+
+		$.ajax({
+			url : "/group/nameChk",
+			type : "post",
+			dataType : "json",
+			data : {
+				"group_name" : $("#group_name").val()
+			},
+			success : function(data) {
+				if (data == 1) {
+					alert("중복된 이름입니다.")
+				} else if (data == 0) {
+					alert("사용가능한 이름입니다.")
+				}
+			},
+			error : function() {
+				alert("에러 입니다.");
+			}
+
+		});
+
+	}
+
+	$(function() {
+		$("#myFile").on('change', function() {
+			readURL(this);
+		});
+	});
+
+	$(function() {
+		$(".default-btn").on('click', function() {
+			$('.img').attr('src', '../img/group/no_photo.png');
+		});
+	});
+
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('.img').attr('src', e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+
+	var fileCheck = document.getElementById("myFile").value;
+	if (!fileCheck) {
+		alert("파일을 첨부해 주세요");
+		return false;
+	}
+</script>
 
 </html>

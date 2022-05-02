@@ -256,8 +256,6 @@ public class GroupController {
 		
 		int result = groupService.nameChk(vo);
 		
-		System.out.println(result);
-		
 		if(result == 0) {
 			// 1. 업로드된 확장자가 이미지만 가능하도록 처리
 			if(f.getContentType().contains("image") == false ) { // 이미지가 아닌경우
@@ -272,7 +270,6 @@ public class GroupController {
 		} else {
 			return "group/groupRegist";
 		}
-
 		
 	}
 }
