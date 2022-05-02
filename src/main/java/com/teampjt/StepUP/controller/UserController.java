@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.mysql.cj.Session;
 import com.teampjt.StepUP.command.UserVO;
 import com.teampjt.StepUP.user.UserService;
 
@@ -95,22 +96,31 @@ public class UserController {
 
 	//업데이트폼
 	@PostMapping("/userUpdate")
-	public String userUpdate(UserVO userVO, HttpSession session,
-							 RedirectAttributes RA, Model model) {
-		
-		session.setAttribute("user_name", userVO.getUser_name());
+	public String userUpdate(UserVO userVO, 
+							 RedirectAttributes RA, Model model, HttpSession session) {
 		
 		
 		int result = userService.update(userVO);
-		model.addAttribute("userVO", userVO);
+		
+//		model.addAttribute("userVO", userVO);
+
+		
 		
 		if(result == 1) {
+			UserVO vo = (UserVO)session.getAttribute("userVO");
+			vo.setInterest(userVO.getInterest());
+			vo.setUser_name(userVO.getUser_name());
+			vo.setPassword(userVO.getPassword());
+			session.setAttribute("userVO", vo);
 			RA.addFlashAttribute("msg", "정보수정이 완료되었습니다");
-
+			
 		}else {
 			RA.addFlashAttribute("msg", "정보수정에 실패하였습니다");
 
 		}
+		
+		
+		
 		return "redirect:/main";
 	}
 

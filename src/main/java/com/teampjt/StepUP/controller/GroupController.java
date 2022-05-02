@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
+import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
 import com.teampjt.StepUP.command.UserVO;
 import com.teampjt.StepUP.group.GroupService;
@@ -271,6 +272,16 @@ public class GroupController {
 			return "group/groupRegist";
 		}
 		
+	}
+	
+	//그룹 신청폼
+	@PostMapping("/groupApplicationForm")
+	public String groupApplicationForm(RequestVO reqVO) {
+		
+		
+		//int result = groupService.groupApplicationReg(reqVO);
+		
+		return "redirect:/group/groupDetail";
 	}
 }
 

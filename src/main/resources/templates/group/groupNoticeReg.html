@@ -62,15 +62,18 @@
         </div>
     </section>
     </th:block>
-    
-   <script th:inline="javascript">
-   
-   (function() {
-		var msg = JSON.parse('[[${msg}]]');
-		if(msg != null){
+    <script th:inline="javascript">
+	//메시지 출력문
+	(function() {
+		var msg = JSON.parse('[[${msg}]]');	
+		if(msg != null) {
 			alert(msg);
 		}
 	})();
+</script>
+   <script th:inline="javascript">
+
    document.getElementById('todayDate').value = new Date().toISOString().substring(0, 10);
    </script>
+   
 </html>

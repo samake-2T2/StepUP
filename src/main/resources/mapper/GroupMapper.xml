@@ -211,4 +211,19 @@ FROM (SELECT A.*,
 	
 	</insert>
 	
+	<!-- 그룹 신청 -->
+	<insert id="groupApplicationReg">
+		insert into request (user_no,
+							 user_name,
+							 email,
+							 req_level,
+							 req_about_me								 
+								 )
+		value(#{user_no},
+			  #{user_name},
+			  #{email},
+			  #{req_level},
+			  #{req_about_me}
+			  )
+	</insert>
 </mapper>

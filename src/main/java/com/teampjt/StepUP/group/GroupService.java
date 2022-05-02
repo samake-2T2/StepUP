@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
-
+import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
 import com.teampjt.StepUP.util.Criteria;
@@ -57,7 +57,7 @@ public interface GroupService {
 	
 	public int nameChk(StudyGroupVO vo); // 그룹명 중복체크
 	
-	
+	public int groupApplicationReg(RequestVO reqVO); //그룹신청
 	
 }
 
