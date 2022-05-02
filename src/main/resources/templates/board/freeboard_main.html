@@ -14,18 +14,22 @@
 
     <div class="container-free">
         <div class="row_free">
+
             <div class="free-title-box">
-                자유게시판
+                커뮤니티
             </div>
-            
-			여기여기여기로 되돌리기
-            
+
+
+
             <select class="quanti" th:onchange="|fb_dataHandler(this)|">
                 <option value="10" th:selected="${pageVO.amount} == 10? 'selected' ">10개 보기</option>
                 <option value="20" th:selected="${pageVO.amount} == 20? 'selected' ">20개 보기</option>
                 <option value="40" th:selected="${pageVO.amount} == 40? 'selected' ">40개 보기</option>
                 <option value="80" th:selected="${pageVO.amount} == 80? 'selected' ">80개 보기</option>
             </select>
+
+
+
 
 
             <div class="free-main-box">
@@ -130,7 +134,8 @@
                             </tbody>
                         </table>
                     </div><br>
-
+                    
+                    
                     <div class="w-btn-p">
                     	<input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.userVO.user_no}">
 	                    <input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.userVO.user_name}">
@@ -188,6 +193,20 @@
                                     </th:block>
                     </ul>
                 </div>
+            
+            
+            
+            
+            
+            
+            <div class="search" style="height: 20px; width: 16.5%; margin: 0 auto;margin-top:15px; margin-bottom:15px; height: 20px;">
+            	<input type="text" class="search_value" th:value="${pageVO.searchKeyword}" style="border: 1px solid #777;">
+            	<button class="search_btn" style="background-color: white; border: 1px solid #777;">검색</button>
+            </div>
+                
+                
+                
+                
                 
                 
                 </div></div>
@@ -195,11 +214,8 @@
             </div>
             
             
-            
-            <div class="search" style="float:right; margin-top:15px; margin-bottom:15px;">
-            	<input type="text" class="search_value" th:value="${pageVO.searchKeyword}">
-            	<button class="search_btn">검색</button>
-            </div>
+
+
         </div>
     </div>
 
