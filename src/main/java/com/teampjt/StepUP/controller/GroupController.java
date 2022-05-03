@@ -279,7 +279,9 @@ public class GroupController {
 	public String groupApplicationForm(RequestVO reqVO) {
 		
 		
-		//int result = groupService.groupApplicationReg(reqVO);
+		int result = groupService.groupApplicationReg(reqVO);
+		
+		System.out.println(reqVO.toString());
 		
 		return "redirect:/group/groupDetail";
 	}

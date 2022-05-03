@@ -3,6 +3,7 @@ package com.teampjt.StepUP.user;
 import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.UserVO;
@@ -12,7 +13,7 @@ import com.teampjt.StepUP.util.Criteria;
 @Mapper
 public interface UserMapper {
   
-	public int regist(UserVO vo); //회원등록
+	public int userRegist(UserVO vo); //회원등록
 	
 	public int registFile(userUploadVO vo); //파일 등록
 	
@@ -23,9 +24,7 @@ public interface UserMapper {
 	
 	//그룹 신청인 전체 인원 수
 	public int getApplyTotal();
-
-
-	public int userJoin(UserVO vo);
+	
 
 	public int update(UserVO userVO);
   
