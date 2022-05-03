@@ -1,5 +1,56 @@
 @charset "UTF-8";
 
 .wrap {
-	width: 1250px
+	margin: 0 auto;
+}
+
+.group_list {
+	width: 1250px;
+    margin: 0 auto;
+}
+
+.btn-box {
+    padding: 20px 30px 0px 30px;
+}
+
+.group_list_result {
+    
+}
+
+.group_list_box {
+    float: left;
+    width: 16.8%;
+    padding: 30px;
+    margin: 20px 20px 50px 20px;
+    box-shadow: 0px 8px 16px rgb(0, 0, 0, 15%);
+    box-sizing: border-box;
+}
+
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 2px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    margin: 10px 10px;
+}
+
+.w-btn-indigo {
+    background-color: #d263c9;
+    color: white;
+}
+
+.w-btn:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.w-btn:active {
+    transform: scale(1.5);
 }
