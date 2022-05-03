@@ -83,14 +83,15 @@
     		
     	
     	}
-    	(function() {
+
+    </script>
+    <script th:inline="javascript">
+    (function() {
     		var msg = JSON.parse('[[${msg}]]');
     		if(msg != null){
     			alert(msg);
     		}
     	})();
-    	
-    	
     </script>
     
 </html>

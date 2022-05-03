@@ -73,7 +73,7 @@ public class UserController {
 
 	@GetMapping("/userDelete")
 	public String userDelete(@RequestParam("user_no") int user_no, 
-			RedirectAttributes RA) {
+			RedirectAttributes RA, HttpSession session) {
 		userService.userDelete(user_no);
 
 		int result = userService.userDelete(user_no);
@@ -83,7 +83,7 @@ public class UserController {
 		}else { 
 			RA.addFlashAttribute("msg", "탈퇴에 실패했습니다. 관리자에게 문의하세요");
 		}
-		return "user/login";
+		return "redirect:/user/logout";
 	}
 
 	//업데이트폼
