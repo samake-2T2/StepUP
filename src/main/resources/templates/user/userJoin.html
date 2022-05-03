@@ -33,8 +33,7 @@
                             </div>
                           </div>-->
 
-	
-				<form name="userProfileForm" action="userProfileForm" method="post" enctype="multipart/form-data">
+				<form class="joinForm" action="joinForm" method="post" enctype="multipart/form-data">
 					<div class="profile">
 						<label>프로필사진</label>
 						<div class="img-box">
@@ -44,10 +43,9 @@
 						<input type="file" id="ex_file" name="file" />
 						<button class="w-btn btn-nomal" type="button">기본이미지</button>
 					</div>
-				</form>
-
-				<form class="form-box" action="joinForm" method="post">
 					<!-- 버튼이 없는유형 -->
+					
+					
 					<div class="form-group">
 						<label>이메일</label>
 						<div class="input-group">
@@ -67,7 +65,7 @@
 					<div class="form-group">
 						<label>비밀번호 확인</label> <input name="passwordcheck" type="password"
 							class="form-control" id="pw2" placeholder="비밀번호를 입력하세요"
-							onfocusout="young()"> <span id="pwmsg"></span>
+							onfocusout="pwcheck()"> <span id="pwmsg"></span>
 					</div>
 
 					<div class="form-group">
@@ -101,7 +99,7 @@
 
 
 <script th:inline="javascript">
-   function young() {
+   function pwcheck() {
     var aa = document.getElementById("pw1");
     var bb = document.getElementById("pw2");
     var cc = document.getElementById("pwmsg");
@@ -113,6 +111,28 @@
       cc.innerHTML = "비밀번호가 일치합니다.";
     }
    }
+   
+   $(function() {
+		$("#myFile").on('change', function() {
+			readURL(this);
+		});
+	});
+
+	$(function() {
+		$(".default-btn").on('click', function() {
+			$('.img').attr('src', '../img/group/no_photo.png');
+		});
+	});
+
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('.img').attr('src', e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
 
  </script>
 
