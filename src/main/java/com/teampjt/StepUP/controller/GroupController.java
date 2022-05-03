@@ -300,8 +300,7 @@ public class GroupController {
 	@PostMapping("/groupApplicationForm")
 	public String groupApplicationForm(@Valid RequestVO reqVO,
 									   Errors errors) {
-		
-		
+	
 		//int result = groupService.groupApplicationReg(reqVO);
 		if(errors.hasErrors()) {
 			List<FieldError> list = errors.getFieldErrors();
