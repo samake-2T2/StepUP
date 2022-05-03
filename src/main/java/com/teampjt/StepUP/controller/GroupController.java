@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -140,18 +144,36 @@ public class GroupController {
 	@GetMapping("/groupNoticeModify")
 	public String groupNoticeModify(@RequestParam("groupnotice_no") int groupnotice_no,
 			Model model) {
-
+		
+		
+		
 		GroupNoticeVO gnVO = groupService.getNoticeModify(groupnotice_no);
 		model.addAttribute("gnVO", gnVO);
-
+		
+		
 		return "group/groupNoticeModify";
 	}
 
 	//공지수정 폼
 	@PostMapping("/noticeUpdate")
 	public String noticeUpdate(GroupNoticeVO gnVO,
-			RedirectAttributes RA) {
-
+			RedirectAttributes RA, Errors errors, Model model) {
+		
+		if(errors.hasErrors()) {
+			List<FieldError> list = errors.getFieldErrors();
+			
+			for(FieldError err : list) {
+				System.out.println(err.getField());
+				System.out.println(err.getDefaultMessage());
+				
+				if(err.isBindingFailure()) {//자바측 에러인 경우
+					model.addAttribute("valid_" + err.getField(), "형식을 확인하세요"); //직접 에러메세지 생성
+				}else {
+					model.addAttribute("valid_" + err.getField(), err.getDefaultMessage()); //유효성 검사 실패 메시지
+				}
+			}
+		}
+		
 		int result = groupService.noticeUpdate(gnVO);
 
 		if(result == 1) {
@@ -276,10 +298,19 @@ public class GroupController {
 	
 	//그룹 신청폼
 	@PostMapping("/groupApplicationForm")
-	public String groupApplicationForm(RequestVO reqVO) {
+	public String groupApplicationForm(@Valid RequestVO reqVO,
+									   Errors errors) {
 		
 		
 		//int result = groupService.groupApplicationReg(reqVO);
+		if(errors.hasErrors()) {
+			List<FieldError> list = errors.getFieldErrors();
+			
+			for(FieldError err : list) {
+				System.out.println(err.getField());
+				System.out.println(err.getDefaultMessage());
+			}
+		}
 		
 		return "redirect:/group/groupDetail";
 	}

@@ -55,7 +55,7 @@
 						<input name="groupnotice_count" type="hidden" value="0">
 						
                         <a href="/group/groupNotice" class="w-btn btn-danger btn-block5">취소</a> <!-- th:href="@{/group/groupNotice(vo.group_no=${vo.group_no})}" -->
-                        <button type="submit" class="w-btn btn-block4">작성</button>
+                        <button type="button" class="w-btn btn-block4" th:onclick="|notice_valid2()|">작성</button>
                     </form>
                 </div>
             </div>
@@ -63,15 +63,22 @@
     </section>
     </th:block>
     <script th:inline="javascript">
-	//메시지 출력문
-	(function() {
-		var msg = JSON.parse('[[${msg}]]');	
-		if(msg != null) {
-			alert(msg);
+    function notice_valid2() {
+		var a = document.groupNoticeForm.groupnotice_title;
+		var b = document.groupNoticeForm.groupnotice_content;
+		
+		var arr = [a, b];
+		
+		for(var i = 0; i < arr.length; i++) {
+			if(arr[i].value == '') {
+				alert("내용을 입력해주세요");
+				arr[i].focus(); 
+				return; 
+			}
 		}
-	})();
-</script>
-   <script th:inline="javascript">
+		document.groupNoticeForm.submit();
+	}
+
 
    document.getElementById('todayDate').value = new Date().toISOString().substring(0, 10);
    </script>
