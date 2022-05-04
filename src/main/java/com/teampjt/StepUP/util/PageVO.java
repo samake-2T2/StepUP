@@ -55,7 +55,7 @@ public class PageVO {
 		//다음버튼 활성화 여부
 		this.next = this.realEnd > this.end;
 		
-		//페이지리스트 처리
+		//페이지리스트 처리 (질문필요 )
 		this.pageList = IntStream.rangeClosed(this.start, this.end)
 				                 .boxed()
 				                 .collect( Collectors.toList() );

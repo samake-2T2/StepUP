@@ -10,9 +10,6 @@
       margin-bottom: 10px;
       margin-left: 1139px;
    }
-
-
-
    .free-main-box {border: 1px solid #cdcdcd}
    .free-main-box .free-form-inner{background-color: white;
                                  padding-top: 30px;
@@ -67,8 +64,8 @@
       border: none;
    }
    .list_table_wrap table tbody .btn_wrap > button > a{
-	  color:white;
-	  text-decoration:none;
+     color:white;
+     text-decoration:none;
    }
 /* 테이블 헤드 */
    .list_table_wrap table thead {
@@ -196,24 +193,24 @@
       resize: none;
       height: 80px;
    }
-	.w_contents {
-		text-align: left;
-	    position: relative;
-	    margin-right: 40px;
-	    
-	}
-	.w_info > button{
-	    background-color: #663399;
-	    padding: 6px 10px;
-	    border: none;
-	    
-	}
-	.w_info > button > a{
-		color:white;
-		text-decoration:none;
-	}
+   .w_contents {
+      text-align: left;
+       position: relative;
+       margin-right: 40px;
+       
+   }
+   .w_info > button{
+       background-color: #663399;
+       padding: 6px 10px;
+       border: none;
+       
+   }
+   .w_info > button > a{
+      color:white;
+      text-decoration:none;
+   }
 
-	/* 페이지네이션 */
+   /* 페이지네이션 */
    .pagination {
       margin: 0 auto;
       height: 50px;
@@ -229,8 +226,8 @@
 
     }
     .pagination > ul > li{
-    	text-align: center !important;
-    	margin: 0 auto;
+       text-align: center !important;
+       margin: 0 auto;
       overflow: hidden;
       display: inline-block;
     }
@@ -247,35 +244,35 @@
       text-decoration: none;
     }
     .pagination a:hover:not(.active) {background-color: #f9f9f9; text-decoration: none;}
-	
+   
    
    
    
    
    /* 댓글영역 */
-	.coment_info .r_contents{
-	   display: none;
-	}
-	.coment_info .active{
-	   display: block;
-	}
-   	.coment_info .active > textarea{
-   	   	width:100%;
-   		height: 50px;
-   		resize: none;
-   	}
-   	.coment_info .active > .re-coment-btn
-   	{
-   		width:100%;
-   		height: 25px;
-   		resize: none;
-   		background-color: #663399;
-   		text-decoration: none;
-   	}
- 	.coment_info .active > .re-coment-btn > a {
- 		text-decoration: none;
- 		color:white;
- 	}
+   .coment_info .r_contents{
+      display: none;
+   }
+   .coment_info .active{
+      display: block;
+   }
+      .coment_info .active > textarea{
+            width:100%;
+         height: 50px;
+         resize: none;
+      }
+      .coment_info .active > .re-coment-btn
+      {
+         width:100%;
+         height: 25px;
+         resize: none;
+         background-color: #663399;
+         text-decoration: none;
+      }
+    .coment_info .active > .re-coment-btn > a {
+       text-decoration: none;
+       color:white;
+    }
  
    
 }
@@ -360,8 +357,8 @@
       border: none;
    }
    .list_table_wrap table tbody .btn_wrap > button > a{
-	  color:white;
-	  text-decoration:none;
+     color:white;
+     text-decoration:none;
    }
    /* 테이블 헤드 */
    .list_table_wrap table thead {
@@ -488,20 +485,20 @@
       resize: none;
       height: 80px;
    }
-	.w_contents {
-		text-align: left;
-	    position: relative;
-	    margin-right: 40px;
-	}
-	.w_contents > button{
-	    background-color: #663399;
-	    padding: 6px 10px;
-	    border: none;
-	}
-	.w_contents > button > a{
-		color:white;
-		text-decoration:none;
-	}
+   .w_contents {
+      text-align: left;
+       position: relative;
+       margin-right: 40px;
+   }
+   .w_contents > button{
+       background-color: #663399;
+       padding: 6px 10px;
+       border: none;
+   }
+   .w_contents > button > a{
+      color:white;
+      text-decoration:none;
+   }
    /* 페이지네이션 */
    .pagination {
       margin: 0 auto;
@@ -517,8 +514,8 @@
     }
 
     .pagination > ul > li{
-    	text-align: center !important;
-    	margin: 0 auto;
+       text-align: center !important;
+       margin: 0 auto;
       overflow: hidden;
       display: inline-block;
     }
@@ -538,29 +535,29 @@
 
 
 /* 댓글영역 */
-	.coment_info .r_contents{
-	   display: none;
-	}
-	.coment_info .active{
-	   display: block;
-	}
-   	.coment_info .active > textarea{
-   	   	width:100%;
-   		height: 50px;
-   		resize: none;
-   	}
-   	.coment_info .active > .re-coment-btn
-   	{
-   		width:100%;
-   		height: 25px;
-   		resize: none;
-   		background-color: #663399;
-   		text-decoration: none;
-   	}
- 	.coment_info .active > .re-coment-btn > a {
- 		text-decoration: none;
- 		color:white;
- 	}
+   .coment_info .r_contents{
+      display: none;
+   }
+   .coment_info .active{
+      display: block;
+   }
+      .coment_info .active > textarea{
+            width:100%;
+         height: 50px;
+         resize: none;
+      }
+      .coment_info .active > .re-coment-btn
+      {
+         width:100%;
+         height: 25px;
+         resize: none;
+         background-color: #663399;
+         text-decoration: none;
+      }
+    .coment_info .active > .re-coment-btn > a {
+       text-decoration: none;
+       color:white;
+    }
    
 }
 
@@ -645,8 +642,8 @@
       border: none;
    }
    .list_table_wrap table tbody .btn_wrap > button > a{
-	  color:white;
-	  text-decoration:none;
+     color:white;
+     text-decoration:none;
    }
    /* 테이블 헤드 */
    .list_table_wrap table thead {
@@ -771,20 +768,20 @@
       resize: none;
       height: 80px;
    }
-	.w_contents {
-		text-align: left;
-	    position: relative;
-	    margin-right: 40px;
-	}
-	.w_contents > button{
-	    background-color: #663399;
-	    padding: 6px 10px;
-	    border: none;
-	}
-	.w_contents > button > a{
-		color:white;
-		text-decoration:none;
-	}
+   .w_contents {
+      text-align: left;
+       position: relative;
+       margin-right: 40px;
+   }
+   .w_contents > button{
+       background-color: #663399;
+       padding: 6px 10px;
+       border: none;
+   }
+   .w_contents > button > a{
+      color:white;
+      text-decoration:none;
+   }
    /* 페이지네이션 */
    .pagination {
       margin: 0 auto;
@@ -800,8 +797,8 @@
 
     }
     .pagination > ul > li{
-    	text-align: center !important;
-    	margin: 0 auto;
+       text-align: center !important;
+       margin: 0 auto;
       overflow: hidden;
       display: inline-block;
     }
@@ -820,28 +817,28 @@
     .pagination a:hover:not(.active) {background-color: #f9f9f9; text-decoration: none;}
     
     /* 댓글영역 */
-	.coment_info .r_contents{
-	   display: none;
-	}
-	.coment_info .active{
-	   display: block;
-	}
-   	.coment_info .active > textarea{
-   	   	width:100%;
-   		height: 50px;
-   		resize: none;
-   	}
-   	.coment_info .active > .re-coment-btn
-   	{
-   		width:100%;
-   		height: 25px;
-   		resize: none;
-   		background-color: #663399;
-   		text-decoration: none;
-   	}
- 	.coment_info .active > .re-coment-btn > a {
- 		text-decoration: none;
- 		color:white;
- 	}
+   .coment_info .r_contents{
+      display: none;
+   }
+   .coment_info .active{
+      display: block;
+   }
+      .coment_info .active > textarea{
+            width:100%;
+         height: 50px;
+         resize: none;
+      }
+      .coment_info .active > .re-coment-btn
+      {
+         width:100%;
+         height: 25px;
+         resize: none;
+         background-color: #663399;
+         text-decoration: none;
+      }
+    .coment_info .active > .re-coment-btn > a {
+       text-decoration: none;
+       color:white;
+    }
    
 }

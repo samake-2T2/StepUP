@@ -23,6 +23,22 @@ $(function() {
         	$(this).html('닫기');
         }
     });
+    
+    
+    
+    $('.coment_box .coment_info .w_info .re-coment2').on('click',function(){
+		console.log('click')
+        if($(this).parent().parent().find(".r_contents").hasClass('active')){
+           $(this).parent().parent().find(".r_contents").removeClass('active');
+           $(this).html('수정');
+           $(this).css('color','white');
+        }else{
+            $(this).parent().parent().find(".r_contents").addClass('active');
+            $(this).css('color','white');
+        	$(this).html('닫기');
+        }
+    });
+    
 
 
 	$('.search_btn').on('click',function(){

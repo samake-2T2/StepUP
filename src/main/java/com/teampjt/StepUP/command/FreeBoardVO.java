@@ -32,6 +32,7 @@ public class FreeBoardVO {
     //자유게시판 글 작성 일자
     private LocalDateTime free_regdate;
     
+    //댓글 리스트
     private ArrayList<MainCommentsVO> main_comments_list;
 
 }

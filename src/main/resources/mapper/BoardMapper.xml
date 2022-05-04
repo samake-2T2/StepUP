@@ -85,7 +85,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<select id="mc_getList" resultType="MainCommentsVO">
-		select * from main_comment where free_board_no = #{free_board_no}
+		select 
+				*,
+				(select uu.filepath from user_upload uu where uu.user_no = a.user_no) as filepath
+		 	from 
+		 		main_comment a
+		 	where 
+		 		free_board_no = #{free_board_no}
 	</select>
 	
 	
@@ -110,6 +116,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    		where comment_no = #{comment_no}
 	</update>
 	
+	
+	
+	
+
 	
 	
 	
