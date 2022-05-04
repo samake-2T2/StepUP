@@ -90,6 +90,9 @@ public class MainController {
 		maps.put("list", list);
 		maps.put("cri", cri);
 		maps.put("pageVO", pageVO);
+		
+		System.out.println(maps.toString());
+		
 		return maps;
 	}
 	

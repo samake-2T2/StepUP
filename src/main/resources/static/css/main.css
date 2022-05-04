@@ -169,15 +169,15 @@
     float: left;
     margin: 20px;
 }
-.group_main_list_searchcount_amount {
+/* .group_main_list_searchcount_amount {
     float: right;
     height: 50px;
     width: 125px;
     margin: 12.5px;
     text-align: center;
     font-size: large;
-    /* border-radius: 15px; */
-}
+    border-radius: 15px;
+} */
 
 
 /* group_main_list_searchresult영역 (검색결과) */
