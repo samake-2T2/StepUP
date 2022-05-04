@@ -85,7 +85,7 @@ public class GroupController {
 
 	//공지목록페이지
 	@GetMapping("/groupNotice")
-	public String groupNotice( Model model, Criteria cri ) {
+	public String groupNotice( Model model, Criteria cri, StudyGroupVO vo ) {
 
 
 
@@ -93,7 +93,7 @@ public class GroupController {
 		int total = groupService.getTotal();
 		PageVO pageVO = new PageVO(cri, total);
 
-
+		model.addAttribute("vo", vo);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("pageVO", pageVO);
 
@@ -299,9 +299,12 @@ public class GroupController {
 	//그룹 신청폼
 	@PostMapping("/groupApplicationForm")
 	public String groupApplicationForm(@Valid RequestVO reqVO,
-									   Errors errors) {
+									   Errors errors, StudyGroupVO vo, Model model) {
 	
-		//int result = groupService.groupApplicationReg(reqVO);
+		int result = groupService.groupApplicationReg(reqVO);
+		
+		model.addAttribute("vo", vo);
+		
 		if(errors.hasErrors()) {
 			List<FieldError> list = errors.getFieldErrors();
 			
