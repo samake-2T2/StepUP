@@ -7,6 +7,7 @@ create table user (
     interest varchar(50),
     logintype int
 );
+
 ## 유저 업로드 테이블
 create table user (
 	user_no int primary key auto_increment,
@@ -83,4 +84,9 @@ create table group_detail_comment (
     comment_content varchar(500) not null,
     user_profile int,
     user_no int
-);    
+);
+
+## 그룹 참가신청 목록 테이블
+
+
+## 그룹 구성원정보 테이블 
