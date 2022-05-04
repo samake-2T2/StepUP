@@ -77,54 +77,51 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public int registFile(userUploadVO vo, MultipartFile f) {
-		
+	public int registFile(UserVO vo, MultipartFile f) {
+
 		//1. 파일명 추출
-				String originName = f.getOriginalFilename();
-				String filename = originName.substring(originName.lastIndexOf("\\") + 1);
-
-				int user = vo.getUser_no();
-				String userpath = Integer.toString(user);
-				
-				
-				//2. 업로드 된 파일을 폴더별로 저장(파일생성)
-				String filepath = makeFolder(userpath);
-
-				//3. 랜덤값을 이용해서 동일한 파일명의 처리
-				String uuid = UUID.randomUUID().toString();
-
-				// 최종경로
-				String user_no = useruploadPath + "\\" + filepath + "\\" + uuid + "_" + filename;
+		String originName = f.getOriginalFilename();
+		String filename = originName.substring(originName.lastIndexOf("\\") + 1);
 
 
-				try {
-					f.transferTo(new File(user_no));
-				} catch (Exception e) {
-					e.printStackTrace();
-					return 0; // 실패의 의미 0
-				}
+		//2. 업로드 된 파일을 폴더별로 저장(파일생성)
+		String filepath = makeFolder(vo.getEmail());
 
-				//
-				userUploadVO upvo = userUploadVO.builder()
-						.filename(filename)
-						.filepath(filepath)
-						.uuid(uuid)
-						.user_no(vo.getUser_no())
-						.build();
-						
+		//3. 랜덤값을 이용해서 동일한 파일명의 처리
+		String uuid = UUID.randomUUID().toString();
 
-				System.out.println(upvo.toString());
+		// 최종경로
+		String email = useruploadPath + "\\" + filepath + "\\" + uuid + "_" + filename;
 
-				int result = userMapper.registFile(upvo);
 
-				return result;
+		try {
+			f.transferTo(new File(email));
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0; // 실패의 의미 0
+		}
 
-		
-		
-		
+		//
+		userUploadVO upvo = userUploadVO.builder()
+				.filename(filename)
+				.filepath(filepath)
+				.uuid(uuid)
+				.email(vo.getEmail())
+				.build();
+
+
+		System.out.println(upvo.toString());
+
+		int result = userMapper.registFile(upvo);
+
+		return result;
+
+
+
+
 	}
 
 
-	
+
 
 }

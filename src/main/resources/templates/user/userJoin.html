@@ -37,7 +37,7 @@
 					<div class="profile">
 						<label>프로필사진</label>
 						<div class="img-box">
-							<img class="profile-img" src="/img/user/1.png">
+							<img class="profile-img" src="../img/group/no_photo.png">
 						</div>
 						<label for="ex_file" class="w-btn btn-nomal pro-label">사진업로드</label>
 						<input type="file" id="ex_file" name="file" />
@@ -113,14 +113,14 @@
    }
    
    $(function() {
-		$("#myFile").on('change', function() {
+		$("#ex_file").on('change', function() {
 			readURL(this);
 		});
 	});
 
 	$(function() {
-		$(".default-btn").on('click', function() {
-			$('.img').attr('src', '../img/group/no_photo.png');
+		$(".btn-nomal").on('click', function() {
+			$('.profile-img').attr('src', '../img/group/no_photo.png');
 		});
 	});
 
@@ -128,7 +128,7 @@
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
 			reader.onload = function(e) {
-				$('.img').attr('src', e.target.result);
+				$('.profile-img').attr('src', e.target.result);
 			}
 			reader.readAsDataURL(input.files[0]);
 		}

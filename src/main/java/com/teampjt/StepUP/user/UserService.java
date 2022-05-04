@@ -14,7 +14,7 @@ public interface UserService {
 	
 	public int userRegist(UserVO vo); //회원가입
 	
-	public int registFile(userUploadVO vo, MultipartFile f); //파일 등록
+	public int registFile(UserVO vo, MultipartFile f); //파일 등록
 
 	public int userDelete(int user_no);
 	//그룹 신청인 목록 조회 메서드

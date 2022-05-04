@@ -51,8 +51,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<insert id="registFile">
-		insert into user_upload (filename, filepath, user_no, uuid)
-		values( #{filename}, #{filepath}, #{user_no}, #{uuid})
+		insert into user_upload (filename, filepath, email, uuid)
+		values( #{filename}, #{filepath}, #{email}, #{uuid})
 	
 	</insert>
 							
