@@ -54,13 +54,29 @@
                         </div>
 
                         <a href="/group/groupNotice" class="w-btn btn-danger btn-block5">취소</a> <!-- th:href="@{/group/groupNotice(vo.group_no=${vo.group_no})}" -->
-                        <button type="submit" class="w-btn btn-block4">수정</button>
+                        <button type="button" class="w-btn btn-block4" th:onclick="|notice_valid()|">수정</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
     </th:block>
-
+	<script th:inline="javascript">
+		function notice_valid() {
+			var a = document.noticeUpdate.groupnotice_title;
+			var b = document.noticeUpdate.groupnotice_content;
+			
+			var arr = [a, b];
+			
+			for(var i = 0; i < arr.length; i++) {
+				if(arr[i].value == '') {
+					alert("내용을 입력해주세요");
+					arr[i].focus(); 
+					return; 
+				}
+			}
+			document.noticeUpdate.submit();
+		}
+	</script>
 </body>
 </html>

@@ -24,73 +24,26 @@ public class UserServiceImpl implements UserService {
 
 	//업로드 할 경로 (application.properties값을 참조)
 	@Value("${project.upload.path}")
-	private String uploadPath;
+	private String useruploadPath;
 
-	//폴더 생성 함수
-	public String makeFolder() {
+	//폴더생성함수
+	public String makeFolder(String folderName) {
 
-		//날짜별로 폴더생성
-		DateTimeFormatter datetime = DateTimeFormatter.ofPattern("yyMMdd");
-		String date = LocalDateTime.now().format(datetime);
-
-		//java.io인 것을 import (업로드 경로 \\ 폴더명)
-		File file = new File(uploadPath + "\\" + date);
-
-		if(file.exists() == false) { //폴더가 존재하면 true, 존재하지 않으면 false
-			file.mkdir(); //
+		File file = new File(useruploadPath + "\\" + folderName);
+		if(file.exists() == false ) { //폴도가 존재하면 true, 존재하지 않으면 false
+			file.mkdir(); //폴더가 생성
 		}
 
-		return date; //년, 월, 일 리턴
+		return folderName; //폴더명 리턴
 	}
-	
-	
-	// multi insert작업(상품 insert -> 파일업로드 -> 업로드 테이블 insert)
-	@Override
-	public int regist(UserVO vo) {
 
-		int result = userMapper.regist(vo);
-		
-//		for(MultipartFile f : list) {
-//			//1. 파일명 추출(브라우저 별로 다를 수 있기 때문에 \\ 기준으로 파일명 추출)
-//			String originName = f.getOriginalFilename();
-//			String filename = originName.substring( originName.lastIndexOf("\\") + 1); //미만 절삭
-//			
-//			//2. 업로드 된 파일을 폴더별로 저장(파일생성)
-//			String filepath = makeFolder();
-//			
-//			//3. 랜덤값을 이용해서 동일한 파일명을 처리
-//			String uuid= UUID.randomUUID().toString();
-//			
-//			//4. 업로드 설정
-//			String savename = uploadPath + "\\" + filepath + "\\" + uuid + "_" + filename;
-//		
-//			//5. 업로드 진행
-//			try {
-//				f.transferTo(new File(savename));
-//				
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//				return 0; //실패의 의미로 영을 영포
-//			}
-//			
-//			//6. 빌더패턴을 이용해 업로드 테이블에 insert진행
-//			
-//			userUploadVO uploadVO = userUploadVO.builder()
-//												.filename(filename)
-//												.filepath(filepath)
-//												.uuid(uuid)
-//												.build();
-//			
-//			
-//		}
-		
-		return result;
-	}
-	
-	
+
+	//회원가입
 	@Override
-	public int userJoin(UserVO vo) {
-		return userMapper.userJoin(vo);
+	public int userRegist(UserVO vo) {
+
+		return userMapper.userRegist(vo);
+
 	}
 
 	@Override
@@ -121,5 +74,57 @@ public class UserServiceImpl implements UserService {
 
 		return userMapper.login(vo);
 	}
+
+
+	@Override
+	public int registFile(userUploadVO vo, MultipartFile f) {
+		
+		//1. 파일명 추출
+				String originName = f.getOriginalFilename();
+				String filename = originName.substring(originName.lastIndexOf("\\") + 1);
+
+				int user = vo.getUser_no();
+				String userpath = Integer.toString(user);
+				
+				
+				//2. 업로드 된 파일을 폴더별로 저장(파일생성)
+				String filepath = makeFolder(userpath);
+
+				//3. 랜덤값을 이용해서 동일한 파일명의 처리
+				String uuid = UUID.randomUUID().toString();
+
+				// 최종경로
+				String user_no = useruploadPath + "\\" + filepath + "\\" + uuid + "_" + filename;
+
+
+				try {
+					f.transferTo(new File(user_no));
+				} catch (Exception e) {
+					e.printStackTrace();
+					return 0; // 실패의 의미 0
+				}
+
+				//
+				userUploadVO upvo = userUploadVO.builder()
+						.filename(filename)
+						.filepath(filepath)
+						.uuid(uuid)
+						.user_no(vo.getUser_no())
+						.build();
+						
+
+				System.out.println(upvo.toString());
+
+				int result = userMapper.registFile(upvo);
+
+				return result;
+
+		
+		
+		
+	}
+
+
+	
 
 }

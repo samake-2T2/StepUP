@@ -1,5 +1,7 @@
 package com.teampjt.StepUP.command;
 
+import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,6 +32,7 @@ public class RequestVO {
 	private String req_level;
 	
 	//신청인의 한줄소개
+	@NotNull(message = "간단한 소개를 입력해주세요")
 	private String req_about_me;
 
 }

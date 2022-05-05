@@ -123,13 +123,13 @@
 				<div class="group_main_list_searchcount">
 					<h2 class="searchcount">[[${pageVO.total}]]개의 스터디를 찾았습니다.</h2>
 
-					<select class="group_main_list_searchcount_amount"
+					<!-- <select class="group_main_list_searchcount_amount"
 						th:onchange="|group_dataHandler(this)|">
 						<option value="10" th:selected="${pageVO.amount} == 10? 'selected' ">10개 보기</option>
 						<option value="20" th:selected="${pageVO.amount} == 20? 'selected' ">20개 보기</option>
 						<option value="40" th:selected="${pageVO.amount} == 40? 'selected' ">40개 보기</option>
 						<option value="80" th:selected="${pageVO.amount} == 80? 'selected' ">80개 보기</option>
-					</select>
+					</select> -->
 
 				</div>
 
@@ -137,7 +137,7 @@
 					<div class="group_main_list_searchresult_box">
 						<ul id="main_Search_ul">
 							<li th:each="vo, state : ${list}">
-								<a href="#"> 
+								<a th:href="@{group/groupDetail(group_no=${vo.group_no})}">
 									<img src="../img/group/1.png">
 	
 									<div class="group_main_list_searchresult_detail">
@@ -165,38 +165,42 @@
 
 				<div class="group_main_list_pagenation">
 
-					<ul>
-            			<th:block th:if="${pageVO.realEnd != 0}">
-                			<li>
-                    			<a th:href="@{/main(page=1, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">◀◀</a>
-                			</li>
-                		</th:block>
-                
-                		<th:block th:if="${pageVO.prev}">
-                			<li>
-                				<a th:href="@{/main(page=${pageVO.start - 1}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">◀</a>
-             		   		</li>
-            		    </th:block> 
-                
-						<th:block th:each="page : ${pageVO.pageList}">
-							<li th:class="${pageVO.page == page? 'on' : ''}">
-								<a th:href="@{/main(page=${page}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">[[${page}]]</a>
-							</li>
-						</th:block>   
-				             
-              		  	<th:block th:if="${pageVO.next}">
-             			   	<li>
-              			  		<a th:href="@{/main(page=${pageVO.end + 1}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">▶</a>
-                			</li>
-                	  	</th:block>
-                
-                		<th:block th:if="${pageVO.realEnd != 0}">
-	                		<li>
-    	            			<a th:href="@{/main(page=${pageVO.realEnd}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">▶▶</a>
-                			</li>
-                		</th:block>
-
-            		</ul>
+					<div class="group_main_list_pagenation_box">
+						<ul class="group_main_list_pagenation_ul">
+	            			<th:block th:if="${pageVO.realEnd != 0 && pageVO.page != 1}">
+	                			<li>
+	                    			<a th:href="@{/main(page=1, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">◀◀</a>
+	                			</li>
+	                		</th:block>
+	                
+	                		<th:block th:if="${pageVO.prev != 0 && pageVO.page != 1}">
+	                			<li>
+	                				<a th:href="@{/main(page=${pageVO.page - 1}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">◀</a>
+	             		   		</li>
+	            		    </th:block> 
+	                
+							<th:block th:each="page : ${pageVO.pageList}">
+								<li th:class="${pageVO.page == page? 'on' : ''}">
+									<a th:href="@{/main(page=${page}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">[[${page}]]</a>
+								</li>
+							</th:block>   
+					             
+	              		  	<th:block th:if="${pageVO.next != 0 && pageVO.page != pageVO.realEnd}">
+	             			   	<li>
+	              			  		<a th:href="@{/main(page=${pageVO.page + 1}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">▶</a>
+	                			</li>
+	                	  	</th:block>
+	                
+	                		<th:block th:if="${pageVO.realEnd != 0 && pageVO.page != pageVO.realEnd}">
+		                		<li>
+	    	            			<a th:href="@{/main(page=${pageVO.realEnd}, amount=${pageVO.amount}, searchCategoryParent=${pageVO.cri.searchCategoryParent}, searchCategoryChild=${pageVO.cri.searchCategoryChild}, searchKeyword=${pageVO.cri.searchKeyword})}">▶▶</a>
+	                			</li>
+	                		</th:block>
+	
+	            		</ul>
+					
+					</div>					
+					
 
 				</div>
  
@@ -291,15 +295,15 @@
 	var category_id = this.find('option:selected').data("set").category_id; 
 	$("input[name='group_category']").val(category_group_id + category_id ); //name이 group_category인 곳에 추가
 	
-}
+	}
 	//이전카테고리 삭제JS
 	$.fn.category_remove = function() {
 	
 	while(this.next().length != 0) {
 		$(this).next().remove();
 		
+		}
 	}
-}
 	//다음카테고리 생성JS
 	function category_create(data) {
 		
@@ -314,7 +318,7 @@
      
 	    $('option.minor').remove();
 	    $(".minor_option").append(category02);
-    
+    	
 	    
 	}
 
@@ -361,8 +365,6 @@
 				$("#minor_option").val(child_name)
 				$("#keywordSearch").val(group_name) */
 				
-				console.log(data)
-				
 				//데이터를 비동기로 받아오는 함수(~~개의 스터디를 찾았습니다 / 페이지네이션 / 검색된 데이터 목록)
 				ajax_data(data);
 				
@@ -376,8 +378,14 @@
 	
  	//비동기 데이터 가져오는 전체 function
 	function ajax_data(data) {
-		var list = data.list
+		
+ 		var list = data.list
+		var cri = data.cri
 		var pageVO = data.pageVO
+		
+		console.log(list);
+		console.log(cri);
+		console.log(pageVO);
 		
  		//검색된 데이터 목록
 		$("#main_Search_ul").remove()
@@ -390,7 +398,7 @@
 			
 			main_Search += "<li>";
 			
- 			main_Search += "<a href='#'>";
+ 			main_Search += "<a href='" + "/group/groupDetail?group_no=" + result.group_no + "'>";
  			
 			main_Search += "<img src='../img/group/1.png'>"
 			
@@ -419,7 +427,7 @@
 		
 		main_Search += "</ul>"
 		
-		$("#main_Search").append(main_Search);
+		//$("#main_Search").append(main_Search);
 		$(".group_main_list_searchresult_box").append(main_Search);
 		
 		//"~~개의 스터디를 찾았습니다."
@@ -432,11 +440,56 @@
 			
 		searchcount += pageVO.total + "개의 스터디를 찾았습니다.";
 			
-		
 		searchcount += "</h2>";
 		
 		$(".group_main_list_searchcount").append(searchcount);
 		
+		//페이지네이션 기능
+		//$(".group_main_list_pagenation_box").remove()
+		
+		var div = document.createElement('div');
+		
+		var compDiv = div.attr("class", ".group_main_list_pagenation_box")
+		
+		console.log(compDiv);
+		
+		var pgnt = "";
+		
+		pgnt += "<ul class='group_main_list_pagenation_ul'>";
+		
+		//◀◀ 버튼
+		if(pageVO.realEnd != 0 && pageVO.page != 1) {
+			pgnt += "<li><a href='/main?page=1&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>◀◀</a></li>"
+		}
+		
+		//◀ 버튼
+		if(pageVO.prev != 0 && pageVO.page != 1) {
+			pgnt += "<li><a href='/main?page=" + (pageVO.page - 1) + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>◀</a></li>"  	
+		}
+				
+		//페이지네이션 숫자
+		list.forEach(function(result,index) {
+			
+			
+			pgnt += "<li><a href='/main?page=" + (index+1) + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>" + (index+1) + "</a></li>"
+						
+		})
+		
+		//▶ 버튼
+		if(pageVO.next != 0 && pageVO.page != pageVO.realEnd) {
+			pgnt += "<li><a href='/main?page=" + (pageVO.page + 1) + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>▶</a></li>"
+			
+		}
+		
+		//▶▶ 버튼
+		if(pageVO.realEnd != 0 && pageVO.page != pageVO.realEnd) {
+			pgnt += "<li><a href='/main?page=" + pageVO.realEnd + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>▶▶</a></li>"
+			
+		}
+		
+		pgnt += "</ul>"
+		
+		$("group_main_list_pagenation_box").prepend(pgnt);
 		
  	} 
 	

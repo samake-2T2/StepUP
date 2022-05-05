@@ -66,7 +66,7 @@ public class BoardController {
 	}
 
 	
-	
+
 	
 	
 	// 글 등록 페이지

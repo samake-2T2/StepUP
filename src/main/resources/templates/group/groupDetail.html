@@ -50,7 +50,7 @@
 			</div>
 
 			<div class="detail_boxbtn">
-				<button class="detail_btn2" type="button" href="">참여신청</button>
+				<button class="detail_btn2" type="button"><a th:href="groupApplication" style="color : white">참여신청</a> </button>
 			</div>
 
 		</div>
@@ -111,8 +111,9 @@
 									<i class="glyhpicon glyphicon-pencil"></i>수정
 								</a> 
 								<form action="groupCommentDelete" method="post">
-								<a href="" >
-									<i class="glyhpicon glyphicon-remove"></i>삭제
+								<a th:href="@{/group/groupCommentDelete(comment_no=${commentVO.comment_no})}" 
+								th:if="${commentVO.user_name == session.userVO.user_name}"style="float: right" >
+									<i class="glyhpicon glyphicon-remove" ></i>삭제
 								</a>
 								</form>
 							</div>

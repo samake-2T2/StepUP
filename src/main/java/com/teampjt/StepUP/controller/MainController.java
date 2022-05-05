@@ -26,15 +26,15 @@ public class MainController {
 	
 	@GetMapping("/main")
 	public void main(Model model, 
-			         Criteria cri,
-			         @RequestParam(value="parent_name", required = false) String parent_name,
-			         @RequestParam(value="child_name", required = false) String child_name,
-			         @RequestParam(value="group_name", required = false) String group_name
+			         Criteria cri //,
+//			         @RequestParam(value="parent_name", required = false) String parent_name,
+//			         @RequestParam(value="child_name", required = false) String child_name,
+//			         @RequestParam(value="group_name", required = false) String group_name
 			         ) {
 		
-		cri.setSearchCategoryParent(parent_name);
-		cri.setSearchCategoryChild(child_name);
-		cri.setSearchKeyword(group_name);
+//		cri.setSearchCategoryParent(parent_name);
+//		cri.setSearchCategoryChild(child_name);
+//		cri.setSearchKeyword(group_name);
 		
 		System.out.println(cri.toString());
 		
@@ -90,6 +90,9 @@ public class MainController {
 		maps.put("list", list);
 		maps.put("cri", cri);
 		maps.put("pageVO", pageVO);
+		
+		System.out.println(maps.toString());
+		
 		return maps;
 	}
 	

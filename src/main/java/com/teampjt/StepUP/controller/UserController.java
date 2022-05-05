@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.mysql.cj.Session;
 import com.teampjt.StepUP.command.UserVO;
+import com.teampjt.StepUP.command.userUploadVO;
 import com.teampjt.StepUP.user.UserService;
 
 @Controller
@@ -45,72 +48,71 @@ public class UserController {
 
 	//회원가입 폼
 	@PostMapping("/joinForm")
-	public String joinForm(UserVO vo,
-						   RedirectAttributes  RA) {
-		
-//		for(MultipartFile f : list) {
-//			System.out.println(f.isEmpty()); //비어있다면 true
-//			System.out.println(f.getContentType()); //파일의 타입
-//		}
-//		
-//	
-//		// 1. 빈 형태로 넘어오는 이미지를 제거
-//		list = list.stream().filter( (f) -> f.isEmpty() == false).collect( Collectors.toList());
-//		
-//		// 2. 업로드 된 확장자가 이미지만 가능하도록 처리
-//		for(MultipartFile f : list) {
-//			if(f.getContentType().contains("image") == false) {
-//				RA.addFlashAttribute("msg", "jpg, png, jepg 이미지 형식만 등록가능합니다.");
-//				
-//				return "redirect:/main";
-//			}
-//		}
-		//vo를 등록
-		int result = userService.userJoin(vo);
-		
-		if(result == 1) {
-			RA.addFlashAttribute("msg", vo.getUser_no() + "이 정상 등록되었습니다.");
+	public String joinForm(UserVO vo, 
+			userUploadVO uvo,
+			RedirectAttributes  RA,
+			@RequestParam("file") MultipartFile f) {
+
+
+		int result = userService.userRegist(vo);
+
+		if(result == 0) {
+			// 1. 업로드된 확장자가 이미지만 가능하도록 처리
+			if(f.getContentType().contains("image") == false ) { //이미지가 아닌경우
+				RA.addFlashAttribute("msg", "jpg, png, jpeg등의 이미지형식만 등록가능합니다.");
+				return "redirect:/user/userJoin";
+			}
+
+			userService.registFile(uvo, f);
+
+			return "redirect:/user/userJoin";
 		} else {
-			RA.addFlashAttribute("msg", "등록실패, 관리자에게 문의하세요.");
+			return "/main";
 		}
-
-		return "user/login";
-
 	}
 
 	@GetMapping("/userDelete")
 	public String userDelete(@RequestParam("user_no") int user_no, 
-			RedirectAttributes RA) {
+			RedirectAttributes RA, HttpSession session) {
 		userService.userDelete(user_no);
 
 		int result = userService.userDelete(user_no);
-    
+
 		if(result == 1) { 
 			RA.addFlashAttribute("msg", "탈퇴에 성공했습니다. ");
 		}else { 
 			RA.addFlashAttribute("msg", "탈퇴에 실패했습니다. 관리자에게 문의하세요");
 		}
-		return "user/login";
+		return "redirect:/user/logout";
 	}
 
 	//업데이트폼
 	@PostMapping("/userUpdate")
-	public String userUpdate(UserVO userVO, HttpSession session,
-							 RedirectAttributes RA, Model model) {
-		
-		session.setAttribute("user_name", userVO.getUser_name());
-		
-		
+	public String userUpdate(UserVO userVO, 
+			RedirectAttributes RA, Model model, HttpSession session) {
+
+
 		int result = userService.update(userVO);
-		model.addAttribute("userVO", userVO);
-		
+
+		//		model.addAttribute("userVO", userVO);
+
+
+
 		if(result == 1) {
+			UserVO vo = (UserVO)session.getAttribute("userVO");
+			vo.setInterest(userVO.getInterest());
+			vo.setUser_name(userVO.getUser_name());
+			vo.setPassword(userVO.getPassword());
+			session.setAttribute("userVO", vo);
 			RA.addFlashAttribute("msg", "정보수정이 완료되었습니다");
 
 		}else {
 			RA.addFlashAttribute("msg", "정보수정에 실패하였습니다");
 
 		}
+
+
+
 		return "redirect:/main";
 	}
 
@@ -140,7 +142,7 @@ public class UserController {
 			session.setAttribute("userVO", userVO);
 			session.setAttribute("user_no", userVO.getUser_no());
 			session.setAttribute("user_name", userVO.getUser_name());
-			
+
 
 			return "redirect:/main";
 		}
@@ -149,7 +151,7 @@ public class UserController {
 
 	@PostMapping("/kakao-login")
 	public String kakaoLogin(UserVO vo,
-							 HttpSession session) {
+			HttpSession session) {
 
 		System.out.println(vo.toString());
 
@@ -160,7 +162,7 @@ public class UserController {
 			session.setAttribute("userVO", savedUser);
 		}else {
 			session.setAttribute("userVO", vo);
-			userService.userJoin(vo);
+			userService.userRegist(vo);
 		}
 
 		return "redirect:/main";

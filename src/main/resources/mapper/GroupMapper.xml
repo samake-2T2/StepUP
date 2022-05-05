@@ -39,15 +39,24 @@ FROM (SELECT A.*,
 	    	        ORDER BY group_name DESC) A, (SELECT @ROWNUM := 0) D
 	    <![CDATA[
 	    )B
+	    
 	    WHERE RN > (#{page}-1) * #{amount} AND RN <= #{page} * #{amount}
+	    
 	    ]]>
 	</select>
 
 	<select id="getGroupTotal" resultType="int">
 		SELECT COUNT(*) AS TOTAL
 		FROM studygroup
-		<if test="searchKeyword != '' and searchKeyword != null">
-	    	WHERE group_name LIKE CONCAT('%', #{searchKeyword}, '%')
+		WHERE 1 = 1
+	    <if test="searchCategoryParent != '선택하세요' and searchCategoryParent != null">
+	    AND category_parent_name LIKE CONCAT('%', #{searchCategoryParent}, '%')
+	    </if>
+	    <if test="searchCategoryChild != '선택하세요' and searchCategoryChild != null">
+	    AND category_child_name LIKE CONCAT('%', #{searchCategoryChild}, '%')
+	    </if>
+	    <if test="searchKeyword != '' and searchKeyword != null">
+	    AND group_name LIKE CONCAT('%', #{searchKeyword}, '%')
 	    </if>
 	</select>
 
@@ -211,4 +220,19 @@ FROM (SELECT A.*,
 	
 	</insert>
 	
+	<!-- 그룹 신청 -->
+	<insert id="groupApplicationReg">
+		insert into request (user_no,
+							 user_name,
+							 email,
+							 req_level,
+							 req_about_me								 
+								 )
+		value(#{user_no},
+			  #{user_name},
+			  #{email},
+			  #{req_level},
+			  #{req_about_me}
+			  )
+	</insert>
 </mapper>

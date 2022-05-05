@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
+import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
 import com.teampjt.StepUP.util.Criteria;
@@ -128,60 +129,59 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-  	public int commentUpdate(GroupDetailCommentVO gdcVO) {
+	public int commentUpdate(GroupDetailCommentVO gdcVO) {
 
-	  	return groupMapper.commentUpdate(gdcVO);
-}
+		return groupMapper.commentUpdate(gdcVO);
+	}
 
 	@Override
 	public int groupRegist(StudyGroupVO vo, MultipartFile f) {
 
+			// 1. 파일명추출(브라우저별로 다를 수 있기 때문에 \\ 기준으로 파일명 추출)
+			String originName = f.getOriginalFilename();
+			String filename = originName.substring(originName.lastIndexOf("\\") + 1);
 
-		// 1. 파일명추출(브라우저별로 다를 수 있기 때문에 \\ 기준으로 파일명 추출)
-		String originName = f.getOriginalFilename();
-		String filename = originName.substring(originName.lastIndexOf("\\") + 1);
+			// 2. 업로드 된 파일을 폴더별로 저장(파일생성)
+			String filepath = makeFolder(vo.getGroup_name());
 
-		// 2. 업로드 된 파일을 폴더별로 저장(파일생성)
-		String filepath = makeFolder(vo.getGroup_name());
+			// 3. 랜덤값을 이용해서 동일한 파일명의 처리
+			String uuid = UUID.randomUUID().toString();
 
-		// 3. 랜덤값을 이용해서 동일한 파일명의 처리
-		String uuid = UUID.randomUUID().toString();
+			// 최종경로
+			String savename = uploadPath + "\\" + filepath + "\\" + uuid + "_" + filename;
 
-		// 최종경로
-		String savename = uploadPath + "\\" + filepath + "\\" + uuid + "_" + filename;
+			// 업로드 진행
+			try {
+				f.transferTo(new File(savename));
+			} catch (Exception e) {
+				e.printStackTrace();
+				return 0; // 실패의 의미 0
+			}
 
-		// 업로드 진행
-		try {
-			f.transferTo(new File(savename));
-		} catch (Exception e) {
-			e.printStackTrace();
-			return 0; // 실패의 의미 0
+			// 테이블에 insert진행
+			StudyGroupVO groupVO = StudyGroupVO.builder()
+					.group_name(vo.getGroup_name())
+					.group_content(vo.getGroup_content())
+					.group_participant_amount(vo.getGroup_participant_amount())
+					.group_leader_no(vo.getGroup_leader_no())
+					.group_leader_name(vo.getGroup_leader_name())
+					.group_filename(filename)
+					.group_filepath(filepath)
+					.group_fileuuid(uuid)
+					.category_parent_name(vo.getCategory_parent_name())
+					.category_child_name(vo.getCategory_child_name())
+					.build();
+
+			System.out.println(groupVO.toString());
+
+			int result = groupMapper.groupRegist(groupVO);
+			return result;
 		}
-
-		// 테이블에 insert진행
-		StudyGroupVO groupVO = StudyGroupVO.builder()
-										   .group_name(vo.getGroup_name())
-										   .group_content(vo.getGroup_content())
-										   .group_participant_amount(vo.getGroup_participant_amount())
-										   .group_leader_no(vo.getGroup_leader_no())
-										   .group_leader_name(vo.getGroup_leader_name())
-										   .group_filename(filename)
-										   .group_filepath(filepath)
-										   .group_fileuuid(uuid)
-										   .category_parent_name(vo.getCategory_parent_name())
-										   .category_child_name(vo.getCategory_child_name())
-										   .build();
-		
-		System.out.println(groupVO.toString());
-		
-		int result = groupMapper.groupRegist(groupVO);
-		return result;
-	}
 
 
 	@Override
 	public int nameChk(StudyGroupVO vo) {
-		
+
 		return groupMapper.nameChk(vo);
 	}
 
@@ -189,7 +189,13 @@ public class GroupServiceImpl implements GroupService {
 
 	@Override
 	public int commentDelete(int comment_no) {
-	
+
 		return groupMapper.commentDelete(comment_no);
+	}
+
+
+	@Override
+	public int groupApplicationReg(RequestVO reqVO) {
+		return groupMapper.groupApplicationReg(reqVO);
 	}
 }
