@@ -49,25 +49,26 @@ public class UserController {
 	//회원가입 폼
 	@PostMapping("/joinForm")
 	public String joinForm(UserVO vo, 
-			userUploadVO uvo,
 			RedirectAttributes  RA,
 			@RequestParam("file") MultipartFile f) {
 
 
 		int result = userService.userRegist(vo);
 
-		if(result == 0) {
+		if(result == 1) {
 			// 1. 업로드된 확장자가 이미지만 가능하도록 처리
 			if(f.getContentType().contains("image") == false ) { //이미지가 아닌경우
 				RA.addFlashAttribute("msg", "jpg, png, jpeg등의 이미지형식만 등록가능합니다.");
 				return "redirect:/user/userJoin";
 			}
+			
+		
 
-			userService.registFile(uvo, f);
+			userService.registFile(vo, f);
 
-			return "redirect:/user/userJoin";
+			return "user/login";
 		} else {
-			return "/main";
+			return "user/userJoin";
 		}
 	}
 
