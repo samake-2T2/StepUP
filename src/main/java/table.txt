@@ -86,7 +86,20 @@ create table group_detail_comment (
     user_no int
 );
 
-## 그룹 참가신청 목록 테이블
-
 
 ## 그룹 구성원정보 테이블 
+create table groupmember (
+	bno int primary key auto_increment,
+	group_no int not null,
+	user_no int not null
+);
+
+
+## 그룹 메인페이지 일정 등록 테이블
+create table todolist (
+	todo_no int primary key auto_increment, ## 번호
+	regdate timestamp ndefault now(),
+	place varchar(50) not null,
+	content varchar(50) not null,
+	group_no int not null
+);
