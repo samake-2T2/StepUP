@@ -28,7 +28,8 @@ public class MainCommentsVO {
 		// 메인 댓글 작성 시간
 		private LocalDateTime comment_regdate;
 		
-		
 		private Integer free_board_no;
+		
+		private String filepath;
 		
 }

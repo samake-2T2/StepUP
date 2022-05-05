@@ -36,22 +36,26 @@ public class BoardController {
 	
 	// 리스트 화면 
 	@GetMapping("/freeboard_main")
-	public String freeboard_main(Model model, 
-			Criteria cri
+	public String freeboard_main(Model model, Criteria cri
 			) {
 		System.out.println("search_value = "+cri);
 		//페이징 처리
+		
+		
+		//게시물 리스트
 		ArrayList<FreeBoardVO> list = boardService.fb_getList(cri);
 		int total = boardService.fb_getTotal(cri);
 		PageVO pageVO = new PageVO(cri, total);
 		
 		for(int listCnt = 0;listCnt <list.size();listCnt++) {	
-
+			//댓글 VO 선언
 			MainCommentsVO mainCommentsVO = new MainCommentsVO();
-			mainCommentsVO.setFree_board_no(list.get(listCnt).getFree_board_no());
-			ArrayList<MainCommentsVO> c_list = boardService.mc_getList(mainCommentsVO);
+			// 댓글 VO에 해당 게시물의 고유번호를 SET
+			mainCommentsVO.setFree_board_no(   list.get(listCnt).getFree_board_no()    );
+			// 게시물 고유번호로 댓글 조회
+			ArrayList<MainCommentsVO> c_list = boardService.mc_getList( mainCommentsVO );
+			// 댓글 리스트를 게시물 VO에 SET
 			list.get(listCnt).setMain_comments_list(c_list);
-			System.out.println("list.get(listCnt)="+list.get(listCnt));
 		}
 		System.out.println("pageVO = "+pageVO);
 		// 데이터 저장

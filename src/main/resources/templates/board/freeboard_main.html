@@ -19,8 +19,6 @@
                 커뮤니티
             </div>
 
-
-
             <select class="quanti" th:onchange="|fb_dataHandler(this)|">
                 <option value="10" th:selected="${pageVO.amount} == 10? 'selected' ">10개 보기</option>
                 <option value="20" th:selected="${pageVO.amount} == 20? 'selected' ">20개 보기</option>
@@ -80,8 +78,8 @@
 		                    								<input type="hidden" name="writer" th:value="${vo.user_no}">
 		                    								<input type="hidden" name="comment_no" th:value="${vo2.comment_no}">
 		                    								<input type="hidden" name="free_board_no" th:value="${vo2.free_board_no}">
-	                                                        <div class="w_photo"><img src="img/Logo.png"></div>
-		                                                        <div class="w_info">[[${vo2.user_name}]]   &nbsp;
+	                                                        <div class="w_photo"><img th:src="${vo2.filepath}"></div>
+		                                                        <div class="w_info">[[${vo2.user_name}]]    &nbsp;
 		                                                        	<span class="w_regdate"><span> 
 		                                                        	| 
 		                                                        	</span> &nbsp [[${#temporals.format(vo2.comment_regdate, 'yy-MM-dd')}]] </span> 
@@ -89,7 +87,17 @@
 				                                                        <button type="button" class="re-coment" ><a>수정</a></button>
 				                                                        <button type="button"><a th:href="@{/board/deleteComment(comment_no=${vo2.comment_no}, user_no=${vo.user_no})}">삭제</a></button>
 				                                                    </th:block>
+				                                                    <!-- <th:block th:if="${session.user_no != null}">
+				                                                    	<button type="button" class="re-coment2" ><a>댓글달기</a></button>
+				                                                    </th:block> -->
+				                                                    
 		                                                        </div> 
+		                                                        
+		                                                       
+		                                                        
+		                                                        
+		                                                        
+		                                                        
 		                                            			<form th:action="updateComment" method="post" name="updateComment">
 				                                                    <div class="w_contents">
 				                                                    	<div name="comment_contents">[[${vo2.comment_contents}]]</div><br>
@@ -97,15 +105,10 @@
 				                                                    	<input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.user_no}">
 				                                                    	<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.user_name}">
 				                                                    	<input type="hidden" name="writer" th:value="${vo.user_no}">
-				                                                    	
-				                                                    	
-																		
-				                                                    	여기여기
-				                                                    	
 				                                                    </div>
 				                                                    <div class="r_contents">
 				                                                        <textarea  name="comment_contents" id="" cols="30" rows="10" class="comment_contents_value1"></textarea>
-				                                                        <button type="submit" class="re-coment-btn comment_btn1" name="comment_contents"><a>답글 수정하기</a></button>
+				                                                        <button type="submit" class="re-coment-btn comment_btn1" name="comment_contents" style="border:none;"><a>답글 수정하기</a></button>
 				                                                    </div><br>
 			                                                    </form>
 		                                                   </div>
@@ -123,7 +126,7 @@
 		                                                <br>
 		                                                <div class="w-btn-p">
 			                                                <th:block th:if="${session.user_no != null}">
-			                                                	<button type="button" class="free_write comment_btn2">답글등록</button><br>
+			                                                	<button type="button" class="free_write comment_btn2" >답글등록</button><br>
 			                                                </th:block>
 		                                                </div>
                                       				</form>
@@ -193,28 +196,17 @@
                                     </th:block>
                     </ul>
                 </div>
-            
-            
-            
-            
-            
-            
-            <div class="search" style="height: 20px; width: 16.5%; margin: 0 auto;margin-top:15px; margin-bottom:15px; height: 20px;">
-            	<input type="text" class="search_value" th:value="${pageVO.searchKeyword}" style="border: 1px solid #777;">
-            	<button class="search_btn" style="background-color: white; border: 1px solid #777;">검색</button>
+ 
+            <div class="search" style="height: 20px; width: 17.5%; margin: 0 auto;margin-top:15px; margin-bottom:15px; height: 20px;">
+               <input type="text" class="search_value" th:value="${pageVO.searchKeyword}" style="border: 1px solid #777;">
+               <button class="search_btn" style="background-color: white; border: 1px solid #777;">검색</button>
             </div>
-                
-                
-                
-                
-                
+
                 
                 </div></div>
 
             </div>
             
-            
-
 
         </div>
     </div>

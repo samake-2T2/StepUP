@@ -26,7 +26,7 @@ public interface BoardService {
 	public int fb_update(FreeBoardVO freeBoardVO);
 
 	//글 삭제
-	public int fb_delete(FreeBoardVO freeBoardVO);
+	public int fb_delete(FreeBoardVO freeBoardVO); // 보드넘버만 들고간다.
 	
 	//댓글 등록
 	public int mc_regist(MainCommentsVO mainCommentsVO);
