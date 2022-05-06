@@ -20,12 +20,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM request
 	</select>
 	
-	<select id="getApplyTotal" resultType="int">
-		SELECT COUNT(*) AS TOTAL
-		FROM request
-		WHERE user_name = 'admin'
-	</select>
-	
 	<select id="login" resultType="UserVO">
 		select * from user where email=#{email} and password=#{password}
 	</select>
