@@ -74,15 +74,11 @@
     font-size: 20px;
 }
 
-.detail_day {
-    margin-top: 0px;
-    text-align: center;
-    
-}
 
 .detail_category {
     text-align: center;
     margin-bottom: 50px;
+    font-size: 50px;
 }
 
 .tag {
@@ -107,6 +103,7 @@
     padding: 3px 3px;   
     float: right;
 }
+
 
 .detail_boxbtn {
     margin-top: 70px;
@@ -209,6 +206,7 @@
     cursor: pointer;
     text-decoration: none;
     border-radius: 2px;
+    float: right;
 
 }
 

@@ -28,14 +28,13 @@
 					<h4>
 						오드리
 						<h4>
-							<button class="detail_btn" type="button" href="">프로필 보기</button>
+							<button class="detail_btn" type="button" href="">그룹장 정보</button>
 				</div>
 			</div>
 
 			<div class="detail_box">
 				<div class="detail_title">
-					<div class="detail_day">모집기간: 2022-04-18 ~ 2022-5-18</div>
-					<div class="detail_category">자격증</div>
+					<div class="detail_category">정보처리 기사 스터디</div>
 				</div>
 			</div>
 
@@ -44,13 +43,15 @@
 			<div class="tag">#SPRING</div>
 			<div class="tag">#MYSQL</div>
 
-
+			
+			
 			<div class="detail_subbtn">
-				<span>모집중</span>
+				<span>모집중</span> <br><br><br>
+				<span style="font-size: 20px; background-color: pink"> 참여인원: 3/10명 </span>
 			</div>
 
 			<div class="detail_boxbtn">
-				<button class="detail_btn2" type="button"><a th:href="groupApplication" style="color : white">참여신청</a> </button>
+				<button class="detail_btn2" type="button"> <a th:href="groupApplication" style="color : white">참여신청</a> </button>
 			</div>
 
 		</div>
@@ -91,10 +92,10 @@
 								<!--내용-->
 								<textarea class="form-control" placeholder="내용입력" name="comment_content"
 									style="border-radius: 2px; width: 100%;" required="required"></textarea>	
+									<button type="submit" class="btn-btn-info">등록하기</button>
 							</div>
 							<input name="user_name" type="hidden" th:value="${session.userVO} != null ? ${session.userVO.user_name}">
 							<input name="user_no" type="hidden"   th:value="${session.userVO} != null ? ${session.userVO.user_no}">
-							<button type="submit" class="btn-btn-info">등록하기</button>
 						</form>
 					</div>
 
@@ -113,7 +114,7 @@
 								<form action="groupCommentDelete" method="post">
 								<a th:href="@{/group/groupCommentDelete(comment_no=${commentVO.comment_no})}" 
 								th:if="${commentVO.user_name == session.userVO.user_name}"style="float: right" >
-									<i class="glyhpicon glyphicon-remove" ></i>삭제
+									<i class="glyhpicon glyphicon-remove"></i>삭제
 								</a>
 								</form>
 							</div>
