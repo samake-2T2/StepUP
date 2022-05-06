@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.UserVO;
 import com.teampjt.StepUP.command.userUploadVO;
 import com.teampjt.StepUP.util.Criteria;
@@ -58,17 +59,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public ArrayList<UserVO> getApplyList(Criteria cri) {
+	public ArrayList<RequestVO> getApplyList(Criteria cri) {
 
 		return userMapper.getApplyList(cri);
 	}
-
-	@Override
-	public int getApplyTotal() {
-
-		return userMapper.getApplyTotal();
-	}
-
+	
 	@Override
 	public UserVO login(UserVO vo) {
 
@@ -120,6 +115,12 @@ public class UserServiceImpl implements UserService {
 
 
 	}
+
+
+	
+
+
+	
 
 
 
