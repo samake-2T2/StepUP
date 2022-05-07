@@ -93,6 +93,7 @@
 										<!-- 대분류 -->
 									</div>
 
+									
 									<div class="group_main_list_category_minor">
 										<!-- 소분류 -->	
 										<select class="minor_option" id="minor_option">
@@ -100,6 +101,16 @@
 											
 										</select>
 									</div>
+									
+									
+								</div>
+								
+								
+									
+								<div style="padding-left: 210px">
+									<div style="display:inline-block; color: red;">[[${cri.searchCategoryParent}]]</div>
+									
+									<div style="display:inline-block; color: red;">[[${cri.searchCategoryChild}]]</div>
 								</div>
 
 								<div class="group_main_list_common_search">
@@ -145,18 +156,16 @@
 										<div class="group_main_list_searchresult_left">
 											<span>[[${vo.category_child_name}]]</span><br> 
 											<span>[[${vo.group_name}]]</span><br> 
-											<span>[[${vo.group_leader_name}]]</span>
+											<span>[[${vo.group_leader_name}]]</span><br><br><br>
 										</div>
-	
+
 										<div class="group_main_list_searchresult_right">
-											<span>[[${vo.group_participant_amount}]]</span><br> 
-										</div>
+												<span>[[${vo.group_participant_amount}]] 명</span><br> 
+										</div>	
+										
 	
 									</div>
 	
-									<div class="group_main_list_searchresult_viewcount">
-										<span>조회 수</span>
-									</div>
 								</a>
 							</li>
 						</ul>
@@ -165,7 +174,6 @@
 
 				<div class="group_main_list_pagenation">
 
-					<div class="group_main_list_pagenation_box">
 						<ul class="group_main_list_pagenation_ul">
 	            			<th:block th:if="${pageVO.realEnd != 0 && pageVO.page != 1}">
 	                			<li>
@@ -201,10 +209,6 @@
 					
 					</div>					
 					
-
-				</div>
- 
-
 			</section>
 
 		</section>
@@ -245,14 +249,14 @@
     	//if( e.target.tagName != 'SELECT') return; //태그검증
     
     	var obj = $(e.target).find('option:selected').data("set"); //데이터셋을 가져옴 
-		console.log(obj);
+		//console.log(obj);
 		
     	
     //태그처리
     if(obj != null) {
     	
         if(obj.category_lv == 1 || obj.category_lv == 2) {
-            console.log('1lv');
+            //console.log('1lv');
             //$().loading(); //로딩
             $(e.currentTarget).category_remove(); //이전 카테고리삭제
             //////////////////////////////////////////////////
@@ -268,7 +272,8 @@
                success:function(data){
      	
      		   category_create(data); //응답 받은 데이터를 카테고리 생성함수에 전달
-
+				
+     		   console.log(data);
                },
                error: function(error, status){
                   alert("카테고리 조회 실패. 관리자에 문의하세요.");
@@ -293,6 +298,7 @@
  	
  	var category_group_id = this.find('option:selected').data("set").category_group_id;
 	var category_id = this.find('option:selected').data("set").category_id; 
+	var category_detail_nm = this.find('option:selected').data("set").category_detail_nm;
 	$("input[name='group_category']").val(category_group_id + category_id ); //name이 group_category인 곳에 추가
 	
 	}
@@ -307,8 +313,7 @@
 	//다음카테고리 생성JS
 	function category_create(data) {
 		
-	    var category02 = "";
-		 
+		var category02 = "";
 	    
 		data.forEach(function(result, index) {
 	                	
@@ -407,17 +412,13 @@
 			main_Search += "<div class='group_main_list_searchresult_left'>";
 			main_Search += "<span>" + result.category_child_name + "</span><br>";
 			main_Search += "<span>" + result.group_name + "</span><br>";
-			main_Search += "<span>" + result.group_leader_name + "</span>";
+			main_Search += "<span>" + result.group_leader_name + "</span><br><br><br>";
 			main_Search += "</div>"
 			
 			main_Search += "<div class='group_main_list_searchresult_right'>";
-			main_Search += "<span>" + result.group_participant_amount + "</span><br>";
+			main_Search += "<span>" + result.group_participant_amount + "명" + "</span><br>";
 			main_Search += "</div>";
 			
-			main_Search += "</div>";
-			
-			main_Search += "<div class='group_main_list_searchresult_viewcount'>";
-			main_Search += "<span>조회 수</span>";
 			main_Search += "</div>";
 			
 			main_Search += "</a>";
@@ -427,8 +428,19 @@
 		
 		main_Search += "</ul>"
 		
-		//$("#main_Search").append(main_Search);
 		$(".group_main_list_searchresult_box").append(main_Search);
+		
+		//무슨 카테고리를 찍었는지 보여주는 notion
+		$(".group_main_list_category_search").siblings()[0].remove()
+		
+		var category_notion = "";
+		
+		category_notion += "<div style='padding-left: 180px;'>";
+		category_notion += "<div style='display: inline-block; color: red;'>" + cri.searchCategoryParent + " > " + cri.searchCategoryChild + "</div>"
+		category_notion += "<div style='display: inline-block; color: red;'></div>"
+		category_notion += "</div>"
+		
+		$(".group_main_list_category_minor").after(category_notion);
 		
 		//"~~개의 스터디를 찾았습니다."
 		$(".searchcount").remove()
@@ -445,13 +457,7 @@
 		$(".group_main_list_searchcount").append(searchcount);
 		
 		//페이지네이션 기능
-		//$(".group_main_list_pagenation_box").remove()
-		
-		var div = document.createElement('div');
-		
-		var compDiv = div.attr("class", ".group_main_list_pagenation_box")
-		
-		console.log(compDiv);
+		$(".group_main_list_pagenation_ul").remove()
 		
 		var pgnt = "";
 		
@@ -468,13 +474,16 @@
 		}
 				
 		//페이지네이션 숫자
-		list.forEach(function(result,index) {
-			
-			
-			pgnt += "<li><a href='/main?page=" + (index+1) + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>" + (index+1) + "</a></li>"
-						
-		})
 		
+		for(let i = pageVO.start; i <= pageVO.end; i++) {
+			pgnt += "<li><a href='/main?page=" + (i) + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>" + (i) + "</a></li>"
+		}
+		
+		/* 
+		list.forEach(function(result,index) {
+			pgnt += "<li><a href='/main?page=" + (index+1) + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>" + (index+1) + "</a></li>"
+		})
+		 */
 		//▶ 버튼
 		if(pageVO.next != 0 && pageVO.page != pageVO.realEnd) {
 			pgnt += "<li><a href='/main?page=" + (pageVO.page + 1) + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>▶</a></li>"
@@ -489,7 +498,7 @@
 		
 		pgnt += "</ul>"
 		
-		$("group_main_list_pagenation_box").prepend(pgnt);
+		$(".group_main_list_pagenation").append(pgnt);
 		
  	} 
 	

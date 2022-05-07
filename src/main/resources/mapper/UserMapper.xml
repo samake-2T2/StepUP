@@ -15,25 +15,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	DELETE FROM USER WHERE user_no = #{user_no} ;
 	</delete>
 
-	<select id="getApplyList" resultType="UserVO"> 
-		<![CDATA[
+	<select id="getApplyList" resultType="RequestVO"> 
 		SELECT *
-		FROM (SELECT A.*,
-		             @ROWNUM := @ROWNUM + 1 AS RN
-		      FROM (SELECT *
-		            FROM request
-		            WHERE user_name = 'admin'
-		            ORDER BY user_no DESC) A, (SELECT @ROWNUM := 0) D
-	 	)B
-	 	WHERE RN > (#{page}-1) * #{amount} AND RN <= #{page} * #{amount}
-	 	]]>
-		
-	</select>
-	
-	<select id="getApplyTotal" resultType="int">
-		SELECT COUNT(*) AS TOTAL
 		FROM request
-		WHERE user_name = 'admin'
 	</select>
 	
 	<select id="login" resultType="UserVO">

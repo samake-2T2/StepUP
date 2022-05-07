@@ -66,20 +66,12 @@ public class GroupController {
 	public String groupRegList(Model model, Criteria cri) {
 
 		//페이징 처리
-		ArrayList<UserVO> list = userService.getApplyList(cri);
-		int total = userService.getApplyTotal();
-
-		PageVO pageVO = new PageVO(cri, total);
+		ArrayList<RequestVO> list = userService.getApplyList(cri);
 
 		//데이터 저장
 		model.addAttribute("applylist", list);
 
 		//페이지네이션 저장
-		model.addAttribute("pageVO", pageVO);
-
-
-
-
 		return "group/groupRegList";
 	}
 

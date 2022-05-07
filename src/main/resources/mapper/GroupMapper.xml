@@ -36,7 +36,7 @@ FROM (SELECT A.*,
 	    	        <if test="searchKeyword != '' and searchKeyword != null">
 	    	        AND group_name LIKE CONCAT('%', #{searchKeyword}, '%')
 	    	        </if>
-	    	        ORDER BY group_name DESC) A, (SELECT @ROWNUM := 0) D
+	    	        ORDER BY group_no DESC) A, (SELECT @ROWNUM := 0) D
 	    <![CDATA[
 	    )B
 	    

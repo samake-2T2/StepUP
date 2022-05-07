@@ -190,6 +190,7 @@
 .group_main_list_searchresult_box ul li {
     float: left;
     width: 16.8%;
+	height: 350px;
     padding: 30px;
     margin: 20px 20px 50px 20px;
     box-shadow: 0px 8px 16px rgb(0, 0, 0, 15%);
@@ -202,19 +203,17 @@
 }
 /* 내용 영역 */
 .group_main_list_searchresult_detail {
+	width: 100%;
     overflow: hidden;
 }
 .group_main_list_searchresult_left {
     float: left;
+    width: 100%;
     
 }
 .group_main_list_searchresult_right {
     float: right;
 }
-.group_main_list_searchresult_viewcount {
-    float: right;
-}
-
 /* 페이지네이션 영역 */
 .group_main_list_pagenation {
     position: relative;
