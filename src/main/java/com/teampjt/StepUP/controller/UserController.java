@@ -61,15 +61,18 @@ public class UserController {
 				RA.addFlashAttribute("msg", "jpg, png, jpeg등의 이미지형식만 등록가능합니다.");
 				return "redirect:/user/userJoin";
 			}
-			
 		
-
 			userService.registFile(vo, f);
+			
+			RA.addFlashAttribute("msg", "회원가입을 축하드립니다. ");
+			
 
 			return "user/login";
 		} else {
+			RA.addFlashAttribute("msg", "회원가입에 실패하였습니다. 관리자에게 문의하세요!");
 			return "user/userJoin";
 		}
+		
 	}
 
 	@GetMapping("/userDelete")
