@@ -166,6 +166,8 @@ public class UserController {
 			session.setAttribute("userVO", savedUser);
 		}else {
 			session.setAttribute("userVO", vo);
+			session.setAttribute("user_no", vo.getUser_no());
+			session.setAttribute("user_name", vo.getUser_name());
 			userService.userRegist(vo);
 		}
 
