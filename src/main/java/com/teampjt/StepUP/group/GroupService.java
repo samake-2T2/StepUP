@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
+import com.teampjt.StepUP.command.GroupMemberVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
@@ -58,6 +59,12 @@ public interface GroupService {
 	public int nameChk(StudyGroupVO vo); // 그룹명 중복체크
 	
 	public int groupApplicationReg(RequestVO reqVO); //그룹신청
+	
+	//신청 수락(insert)
+	public int requestOk(GroupMemberVO vo);
+	
+	//신청 거절(delete)
+	public int requestNo(RequestVO vo);
 	
 }
 

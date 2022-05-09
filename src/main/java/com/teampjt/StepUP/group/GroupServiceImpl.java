@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
+import com.teampjt.StepUP.command.GroupMemberVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
@@ -197,5 +198,17 @@ public class GroupServiceImpl implements GroupService {
 	@Override
 	public int groupApplicationReg(RequestVO reqVO) {
 		return groupMapper.groupApplicationReg(reqVO);
+	}
+
+	@Override
+	public int requestOk(GroupMemberVO vo) {
+
+		return groupMapper.requestOk(vo);
+	}
+
+	@Override
+	public int requestNo(RequestVO vo) {
+		
+		return groupMapper.requestNo(vo);
 	}
 }

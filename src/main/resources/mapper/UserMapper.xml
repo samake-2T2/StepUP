@@ -12,12 +12,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
   
 	<delete id="userDelete">
-    	DELETE FROM USER WHERE user_no = #{user_no} ;
+    	DELETE FROM USER WHERE user_no = #{user_no}
 	</delete>
 
 	<select id="getApplyList" resultType="RequestVO"> 
 		SELECT *
 		FROM request
+		WHERE group_no = 666
 	</select>
 	
 	<select id="login" resultType="UserVO">

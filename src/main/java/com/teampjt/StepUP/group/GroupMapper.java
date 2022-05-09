@@ -8,6 +8,7 @@ import com.teampjt.StepUP.command.SearchCategoryVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
 import com.teampjt.StepUP.util.Criteria;
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
+import com.teampjt.StepUP.command.GroupMemberVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.RequestVO;
 
@@ -60,4 +61,10 @@ public interface GroupMapper {
 	public int commentDelete(int comment_no); //댓글 삭제
 	
 	public int groupApplicationReg(RequestVO reqVO); //그룹신청
+	
+	//신청 수락(insert)
+	public int requestOk(GroupMemberVO vo);
+	
+	//신청 거절(delete)
+	public int requestNo(RequestVO vo);
 }
