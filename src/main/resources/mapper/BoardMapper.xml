@@ -5,6 +5,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <mapper namespace="com.teampjt.StepUP.board.BoardMapper">
+
+
+
 	<insert id="fb_regist">
 		      insert into free_board(free_title, free_content, user_name, user_no)
       		  values (#{free_title}, #{free_content}, #{user_name}, #{user_no})
@@ -93,14 +96,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 	where 
 		 		free_board_no = #{free_board_no}
 	</select>
-	
-	
-	
-	
-<!-- 	<insert id="sc_regist">
-		insert into sub_comment(user_no, user_name, sub_coment_contents, coment_no)
-      	values (#{user_no}, #{user_name}, #{sub_coment_contents}, #{coment_no})
-	</insert> -->
 	
 	
 	

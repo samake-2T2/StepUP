@@ -36,7 +36,7 @@
 			<!-- 헤더 우측  -->
 			<ul class="navbar-right">
 			    <li><a href="/board/freeboard_main">커뮤니티</a></li>
-            	<li><a href="">공지사항</a></li>
+            	<li><a href="">QnA</a></li>
 				<li th:if="${session.userVO} == null"><a href="/user/login">로그인</a></li>
 				<li th:if="${session.userVO} == null"><a class="joinbutton" href="/user/userJoin">회원가입</a></li>
                 <div class="dropdown" th:if="${session.userVO} != null">
