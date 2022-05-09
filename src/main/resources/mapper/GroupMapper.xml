@@ -142,7 +142,6 @@ FROM (SELECT A.*,
 	<select id="getTotal" resultType="int">
 		select count(*) AS total
 		from groupnotice
-		
 	</select>
 	
 	<!-- 댓글등록 -->
@@ -164,7 +163,7 @@ FROM (SELECT A.*,
 	</update>
 	
 	
-	<select id="getGroupCommentList" resultType="com.teampjt.StepUP.command.GroupDetailCommentVO">
+	<select id="getGroupCommentList" resultType="GroupDetailCommentVO">
 		select * from group_detail_comment
 	
 	</select>
@@ -224,12 +223,14 @@ FROM (SELECT A.*,
 	<insert id="groupApplicationReg">
 		insert into request (user_no,
 							 user_name,
+							 group_no,
 							 email,
 							 req_level,
 							 req_about_me								 
 						     )
 		values (#{user_no},
 			    #{user_name},
+			    #{group_no},
 			    #{email},
 			    #{req_level},
 			    #{req_about_me}
@@ -256,5 +257,21 @@ FROM (SELECT A.*,
 		delete from request
 		where user_no = 66
 	</delete>
+	
+	<select id="getMemberTotal" resultType="int">
+		select count(*) from groupmember where group_no = #{group_no}
+	
+	</select>
+	
+	<select id="getReqChk" resultType="int">
+		select count(*) from request where group_no = #{group_no} and user_no = #{user_no}
+	
+	</select>
+	
   
+  	<select id="getMyGroupNoList" resultType="int">
+  		select group_no from groupmember where user_no = #{user_no}
+  	</select>
+  	
+  	
 </mapper>

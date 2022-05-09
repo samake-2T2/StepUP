@@ -20,7 +20,7 @@
 		<div class="group_list_detail">
 		
 			<div class="group_list_detail_title">
-				<h3>스터디 디테일</h3>
+				<h3>그룹 홍보	페이지</h3>
 			</div>
 			
 			
@@ -28,7 +28,7 @@
 				<img src="../img/group/o.png" alt="방장">
 				<div>
 					<h4>
-						[[${session.user_name}]]
+						[[${groupVO.group_leader_name}]]
 					<h4>
 						
 				</div>
@@ -36,24 +36,23 @@
 
 			<div class="detail_box">
 				<div class="detail_title">
-					<div class="detail_category">ㅁㄴㅇ</div>
+					<div class="detail_category">[[${groupVO.group_name}]]</div>
 				</div>
 			</div>
 
-			<div class="tag">#IT</div>
-			<div class="tag">#JAVA</div>
-			<div class="tag">#SPRING</div>
-			<div class="tag">#MYSQL</div>
+			<div class="tag">[[${groupVO.category_parent_name}]]</div>
+			<div class="tag">[[${groupVO.category_child_name}]]</div>
 
 			
 			
 			<div class="detail_subbtn"> 
 			<span>모집중</span> <br><br><br>
-			<span style="font-size: 20px; background-color: pink"> 참여인원: 3/10명 </span>
+			<span style="font-size: 20px; background-color: pink"> 참여인원: [[${mtotal}]]/[[${groupVO.group_participant_amount}]]명 </span>
 			</div>
 
 			<div class="detail_boxbtn">
-				<button class="detail_btn2" type="button"> <a th:href="groupApplication" style="color : white">참여신청</a> </button>
+				<button class="detail_btn2" type="button">
+				<a th:href="@{/group/groupApplication(group_no=${groupVO.group_no})}" style="color : white">참여신청</a> </button>
 			</div>
 
 		</div>
@@ -61,7 +60,7 @@
 
 		<div class="detail-wrap">
 			<div class="detail_content">
-				ㅇㅇㅇ
+				[[${groupVO.group_content}]]
 			</div>
 		</div>
 

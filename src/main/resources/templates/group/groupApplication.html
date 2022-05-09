@@ -30,13 +30,13 @@
                     
                     <form class="app-form" name="groupApplicationForm" action="groupApplicationForm" method="post">
                           
-                        <input type="hidden" name="user_no" th:value="${session.userVO.user_no}"/> 
-                        <!-- <input type="hidden" name="group_no" th:value="${vo.group_no}"/> -->
+                        <input type="hidden" name="user_no" th:value="${session.user_no}"/> 
+                        <input type="hidden" name="group_no" th:value="${group_no}"/>
         				
                          
                         <div class="app-box">
                             <label>닉네임</label>
-                            <input type="text" class="form-control" name="user_name" th:value="${session.userVO.user_name}" readonly>
+                            <input type="text" class="form-control" name="user_name" th:value="${session.user_name}" readonly>
                         </div>
 
                         <div class="app-box">
@@ -59,7 +59,7 @@
                         <div>
 
 
-                        <a href="/group/groupDetail" class="w-btn btn-danger btn-block5">취소</a>
+                        <a th:href="@{/group/groupDetail(group_no=${group_no})}" class="w-btn btn-danger btn-block5">취소</a>
                         <button type="submit" class="w-btn btn-block4">신청</button>
                     </form>
                 </div>

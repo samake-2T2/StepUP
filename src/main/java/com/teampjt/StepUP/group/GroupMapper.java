@@ -62,11 +62,20 @@ public interface GroupMapper {
 	
 	public int groupApplicationReg(RequestVO reqVO); //그룹신청
 
-	public ArrayList<StudyGroupVO> getStudyGroupDetail(StudyGroupVO vo); //그룹 상세보기
+	public StudyGroupVO getStudyGroupDetail(int group_no); //그룹 상세보기
 	
 	//신청 수락(insert)
 	public int requestOk(GroupMemberVO vo);
 	
 	//신청 거절(delete)
 	public int requestNo(RequestVO vo);
+	
+	// 현재 그룹에 가입중인 회원 수 카운트
+	public int getMemberTotal(int group_no);
+	
+	// 그룹 참여신청 카운트(같은 그룹 같은사람이 여러번 참여신청하는것 방지)
+	public int getReqChk(RequestVO reqVO);
+	
+	// 내가 가입한 그룹 리스트 가져오기
+	public ArrayList<Integer> getMyGroupNoList(int user_no);
 }

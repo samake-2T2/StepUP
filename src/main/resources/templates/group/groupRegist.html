@@ -79,9 +79,9 @@
 					<option value=4>8</option>
 					<option value=4>9</option>
 					<option value=4>10</option>
-				</select> <input type="hidden" name="group_leader_no"
-					th:value="${session.userVO.user_no}"> <input type="hidden"
-					name="group_leader_name" th:value="${session.userVO.user_name}">
+				</select>
+					<input type="hidden" name="group_leader_no" th:value="${session.user_no}">
+					<input type="hidden" name="group_leader_name" th:value="${session.user_name}">
 
 				<br> <label for="comment">스터디 소개글</label>
 				<textarea class="form-control" rows="5" name="group_content"
