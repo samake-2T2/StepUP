@@ -247,10 +247,14 @@ FROM (SELECT A.*,
 		        )
 	</insert>
 	
+	<select id="getStudyGroupDetail" resultType="StudyGroupVO">
+		select * from studygroup where group_no = #{group_no}
+	</select>
+
 	<!-- 신청 거절 -->
 	<delete id="requestNo">
 		delete from request
 		where user_no = 66
 	</delete>
-	
+  
 </mapper>

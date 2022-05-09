@@ -201,6 +201,12 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
+	public ArrayList<StudyGroupVO> getStudyGroupDetail(StudyGroupVO vo) {
+		
+		return groupMapper.getStudyGroupDetail(vo);
+	}
+
+	@Override
 	public int requestOk(GroupMemberVO vo) {
 
 		return groupMapper.requestOk(vo);
