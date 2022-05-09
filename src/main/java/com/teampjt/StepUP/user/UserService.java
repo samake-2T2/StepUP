@@ -19,7 +19,7 @@ public interface UserService {
 
 	public int userDelete(int user_no);
 	//그룹 신청인 목록 조회 메서드
-	public ArrayList<RequestVO> getApplyList(Criteria cri);
+	public ArrayList<RequestVO> getApplyList();
   
 	public int update(UserVO userVO);
   

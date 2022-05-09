@@ -149,22 +149,22 @@
                 <!-- 폼  -->
                
                 
-                <!-- 페이지네이션 -->                                            
+  				<!-- 페이지네이션 -->                                            
 		      <div class="pagination">
                     <ul>
                     
                      
                     
                     
-                       <th:block th:if="${pageVO.realEnd != 0}">
+                       <th:block th:if="${pageVO.realEnd != 0 && pageVO.page != 1}">
                                     <li>
                                        <a th:href="@{/board/freeboard_main(page=1, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword})}">
-                                          왼왼
+                                          ◀◀
                                        </a>
                                     </li>
                                     </th:block>
                                     
-                                    <th:block th:if="${pageVO.prev}">
+                                    <th:block th:if="${pageVO.realEnd != 0 && pageVO.page != 1}">
                                        <li style="margin-right:5px;">
                                           <a th:href="@{/board/freeboard_main(page=${pageVO.start - 1}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
                                              ◁
@@ -179,7 +179,7 @@
                                        </li>
                                     </th:block>
                                     
-                                    <th:block th:if="${pageVO.next}">
+                                    <th:block th:if="${pageVO.next != 0 && pageVO.page != pageVO.realEnd}">
                                        <li style="margin-left:5px;">
                                           <a th:href="@{/board/freeboard_main(page=${pageVO.end + 1}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
                                              ▷
@@ -187,10 +187,10 @@
                                        </li>
                                     </th:block>
                                     
-                                    <th:block th:if="${pageVO.realEnd != 0}">
+                                    <th:block th:if="${pageVO.realEnd != 0 && pageVO.page != pageVO.realEnd}">
                                     <li>
                                        <a th:href="@{/board/freeboard_main(page=${pageVO.realEnd}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
-                                          오오
+                                          ▶▶
                                        </a>
                                     </li>
                                     </th:block>
