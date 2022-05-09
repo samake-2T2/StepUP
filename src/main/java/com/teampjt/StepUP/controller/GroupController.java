@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
+import com.teampjt.StepUP.command.GroupMemberVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
@@ -63,16 +64,53 @@ public class GroupController {
 
 	//그룹 신청인 목록 조회(그룹장이 확인)
 	@GetMapping("/groupRegList")
-	public String groupRegList(Model model, Criteria cri) {
+	public String groupRegList(Model model,
+			                   Criteria cri
+			                   ) {
 
-		//페이징 처리
-		ArrayList<RequestVO> list = userService.getApplyList(cri);
+		//리스트에 정보 담기
+		ArrayList<RequestVO> list = userService.getApplyList();
 
 		//데이터 저장
 		model.addAttribute("applylist", list);
 
 		//페이지네이션 저장
 		return "group/groupRegList";
+	}
+	//신청 수락
+	@PostMapping("/request_ok")
+	public String request_ok(GroupMemberVO vo,
+							 RedirectAttributes RA) {
+		
+		System.out.println(vo.toString());
+		
+		int result = groupService.requestOk(vo);
+		 
+		if(result == 1) { 
+			RA.addFlashAttribute("msg", vo.getUser_name() + "님이 등록 되었습니다."); 
+		} else { 
+			RA.addFlashAttribute("msg", "등록에 실패했습니다. 관리자에게 문의하세요.");
+		}
+		return "redirect:/group/groupRegList";
+	}
+	//신청 거절
+	@PostMapping("/request_no")
+	public String request_no(RequestVO vo,
+			                 RedirectAttributes RA) {
+		
+		System.out.println(vo.toString());
+		
+		int result = groupService.requestNo(vo);
+		System.out.println(result);
+		
+		if(result == 1) {
+			RA.addFlashAttribute("msg", "가입이 거절되었습니다.");
+		} else {
+			RA.addFlashAttribute("msg", "가입 거절에 실패했습니다.");
+		}
+		
+		return "redirect:/group/groupRegList";
+		
 	}
 
 	//공지목록페이지
@@ -308,6 +346,8 @@ public class GroupController {
 		
 		return "redirect:/group/groupDetail";
 	}
+	
+	
 }
 
 

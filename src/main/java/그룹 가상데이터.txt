@@ -1,0 +1,925 @@
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('수능2등급모여라', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '수시/정시');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아주대편입스터디', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '편입');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한양대대학원들어가기', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '대학원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('아이비리그', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '외국대학');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('대원외고들어가요', 'testtest', '9', 'admin', 'testimg', 'testpath', 'testuuid', '입시', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('9급국가직', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공무원');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('한수원합격스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '공기업/공공기관');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('카뱅취업준비반', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '사기업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('푸드트럭관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '창업');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('행시준비반', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취업/창업', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('토익스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '외국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('CPA2차공부해요', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '회계/세무');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('정보처리기사같이해요', 'testtest', '6', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기사');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('공인중개사2차만 준비하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '부동산');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('요양보호사자격증합격스터디', 'testtest', '4', 'admin', 'testimg', 'testpath', 'testuuid', '자격증', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('영어실전회화스터디', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '영어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('중국어회화공부하실분', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '중국어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('일본어회화뿌수기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '일본어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('통번역관심있으신분', 'testtest', '3', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '통번역');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('스페인어, 프랑스어회화공부하실분', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '회화', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('웹데이터크롤링공부하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '웹');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('어플리케이션만드는법 가르쳐드려요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '앱');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('파이썬스터디', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '언어');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('포토샵같이공부해요', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '디자인');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('자바스크립트스터디', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', 'IT/인터넷', '기타');
+
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('용인사는축덕모여라', 'testtest', '10', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '건강');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('동양화같이그리기', 'testtest', '8', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '미술');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('바이올린재능기부해요', 'testtest', '7', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '음악');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('추리소설읽고토론하기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '독서');
+insert into studygroup(group_name, group_content, group_participant_amount, group_leader_name, group_filename, group_filepath, group_fileuuid, category_parent_name, category_child_name)
+values ('난초키우기', 'testtest', '5', 'admin', 'testimg', 'testpath', 'testuuid', '취미/문화', '기타');
+
+

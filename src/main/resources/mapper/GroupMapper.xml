@@ -227,12 +227,30 @@ FROM (SELECT A.*,
 							 email,
 							 req_level,
 							 req_about_me								 
-								 )
-		value(#{user_no},
-			  #{user_name},
-			  #{email},
-			  #{req_level},
-			  #{req_about_me}
-			  )
+						     )
+		values (#{user_no},
+			    #{user_name},
+			    #{email},
+			    #{req_level},
+			    #{req_about_me}
+			    )
 	</insert>
+	
+	<!-- 신청 수락 -->
+	<insert id="requestOk">
+		insert into groupmember (group_no,
+								 user_no,
+								 user_name)
+		values (#{group_no},
+		        #{user_no},
+		        #{user_name}
+		        )
+	</insert>
+	
+	<!-- 신청 거절 -->
+	<delete id="requestNo">
+		delete from request
+		where user_no = 66
+	</delete>
+	
 </mapper>

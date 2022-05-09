@@ -23,27 +23,57 @@
 
             
             <div class="apply_list_applicant">
-                <ul>
-                    <li th:if="${applylist} != null" th:each="vo : ${applylist}">
-                        <img src="../img/group/default_user.png">
-                        <div class="apply_list_applicant_info">
-                            <span>[[${vo.user_name}]]</span><br>
-                            <span>[[${vo.req_level}]]</span><br>
-                            <span>[[${vo.req_about_me}]]</span><br>
-                            <span></span>
-                        </div>
-                                                  
-                        <div class="apply_list_applicant_info_hover">
-                            <button type="button" class="w-btn-ok w-btn-indigo">수락</button>
-                            <button type="button" class="w-btn-no w-btn-indigo">거절</button>
-                        </div>
-                    </li>
-
-                </ul>
+            
+	                <ul>
+	                    <li th:if="${applylist} != null" th:each="vo : ${applylist}">
+	                        <img src="../img/group/default_user.png">
+	                        <div class="apply_list_applicant_info">
+	                            <span>[[${vo.user_name}]]</span><br>
+	                            <span>[[${vo.req_level}]]</span><br>
+	                            <span>[[${vo.req_about_me}]]</span><br>
+	                        </div>
+	                                                  
+	                        <div class="apply_list_applicant_info_hover">
+	                        	<form name="request_ok" action="request_ok" method="post">
+	                        		<input name="group_no" type="hidden" th:value="${vo.group_no}">
+	                        		<input name="user_no" type="hidden" th:value="${vo.user_no}">
+	                        		<input name="user_name" type="hidden" th:value="${vo.user_name}">
+		                            <button type="submit" class="w-btn-ok w-btn-indigo">수락</button>
+	                        	</form>
+	                        	<form name="request_no" action="request_no" method="post">
+	                        		<input name="user_no" type="hidden" th:value="${vo.user_no}">
+	                        		<button type="submit" class="w-btn-no w-btn-indigo">거절</button>
+	                        	</form>
+	                        </div>
+	                    </li>
+	
+	                </ul>
+            	
             </div>
 
         </section>
 
     </section>
 </th:block>
+
+<script th:inline="javascript">
+	(function() {
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg != null) {
+			alert(msg);
+		}
+	})();
+	
+/* 	function request_no() {
+		
+		this.event.preventDefault();
+		
+		if(confirm("거절하시겠습니까??")) {
+			document.request_no.action = "request_no";
+			document.request_no.submit();
+			
+		}
+	} */	
+</script>
+
 </html>

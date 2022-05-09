@@ -59,9 +59,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public ArrayList<RequestVO> getApplyList(Criteria cri) {
+	public ArrayList<RequestVO> getApplyList() {
 
-		return userMapper.getApplyList(cri);
+		return userMapper.getApplyList();
 	}
 	
 	@Override
