@@ -201,9 +201,9 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public ArrayList<StudyGroupVO> getStudyGroupDetail(StudyGroupVO vo) {
+	public StudyGroupVO getStudyGroupDetail(int group_no) {
 		
-		return groupMapper.getStudyGroupDetail(vo);
+		return groupMapper.getStudyGroupDetail(group_no);
 	}
 
 	@Override
@@ -216,5 +216,25 @@ public class GroupServiceImpl implements GroupService {
 	public int requestNo(RequestVO vo) {
 		
 		return groupMapper.requestNo(vo);
+	}
+
+	@Override
+	public int getMemberTotal(int group_no) {
+		
+		return groupMapper.getMemberTotal(group_no);
+	}
+
+
+	@Override
+	public int getReqChk(RequestVO reqVO) {
+		
+		return groupMapper.getReqChk(reqVO);
+	}
+
+
+	@Override
+	public ArrayList<Integer> getMyGroupNoList(int user_no) {
+		
+		return groupMapper.getMyGroupNoList(user_no);
 	}
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,10 @@ public class GroupController {
 	private GroupService groupService;
 
 	@GetMapping("/groupApplication")
-	public String groupApplication() {
+	public String groupApplication(@RequestParam("group_no") int group_no,
+								   Model model) {
+		
+		model.addAttribute("group_no", group_no);
 		return "group/groupApplication";
 	}
 
@@ -57,8 +61,11 @@ public class GroupController {
 
 	// 내가 가입한 그룹리스트
 	@GetMapping("/groupList")
-	public String groupList() {
-
+	public String groupList(@RequestParam("user_no") int user_no) {
+		
+		ArrayList<Integer> list = groupService.getMyGroupNoList(user_no);
+		System.out.println(list.toString());
+		
 		return "group/groupList";
 	}
 
@@ -239,13 +246,17 @@ public class GroupController {
 	// 그룹상세 페이지
 	@GetMapping("/groupDetail")
 	public String groupDetail(Model model,
-			                  StudyGroupVO vo) {
+			                  @RequestParam("group_no") int group_no) {
 		
-		ArrayList<StudyGroupVO> list = groupService.getStudyGroupDetail(vo);
+		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);
+		int mtotal = groupService.getMemberTotal(group_no);
 		
-		model.addAttribute("list", list);
 		
-		System.out.println(list.toString());
+		
+		model.addAttribute("groupVO", groupVO);
+		model.addAttribute("mtotal", mtotal);
+		
+		System.out.println(groupVO.toString());
 		
 		return "group/groupDetail";
 	}
@@ -343,22 +354,31 @@ public class GroupController {
 	//그룹 신청폼
 	@PostMapping("/groupApplicationForm")
 	public String groupApplicationForm(@Valid RequestVO reqVO,
-									   Errors errors, StudyGroupVO vo, Model model) {
-	
-		int result = groupService.groupApplicationReg(reqVO);
+									   Errors errors, Model model) {
 		
-		model.addAttribute("vo", vo);
+		System.out.println(reqVO.toString());
+		int result = groupService.getReqChk(reqVO);
+		System.out.println(result);
 		
-		if(errors.hasErrors()) {
-			List<FieldError> list = errors.getFieldErrors();
+		if(result < 1) { // 가입한 이력이 없는경우
+			groupService.groupApplicationReg(reqVO);
 			
-			for(FieldError err : list) {
-				System.out.println(err.getField());
-				System.out.println(err.getDefaultMessage());
+			model.addAttribute("vo", reqVO);
+			
+			if(errors.hasErrors()) {
+				List<FieldError> list = errors.getFieldErrors();
+				
+				for(FieldError err : list) {
+					System.out.println(err.getField());
+					System.out.println(err.getDefaultMessage());
+				}
 			}
+			
+			return "redirect:/main";
+		} else { // 이미 가입한 이력이 있는 경우
+			
+			return "redirect:/main";
 		}
-		
-		return "redirect:/group/groupDetail";
 	}
 	
 	

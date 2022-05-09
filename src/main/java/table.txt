@@ -1,11 +1,11 @@
 ## 회원정보 테이블
 create table user (
 	user_no int primary key auto_increment,
+	user_name varchar(10) not null,
     email varchar(50) not null,
     password varchar(50) not null,
-    user_name varchar(10) not null,
     interest varchar(50),
-    logintype int
+    logintype int not null
 );
 
 ## 유저 업로드 테이블
@@ -24,6 +24,7 @@ create table studygroup (
     group_name varchar(50) not null, ##그룹명
     group_content varchar(500) not null, ##그룹설명
     group_participant_amount int not null, ##그룹원 규모
+    group_leader_no int not null, ## 그룹장 회원번호
     group_leader_name varchar(20) not null, ##그룹장 이름
     group_filename varchar(100) not null, ##그룹 프로필 사진 이름
     group_filepath varchar(100) not null, ##그룹 프로필 사진 경로
@@ -74,14 +75,15 @@ create table groupnotice (
     groupnotice_count int ##조회수
 );
 
-##그룹 상세정보 댓글 테이블 
+##그룹 홍보페이지 댓글 테이블 
 create table group_detail_comment (
 	comment_no int primary key auto_increment,
-    user_name varchar(10) not null,
     comment_regdate timestamp default now(),
     comment_content varchar(500) not null,
+    user_no int not null,
+    user_name varchar(10) not null,
     user_profile int,
-    user_no int
+    group_no int not null ## 어떤 그룹 페이지인지 구별용
 );
 
 
