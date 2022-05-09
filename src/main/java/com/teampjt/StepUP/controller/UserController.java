@@ -164,11 +164,16 @@ public class UserController {
 		// 저장된 회원정보가 없으면 전달받은 회원정보를 세션에 저장, 있으면 기존 정보 저장.
 		if(savedUser != null) {
 			session.setAttribute("userVO", savedUser);
+			session.setAttribute("user_no", savedUser.getUser_no());
+			session.setAttribute("user_name", savedUser.getUser_name());
 		}else {
-			session.setAttribute("userVO", vo);
-			session.setAttribute("user_no", vo.getUser_no());
-			session.setAttribute("user_name", vo.getUser_name());
+			
 			userService.userRegist(vo);
+			
+			UserVO userVO = userService.login(vo);
+			session.setAttribute("userVO", userVO);
+			session.setAttribute("user_no", userVO.getUser_no());
+			session.setAttribute("user_name", userVO.getUser_name());
 		}
 
 		return "redirect:/main";
