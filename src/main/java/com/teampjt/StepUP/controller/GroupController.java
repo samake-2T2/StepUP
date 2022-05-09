@@ -186,14 +186,28 @@ public class GroupController {
 		return "redirect:/group/groupNotice";
 	}
 	
-	// 댓글목록페이지
-	@GetMapping("/groupDetail")
-	public String groupDetail(Model model) {
+	//그룹 댓글 목록
+	@GetMapping("/groupCommentList")
+	public String groupCommentList(Model model) {
 		
 		ArrayList<GroupDetailCommentVO> list = groupService.getGroupCommentList();
 		System.out.println(list.toString());
 		
 		model.addAttribute("list", list);
+		
+		return "group/groupDetail";
+	
+	}
+	// 그룹상세 페이지
+	@GetMapping("/groupDetail")
+	public String groupDetail(Model model,
+			                  StudyGroupVO vo) {
+		
+		ArrayList<StudyGroupVO> list = groupService.getStudyGroupDetail(vo);
+		
+		model.addAttribute("list", list);
+		
+		System.out.println(list.toString());
 		
 		return "group/groupDetail";
 	}

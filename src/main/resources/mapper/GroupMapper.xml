@@ -235,4 +235,8 @@ FROM (SELECT A.*,
 			  #{req_about_me}
 			  )
 	</insert>
+	
+	<select id="getStudyGroupDetail" resultType="StudyGroupVO">
+		select * from studygroup where group_no = #{group_no}
+	</select>
 </mapper>

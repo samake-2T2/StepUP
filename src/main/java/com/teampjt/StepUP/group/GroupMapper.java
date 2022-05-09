@@ -60,4 +60,6 @@ public interface GroupMapper {
 	public int commentDelete(int comment_no); //댓글 삭제
 	
 	public int groupApplicationReg(RequestVO reqVO); //그룹신청
+
+	public ArrayList<StudyGroupVO> getStudyGroupDetail(StudyGroupVO vo); //그룹 상세보기
 }

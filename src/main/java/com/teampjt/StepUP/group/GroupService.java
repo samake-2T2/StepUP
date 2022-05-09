@@ -59,5 +59,7 @@ public interface GroupService {
 	
 	public int groupApplicationReg(RequestVO reqVO); //그룹신청
 	
+	public ArrayList<StudyGroupVO> getStudyGroupDetail(StudyGroupVO vo); //그룹 상세보기
+	
 }
 

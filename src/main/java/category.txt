@@ -123,3 +123,4 @@ ON A1.category_parent_lv = A2.category_lv AND A1.category_detail_parent_lv = A2.
 LEFT OUTER JOIN search_category A3
 ON A2.category_parent_lv = A3.category_lv AND A2.category_detail_parent_lv = A3.category_detail_lv
 ORDER BY category_key ASC;
+
