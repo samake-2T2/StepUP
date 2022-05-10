@@ -103,8 +103,8 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public int getTotal() {
-		return groupMapper.getTotal();
+	public int GNgetTotal() {
+		return groupMapper.GNgetTotal();
 	}		
 
 	public ArrayList<GroupDetailCommentVO> getComment() {

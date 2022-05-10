@@ -139,7 +139,7 @@ FROM (SELECT A.*,
 	</delete>
 	
 	<!-- 총 게시글 수 -->
-	<select id="getTotal" resultType="int">
+	<select id="GNgetTotal" resultType="int">
 		select count(*) AS total
 		from groupnotice
 	</select>

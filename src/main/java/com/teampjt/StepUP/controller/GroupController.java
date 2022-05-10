@@ -127,7 +127,7 @@ public class GroupController {
 
 
 		ArrayList<GroupNoticeVO> noticeList = groupService.getNoticeList(cri);
-		int total = groupService.getTotal();
+		int total = groupService.GNgetTotal();
 		PageVO pageVO = new PageVO(cri, total);
 
 		model.addAttribute("vo", vo);
@@ -215,6 +215,8 @@ public class GroupController {
 
 		if(result == 1) {
 			RA.addFlashAttribute("msg", "공지가 수정되었습니다");
+			System.out.println(result);
+			
 		}else {
 			RA.addFlashAttribute("msg", "공지가 수정되지않았습니다");
 		}
@@ -354,7 +356,8 @@ public class GroupController {
 	//그룹 신청폼
 	@PostMapping("/groupApplicationForm")
 	public String groupApplicationForm(@Valid RequestVO reqVO,
-									   Errors errors, Model model) {
+									   Errors errors, Model model,
+									   RedirectAttributes RA) {
 		
 		System.out.println(reqVO.toString());
 		int result = groupService.getReqChk(reqVO);
@@ -372,10 +375,13 @@ public class GroupController {
 					System.out.println(err.getField());
 					System.out.println(err.getDefaultMessage());
 				}
+				
 			}
-			
+			RA.addFlashAttribute("msg", "가입요청에 성공하였습니다");
 			return "redirect:/main";
 		} else { // 이미 가입한 이력이 있는 경우
+			
+				RA.addFlashAttribute("msg", "가입되어있는 그룹입니다");
 			
 			return "redirect:/main";
 		}

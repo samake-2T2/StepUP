@@ -12,9 +12,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.teampjt.StepUP.board.BoardService;
+import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.UserVO;
 import com.teampjt.StepUP.command.userUploadVO;
+import com.teampjt.StepUP.group.GroupMapper;
+import com.teampjt.StepUP.group.GroupService;
+import com.teampjt.StepUP.group.GroupServiceImpl;
 import com.teampjt.StepUP.util.Criteria;
 
 @Service("userService")
@@ -22,6 +27,12 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserMapper userMapper;
+	
+	@Autowired
+	private GroupService groupService;
+	
+	@Autowired
+	private BoardService boardService;
 
 	//업로드 할 경로 (application.properties값을 참조)
 	@Value("${project.upload.path}")
@@ -49,7 +60,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int userDelete(int user_no) {
-
+	
+		
+		
 		return userMapper.userDelete(user_no);
 	}
 
@@ -115,6 +128,7 @@ public class UserServiceImpl implements UserService {
 
 
 	}
+
 
 
 	
