@@ -428,10 +428,18 @@ public class GroupController {
 	public String todoReg(ToDoListVO vo,
 						  Model model) {
 		
+		System.out.println(vo.toString());
+		
 		groupService.toDoListReg(vo);
 		
 		ArrayList<ToDoListVO> list = groupService.getToDoList(vo);
+		
+		for(ToDoListVO tdvo : list) {
+			System.out.println(tdvo.toString());
+		}
+		
 		model.addAttribute("list", list);
+		model.addAttribute("group_no", vo.getGroup_no());
 		
 		return "redirect:/group/groupMain";
 	}

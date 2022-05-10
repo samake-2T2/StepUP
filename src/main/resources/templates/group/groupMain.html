@@ -102,7 +102,6 @@
                     
                     if(!$(this).hasClass('active')) {                    	
 	                    var currentMonthDate = document.querySelectorAll('.dates .current');
-	                    console.log(currentMonthDate);
 	                    
 	                    for(var i = 0; i < currentMonthDate.length; i++) {
 	                    	if(currentMonthDate[i].classList.contains('active')) {
@@ -139,12 +138,9 @@
            		  var data = $(this).serialize();
            		  
            		  $.post( url, data ).done(function( data ) {
-           		    console.log('--->', data.regdate, data.place, data.content, data.group_no);
+           		    console.log(data);
            		  });
            	});
-            
-            
-            
            
         }
     </script>
