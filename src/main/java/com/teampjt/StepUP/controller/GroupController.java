@@ -151,18 +151,19 @@ public class GroupController {
 
 	//공지목록페이지
 	@GetMapping("/groupNotice")
-	public String groupNotice( Model model, Criteria cri, StudyGroupVO vo ) {
+	public String groupNotice( Model model, Criteria cri, @RequestParam("group_no") int group_no) {
 
 
-
+		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);
 		ArrayList<GroupNoticeVO> noticeList = groupService.getNoticeList(cri);
 		int total = groupService.GNgetTotal();
 		PageVO pageVO = new PageVO(cri, total);
-
-		model.addAttribute("vo", vo);
+		
+		model.addAttribute("groupVO", groupVO);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("pageVO", pageVO);
-
+		
+		System.out.println(groupVO.toString());
 		return "group/groupNotice";
 	}
 
@@ -182,19 +183,25 @@ public class GroupController {
 
 	//공지등록페이지
 	@GetMapping("/groupNoticeReg")
-	public String groupNoticeReg() {
+	public String groupNoticeReg(@RequestParam("group_no") int group_no, Model model) {
+		
+		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);
+		model.addAttribute("groupVO", groupVO);
+		
 		return "group/groupNoticeReg";
 	}
 
 	//그룹공지등록 폼
 	@PostMapping("/groupNoticeForm")
-	public String groupNoticeForm(GroupNoticeVO gnVO,
-			RedirectAttributes RA) {
+	public String groupNoticeForm(GroupNoticeVO gnVO, Model model,
+			RedirectAttributes RA, @RequestParam("group_no") int group_no) {
 
 		
-		
+		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);
 		int result = groupService.noticeRegist(gnVO);
-
+		
+		model.addAttribute("groupVO", groupVO);
+		
 		if(result == 1) {
 			RA.addFlashAttribute("msg", "공지가 등록되었습니다"); 
 		}else {
@@ -203,7 +210,7 @@ public class GroupController {
 
 
 
-		return "redirect:/group/groupNotice";
+		return "redirect:/group/@{groupNotice(group_no=${groupVO.group_no})}";
 	}
 
 	//그룹공지수정페이지

@@ -29,6 +29,8 @@ public class GroupNoticeVO {
 	private LocalDateTime groupnotice_regdate;
 	private Integer groupnotice_count;
 	
+	private Integer group_no;
+	
 	//이전글 다음글
 	private int next;
 	private int prev;

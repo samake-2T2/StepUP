@@ -27,9 +27,7 @@
        <div class="board-title">
          그룹 공지사항
         </div>
-        <input type="hidden" name="group_leader_no" th:value="${vo.group_leader_no}"/>
-        <input type="hidden" name="group_leader_name" th:value="${vo.group_leader_name}"/>
-        <input type="hidden" name="group_no" th:value="${vo.group_no}"/>
+        
         <div class="board-content">
             <table class="board-list">
                 <thead>
@@ -49,8 +47,9 @@
                     </tr>
                 </tbody>
             </table>
-            <a href="/group/groupNoticeReg" th:if="${vo.group_leader_name == session.userVO.user_name}" class="w-btn btn-block4">글작성</a> 
+            <a th:href="@{/group/groupNotice(group_no=${groupVO.group_no})}" th:if="${groupVO.group_leader_name == session.userVO.user_name}" class="w-btn btn-block4">글작성</a> 
         </div>
+        
     </div>
     
     
