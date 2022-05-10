@@ -83,6 +83,13 @@ public class UserController {
 		int result = userService.userDelete(user_no);
 
 		if(result == 1) { 
+			//세션 삭제
+			UserVO vo = (UserVO)session.getAttribute("userVO");
+			if (vo != null) {
+				session.removeAttribute("userVO");
+				session.invalidate();
+			}
+			
 			RA.addFlashAttribute("msg", "탈퇴에 성공했습니다. ");
 		}else { 
 			RA.addFlashAttribute("msg", "탈퇴에 실패했습니다. 관리자에게 문의하세요");

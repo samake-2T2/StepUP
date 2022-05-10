@@ -217,6 +217,16 @@
 
 <script th:inline="javascript">
 
+
+//메시지 출력문
+(function() {
+	var msg = JSON.parse('[[${msg}]]');	
+	if(msg != null) {
+		alert(msg);
+	}
+})();
+
+
 	$(document).ready(function() {
 		
 		$.getJSON("../getCategory", 

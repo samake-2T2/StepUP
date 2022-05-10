@@ -42,7 +42,7 @@ public interface GroupMapper {
   
 	public int noticeDelete(int groupnotice_no); //공지삭제
   
-	public int getTotal(); //전체게시글
+	public int GNgetTotal(); //전체게시글
 	
 	public GroupNoticeVO movePage(int groupnotice_no); //이전글,다음글
 	
