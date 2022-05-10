@@ -16,26 +16,24 @@
 			<a href="/group/groupRegist" class="w-btn w-btn-indigo">그룹만들기</a>
 		</div>
 		<div class="group_list_result">
-			<div class="group_list_box">
-				<ul>
-					<li>
-						<a href="/group/groupMain">
-							<img src="../img/group/1.png">
-							<div class="group_main_list_searchresult_detail">
-								<div class="group_main_list_searchresult_left">
-									<span>스터디 분야</span><br> <span>스터디 이름</span><br> <span>스터디리더(닉네임)</span>
-								</div>	
-								<div class="group_main_list_searchresult_right">
-									<span>스터디 기간</span><br> <span>스터디 시간</span><br>
+			<div th:each="vo, state : ${list}">			
+				<div class="group_list_box">
+					<ul>
+						<li>
+							<a th:href="@{/group/groupMain(group_no=${vo.group_no})}">
+								<img src="../img/group/1.png">
+								<div class="group_main_list_searchresult_detail">
+									<div class="group_main_list_searchresult_left">
+										<span>[[${vo.category_parent_name}]]>[[${vo.category_child_name}]]</span><br>
+										<span>[[${vo.group_name}]]</span><br>
+										<span>[[${vo.group_leader_name}]]</span>
+									</div>	
 								</div>
-							</div>
-							<div class="group_main_list_searchresult_viewcount">
-								<span>조회 수</span>
-							</div>
-						</a>
-					</li>	
-				</ul>
-			</div>
+							</a>
+						</li>	
+					</ul>
+				</div>
+			</div>	
 		</div>
 	</div>
 		

@@ -40,13 +40,15 @@
 				</div>
 			</div>
 
-			<div class="tag">[[${groupVO.category_parent_name}]]</div>
-			<div class="tag">[[${groupVO.category_child_name}]]</div>
+			<div class="tag">#[[${groupVO.category_parent_name}]]</div>
+			<div class="tag">#[[${groupVO.category_child_name}]]</div>
 
 			
 			
 			<div class="detail_subbtn"> 
-			<span>모집중</span> <br><br><br>
+			<button class="w-btn w-btn-indigo">
+				<img src="../img/group/like.png" style="width: 20px;"> 1
+			</button> <br><br><br>
 			<span style="font-size: 20px; background-color: pink"> 참여인원: [[${mtotal}]]/[[${groupVO.group_participant_amount}]]명 </span>
 			</div>
 

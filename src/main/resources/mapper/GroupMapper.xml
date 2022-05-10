@@ -269,8 +269,12 @@ FROM (SELECT A.*,
 	</select>
 	
   
-  	<select id="getMyGroupNoList" resultType="int">
+  	<select id="getMyGroupNoList1" resultType="int">
   		select group_no from groupmember where user_no = #{user_no}
+  	</select>
+  	
+  	<select id="getMyGroupNoList2" resultType="int">
+  		select group_no from studygroup where group_leader_no = #{user_no}
   	</select>
   	
   	
