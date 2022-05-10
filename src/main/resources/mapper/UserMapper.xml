@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getApplyList" resultType="RequestVO"> 
 		SELECT *
 		FROM request
-		WHERE group_no = 666
+		WHERE group_no = #{group_no}
 	</select>
 	
 	<select id="login" resultType="UserVO">

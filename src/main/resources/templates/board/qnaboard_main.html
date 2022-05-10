@@ -10,24 +10,28 @@
 </head>
 <body>
     
-    <th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .container-free} ) }">
+    <th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .container-qna} ) }">
 
-    <div class="container-free">
-        <div class="row_free">
-            <div class="free-title-box">
-                QnA
+    <div class="container-qna">
+        <div class="row_qna">
+
+            <div class="qna-title-box">
+                문의게시판
             </div>
-            
-            <select class="quanti">
-                <option value="10">10개 보기</option>
-                <option value="20">20개 보기</option>
-                <option value="40">40개 보기</option>
-                <option value="80">80개 보기</option>
+
+            <select class="quanti" th:onchange="|qna_dataHandler(this)|">
+                <option value="10" th:selected="${pageVO.amount} == 10? 'selected' ">10개 보기</option>
+                <option value="20" th:selected="${pageVO.amount} == 20? 'selected' ">20개 보기</option>
+                <option value="40" th:selected="${pageVO.amount} == 40? 'selected' ">40개 보기</option>
+                <option value="80" th:selected="${pageVO.amount} == 80? 'selected' ">80개 보기</option>
             </select>
 
 
-            <div class="free-main-box">
-                <form class="free-form-inner">
+
+
+
+            <div class="qna-main-box">
+                 <div class="qna-form-inner"> <!-- 폼 -->
                     <div class="list_table_wrap">
                         <table>
                             <thead>
@@ -39,59 +43,271 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="on_data">
-                                    <td>1</td>
-                                    <td>안녕</td>
-                                    <td>abc111</td>
-                                    <td>2022-04-21</td>
-                                </tr>
-                                <tr class="on_data2">
+                            	<tr class="on_data">
+	                            	<td></td>
+	                            	<td class="ondata_title">[자주하는 질문] StepUp은 어떤 서비스인가요?</td>
+	                            	<td>관리자</td>
+	                            	<td>22-05-10</td>
+	                            		
+	                            </tr>
+	                            <tr class="on_data2" >
                                     <td colspan="4" class="clearfix">
                                         <div class="b_content">
-                                        {{lsit.content}}
-
-                                        <textarea style="display:none;" name="" id="" cols="30" rows="10">{{lsit.content}}</textarea>
-                                        </div>
-                                        <div class="btn_wrap">
-                                            <button type="button">수정</button>
-                                            <button type="button">삭제</button>
-                                        </div>
-                                        <div><br>
-                                            <!-- 댓글창 -->
-                                            <div class="coment_box">
-                                                <div class="coment_info">
-                                                    <div class="user_pro">
-                                                        <div class="w_photo"><img src="img/Logo.png"></div>
-                                                        <div class="w_info">username_123 &nbsp&nbsp&nbsp<span class="w_regdate">( 22-04-21 )</span> </div> 
-                                                        
-                                                    <div class="w_contents">가나다라마바사아아아아아아아아아아아아아아아아아아아</div><br>
-                                                </div>
-                                                <br>
-                                                <div class="coment_textarea">
-                                                    <textarea placeholder="댓글을 작성하려면 로그인 해주세요."></textarea>
-                                                </div>
-                                                <br>
-                                                <div class="w-btn-p">
-                                                    <button type="submit" class="free_write">댓글등록</button><br>
-                                                </div>
-                                            </div>
+                                        	StepUp은 관심 분야가 비슷한 사람들의 모임을 주선하는 온라인 스터디 모임 사이트로 회원의 자발적 참여를 지향합니다.
                                         </div>
                                     </td>
                                 </tr>
+	                            
+	                            <tr class="on_data">
+	                            	<td></td>
+	                            	<td class="ondata_title">[자주하는 질문] 스터디 그룹을 수정할 수 있나요?</td>
+	                            	<td>관리자</td>
+	                            	<td>22-05-10</td>
+	                            </tr>
+	                            <tr class="on_data2" >
+                                    <td colspan="4" class="clearfix">
+                                        <div class="b_content">
+                                        	스터디 그룹은 그룹장만이 수정할 수 있으며 스터디 그룹 상세화면에서 수정할 수 있습니다.
+                                        </div>
+                                    </td>
+                                </tr>
+	                            
+	                            <tr class="on_data">
+	                            	<td></td>
+	                            	<td class="ondata_title">[자주하는 질문] 자유게시판과 QnA게시판의 차이점은 무엇인가요?</td>
+	                            	<td>관리자</td>
+	                            	<td>22-05-10</td>
+	                            </tr>
+	                            <tr class="on_data2" >
+                                    <td colspan="4" class="clearfix">
+                                        <div class="b_content">
+                                        	자유게시판은 커뮤니티와 비슷한 기능을 하며 스터디와 관련된 질문을 자유롭게 올리고 공유하는 공간입니다.<br> 
+                                        	QnA게시판은 사이트 이용 및 스터디 그룹 운영과 관련된 사항을 관리자에게 질문하는 공간입니다.
+                                        </div>
+                                    </td>
+                                </tr>
+	                            
+                            </tbody>                           
+                            <tbody th:each="vo, state : ${list}">
+                                
+                                <tr class="on_data" >
+                                    <td>[[${state.index + 1}]]</td>
+                                    <td class="ondata_title">[[${vo.qna_title}]]</td>
+                                    <td>[[${vo.user_name}]]</td>
+                                    <td>[[${#temporals.format(vo.qna_regdate, 'yy-MM-dd')}]]</td>
+                                </tr>
+                                <tr class="on_data2" >
+                                    <td colspan="4" class="clearfix">
+                                        <div class="b_content">
+                                        [[${vo.qna_content}]]
+
+                                        <textarea style="display:none;" name="qna_content" id="" cols="30" rows="10">[[${vo.qna_content}]]</textarea>
+                                        </div>
+                                        <div class="btn_wrap">
+                                        
+                                        	<th:block th:if="${session.user_no != null} and ${vo.user_no == session.user_no}">
+                                            	<button type="button"><a th:href="@{/board/qnaboard_update(qna_board_no=${vo.qna_board_no}, user_no=${vo.user_no})}">수정</a></button>
+                                            	<button type="button"><a th:href="@{/board/qnaboardDelete(qna_board_no=${vo.qna_board_no}, user_no=${vo.user_no})}">삭제</a></button>
+                                        	</th:block>
+                                        </div>
+                                        <div><br><br><br><br><br>
+                                        
+                                        
+                                        
+                                            <!-- 댓글창 -->
+	                                            <div class="coment_box">
+	                                                <div class="coment_info">
+	                                                	
+	                                                    <div class="user_pro" th:each="vo2, state : ${vo.qna_comments_list}">
+		                                                    <input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.user_no}">
+		                    								<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.user_name}">
+		                    								<input type="hidden" name="writer" th:value="${vo.user_no}">
+		                    								<input type="hidden" name="qna_comment_no" th:value="${vo2.qna_comment_no}">
+		                    								<input type="hidden" name="qna_board_no" th:value="${vo2.qna_board_no}">
+	                                                        <div class="w_photo"><img th:src="${vo2.filepath}"></div>
+		                                                        <div class="w_info">[[${vo2.user_name}]]    &nbsp;
+		                                                        	<span class="w_regdate"><span> 
+		                                                        	| 
+		                                                        	</span> &nbsp [[${#temporals.format(vo2.qna_comment_regdate, 'yy-MM-dd')}]] </span> 
+		                                                        	<th:block th:if="${vo2.user_no == session.user_no}"> 
+				                                                        <button type="button" class="re-coment" ><a>수정</a></button>
+				                                                        <button type="button">
+				                                                        	<a th:href="@{/board/qnadeleteComment(qna_comment_no=${vo2.qna_comment_no}, user_no=${vo.user_no})}">삭제</a>
+				                                                        </button>
+				                                                    </th:block>
+				                                                    <!-- <th:block th:if="${session.user_no != null}">
+				                                                    	<button type="button" class="re-coment2" ><a>댓글달기</a></button>
+				                                                    </th:block> -->
+				                                                    
+		                                                        </div> 
+		                                                        
+		                                                       
+		                                                        
+		                                                        
+		                                                        
+		                                                        
+		                                            			<form th:action="qnaupdateComment" method="post" name="qnaupdateComment">
+				                                                    <div class="w_contents">
+				                                                    	<div name="qna_comment_contents">[[${vo2.qna_comment_contents}]]</div><br>
+				                                                    	<input type="hidden" name="qna_comment_no" th:value="${vo2.qna_comment_no}">
+				                                                    	<input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.user_no}">
+				                                                    	<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.user_name}">
+				                                                    	<input type="hidden" name="writer" th:value="${vo.user_no}">
+				                                                    </div>
+				                                                    <div class="r_contents">
+				                                                        <textarea  name="qna_comment_contents" id="" cols="30" rows="10" class="qna_comment_contents_value1"></textarea>
+				                                                        <button type="submit" class="qna-re-coment-btn qna_comment_btn1" name="qna_comment_contents" style="border:none;"><a>답글 수정하기</a></button>
+				                                                    </div><br>
+			                                                    </form>
+		                                                   </div>
+		                                                
+	                                                	</div>
+	                                                <br>
+	                                                <form th:action="qnaCommentForm" method="post" name="qnaCommentForm">
+	                                                	<input type="hidden" name="user_no" th:value="${session.userVO} != null? ${session.userVO.user_no} ">
+	                    								<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.userVO.user_name}">
+	                    								<input type="hidden" name="writer" th:value="${vo.user_no}">
+	                    								<input type="hidden" name="qna_board_no" th:value="${vo.qna_board_no}">
+		                                                <div class="qna_coment_textarea" >
+		                                                    <textarea placeholder="댓글을 작성하려면 로그인 해주세요." th:name="qna_comment_contents" class="qna_comment_contents_value2"></textarea>
+		                                                </div>
+		                                                <br>
+		                                                <div class="w-btn-p">
+			                                                <th:block th:if="${session.user_no != null}">
+			                                                	<button type="button" class="qna_write comment_btn2" >답글등록</button><br>
+			                                                </th:block>
+		                                                </div>
+                                      				</form>
+	                                            </div>
+	                                        </div>
+                                    	</td>
+                                	</tr>
                             </tbody>
                         </table>
                     </div><br>
+                    
+                    
                     <div class="w-btn-p">
-                        <button type="submit" class="free_write" ><a href="/board/freeboard_write">글쓰기</a></button><br>
+                    	<input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.userVO.user_no}">
+	                    <input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.userVO.user_name}">
+                        <button type="submit" class="qna_write" ><a href="/board/qnaboard_write">글쓰기</a></button><br>
                     </div>
-                </form>
 
-                <!-- 페이지네이션 -->
+                <div>
+                <!-- 폼  -->
+               
                 
+  				<!-- 페이지네이션 -->                                            
+		      <div class="pagination">
+                    <ul>
+                    
+                     
+                    
+                    
+                       <th:block th:if="${pageVO.realEnd != 0 && pageVO.page != 1}">
+                                    <li>
+                                       <a th:href="@{/board/qnaboard_main(page=1, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword})}">
+                                          ◀◀
+                                       </a>
+                                    </li>
+                                    </th:block>
+                                    
+                                    <th:block th:if="${pageVO.realEnd != 0 && pageVO.page != 1}">
+                                       <li style="margin-right:5px;">
+                                          <a th:href="@{/board/qnaboard_main(page=${pageVO.start - 1}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
+                                             ◁
+                                          </a>
+                                       </li>
+                                       
+                                    </th:block>
+                                   
+                                    <th:block th:each="page, state : ${pageVO.pageList}">
+                                       <li th:class="${pageVO.page == page ? 'active' : ''}">
+                                          <a th:href="@{/board/qnaboard_main(page=${page}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword})}">[[${page}]]</a>
+                                       </li>
+                                    </th:block>
+                                    
+                                    <th:block th:if="${pageVO.next != 0 && pageVO.page != pageVO.realEnd}">
+                                       <li style="margin-left:5px;">
+                                          <a th:href="@{/board/qnaboard_main(page=${pageVO.end + 1}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
+                                             ▷
+                                          </a>
+                                       </li>
+                                    </th:block>
+                                    
+                                    <th:block th:if="${pageVO.realEnd != 0 && pageVO.page != pageVO.realEnd}">
+                                    <li>
+                                       <a th:href="@{/board/qnaboard_main(page=${pageVO.realEnd}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
+                                          ▶▶
+                                       </a>
+                                    </li>
+                                    </th:block>
+                    </ul>
+                </div>
+ 
+            <div class="search" style="height: 20px; width: 17.5%; margin: 0 auto;margin-top:15px; margin-bottom:15px; height: 20px;">
+               <input type="text" class="search_value" th:value="${pageVO.searchKeyword}" style="border: 1px solid #777;">
+               <button class="search_btn" style="background-color: white; border: 1px solid #777;">검색</button>
+            </div>
+
+                
+                </div></div>
 
             </div>
+            
+
         </div>
     </div>
 
 </th:block>
+
+<script th:inline="javascript">
+/* 	function m_CommentHandler1(){
+		 this.event.preventDefault();
+		document.forms["mainCommentForm"].action="mainCommentForm"; 
+		document.forms["mainCommentForm"].submit();
+	} */
+	(function(){
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg!=null){
+			alert(msg);
+		}
+		
+	})();
+	
+	function sub_CommentHandler1(){
+		document.forms["subCommentForm"].action="subCommentForm"; 
+		document.forms["subCommentForm"].submit();
+	}
+	$(function(){
+		$('.qna_comment_btn1').on('click',function(){
+			const contentValue = $(this).parent().find('.qna_comment_contents_value1').val().trim();
+			if(contentValue == ''|| contentValue == null){
+				alert('내용을 입력해주세요');
+				return false;
+			}else{
+				$(this).parent().parent().submit();
+			}
+		})
+	})
+	
+	
+		$(function(){
+		$('.qna_comment_btn2').on('click',function(){
+			//alert(123);
+			const contentValue = $(this).parent().parent().find('.qna_comment_contents_value2').val().trim();
+			if(contentValue == ''|| contentValue == null){
+				alert('내용을 입력해주세요');
+				return false;
+			}else{
+				$(this).parent().parent().submit();
+			}
+		})
+	})
+	
+	 function qna_dataHandler(a) {
+		//console.log(a.value);
+		location.href='/board/qnaboard_main?page1&amount='+a.value;
+	}
+</script>
 </html>

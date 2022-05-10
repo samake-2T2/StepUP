@@ -11,27 +11,35 @@
     <div class="container-qna">
         <div class="row_qna">
             <div class="qna-title-box">
-                문의하기
+                수정하기
             </div>
+           
             <div class="qna-main-box">
-                <form class="qna-form-inner" action="qnaboardForm" method="post">
+            
+            
+            
+                <form class="qna-form-inner" action="qnaupdateForm" method="post">
                     <div class="list_table_wrap">
-                    	<input type="hidden" name="user_no" th:value="${session.user_no}">
-                    	<input type="hidden" name="user_name" th:value="${session.user_name}">
+                    	<input type="hidden" name="qna_board_no" th:value="${qna_VO.qna_board_no}">
+                    	<input type="hidden" name="user_no" th:value="${session.userVO.user_no}">
+                    	<input type="hidden" name="user_name" th:value="${session.userVO.user_name}">
                     
-                        <input type="text" name="qna_title"  placeholder="제목을 입력해주세요" class="qna_title">
+                        <input type="text" name="qna_title" th:value="${qna_VO.qna_title}" class="qna_title">
                         <br>
                         <span style="color:red; opacity:0" class="title_vail">제목을 입력해주세요</span>
                         <br><br>
-                        <textarea name="qna_content"  placeholder="내용을 입력해주세요" class="qna_content"></textarea>
+                        <textarea name="qna_content" class="qna_content">[[${qna_VO.qna_content}]]</textarea>
                         <br>
                         <span style="color:red; opacity:0" class="content_vail">내용을 입력해주세요</span>
                     </div>
                     <br>
                     <div class="w-btn-p">
-                        <button type="button" class="qna_write contents_sbm_btn">등록하기</button><br>
+                        <button type="submit" class="qna_write contents_sbm_btn">수정하기</button><br>
                     </div>
                 </form>
+                
+                
+                
                 </div>
             </div>
     </div>
