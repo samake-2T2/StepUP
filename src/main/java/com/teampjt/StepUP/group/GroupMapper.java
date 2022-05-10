@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.teampjt.StepUP.command.SearchCategoryVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
+import com.teampjt.StepUP.command.ToDoListVO;
 import com.teampjt.StepUP.util.Criteria;
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupMemberVO;
@@ -81,4 +82,10 @@ public interface GroupMapper {
 		
 	// 내가 그룹장인 그룹번호 리스트 가져오기
 	public ArrayList<Integer> getMyGroupNoList2(int user_no);
+	
+	// 그룹 일정 등록
+	public int toDoListReg(ToDoListVO vo);
+	
+	// 그룹 일정 조회
+	public ArrayList<ToDoListVO> getToDoList(ToDoListVO vo);
 }

@@ -25,6 +25,7 @@ import com.teampjt.StepUP.command.GroupMemberVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
+import com.teampjt.StepUP.command.ToDoListVO;
 import com.teampjt.StepUP.command.UserVO;
 import com.teampjt.StepUP.group.GroupService;
 import com.teampjt.StepUP.user.UserService;
@@ -413,6 +414,19 @@ public class GroupController {
 			
 			return "redirect:/main";
 		}
+	}
+	
+	// 그룹 투두리스트 등록 폼
+	@PostMapping("/todoReg")
+	public String todoReg(ToDoListVO vo,
+						  Model model) {
+		
+		groupService.toDoListReg(vo);
+		
+		ArrayList<ToDoListVO> list = groupService.getToDoList(vo);
+		model.addAttribute("list", list);
+		
+		return "redirect:/group/groupMain";
 	}
 	
 	

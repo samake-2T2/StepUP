@@ -68,7 +68,7 @@
                 // console.log(prevDate, prevDay, nextDate, nextDay);
 
                 // 현재 월 표기
-                $('.year-month').text(currentYear + '.' + (currentMonth + 1));
+                $('.year-month').text(currentYear + '-' + (currentMonth + 1));
 
                 // 렌더링 html 요소 생성
                 calendar = document.querySelector('.dates')
@@ -80,7 +80,7 @@
                 }
                 // 이번달
                 for (var i = 1; i <= nextDate; i++) {
-                    calendar.innerHTML = calendar.innerHTML + '<button type="button" class="day current">' + i + '</button>'
+                    calendar.innerHTML = calendar.innerHTML + '<input type="button" class="day current" value="' + i + '">'
                 }
                 // 다음달
                 for (var i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
@@ -93,7 +93,32 @@
                     var currentMonthDate = document.querySelectorAll('.dates .current');
                     currentMonthDate[todayDate - 1].classList.add('active');
                 }
+                
+                $('.current').on('click', function () {
+                	var yearMonth = $('.year-month').html();
+                	var day = $(this).val();
+                	$('#regdate').val(yearMonth + '-' + day);
+                	
+                    
+                    if(!$(this).hasClass('active')) {                    	
+	                    var currentMonthDate = document.querySelectorAll('.dates .current');
+	                    console.log(currentMonthDate);
+	                    
+	                    for(var i = 0; i < currentMonthDate.length; i++) {
+	                    	if(currentMonthDate[i].classList.contains('active')) {
+	                    		currentMonthDate[i].classList.remove('active');	
+	                    	}
+	                    }
+	                    
+	                    
+	                    $(this).addClass('active');
+	                    
+                    }
+                	
+                });
             }
+            
+            
 
             // 이전달로 이동
             $('.go-prev').on('click', function () {
@@ -106,6 +131,20 @@
                 thisMonth = new Date(currentYear, currentMonth + 1, 1);
                 renderCalender(thisMonth);
             });
+            
+            // todolist 등록
+           	$( "#todoReg" ).submit(function( event ) {
+           		  event.preventDefault();
+           		  var url = $(this).attr( "action" );
+           		  var data = $(this).serialize();
+           		  
+           		  $.post( url, data ).done(function( data ) {
+           		    console.log('--->', data.regdate, data.place, data.content, data.group_no);
+           		  });
+           	});
+            
+            
+            
            
         }
     </script>
@@ -196,50 +235,45 @@
 						
 						<div class="todoList">
 
-						<form action="todoReg" method="post">
+						<form id="todoReg" action="todoReg" method="post">
 							<label>날짜</label> 
-							<input type="text" class="form-control"	placeholder="클릭한 날짜(리드온리)" readonly> 
+							<input type="text" class="form-control"	name="regdate" id="regdate" placeholder="클릭한 날짜(리드온리)" readonly>
+							
+							<br>
+							
+							<label>장소</label> 
+							<input type="text" class="form-control" name="place" placeholder="장소를 입력해주세요."> 
 							
 							<br>
 							 
 							<label>내용</label>
-							<input type="text" class="form-control" placeholder="내용을 입력해주세요.">
+							<input type="text" class="form-control" name="content" placeholder="내용을 입력해주세요.">
+							
+							<input type="hidden" name="group_no" th:value="${SGvo.group_no}">
 
+							<br>
+							
+							<button type="submit" id="todoReg" class="w-btn w-btn-indigo">등록</button>
 							
 						</form>
 								
 							<table class="todoList-tb" cellpadding="0" cellspacing="0" width="90%;">
 								<tr>
 									<th>순서</th>
+									<th>장소</th>
 									<th>내용</th>
-									<th>수정/삭제</th>
+									<th>수정</th>
+									<th>삭제</th>
 								</tr>
-
-								<tr>
-									<td>1</td>
-									<td>스터디 그룹 정기회의</td>
-									<td><a href="#">수정/삭제</a></td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>스터디 그룹 정기회의</td>
-									<td><a href="#">수정/삭제</a></td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>스터디 그룹 정기회의</td>
-									<td><a href="#">수정/삭제</a></td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>스터디 그룹 정기회의</td>
-									<td><a href="#">수정/삭제</a></td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>스터디 그룹 정기회의</td>
-									<td><a href="#">수정/삭제</a></td>
-								</tr>
+								<div>
+									<tr>
+										<td>1</td>
+										<td>스타벅스 강남</td>
+										<td>스터디 그룹 정기회의</td>
+										<td><a href="#">수정</a></td>
+										<td><a href="#">삭제</a></td>
+									</tr>
+								</div>
 							</table>
 						</div>
 
