@@ -81,13 +81,15 @@ FROM (SELECT A.*,
 								 groupnotice_writer,
 								 groupnotice_content,
 								 groupnotice_regdate,
-								 groupnotice_count								 
+								 groupnotice_count,
+								 group_no								 
 								 )
 		value(#{groupnotice_title},
 			  #{groupnotice_writer},
 			  #{groupnotice_content},
 			  NOW(),
-			  #{groupnotice_count}
+			  #{groupnotice_count},
+			  #{group_no}
 			  )
 	</insert>
 	

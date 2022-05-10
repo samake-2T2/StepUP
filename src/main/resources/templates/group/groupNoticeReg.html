@@ -52,9 +52,10 @@
                         <textarea name="groupnotice_content" class="app-text" rows="50" cols="500" placeholder="내용을 입력해주세요"></textarea>
                         </div>
                         
+                        <input name="group_no" type="hidden" th:value="${groupVO.group_no}">
 						<input name="groupnotice_count" type="hidden" value="0">
-						
-                        <a href="/group/groupNotice" class="w-btn btn-danger btn-block5">취소</a> <!-- th:href="@{/group/groupNotice(vo.group_no=${vo.group_no})}" -->
+					
+                        <a th:href="@{/group/groupNotice(group_no=${groupVO.group_no})}" class="w-btn btn-danger btn-block5">취소</a> <!-- th:href="@{/group/groupNotice(vo.group_no=${vo.group_no})}" -->
                         <button type="button" class="w-btn btn-block4" th:onclick="|notice_valid2()|">작성</button>
                     </form>
                 </div>
