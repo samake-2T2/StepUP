@@ -19,11 +19,12 @@ create table user_upload (
 ## 스터디 그룹 테이블
 create table studyGroup (
 	group_no int primary key auto_increment,
-    group_name varchar(50) not null, ##그룹명
+    group_name varchar(40) not null, ##그룹명
     group_content varchar(500) not null, ##그룹설명
     group_participant_amount int not null, ##그룹원 규모
     group_leader_no int not null, ## 그룹장 회원번호
     group_leader_name varchar(20) not null, ##그룹장 이름
+    group_leader_no int not null, ##그룹장 번호
     group_filename varchar(100) not null, ##그룹 프로필 사진 이름
     group_filepath varchar(100) not null, ##그룹 프로필 사진 경로
     group_fileuuid varchar(50) not null, ##그룹 프로필 사진 이름 랜덤값
@@ -117,5 +118,12 @@ create table todolist (
 	regdate varchar(50) not null,
 	place varchar(50) not null,
 	content varchar(50) not null,
+	group_no int not null
+);
+
+## 좋아요 테이블
+create table like (
+	like_no int primary key auto_increment, ## 고유 번호
+	user_no int not null,
 	group_no int not null
 );

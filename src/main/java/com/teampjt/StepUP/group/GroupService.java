@@ -81,8 +81,11 @@ public interface GroupService {
 	// 내가 그룹장인 그룹번호 리스트 가져오기
 	public ArrayList<Integer> getMyGroupNoList2(int user_no);
 	
+	// 좋아요 기능
+	
 	// 그룹 일정 등록
 	public int toDoListReg(ToDoListVO vo);
+
 	
 	// 그룹 일정 조회
 	public ArrayList<ToDoListVO> getToDoList(ToDoListVO vo);
