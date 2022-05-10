@@ -277,5 +277,12 @@ FROM (SELECT A.*,
   		select group_no from studygroup where group_leader_no = #{user_no}
   	</select>
   	
+  	<insert id="toDoListReg">
+  		insert into todolist (regdate, place, content, group_no) values (#{regdate}, #{place}, #{content}, #{group_no})
+  	</insert>
+  	
+  	<select id="getToDoList" resultType="ToDoListVO">
+  		select * from todolist where group_no=#{group_no} and regdate=#{regdate}
+  	</select>
   	
 </mapper>
