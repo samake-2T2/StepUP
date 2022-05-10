@@ -33,6 +33,7 @@ public class userUploadVO {
 	private String uuid;
 	
 	// 해당유저의 프로필 사진임을 확인하기 위한 참조키
-	private String email;
+	private Integer user_no;
+	
 	
 }

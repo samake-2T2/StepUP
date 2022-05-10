@@ -114,7 +114,7 @@ public class UserServiceImpl implements UserService {
 				.filename(filename)
 				.filepath(filepath)
 				.uuid(uuid)
-				.email(vo.getEmail())
+				.user_no(vo.getUser_no())
 				.build();
 
 
@@ -127,6 +127,13 @@ public class UserServiceImpl implements UserService {
 
 
 
+	}
+
+
+	@Override
+	public UserVO emailserch(UserVO vo) {
+		
+		return userMapper.emailserch(vo);
 	}
 
 

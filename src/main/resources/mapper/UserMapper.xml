@@ -7,8 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.teampjt.StepUP.user.UserMapper">
 
 	<insert id="userRegist"> 
-		insert into user(email, password, user_name, interest, logintype)
-		values(#{email}, #{password}, #{user_name}, #{interest}, #{logintype}) 
+		insert into user(email, password, user_name, interest, logintype, user_no)
+		values(#{email}, #{password}, #{user_name}, #{interest}, #{logintype}, #{user_no}) 
 	</insert>
   
 	<delete id="userDelete">
@@ -20,6 +20,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM request
 		WHERE group_no = #{group_no}
 	</select>
+	
+	<select id="emailserch" resultType="UserVO">
+		select * from user where email=#{email}
+	</select>
+	
+	
 	
 	<select id="login" resultType="UserVO">
 		select * from user where email=#{email} and password=#{password}
@@ -36,8 +42,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<insert id="registFile">
-		insert into user_upload (filename, filepath, email, uuid)
-		values( #{filename}, #{filepath}, #{email}, #{uuid})
+		insert into user_upload (filename, filepath, uuid, user_no)
+		values( #{filename}, #{filepath}, #{uuid}, #{user_no})
 	
 	</insert>
 

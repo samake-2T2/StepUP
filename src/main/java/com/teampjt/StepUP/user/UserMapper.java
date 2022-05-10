@@ -28,6 +28,8 @@ public interface UserMapper {
 	public UserVO login(UserVO vo);
 	
 	public ArrayList<GroupDetailCommentVO> getGroupList();
+	
+	public UserVO emailserch(UserVO vo);
 
 
 	

@@ -51,9 +51,19 @@ public class UserController {
 	public String joinForm(UserVO vo, 
 			RedirectAttributes  RA,
 			@RequestParam("file") MultipartFile f) {
+		//id이용해서 select결과를 반환. 반환 결과에 따라서 
+		int result;
+		UserVO result1 = userService.emailserch(vo);
+		if(result1 != null) {
+			System.out.println("ASd");
+			return "user/userJoin";
+			
+		} else {
+			
+			result = userService.userRegist(vo);
+		
+		}
 
-
-		int result = userService.userRegist(vo);
 
 		if(result == 1) {
 			// 1. 업로드된 확장자가 이미지만 가능하도록 처리

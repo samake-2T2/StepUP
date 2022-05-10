@@ -167,7 +167,7 @@ FROM (SELECT A.*,
 		select * from group_detail_comment
 	
 	</select>
-	
+	<!--  댓글 삭제 -->
 	<delete id="commentDelete">
     	delete from group_detail_comment
     	where comment_no = #{comment_no}
