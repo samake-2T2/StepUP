@@ -26,6 +26,7 @@ public interface UserService {
   
 	public UserVO login(UserVO vo);
 	
-	
+	//아이디 중복조회
+	public UserVO emailserch(UserVO vo);
 
 }

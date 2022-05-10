@@ -26,7 +26,9 @@ public class InterceptorConfig implements WebMvcConfigurer{
 		.addPathPatterns("/board/**") // board페이지들에 적용
 		.excludePathPatterns("/user/login") // 패스에서 제외
 		.excludePathPatterns("/main") // 패스에서 제외
-		.excludePathPatterns("/user/userJoin") // 패스에서 제외
+		.excludePathPatterns("/user/userJoin") // 가입요청 패스에서 제외
+		.excludePathPatterns("/user/joinForm")
+		
 		.excludePathPatterns("/user/logout") // 패스에서 제외
 		.excludePathPatterns("/board/freeboard_main"); // 패스에서 제외
 		
