@@ -77,7 +77,7 @@ public interface GroupMapper {
 	public int getReqChk(RequestVO reqVO);
 	
 	// 내가 가입한 그룹번호 리스트 가져오기
-		public ArrayList<Integer> getMyGroupNoList1(int user_no);
+	public ArrayList<Integer> getMyGroupNoList1(int user_no);
 		
 	// 내가 그룹장인 그룹번호 리스트 가져오기
 	public ArrayList<Integer> getMyGroupNoList2(int user_no);

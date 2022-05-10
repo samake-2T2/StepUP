@@ -80,6 +80,8 @@ public interface GroupService {
 	// 내가 그룹장인 그룹번호 리스트 가져오기
 	public ArrayList<Integer> getMyGroupNoList2(int user_no);
 	
+	// 좋아요 기능
+	
 	
 	
 }
