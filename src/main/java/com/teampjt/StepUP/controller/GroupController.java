@@ -50,7 +50,13 @@ public class GroupController {
 	}
 
 	@GetMapping("/groupMain")
-	public String groupMain() {
+	public String groupMain(@RequestParam("group_no") int group_no,
+							Model model) {
+		
+		StudyGroupVO vo = groupService.getStudyGroupDetail(group_no);
+		
+		model.addAttribute("SGvo", vo);
+		
 		return "group/groupMain";
 	}
 
@@ -61,12 +67,32 @@ public class GroupController {
 
 	// 내가 가입한 그룹리스트
 	@GetMapping("/groupList")
-	public String groupList(@RequestParam("user_no") int user_no) {
+	public String groupList(@RequestParam("user_no") int user_no,
+							Model model) {
 		
-		ArrayList<Integer> list = groupService.getMyGroupNoList(user_no);
-		System.out.println(list.toString());
+		ArrayList<Integer> list1 = groupService.getMyGroupNoList1(user_no);
+		System.out.println(list1.toString());
+		ArrayList<Integer> list2 = groupService.getMyGroupNoList2(user_no);
+		System.out.println(list2.toString());
+		
+		ArrayList<StudyGroupVO> list = new ArrayList<>();
+		
+		if(list1 != null) {
+			for(int i : list1) {
+				list.add(groupService.getStudyGroupDetail(i)); 
+			}				
+		}
+		
+		if(list2 != null) {				
+			for(int j : list2) {
+				list.add(groupService.getStudyGroupDetail(j));
+			}
+		}
+		
+		model.addAttribute("list", list);
 		
 		return "group/groupList";
+		
 	}
 
 	//그룹 신청인 목록 조회(그룹장이 확인)
@@ -129,7 +155,7 @@ public class GroupController {
 
 
 		ArrayList<GroupNoticeVO> noticeList = groupService.getNoticeList(cri);
-		int total = groupService.getTotal();
+		int total = groupService.GNgetTotal();
 		PageVO pageVO = new PageVO(cri, total);
 
 		model.addAttribute("vo", vo);
@@ -217,6 +243,8 @@ public class GroupController {
 
 		if(result == 1) {
 			RA.addFlashAttribute("msg", "공지가 수정되었습니다");
+			System.out.println(result);
+			
 		}else {
 			RA.addFlashAttribute("msg", "공지가 수정되지않았습니다");
 		}
@@ -256,7 +284,7 @@ public class GroupController {
 		
 		
 		model.addAttribute("groupVO", groupVO);
-		model.addAttribute("mtotal", mtotal);
+		model.addAttribute("mtotal", mtotal+1);
 		
 		System.out.println(groupVO.toString());
 		
@@ -346,7 +374,7 @@ public class GroupController {
 
 			groupService.groupRegist(vo, f);
 
-			return "redirect:/group/groupList";
+			return "redirect:/main";
 		} else {
 			return "group/groupRegist";
 		}
@@ -356,7 +384,8 @@ public class GroupController {
 	//그룹 신청폼
 	@PostMapping("/groupApplicationForm")
 	public String groupApplicationForm(@Valid RequestVO reqVO,
-									   Errors errors, Model model) {
+									   Errors errors, Model model,
+									   RedirectAttributes RA) {
 		
 		System.out.println(reqVO.toString());
 		int result = groupService.getReqChk(reqVO);
@@ -374,10 +403,13 @@ public class GroupController {
 					System.out.println(err.getField());
 					System.out.println(err.getDefaultMessage());
 				}
+				
 			}
-			
+			RA.addFlashAttribute("msg", "가입요청에 성공하였습니다");
 			return "redirect:/main";
 		} else { // 이미 가입한 이력이 있는 경우
+			
+				RA.addFlashAttribute("msg", "가입되어있는 그룹입니다");
 			
 			return "redirect:/main";
 		}

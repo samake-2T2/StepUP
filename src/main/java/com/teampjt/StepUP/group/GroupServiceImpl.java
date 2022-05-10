@@ -103,8 +103,8 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public int getTotal() {
-		return groupMapper.getTotal();
+	public int GNgetTotal() {
+		return groupMapper.GNgetTotal();
 	}		
 
 	public ArrayList<GroupDetailCommentVO> getComment() {
@@ -233,8 +233,14 @@ public class GroupServiceImpl implements GroupService {
 
 
 	@Override
-	public ArrayList<Integer> getMyGroupNoList(int user_no) {
+	public ArrayList<Integer> getMyGroupNoList1(int user_no) {
 		
-		return groupMapper.getMyGroupNoList(user_no);
+		return groupMapper.getMyGroupNoList1(user_no);
+	}
+
+
+	@Override
+	public ArrayList<Integer> getMyGroupNoList2(int user_no) {
+		return groupMapper.getMyGroupNoList2(user_no);
 	}
 }

@@ -88,7 +88,8 @@ create table groupnotice (
     groupnotice_writer varchar(30) not null, ##작성자
     groupnotice_content varchar(500) not null, ##내용
     groupnotice_regdate timestamp default now(), ##작성일자
-    groupnotice_count int ##조회수
+    groupnotice_count int, ##조회수
+    group_no int not null
 );
 
 ##그룹 상세정보 댓글 테이블 

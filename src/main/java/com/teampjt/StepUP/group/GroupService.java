@@ -40,7 +40,7 @@ public interface GroupService {
 	
 	public int noticeDelete(int groupnotice_no); //공지삭제
 	
-	public int getTotal(); //전체게시글
+	public int GNgetTotal(); //전체게시글
 	
 	public GroupNoticeVO movePage(int groupnotice_no); //이전글,다음글
 	
@@ -74,8 +74,13 @@ public interface GroupService {
 	// 그룹 참여신청 카운트(같은 그룹 같은사람이 여러번 참여신청하는것 방지)
 	public int getReqChk(RequestVO reqVO);
 	
-	// 내가 가입한 그룹 리스트 가져오기
-	public ArrayList<Integer> getMyGroupNoList(int user_no);
+	// 내가 가입한 그룹번호 리스트 가져오기
+	public ArrayList<Integer> getMyGroupNoList1(int user_no);
+	
+	// 내가 그룹장인 그룹번호 리스트 가져오기
+	public ArrayList<Integer> getMyGroupNoList2(int user_no);
+	
+	
 	
 }
 
