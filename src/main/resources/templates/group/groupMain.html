@@ -178,7 +178,7 @@
 
 					<!-- 참여 탈퇴 버튼 -->
 					<div class="atd-btn">
-						<a th:href="@{/group/gorupRegList(group_no=${SGvo.group_no})}" class="w-btn img-btn" >그룹참여신청목록</a>
+						<a th:href="@{/group/groupRegList(group_no=${SGvo.group_no})}" class="w-btn img-btn" >그룹참여신청목록</a>
 						<input type="button" class="w-btn img-btn ext-btn" value="탈퇴" href="#">
 						<button class="w-btn w-btn-indigo">
 							<img src="../img/group/like.png" style="width: 20px;"> 1
@@ -272,7 +272,7 @@
 					</div>
 
 					<div class="reg-btn-wrap">
-						<a class="w-btn img-btn" href="/group/groupNotice">더보기</a>
+						<a class="w-btn img-btn" th:href="@{/group/groupNotice(group_no=${SGvo.group_no})}">더보기</a>
 					</div>
 
 					<div class="notice-wrap">
