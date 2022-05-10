@@ -98,11 +98,12 @@ public class GroupController {
 	//그룹 신청인 목록 조회(그룹장이 확인)
 	@GetMapping("/groupRegList")
 	public String groupRegList(Model model,
-			                   Criteria cri
-			                   ) {
+			                   Criteria cri,
+			                   @RequestParam("group_no") int group_no) {
+									
 
 		//리스트에 정보 담기
-		ArrayList<RequestVO> list = userService.getApplyList();
+		ArrayList<RequestVO> list = userService.getApplyList(group_no);
 
 		//데이터 저장
 		model.addAttribute("applylist", list);
@@ -110,6 +111,7 @@ public class GroupController {
 		//페이지네이션 저장
 		return "group/groupRegList";
 	}
+	
 	//신청 수락
 	@PostMapping("/request_ok")
 	public String request_ok(GroupMemberVO vo,

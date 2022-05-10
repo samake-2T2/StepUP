@@ -72,9 +72,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public ArrayList<RequestVO> getApplyList() {
+	public ArrayList<RequestVO> getApplyList(int group_no) {
 
-		return userMapper.getApplyList();
+		return userMapper.getApplyList(group_no);
 	}
 	
 	@Override

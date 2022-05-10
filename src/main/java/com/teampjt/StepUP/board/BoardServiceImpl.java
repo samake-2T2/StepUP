@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.teampjt.StepUP.command.FreeBoardVO;
 import com.teampjt.StepUP.command.MainCommentsVO;
+import com.teampjt.StepUP.command.QnaBoardVO;
+import com.teampjt.StepUP.command.QnaCommentsVO;
 import com.teampjt.StepUP.util.Criteria;
 
 @Service("boardService")
@@ -66,6 +68,69 @@ public class BoardServiceImpl implements BoardService {
 	public int mc_UpdateContents(MainCommentsVO mainCommentsVO) {
 		return boardMapper.mc_UpdateContents(mainCommentsVO);
 	}
+
+	//*****qna게시판*****
+	@Override
+	public int qna_regist(QnaBoardVO qnaBoardVO) {
+
+		return boardMapper.qna_regist(qnaBoardVO);
+	}
+
+	@Override
+	public ArrayList<QnaBoardVO> qna_getList(Criteria cri) {
+
+		return boardMapper.qna_getList(cri);
+	}
+
+	@Override
+	public int qna_getTotal(Criteria cri) {
+
+		return boardMapper.qna_getTotal(cri);
+	}
+
+	@Override
+	public QnaBoardVO qna_getUpdateList(int qna_board_no) {
+
+		return boardMapper.qna_getUpdateList(qna_board_no);
+	}
+
+	@Override
+	public int qna_update(QnaBoardVO qnaBoardVO) {
+
+		return boardMapper.qna_update(qnaBoardVO);
+	}
+
+	@Override
+	public int qna_delete(QnaBoardVO qnaBoardVO) {
+
+		return boardMapper.qna_delete(qnaBoardVO);
+	}
+
+	@Override
+	public int qc_regist(QnaCommentsVO qnaCommentsVO) {
+
+		return boardMapper.qc_regist(qnaCommentsVO);
+	}
+
+	@Override
+	public ArrayList<QnaCommentsVO> qc_getList(QnaCommentsVO qnaCommentsVO) {
+
+		return boardMapper.qc_getList(qnaCommentsVO);
+	}
+
+	@Override
+	public int qc_delete(QnaCommentsVO qnaCommentsVO) {
+
+		return boardMapper.qc_delete(qnaCommentsVO);
+	}
+
+	@Override
+	public int qc_UpdateContents(QnaCommentsVO qnaCommentsVO) {
+
+		return boardMapper.qc_UpdateContents(qnaCommentsVO);
+	}
+	
+	
 
 
 

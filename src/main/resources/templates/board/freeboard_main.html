@@ -179,7 +179,7 @@
                                        </li>
                                     </th:block>
                                     
-                                    <th:block th:if="${pageVO.next != 0 && pageVO.page != pageVO.realEnd}">
+                                    <th:block th:if="${pageVO.realEnd != 0 && pageVO.page != pageVO.realEnd}">
                                        <li style="margin-left:5px;">
                                           <a th:href="@{/board/freeboard_main(page=${pageVO.end + 1}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
                                              ▷
