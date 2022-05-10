@@ -22,6 +22,7 @@ create table studyGroup (
     group_name varchar(40) not null, ##그룹명
     group_content varchar(500) not null, ##그룹설명
     group_participant_amount int not null, ##그룹원 규모
+    group_leader_no int not null, ## 그룹장 회원번호
     group_leader_name varchar(20) not null, ##그룹장 이름
     group_leader_no int not null, ##그룹장 번호
     group_filename varchar(100) not null, ##그룹 프로필 사진 이름
@@ -114,7 +115,7 @@ create table groupmember (
 ## 그룹 메인페이지 일정 등록 테이블
 create table todolist (
 	todo_no int primary key auto_increment, ## 번호
-	regdate timestamp default now(),
+	regdate varchar(50) not null,
 	place varchar(50) not null,
 	content varchar(50) not null,
 	group_no int not null

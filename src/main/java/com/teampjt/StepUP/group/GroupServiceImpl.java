@@ -16,6 +16,7 @@ import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
+import com.teampjt.StepUP.command.ToDoListVO;
 import com.teampjt.StepUP.util.Criteria;
 
 @Service("groupService")
@@ -242,5 +243,22 @@ public class GroupServiceImpl implements GroupService {
 	@Override
 	public ArrayList<Integer> getMyGroupNoList2(int user_no) {
 		return groupMapper.getMyGroupNoList2(user_no);
+	}
+
+
+	@Override
+	public int toDoListReg(ToDoListVO vo) {
+		
+		return groupMapper.toDoListReg(vo);
+	}
+
+
+
+
+
+	@Override
+	public ArrayList<ToDoListVO> getToDoList(ToDoListVO vo) {
+		
+		return groupMapper.getToDoList(vo);
 	}
 }

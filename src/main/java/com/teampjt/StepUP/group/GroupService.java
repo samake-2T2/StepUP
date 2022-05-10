@@ -10,6 +10,7 @@ import com.teampjt.StepUP.command.GroupNoticeVO;
 import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
+import com.teampjt.StepUP.command.ToDoListVO;
 import com.teampjt.StepUP.util.Criteria;
 
 public interface GroupService {
@@ -82,7 +83,12 @@ public interface GroupService {
 	
 	// 좋아요 기능
 	
+	// 그룹 일정 등록
+	public int toDoListReg(ToDoListVO vo);
+
 	
+	// 그룹 일정 조회
+	public ArrayList<ToDoListVO> getToDoList(ToDoListVO vo);
 	
 }
 
