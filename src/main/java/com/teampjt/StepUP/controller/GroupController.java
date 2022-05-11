@@ -163,16 +163,18 @@ public class GroupController {
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("pageVO", pageVO);
 		
-		System.out.println(groupVO.toString());
 		return "group/groupNotice";
 	}
 
 	//공지상세보기
 	@GetMapping("/groupNoticeDetail")
 	public String groupNoticeDetail(@RequestParam("groupnotice_no") int groupnotice_no,
-			Model model) {
+			Model model, @RequestParam("group_no") int group_no) {
 
+		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);
 		GroupNoticeVO gnVO = groupService.getNoticeDetail(groupnotice_no);
+		
+		model.addAttribute("groupVO", groupVO);
 		model.addAttribute("gnVO", gnVO);
 		model.addAttribute("move", groupService.movePage(groupnotice_no));
 
@@ -200,6 +202,8 @@ public class GroupController {
 		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);
 		int result = groupService.noticeRegist(gnVO);
 		
+		RA.addAttribute("group_no", group_no);
+		
 		model.addAttribute("groupVO", groupVO);
 		
 		if(result == 1) {
@@ -210,17 +214,20 @@ public class GroupController {
 
 
 
-		return "redirect:/group/@{groupNotice(group_no=${groupVO.group_no})}";
+		return "redirect:/group/groupNotice";
 	}
 
 	//그룹공지수정페이지
 	@GetMapping("/groupNoticeModify")
 	public String groupNoticeModify(@RequestParam("groupnotice_no") int groupnotice_no,
-			Model model) {
+			Model model,@RequestParam("group_no") int group_no) {
 		
 		
 		
 		GroupNoticeVO gnVO = groupService.getNoticeModify(groupnotice_no);
+		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);	
+		
+		model.addAttribute("groupVO", groupVO);
 		model.addAttribute("gnVO", gnVO);
 		
 		
@@ -230,7 +237,9 @@ public class GroupController {
 	//공지수정 폼
 	@PostMapping("/noticeUpdate")
 	public String noticeUpdate(GroupNoticeVO gnVO,
-			RedirectAttributes RA, Errors errors, Model model) {
+			RedirectAttributes RA, Errors errors, Model model, @RequestParam("group_no") int group_no) {
+		
+		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);
 		
 		if(errors.hasErrors()) {
 			List<FieldError> list = errors.getFieldErrors();
@@ -249,6 +258,8 @@ public class GroupController {
 		
 		int result = groupService.noticeUpdate(gnVO);
 
+		RA.addAttribute("group_no", group_no);
+		
 		if(result == 1) {
 			RA.addFlashAttribute("msg", "공지가 수정되었습니다");
 			System.out.println(result);
@@ -262,10 +273,19 @@ public class GroupController {
 
 	//공지 삭제폼
 	@PostMapping("/noticeDelete")
-	public String noticeDelete(@RequestParam("groupnotice_no") int groupnotice_no) {
-
+	public String noticeDelete(@RequestParam("groupnotice_no") int groupnotice_no,
+			RedirectAttributes RA, @RequestParam("group_no") int group_no) {
+		
+		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);
+		
+		RA.addAttribute("group_no", group_no);
+		
+		
+		
 		groupService.noticeDelete(groupnotice_no);
 
+		
+		
 		return "redirect:/group/groupNotice";
 	}
 	
@@ -293,8 +313,6 @@ public class GroupController {
 		
 		model.addAttribute("groupVO", groupVO);
 		model.addAttribute("mtotal", mtotal+1);
-		
-		System.out.println(groupVO.toString());
 		
 		return "group/groupDetail";
 	}
