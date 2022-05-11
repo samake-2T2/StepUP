@@ -28,8 +28,12 @@
          그룹 공지사항
         </div>
 
+		
+
         <form class="board-box" name="noticeDelete" action="noticeDelete" method="post">
             <div class="board-main">
+            <input type="hidden" name="groupnotice_no" th:value="${gnVO.groupnotice_no}"/>
+        <input name="group_no" type="hidden" th:value="${groupVO.group_no}">
             	<input type="hidden" name="groupnotice_no" th:value="${gnVO.groupnotice_no}"/>
             	
                 <div class="board-top" name="groupnotice_title" th:value="${gnVO.groupnotice_title}">
@@ -60,9 +64,10 @@
                 </ul>
                 <div class="box-btn">
                     <button th:if="${gnVO.groupnotice_writer == session.userVO.user_name}"  type="submit" class="w-btn btn-danger list-btn">삭제</button>
-                    <a th:if="${gnVO.groupnotice_writer == session.userVO.user_name}" th:href="@{/group/groupNoticeModify(groupnotice_no=${gnVO.groupnotice_no})}" class="w-btn list-btn" >수정</a>
-                    <a th:href="@{/group/groupNotice(group_no=${groupVO.group_no})}" class="w-btn list-btn2">목록</a> <!-- th:href="@{/group/groupNotice(vo.group_no=${vo.group_no})}" -->
+                    <a th:if="${gnVO.groupnotice_writer == session.userVO.user_name}" th:href="@{/group/groupNoticeModify(group_no=${groupVO.group_no}, groupnotice_no=${gnVO.groupnotice_no})}" class="w-btn list-btn" >수정</a>
+                    <a th:href="@{/group/groupNotice(group_no=${groupVO.group_no})}" class="w-btn list-btn2">목록</a> 
                 </div>
+       			
             </div>
         </form>
 </section>
