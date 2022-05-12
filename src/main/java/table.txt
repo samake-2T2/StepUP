@@ -100,6 +100,7 @@ create table group_detail_comment (
     user_name varchar(10) not null,
     comment_regdate timestamp default now(),
     comment_content varchar(500) not null,
+    group_no int,
     user_profile int,
     user_no int
 );
