@@ -150,11 +150,12 @@ FROM (SELECT A.*,
 	<insert id="commentRegist">
 		insert into group_detail_comment(user_name,
 										 comment_content,										 
-										 user_no)
+										 user_no,
+										 group_no)
 		values(#{user_name},
 			   #{comment_content},			
-			   #{user_no}
-			   )
+			   #{user_no},
+			   #{group_no})
 	</insert>
 	
 	<!-- 댓글 수정하기 -->

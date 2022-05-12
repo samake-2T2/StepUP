@@ -28,6 +28,7 @@ public class GroupDetailCommentVO {
 	private String user_name;
 	private LocalDateTime comment_regdate;
 	private String comment_content;
+	private Integer group_no;
 	private Integer user_profile;
 	private Integer user_no;
 	
