@@ -285,7 +285,17 @@ FROM (SELECT A.*,
   	</insert>
   	
   	<select id="getToDoList" resultType="ToDoListVO">
-  		select * from todolist where group_no=#{group_no} and regdate=#{regdate}
+  		select * from todolist where regdate = #{regdate} and group_no = #{group_no} order by todo_no asc;
   	</select>
+  	
+  	<delete id="toDoDelete">
+  		delete from todolist where todo_no = #{todo_no}
+  	</delete>
+  	
+  	<update id="todoUpdate">
+  		update todolist
+		   set 	place = #{place}, content = #{content}
+		 where todo_no = #{todo_no}		 
+  	</update>
   	
 </mapper>

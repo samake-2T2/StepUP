@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -94,10 +93,17 @@
                     currentMonthDate[todayDate - 1].classList.add('active');
                 }
                 
+                
+               	var yearMonth = $('.year-month').html();
+               	$('#regdate').val(yearMonth + '-' + todayDate);
+               	
+               	// 날짜 클릭 시 이벤트
                 $('.current').on('click', function () {
-                	var yearMonth = $('.year-month').html();
+                	
                 	var day = $(this).val();
                 	$('#regdate').val(yearMonth + '-' + day);
+                	
+                	var date = $('#regdate').val();
                 	
                     
                     if(!$(this).hasClass('active')) {                    	
@@ -113,11 +119,53 @@
 	                    $(this).addClass('active');
 	                    
                     }
-                	
-                });
-            }
+                    
+                    /*<![CDATA[*/
+                    var group_no = '[[${SGvo.group_no}]]';
+                    /*]]>*/
+                    
+                    // console.log(date);
+                    
+                    $.ajax({
+                   	    type : 'GET',
+                   	    url : 'getToDo',
+                   	    data : {
+                   	    	date : date,
+                   	    	group_no : group_no
+                   	    },
+                   	    error : function(error) {
+                   	        alert("일정을 가져오는데 실패했습니다.");
+                   	    },
+                   	    success : function(data) {
+                   	        // console.log(data);
+                   	        
+                   	        var content = '';
+                   	        
+                   	     	data.forEach(function(result, index) {
+                   	     		content += '<tr><td>' + (index+1) + '</td>' +
+                   	     					  '<td>' + result.place + '</td>' +
+                   	     					  '<td>' + result.content + '</td>' +
+                   	     					'<td><button type="button" class="todoUpdate" value="' + result.todo_no + '">수정</button></td>' +
+	            	     			          '<td><button type="button" class="todoDelete" value="' + result.todo_no + '">삭제</button></td></tr>';	
+                   	     	});
+                   	     	
+                   	     $('#todoContent').children().remove();
+                   	     $('#todoContent').append(content);
+                   	        
+                   	    }
+                   	    
+                   	 
+                   	});
+                    
+                    
+                    
+                 
+                
+                
+            }); // 날짜 클릭 이벤트 end
             
             
+            } // 캘린더 렌더링 end
 
             // 이전달로 이동
             $('.go-prev').on('click', function () {
@@ -136,13 +184,111 @@
            		  event.preventDefault();
            		  var url = $(this).attr( "action" );
            		  var data = $(this).serialize();
+           		  console.log(data);
            		  
-           		  $.post( url, data ).done(function( data ) {
-           		    console.log(data);
-           		  });
+           		$.ajax({
+               	    type : 'POST',
+               	    url : url,
+               	    data : data,
+               	    error : function(error) {
+               	        alert("일정 등록 실패!");
+               	    },
+               	    success : function(data) {
+               	        alert(data[0].regdate + "에 일정 등록 성공!");
+               	        
+	               	     var content = '';
+	            	        
+	            	     	data.forEach(function(result, index) {
+	            	     		content += '<tr><td>' + (index+1) + '</td>' +
+	            	     					  '<td>' + result.place + '</td>' +
+	            	     					  '<td>' + result.content + '</td>' +
+	            	     					 '<td><button type="button" class="todoUpdate" value="' + result.todo_no + '">수정</button></td>' +
+	            	     			          '<td><button type="button" class="todoDelete" value="' + result.todo_no + '">삭제</button></td></tr>';		
+	            	     	});
+	            	     	
+	            	     $('#todoContent').children().remove();
+	            	     $('#todoContent').append(content);
+               	    },
+               	});
+           		  
            	});
-           
-        }
+            
+         // 삭제버튼 이벤트
+            $(document).on('click', '.todoDelete', function () {
+ 				var todo_no = $(this).attr('value');
+ 				
+ 				console.log(todo_no);
+ 				
+ 				$.ajax({
+ 					type: 'POST',
+ 					url: 'todoDelete',
+ 					data: {todo_no: todo_no},
+ 					error: function(data) {
+ 						alert("비동기 에러!");
+ 					},
+ 					success: function(data) {
+ 						if(data == 1) { 							
+	 						alert("삭제 성공!");
+ 						} else {
+	 						alert("삭제 실패!"); 							
+ 						}
+ 					}
+ 				}); // ajax end
+ 				
+ 				$(this).parent().parent().remove();
+ 				
+ 			
+          	}); // 삭제버튼 이벤트 end
+          	
+         // 수정버튼 이벤트
+            $(document).on('click', '.todoUpdate', function () {
+ 				var todo_no = $(this).attr('value');
+ 				var data = $('#todoReg').serialize();
+ 				
+ 				data += "&todo_no=" + todo_no;
+ 				console.log(data);
+ 				
+ 				$.ajax({
+ 					type: 'POST',
+ 					url: 'todoUpdate',
+ 					data: data,
+ 					error: function(data) {
+ 						alert("비동기 에러!");
+ 					},
+ 					success: function(data) {
+ 						if(data != null) { 							
+	 						alert("수정 성공!");
+	 						
+							var content = '';
+	            	        
+	            	     	data.forEach(function(result, index) {
+	            	     		content += '<tr><td>' + (index+1) + '</td>' +
+	            	     					  '<td>' + result.place + '</td>' +
+	            	     					  '<td>' + result.content + '</td>' +
+	            	     					 '<td><button type="button" class="todoUpdate" value="' + result.todo_no + '">수정</button></td>' +
+	            	     			          '<td><button type="button" class="todoDelete" value="' + result.todo_no + '">삭제</button></td></tr>';		
+	            	     	});
+	            	     	
+	            	     $('#todoContent').children().remove();
+	            	     $('#todoContent').append(content);
+	 						
+	 						
+	 						
+ 						} else {
+ 							alert("수정 실패!");
+ 						}
+ 					}
+ 				}); // ajax end
+ 				
+ 			
+          	}); // 수정버튼 이벤트 end
+            
+           	
+           	
+            
+    
+            
+        } // 캘린더 시작 end
     </script>
 
 <th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .wrap} ) }">
@@ -238,14 +384,14 @@
 							<br>
 							
 							<label>장소</label> 
-							<input type="text" class="form-control" name="place" placeholder="장소를 입력해주세요."> 
+							<input type="text" class="form-control" name="place" id="place" placeholder="장소를 입력해주세요."> 
 							
 							<br>
 							 
 							<label>내용</label>
-							<input type="text" class="form-control" name="content" placeholder="내용을 입력해주세요.">
+							<input type="text" class="form-control" name="content" id="content" placeholder="내용을 입력해주세요.">
 							
-							<input type="hidden" name="group_no" th:value="${SGvo.group_no}">
+							<input type="hidden" name="group_no" id="group_no" th:value="${SGvo.group_no}">
 
 							<br>
 							
@@ -261,15 +407,9 @@
 									<th>수정</th>
 									<th>삭제</th>
 								</tr>
-								<div>
-									<tr>
-										<td>1</td>
-										<td>스타벅스 강남</td>
-										<td>스터디 그룹 정기회의</td>
-										<td><a href="#">수정</a></td>
-										<td><a href="#">삭제</a></td>
-									</tr>
-								</div>
+								<tbody id="todoContent">
+									
+								</tbody>
 							</table>
 						</div>
 

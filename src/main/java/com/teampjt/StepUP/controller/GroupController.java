@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -441,27 +442,67 @@ public class GroupController {
 		}
 	}
 	
-	// 그룹 투두리스트 등록 폼
+	// 그룹 투두리스트 비동기 등록 폼
 	@PostMapping("/todoReg")
-	public String todoReg(ToDoListVO vo,
-						  Model model) {
+	@ResponseBody
+	public ArrayList<ToDoListVO> todoReg(ToDoListVO vo) {
 		
-		System.out.println(vo.toString());
+//		System.out.println(vo.toString());
 		
 		groupService.toDoListReg(vo);
 		
 		ArrayList<ToDoListVO> list = groupService.getToDoList(vo);
 		
-		for(ToDoListVO tdvo : list) {
-			System.out.println(tdvo.toString());
-		}
+//		for(ToDoListVO tdvo : list) {
+//			System.out.println(tdvo.toString());
+//		}
 		
-		model.addAttribute("list", list);
-		model.addAttribute("group_no", vo.getGroup_no());
-		
-		return "redirect:/group/groupMain";
+		return list;
 	}
 	
+	// 일정 조회 메서드
+	@GetMapping("/getToDo")
+	@ResponseBody
+	public ArrayList<ToDoListVO> getToDo(@RequestParam("date") String date, @RequestParam("group_no") int group_no) {
+		
+		ToDoListVO vo = new ToDoListVO();
+		ToDoListVO TDvo = vo.builder()
+							.regdate(date)
+							.group_no(group_no)
+							.build();
+		
+		//System.out.println(TDvo.toString());
+		ArrayList<ToDoListVO> list = groupService.getToDoList(TDvo);
+		
+		return list;
+		
+	}
+	
+	// 일정 삭제 메서드
+	@PostMapping("/todoDelete")
+	@ResponseBody
+	public int todoDelete(@RequestParam("todo_no") int todo_no) {
+		int result = groupService.toDoDelete(todo_no);
+		
+		return result;
+	}
+	
+	// 일정 수정 메서드
+	@PostMapping("/todoUpdate")
+	@ResponseBody
+	public ArrayList<ToDoListVO> todoUpdate(ToDoListVO vo) {
+		
+		int result = groupService.todoUpdate(vo);
+		
+		
+		
+		ArrayList<ToDoListVO> list = groupService.getToDoList(vo);
+		
+		
+		return list;
+		
+		
+	}
 	
 }
 
