@@ -88,4 +88,10 @@ public interface GroupMapper {
 	
 	// 그룹 일정 조회
 	public ArrayList<ToDoListVO> getToDoList(ToDoListVO vo);
+	
+	// 그룹 일정 삭제
+	public int toDoDelete(int todo_no);
+	
+	// 그룹 일정 수정
+	public int todoUpdate(ToDoListVO vo);
 }

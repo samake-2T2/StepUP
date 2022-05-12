@@ -253,12 +253,38 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 
-
-
-
 	@Override
 	public ArrayList<ToDoListVO> getToDoList(ToDoListVO vo) {
 		
 		return groupMapper.getToDoList(vo);
 	}
+
+
+
+
+
+	@Override
+	public int toDoDelete(int todo_no) {
+		
+		return groupMapper.toDoDelete(todo_no);
+	}
+
+
+
+
+
+	@Override
+	public int todoUpdate(ToDoListVO vo) {
+
+		return groupMapper.todoUpdate(vo);
+	}
+
+
+
+
+
+	
+	
+	
+
 }
