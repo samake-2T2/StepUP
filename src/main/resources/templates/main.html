@@ -492,7 +492,7 @@
 		//페이지네이션 숫자
 		
 		for(let i = pageVO.start; i <= pageVO.end; i++) {
-			pgnt += "<li><a href='/main?page=" + (i) + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>" + (i) + "</a></li>"
+			pgnt += "<li class="+ (pageVO.page == page? 'on' : '') + "><a href='/main?page=" + (i) + "&amount=" + pageVO.amount + "&searchCategoryParent=" + cri.searchCategoryParent + "&searchCategoryChild=" + cri.searchCategoryChild + "&searchKeyword=" + cri.searchKeyword + "'>" + (i) + "</a></li>"
 		}
 		
 		//▶ 버튼

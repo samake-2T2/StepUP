@@ -226,32 +226,31 @@
 }
 /* 페이지네이션 */
 .pagination {
-   margin: 0 auto;
-   height: 50px;
-   display: block;
-   width: 100%;
+    margin: 0 auto;
+    height: 50px;
+    display: block;
+    width: 100%;
 }
 .pagination > ul{
-  margin: 0 auto;
-  height: 50px;
-  width: 60%;
-  text-align: center;
+    margin: 0 auto;
+    height: 50px;
+    width: 60%;
+    text-align: center;
 }
 .pagination > ul > li{
-   text-align: center !important;
-   margin: 0 auto;
-  overflow: hidden;
-  display: inline-block;
+	text-align: center !important;
+    margin: 0 auto;
+    overflow: hidden;
+    display: inline-block;
 }
 .pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
 }
-.pagination li.active {
-  background-color: #c0a5da;
-  color: black;
-  text-decoration: none;
+
+.group_main_list_pagenation_ul > .on {
+	background-color: yellow;
+	border-radius: 10px;
 }
-.pagination a:hover:not(.active) {background-color: #f9f9f9; text-decoration: none;}
