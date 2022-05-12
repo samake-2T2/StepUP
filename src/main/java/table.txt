@@ -123,7 +123,7 @@ create table todolist (
 );
 
 ## 좋아요 테이블
-create table like (
+create table likecount (
 	like_no int primary key auto_increment, ## 고유 번호
 	user_no int not null,
 	group_no int not null
