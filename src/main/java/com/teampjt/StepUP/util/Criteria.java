@@ -8,8 +8,10 @@ public class Criteria {
 	//sql문에 전달될 값을 가지고 다니는 클래스
 	
 	private Integer user_no;
+	private Integer group_no;
 	private int page;
 	private int amount;
+	
 	
 	//카테고리 검색 추가(대분류)
 	private String searchCategoryParent;

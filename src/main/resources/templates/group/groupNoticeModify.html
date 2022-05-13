@@ -54,7 +54,7 @@
                         <textarea class="app-text" rows="50" cols="500" name="groupnotice_content" th:value="${gnVO.groupnotice_content}">[[${gnVO.groupnotice_content}]]</textarea>
                         </div>
 
-                        <a th:href="@{/group/groupNotice(group_no=${groupVO.group_no})}" class="w-btn btn-danger btn-block5">취소</a> 
+                        <a th:href="@{/group/groupNotice(group_no=${groupVO.group_no}, group_leader_name=${groupVO.group_leader_name})}" class="w-btn btn-danger btn-block5">취소</a> 
                         <button type="button" class="w-btn btn-block4" th:onclick="|notice_valid()|">수정</button>
                     </form>
                 </div>

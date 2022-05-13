@@ -53,11 +53,14 @@ public class GroupController {
 
 	@GetMapping("/groupMain")
 	public String groupMain(@RequestParam("group_no") int group_no,
+							Criteria cri,
 							Model model) {
 		
 		StudyGroupVO vo = groupService.getStudyGroupDetail(group_no);
+		ArrayList<GroupNoticeVO> list1 = groupService.getNoticeView(group_no);
 		
 		model.addAttribute("SGvo", vo);
+		model.addAttribute("GNlist", list1);
 		
 		return "group/groupMain";
 	}
@@ -152,15 +155,19 @@ public class GroupController {
 
 	//공지목록페이지
 	@GetMapping("/groupNotice")
-	public String groupNotice( Model model, Criteria cri, @RequestParam("group_no") int group_no) {
-
-
-		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);
+	public String groupNotice( Model model, 
+							   Criteria cri, 
+							   @RequestParam("group_no") int group_no,
+							   @RequestParam("group_leader_name") String group_leader_name) {
+		
+		cri.setGroup_no(group_no);
+		
 		ArrayList<GroupNoticeVO> noticeList = groupService.getNoticeList(cri);
 		int total = groupService.GNgetTotal();
 		PageVO pageVO = new PageVO(cri, total);
 		
-		model.addAttribute("groupVO", groupVO);
+		model.addAttribute("group_no", group_no);
+		model.addAttribute("group_leader_name", group_leader_name);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("pageVO", pageVO);
 		
@@ -203,7 +210,9 @@ public class GroupController {
 		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);
 		int result = groupService.noticeRegist(gnVO);
 		
+		
 		RA.addAttribute("group_no", group_no);
+		RA.addAttribute("group_leader_name", groupVO.getGroup_leader_name());
 		
 		model.addAttribute("groupVO", groupVO);
 		
@@ -260,6 +269,7 @@ public class GroupController {
 		int result = groupService.noticeUpdate(gnVO);
 
 		RA.addAttribute("group_no", group_no);
+		RA.addAttribute("group_leader_name", groupVO.getGroup_leader_name());
 		
 		if(result == 1) {
 			RA.addFlashAttribute("msg", "공지가 수정되었습니다");
@@ -280,6 +290,7 @@ public class GroupController {
 		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);
 		
 		RA.addAttribute("group_no", group_no);
+		RA.addAttribute("group_leader_name", groupVO.getGroup_leader_name());
 		
 		
 		
