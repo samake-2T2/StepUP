@@ -283,6 +283,16 @@ public class GroupServiceImpl implements GroupService {
 
 
 
+	@Override
+	public ArrayList<GroupNoticeVO> getNoticeView(int group_no) {
+		
+		return groupMapper.getNoticeView(group_no);
+	}
+
+
+
+
+
 	
 	
 	

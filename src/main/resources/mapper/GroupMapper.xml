@@ -101,11 +101,15 @@ FROM (SELECT A.*,
 		@ROWNUM := @ROWNUM + 1 as RN
 		from (select * 
 			from groupnotice
-			where groupnotice_no
+			where group_no = #{group_no}
 			order by groupnotice_no desc) A, (select @ROWNUM := 0) D
 		) B
 		where RN > (#{page}-1)*#{amount} and RN <= #{page}*#{amount};
 		]]>
+	</select>
+	
+	<select id="getNoticeView" resultType="GroupNoticeVO">
+	  	select * from groupnotice where group_no = #{group_no} order by groupnotice_no desc limit 5
 	</select>
 	
 	<!-- 공지상세보기 -->

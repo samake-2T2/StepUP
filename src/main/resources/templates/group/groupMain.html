@@ -442,46 +442,28 @@
 					</div>
 
 					<div class="reg-btn-wrap">
-						<a class="w-btn img-btn" th:href="@{/group/groupNotice(group_no=${SGvo.group_no})}">더보기</a>
+						<a class="w-btn img-btn" th:href="@{/group/groupNotice(group_no=${SGvo.group_no}, group_leader_name=${SGvo.group_leader_name})}">더보기</a>
 					</div>
 
 					<div class="notice-wrap">
 
-						<table class="group-tb" cellpadding="0" cellspacing="0" width="100%;">
+						<table class="notice_tb" cellpadding="0" cellspacing="0" width="100%;">
 							<tr>
 								<th>번호</th>
 								<th>제목</th>
 								<th>작성일</th>
 								<th>조회수</th>
 							</tr>
-
-							<tr>
-								<td>1</td>
-								<td><a title="상세보기(클릭)" href="#">[필독!] 그룹이용규칙입니다(2022년 oo월 oo일 수정)</a></td>
-								<td>2022-04-21</td>
-								<td>31</td>
-							</tr>
+							<tbody class="notice_Content">
+								<tr th:each="notice, state : ${GNlist}">
+									<td>[[${state.index + 1}]]</td>
+									<td><a title="상세보기(클릭)" th:href="@{/group/groupNoticeDetail(group_no=${notice.group_no}, groupnotice_no=${notice.groupnotice_no})}">[[${notice.groupnotice_title}]]</a></td>
+									<td>[[${#temporals.format(notice.groupnotice_regdate, 'yyyy-MM-dd')}]]</td>
+									<td>[[${notice.groupnotice_count}]]</td>
+								</tr>
+							</tbody>
 							
-							<tr>
-								<td>1</td>
-								<td><a title="상세보기(클릭)" href="#">[필독!] 그룹이용규칙입니다(2022년 oo월 oo일 수정)</a></td>
-								<td>2022-04-21</td>
-								<td>31</td>
-							</tr>
 							
-							<tr>
-								<td>1</td>
-								<td><a title="상세보기(클릭)" href="#">[필독!] 그룹이용규칙입니다(2022년 oo월 oo일 수정)</a></td>
-								<td>2022-04-21</td>
-								<td>31</td>
-							</tr>
-							
-							<tr>
-								<td>1</td>
-								<td><a title="상세보기(클릭)" href="#">[필독!] 그룹이용규칙입니다(2022년 oo월 oo일 수정)</a></td>
-								<td>2022-04-21</td>
-								<td>31</td>
-							</tr>
 
 						</table>
 					</div>

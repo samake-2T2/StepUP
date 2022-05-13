@@ -32,6 +32,9 @@ public interface GroupMapper {
 	public int noticeRegist(GroupNoticeVO gnVO); //공지등록
   
 	public ArrayList<GroupNoticeVO> getNoticeList(Criteria cri); //공지목록
+	
+	// 그룹 공지 미리보기 - 그룹 메인화면에서 보이는 공지 상위 5개
+	public ArrayList<GroupNoticeVO> getNoticeView(int group_no);
   
 	public GroupNoticeVO getNoticeDetail(int groupnotice_no); //공지상세보기
   
