@@ -121,10 +121,14 @@ public class GroupController {
 		
 		System.out.println(vo.toString());
 		
+		
 		int result = groupService.requestOk(vo);
-		 
+		
+		RA.addFlashAttribute("group_no", vo.getGroup_no() );
+		
 		if(result == 1) { 
-			RA.addFlashAttribute("msg", vo.getUser_name() + "님이 등록 되었습니다."); 
+			RA.addFlashAttribute("msg", vo.getUser_name() + "님이 등록 되었습니다.");
+	
 		} else { 
 			RA.addFlashAttribute("msg", "등록에 실패했습니다. 관리자에게 문의하세요.");
 		}

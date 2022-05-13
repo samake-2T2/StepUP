@@ -258,7 +258,7 @@ FROM (SELECT A.*,
 	<!-- 신청 거절 -->
 	<delete id="requestNo">
 		delete from request
-		where user_no = 66
+		where user_no = #{user_no}
 	</delete>
 	
 	<select id="getMemberTotal" resultType="int">
