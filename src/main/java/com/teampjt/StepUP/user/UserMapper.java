@@ -20,6 +20,8 @@ public interface UserMapper {
 	
 	public int userDelete(int user_no);
 	
+	public int getUser(UserVO vo);
+	
 	//그룹 신청인 목록 조회 메서드
 	public ArrayList<RequestVO> getApplyList(int group_no);
 	
@@ -29,7 +31,7 @@ public interface UserMapper {
 	
 	public ArrayList<GroupDetailCommentVO> getGroupList();
 	
-	public UserVO emailserch(UserVO vo);
+	public int emailserch(UserVO vo);
 
 
 	

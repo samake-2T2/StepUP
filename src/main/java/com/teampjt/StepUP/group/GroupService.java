@@ -4,9 +4,13 @@ import java.util.ArrayList;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.teampjt.StepUP.command.GroupBoardVO;
+import com.teampjt.StepUP.command.GroupCommentsVO;
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupMemberVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
+import com.teampjt.StepUP.command.LikeCountVO;
+import com.teampjt.StepUP.command.MainCommentsVO;
 import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
@@ -60,17 +64,17 @@ public interface GroupService {
 	
 	public int groupRegist(StudyGroupVO vo, MultipartFile f); // 그룹 생성 메서드
 	
-	public int nameChk(StudyGroupVO vo); // 그룹명 중복체크
+	public int nameChk(String group_name); // 그룹명 중복체크
 	
 	public int groupApplicationReg(RequestVO reqVO); //그룹신청
 	
 	public StudyGroupVO getStudyGroupDetail(int group_no); //그룹 상세보기
-  
+	
+	// 이미 해당 그룹에 가입되어 있는지 체크
+	public int requestChk(GroupMemberVO vo);
+	
 	//신청 수락(insert)
 	public int requestOk(GroupMemberVO vo);
-	
-	//신청 거절(delete)
-	public int requestNo(RequestVO vo);
 	
 	// 현재 그룹에 가입중인 회원 수 카운트
 	public int getMemberTotal(int group_no);
@@ -84,8 +88,6 @@ public interface GroupService {
 	// 내가 그룹장인 그룹번호 리스트 가져오기
 	public ArrayList<Integer> getMyGroupNoList2(int user_no);
 	
-	// 좋아요 기능
-	
 	// 그룹 일정 등록
 	public int toDoListReg(ToDoListVO vo);
 	
@@ -97,6 +99,59 @@ public interface GroupService {
 	
 	// 그룹 일정 수정
 	public int todoUpdate(ToDoListVO vo);
+	
+	// 해당유저의 좋아요 여부 확인 메서드
+	public int like_count_chk(LikeCountVO vo);
+	
+	// 좋아요 등록 메서드
+	public int like_count_reg(LikeCountVO vo);
+	
+	// 좋아요 갯수 카운트 메서드
+	public int like_count(LikeCountVO vo);
+	
+	// 좋아요 취소 메서드
+	public int like_delete(LikeCountVO vo);
+	
+	// 신청목록 삭제 메서드(수락 및 거절 후 목록에서 지워줌)
+	public int req_delete(RequestVO vo);
+	
+	// 그룹멤버 탈퇴
+	public int groupSecession(GroupMemberVO vo);
+	
+	
+	
+	
+	// 그룹 메인게시판
+	
+	//글 등록
+	public int gb_regist(GroupBoardVO vo);
+	
+	//글 목록 불러오기
+	public ArrayList<GroupBoardVO> gb_getList(Criteria cri);
+	
+	//글 게시글 수 불러오기 (total)
+	public int gb_getTotal(Criteria cri);
+	
+	//글 내용 불러오기
+	public GroupBoardVO gb_getUpdateList(int group_board_no);
+	
+	//글 내용 수정하기
+	public int gb_update(GroupBoardVO vo);
+
+	//글 삭제
+	public int gb_delete(GroupBoardVO vo);
+	
+	//댓글 등록
+	public int gc_regist(GroupCommentsVO vo);
+	
+	//댓글 목록 불러오기
+	public ArrayList<GroupCommentsVO> gc_getList(GroupCommentsVO vo);
+	
+	//댓글 삭제
+	public int gc_delete(GroupCommentsVO vo);
+	
+	//댓글 업데이트
+	public int gc_UpdateContents(GroupCommentsVO vo);
 	
 }
 

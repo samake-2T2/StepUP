@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="../css/error/404error.css">
+</head>
+<body>
+
+	.wrapper
+
+  .TextHolder
+    .Texts
+      .FourOhFour 404
+      .Maybe GUH.. Maybe.. We have 
+        span PROBLEMS HERE
+      .Bad MY BAD this page couldn't be found.
+      .Return RETURN HOME
+      
+  .Body 
+    .LeftEye
+    .RightEye
+    .EyeShadows
+    .Mouth
+    .MouthShadows
+    .Theet
+    .BodyTexture
+    
+  .Horns
+    .HornsExtras
+    
+  .LeftHand
+  .RightHand
+  
+  
+h4 Move ur mouse <br> left or Right :)
+
+<script type="text/javascript">
+//this following plugin is from http://bit.ly/2MSsHjC , I used it to make the eyes follow mouse direction.
+//used lil inspiration from: http://bit.ly/2M799CT
+//
+
+$(function () {
+$.mousedirection();
+$("body").bind("mousedirection", function (e) {
+});
+});
+
+
+
+
+(function ($) {
+var options = {};
+var oldx = 0;
+var oldy = 0;
+var direction="";
+$.mousedirection = function (opts) {
+ var defaults = {
+ };
+ options = $.extend(defaults, opts);
+ $(document).bind("mousemove", function (e) {
+   var activeElement = e.target || e.srcElement;
+   if (e.pageX > oldx && e.pageY > oldy) {
+     $('.RightEye').attr("class", "RightEyeRight");
+     $('.LeftEyeLeft').attr("class", "LeftEye");
+     direction="bottom-right";
+
+   }
+   else if (e.pageX > oldx && e.pageY < oldy) {
+     $('.RightEye').attr("class", "RightEyeRight");
+     $('.LeftEyeLeft').attr("class", "LeftEye");
+
+     direction="top-right";
+   }
+
+   else if (e.pageX < oldx && e.pageY < oldy) {
+     $('.RightEyeRight').attr("class", "RightEye");
+     $('.LeftEye').attr("class", "LeftEyeLeft");
+
+     direction="top-left";
+   }
+   else if (e.pageX < oldx && e.pageY > oldy) {
+     $('.RightEyeRight').attr("class", "RightEye");
+     $('.LeftEye').attr("class", "LeftEyeLeft");
+
+     direction="bottom-left";
+   }
+   else if (e.pageX > oldx && e.pageY == oldy) {
+     $('.RightEye').attr("class", "RightEyeRight");
+     $('.LeftEyeLeft').attr("class", "LeftEye");
+
+     direction="right";
+   }
+   else if (e.pageX == oldx && e.pageY > oldy) {
+     direction="down";
+   }
+   else if (e.pageX == oldx && e.pageY < oldy) {
+     direction="up";
+   }
+   else if (e.pageX < oldx && e.pageY == oldy) {
+     $('.RightEyeRight').attr("class", "RightEye");
+     $('.LeftEye').attr("class", "LeftEyeLeft");
+
+     direction="left";
+   }
+   $(activeElement).trigger(direction);
+   $(activeElement).trigger({type:"mousedirection",direction:direction});
+   oldx=e.pageX;
+   oldy=e.pageY;
+ });
+}
+})(jQuery);
+</script>
+
+</body>
+</html>

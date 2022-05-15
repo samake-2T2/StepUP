@@ -23,32 +23,31 @@
 
             
             <div class="apply_list_applicant">
-            
-	                <ul>
-	                    <li th:if="${applylist} != null" th:each="vo : ${applylist}">
-	                        <img src="../img/group/default_user.png">
-	                        <div class="apply_list_applicant_info">
-	                            <span>[[${vo.user_name}]]</span><br>
-	                            <span>[[${vo.req_level}]]</span><br>
-	                            <span>[[${vo.req_about_me}]]</span><br>
-	                        </div>
-	                                                  
-	                        <div class="apply_list_applicant_info_hover">
-	                        	<form name="request_ok" action="request_ok" method="post">
-	                        		<input name="group_no" type="hidden" th:value="${vo.group_no}">
-	                        		<input name="user_no" type="hidden" th:value="${vo.user_no}">
-	                        		<input name="user_name" type="hidden" th:value="${vo.user_name}">
-		                            <button type="submit" class="w-btn-ok w-btn-indigo">수락</button>
-	                        	</form>
-	                        	<form name="request_no" action="request_no" method="post">
-	                        		<input name="user_no" type="hidden" th:value="${vo.user_no}">
-	                        		<button type="submit" class="w-btn-no w-btn-indigo">거절</button>
-	                        	</form>
-	                        </div>
-	                    </li>
-	
-	                </ul>
-            	
+                <ul class="apply_req" >
+                    <li th:if="${applylist} != null" th:each="vo : ${applylist}" class="req_list">
+                        <img src="../img/group/default_user.png">
+                        <div class="apply_list_applicant_info">
+                            <span>[[${vo.user_name}]]</span><br>
+                            <span>[[${vo.req_level}]]</span><br>
+                            <span>[[${vo.req_about_me}]]</span><br>
+                        </div>
+                                                  
+                        <div class="apply_list_applicant_info_hover">
+                        	<form name="request_ok" id="request_ok" action="request_ok" method="post">
+                        		<input name="group_no" type="hidden" th:value="${vo.group_no}">
+                        		<input name="user_no" type="hidden" th:value="${vo.user_no}">
+                        		<input name="user_name" type="hidden" th:value="${vo.user_name}">
+	                            <button type="button" id="ok_btn" class="w-btn-ok w-btn-indigo">수락</button>
+                        	</form>
+                        	<form name="request_no" id="request_no" action="request_no" method="post">
+                        		<input name="user_no" type="hidden" th:value="${vo.user_no}">
+                        		<input name="group_no" type="hidden" th:value="${vo.group_no}">
+                        		<button type="button" id="no_btn" class="w-btn-no w-btn-indigo">거절</button>
+                        	</form>
+                        </div>
+                        
+                    </li>
+                </ul>
             </div>
 
         </section>
@@ -57,23 +56,144 @@
 </th:block>
 
 <script th:inline="javascript">
-	(function() {
-		var msg = JSON.parse('[[${msg}]]');
-		if(msg != null) {
-			alert(msg);
-		}
-	})();
+	// 수락
+   	$(document).on('click', '#ok_btn', function () {
+   		  var url = $('#request_ok').attr( "action" );
+   		  var data = $('#request_ok').serialize();
+   		  console.log(data);
+   		  
+   		$.ajax({
+       	    type : 'POST',
+       	    url : url,
+       	    data : data,
+       	    error : function(error) {
+       	        alert("오류입니다. 관리자에게 문의하세요.");
+       	    },
+       	    success : function(data) {
+       	    	var result = data.result;
+       	    	var list = data.list;
+       	    	
+       	    	console.log(result);
+       	    	console.log(list);
+       	    	
+       	    	
+       	    	if(result > 0) {
+          	 		alert("이미 참여중인 그룹원입니다. 아니라면 관리자에게 문의하세요.");       	    		
+       	    	} else {
+	      	 		alert("참여신청을 수락했습니다.");
+       	    		if(list != null && list.length != 0) {
+	       	    		var content = '';
+		       	        
+		       	     	list.forEach(function(result, index) {
+		       	     		console.log(result.group_no);
+		       	     		
+		       	     		content += '<li class="req_list">' +
+					                            '<img src="../img/group/default_user.png">' +
+					                            '<div class="apply_list_applicant_info">' +
+					                                '<span>'+ result.user_name +'</span><br>' +
+					                                '<span>'+ result.req_level +'</span><br>' +
+					                                '<span>'+ result.req_about_me +'</span><br>' +
+					                            '</div>' +
+					                                                      
+					                            '<div class="apply_list_applicant_info_hover">' +
+					                            	'<form name="request_ok" id="request_ok" action="request_ok" method="post">' +
+					                            		'<input name="group_no" type="hidden" value="' + result.group_no + '">' +
+					                            		'<input name="user_no" type="hidden" value="' + result.user_no + '">' +
+					                            		'<input name="user_name" type="hidden" value="' + result.user_name + '">' +
+					    	                            '<button type="button" id="ok_btn" class="w-btn-ok w-btn-indigo">수락</button>' +
+					                            	'</form>' +
+					                            	'<form name="request_no" id="request_no" action="request_no" method="post">' +
+					                            		'<input name="user_no" type="hidden" value="' + result.user_no + '">' +
+					                            		'<input name="group_no" type="hidden" th:value="' + result.group_no + '">' +
+					                            		'<button type="button" id="no_btn" class="w-btn-no w-btn-indigo">거절</button>' +
+					                            	'</form>' +
+					                            '</div>' +
+					                            
+					                        '</li>';	
+		       	     	});
+		       	     	
+		       	     	$('.req_list').remove();
+		       			$('.apply_req').append(content);
+       	    		} else {
+		       	    	$('.req_list').remove();
+       	    			alert("남은 신청목록이 없습니다.");
+       	    		}
+       	    	}	
+       	        
+       	    } // success end
+       	}); // ajax end
+   		  
+   	}); // request_ok end
 	
-/* 	function request_no() {
-		
-		this.event.preventDefault();
-		
-		if(confirm("거절하시겠습니까??")) {
-			document.request_no.action = "request_no";
-			document.request_no.submit();
-			
-		}
-	} */	
+	// 거절
+   	$(document).on('click', '#no_btn', function () {
+   		  var url = $('#request_no').attr( "action" );
+   		  var data = $('#request_no').serialize();
+   		  console.log(data);
+   		  
+   		$.ajax({
+       	    type : 'POST',
+       	    url : url,
+       	    data : data,
+       	    error : function(error) {
+       	        alert("오류입니다. 관리자에게 문의하세요.");
+       	    },
+       	    success : function(data) {
+       	    	var result = data.result;
+       	    	var list = data.list;
+       	    	var msg = data.msg;
+       	    	
+       	    	console.log(result);
+       	    	console.log(list);
+       	    	console.log(msg);
+       	    	
+       	    	
+       	    	if(result > 0) {
+       	    		alert(msg);          	 		       	    		
+       	    		if(list != null && list.length != 0) {
+	       	    		var content = '';
+		       	        
+		       	     	list.forEach(function(result, index) {
+		       	     		
+		       	     		content += '<li class="req_list">' +
+					                            '<img src="../img/group/default_user.png">' +
+					                            '<div class="apply_list_applicant_info">' +
+					                                '<span>'+ result.user_name +'</span><br>' +
+					                                '<span>'+ result.req_level +'</span><br>' +
+					                                '<span>'+ result.req_about_me +'</span><br>' +
+					                            '</div>' +
+					                                                      
+					                            '<div class="apply_list_applicant_info_hover">' +
+					                            	'<form name="request_ok" id="request_ok" action="request_ok" method="post">' +
+					                            		'<input name="group_no" type="hidden" value="' + result.group_no + '">' +
+					                            		'<input name="user_no" type="hidden" value="' + result.user_no + '">' +
+					                            		'<input name="user_name" type="hidden" value="' + result.user_name + '">' +
+					    	                            '<button type="button" id="ok_btn" class="w-btn-ok w-btn-indigo">수락</button>' +
+					                            	'</form>' +
+					                            	'<form name="request_no" id="request_no" action="request_no" method="post">' +
+					                            		'<input name="user_no" type="hidden" value="' + result.user_no + '">' +
+					                            		'<input name="group_no" type="hidden" th:value="' + result.group_no + '">' +
+					                            		'<button type="button" id="no_btn" class="w-btn-no w-btn-indigo">거절</button>' +
+					                            	'</form>' +
+					                            '</div>' +
+					                            
+					                        '</li>';	
+		       	     	});
+		       	     	
+		       	     	$('.req_list').remove();
+		       			$('.apply_req').append(content);
+       	    		} else {
+		       	    	$('.req_list').remove();
+       	    			alert("남은 신청목록이 없습니다.");
+       	    		}
+       	    	} else {
+       	    		alert(msg);
+       	    	}	
+       	        
+       	    } // success end
+       	}); // ajax end
+   		  
+   	}); // request_no end
 </script>
 
 </html>

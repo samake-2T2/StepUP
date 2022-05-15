@@ -21,8 +21,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE group_no = #{group_no}
 	</select>
 	
-	<select id="emailserch" resultType="UserVO">
-		select * from user where email=#{email}
+	<select id="emailserch" resultType="int">
+		select count(*) from user where email=#{email}
 	</select>
 	
 	
@@ -46,5 +46,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values( #{filename}, #{filepath}, #{uuid}, #{user_no})
 	
 	</insert>
+	
+	<select id="getUser" resultType="int">
+	 	select user_no from user where email = #{email}
+	</select>
 
 </mapper>

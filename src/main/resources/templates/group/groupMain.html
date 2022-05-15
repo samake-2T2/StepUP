@@ -145,8 +145,8 @@
                    	     		content += '<tr><td>' + (index+1) + '</td>' +
                    	     					  '<td>' + result.place + '</td>' +
                    	     					  '<td>' + result.content + '</td>' +
-                   	     					'<td><button type="button" class="todoUpdate" value="' + result.todo_no + '">수정</button></td>' +
-	            	     			          '<td><button type="button" class="todoDelete" value="' + result.todo_no + '">삭제</button></td></tr>';	
+                   	     					'<td><button type="button" class="todoUpdate w-btn2" value="' + result.todo_no + '"><img src="../img/group/edit.png" style="width: 20px;"></button></td>' +
+	            	     			          '<td><button type="button" class="todoDelete w-btn2" value="' + result.todo_no + '"><img src="../img/group/del.png" style="width: 20px;"></button></td></tr>';	
                    	     	});
                    	     	
                    	     $('#todoContent').children().remove();
@@ -191,10 +191,10 @@
                	    url : url,
                	    data : data,
                	    error : function(error) {
-               	        alert("일정 등록 실패!");
+               	        alert("일정 등록 실패했습니다. 관리자에게 문의하세요.");
                	    },
                	    success : function(data) {
-               	        alert(data[0].regdate + "에 일정 등록 성공!");
+               	        alert(data[0].regdate + "에 일정 등록 성공했어요!");
                	        
 	               	     var content = '';
 	            	        
@@ -202,8 +202,8 @@
 	            	     		content += '<tr><td>' + (index+1) + '</td>' +
 	            	     					  '<td>' + result.place + '</td>' +
 	            	     					  '<td>' + result.content + '</td>' +
-	            	     					 '<td><button type="button" class="todoUpdate" value="' + result.todo_no + '">수정</button></td>' +
-	            	     			          '<td><button type="button" class="todoDelete" value="' + result.todo_no + '">삭제</button></td></tr>';		
+	            	     					 '<td><button type="button" class="todoUpdate w-btn2" value="' + result.todo_no + '"><img src="../img/group/edit.png" style="width: 20px;"></button></td>' +
+	            	     			          '<td><button type="button" class="todoDelete w-btn2" value="' + result.todo_no + '"><img src="../img/group/del.png" style="width: 20px;"></button></td></tr>';		
 	            	     	});
 	            	     	
 	            	     $('#todoContent').children().remove();
@@ -212,6 +212,7 @@
                	});
            		  
            	});
+            
             
          // 삭제버튼 이벤트
             $(document).on('click', '.todoDelete', function () {
@@ -224,13 +225,13 @@
  					url: 'todoDelete',
  					data: {todo_no: todo_no},
  					error: function(data) {
- 						alert("비동기 에러!");
+ 						alert("비동기 에러! 관리자에게 문의하세요.");
  					},
  					success: function(data) {
  						if(data == 1) { 							
-	 						alert("삭제 성공!");
+	 						alert("삭제 성공했어요!");
  						} else {
-	 						alert("삭제 실패!"); 							
+	 						alert("삭제에 실패했어요. 관리자에게 문의하세요."); 							
  						}
  					}
  				}); // ajax end
@@ -253,11 +254,11 @@
  					url: 'todoUpdate',
  					data: data,
  					error: function(data) {
- 						alert("비동기 에러!");
+ 						alert("비동기 에러! 관리자에게 문의하세요.");
  					},
  					success: function(data) {
  						if(data != null) { 							
-	 						alert("수정 성공!");
+	 						alert("삭제 성공했어요!");
 	 						
 							var content = '';
 	            	        
@@ -265,8 +266,8 @@
 	            	     		content += '<tr><td>' + (index+1) + '</td>' +
 	            	     					  '<td>' + result.place + '</td>' +
 	            	     					  '<td>' + result.content + '</td>' +
-	            	     					 '<td><button type="button" class="todoUpdate" value="' + result.todo_no + '">수정</button></td>' +
-	            	     			          '<td><button type="button" class="todoDelete" value="' + result.todo_no + '">삭제</button></td></tr>';		
+	            	     					 '<td><button type="button" class="todoUpdate" value=" w-btn2' + result.todo_no + '"><img src="../img/group/edit.png" style="width: 20px;"></button></td>' +
+	            	     			          '<td><button type="button" class="todoDelete" value=" w-btn2' + result.todo_no + '"><img src="../img/group/del.png" style="width: 20px;"></button></td></tr>';		
 	            	     	});
 	            	     	
 	            	     $('#todoContent').children().remove();
@@ -275,7 +276,7 @@
 	 						
 	 						
  						} else {
- 							alert("수정 실패!");
+ 							alert("수정에 실패했어요. 관리자에게 문의하세요.");
  						}
  					}
  				}); // ajax end
@@ -283,12 +284,37 @@
  			
           	}); // 수정버튼 이벤트 end
             
-           	
-           	
-            
-    
-            
         } // 캘린더 시작 end
+        
+      //종아요 버튼 구현
+        $(document).on('click', '#like_count', function () {
+        	/*<![CDATA[*/
+        	var user_no = '[[${session.user_no}]]';
+            var group_no = '[[${SGvo.group_no}]]';
+            /*]]>*/
+            
+            // 값 잘 넘어오는지 확인용
+            //console.log(group_no);
+        	//console.log(user_no);
+        	
+            $.ajax({
+        		type: 'POST',
+        		url: 'like_count',
+        		data: {
+        			user_no: user_no,
+        			group_no: group_no
+        		},
+        		success: function(data) {
+        			$('.count_no').text(data);
+        			console.log($('.count_no').text());
+        		},
+        		error: function() {
+        			alert("에러입니다.");
+        		}
+        	
+        	}) // ajax end
+        	
+        }) // like_count end
     </script>
 
 <th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .wrap} ) }">
@@ -307,15 +333,15 @@
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner">
 							<div class="item active">
-								<img src="../img/group/wide-img1.jpg" alt="Los Angeles">
+								<img src="../img/group/wide-img4.jpg" alt="Los Angeles">
 							</div>
 
 							<div class="item">
-								<img src="../img/group/wide-img2.jpg" alt="Chicago">
+								<img src="../img/group/wide-img5.jpg" alt="Chicago">
 							</div>
 
 							<div class="item">
-								<img src="../img/group/wide-img3.jpg" alt="New York">
+								<img src="../img/group/wide-img6.jpg" alt="New York">
 							</div>
 						</div>
 
@@ -338,13 +364,10 @@
 						<h1>[[${SGvo.group_name}]]</h1>
 					</div>
 
-					<!-- 뱃지 -->
-					<div></div>
-
 					<!-- 소개글 -->
 					<div class="section-wrap">
 						<div class="study-img">
-							<img src="../img/group/group_img.jpg">
+							<img th:src="@{../display(filepath=${SGvo.group_filepath}, uuid=${SGvo.group_fileuuid}, filename=${SGvo.group_filename})}">
 						</div>
 						<h1 class="section-label">스터디 소개</h1>
 						<div class="section-content">
@@ -359,10 +382,10 @@
 
 					<!-- 참여 탈퇴 버튼 -->
 					<div class="atd-btn">
-						<a th:href="@{/group/groupRegList(group_no=${SGvo.group_no})}" class="w-btn img-btn" >그룹참여신청목록</a>
-						<input type="button" class="w-btn img-btn ext-btn" value="탈퇴" href="#">
-						<button class="w-btn w-btn-indigo">
-							<img src="../img/group/like.png" style="width: 20px;"> 1
+						<a th:if="${SGvo.group_leader_name} == ${session.user_name}" th:href="@{/group/groupRegList(group_no=${SGvo.group_no})}" class="w-btn img-btn" >그룹참여신청목록</a>
+						<a class="w-btn img-btn ext-btn" th:if="${SGvo.group_leader_name} != ${session.user_name}" th:href="@{/group/groupSecession(group_no=${SGvo.group_no}, user_no=${session.user_no})}">탈퇴</a>
+						<button type="button" id="like_count" class="w-btn w-btn-indigo">
+							<img src="../img/group/like.png" style="width: 20px;"> <span class="count_no">[[${like}]]</span>
 						</button>
 
 
@@ -473,7 +496,7 @@
 					</div>
 
 					<div class="reg-btn-wrap">
-						<input type="button" class="w-btn img-btn" value="더보기" href="#">
+						<a class="w-btn img-btn" href="/group/groupBoard">더보기</a>
 					</div>
 
 					<div class="board-wrap">
@@ -524,12 +547,5 @@
 				</div>
 	</section>
 </th:block>
-
-<script>
-
-// 날짜 버튼 클릭이벤트
-
-
-</script>
 
 </html>

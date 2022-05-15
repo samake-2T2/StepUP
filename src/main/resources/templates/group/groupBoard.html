@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/include/header_footer.css">
+    <link rel="stylesheet" href="../css/board/freeboard_main.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../js/freeboard.js"></script>
+</head>
+<body>
+    
+    <th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .container-free} ) }">
+
+    <div class="container-free">
+        <div class="row_free">
+
+            <div class="free-title-box">
+                그룹 전용 게시판
+            </div>
+
+            <select class="quanti" th:onchange="|gb_dataHandler(this)|">
+                <option value="10" th:selected="${pageVO.amount} == 10? 'selected' ">10개 보기</option>
+                <option value="20" th:selected="${pageVO.amount} == 20? 'selected' ">20개 보기</option>
+                <option value="40" th:selected="${pageVO.amount} == 40? 'selected' ">40개 보기</option>
+                <option value="80" th:selected="${pageVO.amount} == 80? 'selected' ">80개 보기</option>
+            </select>
+
+
+
+
+
+            <div class="free-main-box">
+                 <div class="free-form-inner"> <!-- 폼 -->
+                    <div class="list_table_wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>번호</td>
+                                    <td>제목</td>
+                                    <td>글쓴이</td>
+                                    <td>날짜</td>
+                                </tr>
+                            </thead>
+                            <tbody th:each="vo, state : ${list}">
+                                
+                                <tr class="on_data" >
+                                    <td>[[${state.index + 1}]]</td>
+                                    <td class="ondata_title">[[${vo.title}]]</td>
+                                    <td>[[${vo.user_name}]]</td>
+                                    <td>[[${#temporals.format(vo.regdate, 'yy-MM-dd')}]]</td>
+                                </tr>
+                                <tr class="on_data2" >
+                                    <td colspan="4" class="clearfix">
+                                        <div class="b_content">
+                                        [[${vo.content}]]
+
+                                        <textarea style="display:none;" name="free_content" id="" cols="30" rows="10">[[${vo.content}]]</textarea>
+                                        </div>
+                                        <div class="btn_wrap">
+                                        
+                                        	<th:block th:if="${session.user_no != null} and ${vo.user_no == session.user_no}">
+                                            	<button type="button"><a th:href="@{/group/groupBoardUdt(group_board_no=${vo.group_board_no}, user_no=${vo.user_no})}">수정</a></button>
+                                            	<button type="button"><a th:href="@{/group/boardDelete(group_board_no=${vo.group_board_no}, user_no=${vo.user_no})}">삭제</a></button>
+                                        	</th:block>
+                                        </div>
+                                        <div><br><br><br><br><br>
+                                        
+                                        
+                                        
+                                            <!-- 댓글창 -->
+	                                            <div class="coment_box">
+	                                                <div class="coment_info">
+	                                                	
+	                                                    <div class="user_pro" th:each="vo2, state : ${vo.group_comments_list}">
+		                                                    <input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.user_no}">
+		                    								<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.user_name}">
+		                    								<input type="hidden" name="writer" th:value="${vo.user_no}">
+		                    								<input type="hidden" name="comment_no" th:value="${vo2.comment_no}">
+		                    								<input type="hidden" name="group_board_no" th:value="${vo2.group_board_no}">
+	                                                        <div class="w_photo"><img th:src="${vo2.filepath}"></div>
+		                                                        <div class="w_info">[[${vo2.user_name}]]    &nbsp;
+		                                                        	<span class="w_regdate"><span> 
+		                                                        	| 
+		                                                        	</span> &nbsp [[${#temporals.format(vo2.comment_regdate, 'yy-MM-dd')}]] </span> 
+		                                                        	<th:block th:if="${vo2.user_no == session.user_no}"> 
+				                                                        <button type="button" class="re-coment" ><a>수정</a></button>
+				                                                        <button type="button"><a th:href="@{/group/deleteComment(comment_no=${vo2.comment_no}, user_no=${vo.user_no})}">삭제</a></button>
+				                                                    </th:block>
+				                                                    <!-- <th:block th:if="${session.user_no != null}">
+				                                                    	<button type="button" class="re-coment2" ><a>댓글달기</a></button>
+				                                                    </th:block> -->
+				                                                    
+		                                                        </div> 
+		                                                        
+		                                                       
+		                                                        
+		                                                        
+		                                                        
+		                                                        
+		                                            			<form th:action="updateComment" method="post" name="updateComment">
+				                                                    <div class="w_contents">
+				                                                    	<div name="comment_contents">[[${vo2.comment_contents}]]</div><br>
+				                                                    	<input type="hidden" name="comment_no" th:value="${vo2.comment_no}">
+				                                                    	<input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.user_no}">
+				                                                    	<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.user_name}">
+				                                                    	<input type="hidden" name="writer" th:value="${vo.user_no}">
+				                                                    </div>
+				                                                    <div class="r_contents">
+				                                                        <textarea  name="comment_contents" id="" cols="30" rows="10" class="comment_contents_value1"></textarea>
+				                                                        <button type="submit" class="re-coment-btn comment_btn1" name="comment_contents" style="border:none;"><a>답글 수정하기</a></button>
+				                                                    </div><br>
+			                                                    </form>
+		                                                   </div>
+		                                                
+	                                                	</div>
+	                                                <br>
+	                                                <form th:action="groupCommentForm2" method="post" name="mainCommentForm">
+	                                                	<input type="hidden" name="user_no" th:value="${session.userVO} != null? ${session.user_no} ">
+	                    								<input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.user_name}">
+	                    								<input type="hidden" name="writer" th:value="${vo.user_no}">
+	                    								<input type="hidden" name="group_board_no" th:value="${vo.group_board_no}">
+		                                                <div class="coment_textarea" >
+		                                                    <textarea placeholder="댓글을 작성하려면 로그인 해주세요." th:name="comment_contents" class="comment_contents_value2"></textarea>
+		                                                </div>
+		                                                <br>
+		                                                <div class="w-btn-p">
+			                                                <th:block th:if="${session.user_no != null}">
+			                                                	<button type="button" class="free_write comment_btn2" >답글등록</button><br>
+			                                                </th:block>
+		                                                </div>
+                                      				</form>
+	                                            </div>
+	                                        </div>
+                                    	</td>
+                                	</tr>
+                            </tbody>
+                        </table>
+                    </div><br>
+                    
+                    
+                    <div class="w-btn-p">
+                    	<input type="hidden" name="user_no" th:value="${session.userVO } != null? ${session.user_no}">
+	                    <input type="hidden" name="user_name" th:value="${session.userVO} != null? ${session.user_name}">
+                        <button type="submit" class="free_write" ><a href="/group/groupBoardReg">글쓰기</a></button><br>
+                    </div>
+
+                <div>
+                <!-- 폼  -->
+               
+                
+  				<!-- 페이지네이션 -->                                            
+		      <div class="pagination">
+                    <ul>
+                    
+                     
+                    
+                    
+                       <th:block th:if="${pageVO.realEnd != 0 && pageVO.page != 1}">
+                                    <li>
+                                       <a th:href="@{/group/groupBoard(page=1, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword})}">
+                                          ◀◀
+                                       </a>
+                                    </li>
+                                    </th:block>
+                                    
+                                    <th:block th:if="${pageVO.realEnd != 0 && pageVO.page != 1}">
+                                       <li style="margin-right:5px;">
+                                          <a th:href="@{/group/groupBoard(page=${pageVO.start - 1}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
+                                             ◁
+                                          </a>
+                                       </li>
+                                       
+                                    </th:block>
+                                   
+                                    <th:block th:each="page, state : ${pageVO.pageList}">
+                                       <li th:class="${pageVO.page == page ? 'active' : ''}">
+                                          <a th:href="@{/group/groupBoard(page=${page}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword})}">[[${page}]]</a>
+                                       </li>
+                                    </th:block>
+                                    
+                                    <th:block th:if="${pageVO.realEnd != 0 && pageVO.page != pageVO.realEnd}">
+                                       <li style="margin-left:5px;">
+                                          <a th:href="@{/group/groupBoard(page=${pageVO.end + 1}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
+                                             ▷
+                                          </a>
+                                       </li>
+                                    </th:block>
+                                    
+                                    <th:block th:if="${pageVO.realEnd != 0 && pageVO.page != pageVO.realEnd}">
+                                    <li>
+                                       <a th:href="@{/group/groupBoard(page=${pageVO.realEnd}, amount=${pageVO.amount},searchKeyword=${pageVO.searchKeyword} ) }">
+                                          ▶▶
+                                       </a>
+                                    </li>
+                                    </th:block>
+                    </ul>
+                </div>
+ 
+            <div class="search" style="height: 20px; width: 20%; margin: 0 auto;margin-top:15px; margin-bottom:15px; height: 20px;">
+               <input type="text" class="search_value" th:value="${pageVO.searchKeyword}" style="border: 1px solid #777;">
+               <button class="search_btn" style="background-color: white; border: 1px solid #777;">검색</button>
+            </div>
+
+                
+                </div></div>
+
+            </div>
+            
+
+        </div>
+    </div>
+
+</th:block>
+
+<script th:inline="javascript">
+/* 	function m_CommentHandler1(){
+		 this.event.preventDefault();
+		document.forms["mainCommentForm"].action="mainCommentForm"; 
+		document.forms["mainCommentForm"].submit();
+	} */
+	(function(){
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg!=null){
+			alert(msg);
+		}
+		
+	})();
+	
+	function sub_CommentHandler1(){
+		document.forms["subCommentForm"].action="subCommentForm"; 
+		document.forms["subCommentForm"].submit();
+	}
+	$(function(){
+		$('.comment_btn1').on('click',function(){
+			const contentValue = $(this).parent().find('.comment_contents_value1').val().trim();
+			if(contentValue == ''|| contentValue == null){
+				alert('내용을 입력해주세요');
+				return false;
+			}else{
+				$(this).parent().parent().submit();
+			}
+		})
+	})
+	
+	
+		$(function(){
+		$('.comment_btn2').on('click',function(){
+			//alert(123);
+			const contentValue = $(this).parent().parent().find('.comment_contents_value2').val().trim();
+			if(contentValue == ''|| contentValue == null){
+				alert('내용을 입력해주세요');
+				return false;
+			}else{
+				$(this).parent().parent().submit();
+			}
+		})
+	})
+	
+	 function gb_dataHandler(a) {
+		//console.log(a.value);
+		location.href='/group/groupBoard?page1&amount='+a.value;
+	}
+</script>
+</html>

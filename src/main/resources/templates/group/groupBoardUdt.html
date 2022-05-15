@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/include/header_footer.css">
+    <link rel="stylesheet" href="../css/board/freeboard_write.css">
+</head>
+
+<th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .container-free} ) }">
+
+    <div class="container-free">
+        <div class="row_free">
+            <div class="free-title-box">
+                커뮤니티
+            </div>
+           
+            <div class="free-main-box">
+            
+            
+            
+                <form class="free-form-inner" action="updateForm" method="post">
+                    <div class="list_table_wrap">
+                    	<input type="hidden" name="group_board_no" th:value="${gb_VO.group_board_no}">
+                    	<input type="hidden" name="user_no" th:value="${session.userVO.user_no}">
+                    	<input type="hidden" name="user_name" th:value="${session.userVO.user_name}">
+                    
+                        <input type="text" name="title" th:value="${gb_VO.title}" class="free_title">
+                        <br>
+                        <span style="color:red; opacity:0" class="title_vail">제목을 입력해주세요</span>
+                        <br><br>
+                        <textarea name="content" class="free_content">[[${gb_VO.content}]]</textarea>
+                        <br>
+                        <span style="color:red; opacity:0" class="content_vail">내용을 입력해주세요</span>
+                    </div>
+                    <br>
+                    <div class="w-btn-p">
+                        <button type="submit" class="free_write contents_sbm_btn">수정하기</button><br>
+                    </div>
+                </form>
+                
+                
+                
+                </div>
+            </div>
+    </div>
+
+</th:block>
+<script>
+$(function(){	
+	$('.free_title').on('keyup',function(){
+		if($(this).val() == '' ){	
+			$('.title_vail').css('opacity','1');
+		}else{
+			$('.title_vail').css('opacity','0');
+		}
+	})
+	
+	$('.free_content').on('keyup',function(){
+		if($(this).val() == ''){
+			$('.content_vail').css('opacity','1');
+		}else{
+			$('.content_vail').css('opacity','0');
+		}
+	})
+	
+	$('.contents_sbm_btn').on('click',function(){
+		const free_title = $('.free_title').val().trim();
+		const free_content = $('.free_content').val().trim();
+		if(free_title == ''||free_title == null){
+			$('.title_vail').css('opacity','1');
+			return false;
+		}
+		if(free_content == ''||free_content == null){
+			$('.content_vail').css('opacity','1');
+			return false;
+		}
+		$(this).parent().parent().submit();
+	});
+})
+</script>
+</html>

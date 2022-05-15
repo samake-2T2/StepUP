@@ -1,8 +1,11 @@
 package com.teampjt.StepUP.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +21,10 @@ import com.teampjt.StepUP.util.Criteria;
 @RestController
 public class AjaxController {
 
+	// 그룹 이미지 업로드할 경로(application.properties값을 참조)
+	@Value("${project.groupUpload.path}")
+	private String uploadPath;
+	
 	@Autowired
 	public GroupService groupService;
 	
@@ -53,6 +60,28 @@ public class AjaxController {
 		ArrayList<SearchCategoryVO> list = groupService.getCategoryChild(vo);
 		
 		return list;
+	}
+	
+	// 이미지 데이터 맵핑
+	@GetMapping("/display")
+	public byte[] display(@RequestParam("filename") String filename,
+						  @RequestParam("uuid") String uuid,
+						  @RequestParam("filepath") String filepath) {
+		
+
+		System.out.println("uploadPath: " + uploadPath);
+		
+		File file = new File(uploadPath + "\\" + filepath + "\\" + uuid + "_" + filename);
+		
+		byte[] result = null;
+		try {
+			// 경로의 파일을 읽어서 바이트 배열형으로 파일정보를 반환
+			result = FileCopyUtils.copyToByteArray(file);			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 			
 	

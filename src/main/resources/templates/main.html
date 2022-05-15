@@ -155,7 +155,7 @@
 						<ul id="main_Search_ul">
 							<li th:each="vo, state : ${list}">
 								<a th:href="@{group/groupDetail(group_no=${vo.group_no})}">
-									<img src="../img/group/1.png">
+									<img th:src="@{../display(filepath=${vo.group_filepath}, uuid=${vo.group_fileuuid}, filename=${vo.group_filename})}">
 									
 									<div class="group_main_list_searchresult_detail">
 	

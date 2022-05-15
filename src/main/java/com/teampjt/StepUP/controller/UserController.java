@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -46,6 +47,18 @@ public class UserController {
 		return "user/userMypage";
 	}
 
+	// 이메일 중복 체크
+	@PostMapping("/emailChk")
+	@ResponseBody
+	public int emailChk(@RequestParam("email") String email) {
+		
+		UserVO vo = UserVO.builder().email(email).build();
+		
+		int result = userService.emailserch(vo);
+		
+		return result;
+	}
+	
 	//회원가입 폼
 	@PostMapping("/joinForm")
 	public String joinForm(UserVO vo, 
@@ -53,9 +66,10 @@ public class UserController {
 			@RequestParam("file") MultipartFile f) {
 		//id이용해서 select결과를 반환. 반환 결과에 따라서 
 		int result;
-		UserVO result1 = userService.emailserch(vo);
-		if(result1 != null) {
-			System.out.println("ASd");
+		
+		int result1 = userService.emailserch(vo);
+		
+		if(result1 >= 1) {
 			return "user/userJoin";
 			
 		} else {
@@ -65,6 +79,12 @@ public class UserController {
 		}
 
 
+		int user_no = userService.getUser(vo);
+		
+		vo.setUser_no(user_no);
+		System.out.println(vo.toString());
+		
+		
 		if(result == 1) {
 			// 1. 업로드된 확장자가 이미지만 가능하도록 처리
 			if(f.getContentType().contains("image") == false ) { //이미지가 아닌경우

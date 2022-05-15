@@ -26,17 +26,15 @@
 			<div class="form-group">
 				<div class="btn-align1">
 					<button type="button" class="w-btn img-btn default-btn">초기화</button>
-					<label for="myFile" class="w-btn img-btn">이미지 추가</label> <input
-						type="file" id="myFile" name=file style="display: none">
+					<label for="myFile" class="w-btn img-btn">이미지 추가</label>
+					<input type="file" id="myFile" name=file style="display: none">
 				</div>
 
 				<br> <br> <label>스터디 이름</label>
 				<div class="input-group">
-					<input type="text" class="form-control" id="group_name"
-						name="group_name" placeholder="스터디명은 4글자 이상 입니다.">
+					<input type="text" class="form-control" id="group_name" name="group_name" placeholder="스터디명은 4글자 이상 입니다.">
 					<div class="input-group-btn">
-						<button class="btn btn-default btnimg" type="button"
-							onclick="nameChk();">중복확인하기</button>
+						<button class="btn btn-default btnimg" type="button" onclick="nameChk();">중복확인하기</button>
 					</div>
 				</div>
 
@@ -229,7 +227,7 @@ function category_reset() {
 			},
 			success : function(data) {
 				if (data == 1) {
-					alert("중복된 이름입니다.")
+					alert("잘못된 이름입니다.")
 				} else if (data == 0) {
 					alert("사용가능한 이름입니다.")
 				}

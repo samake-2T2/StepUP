@@ -244,6 +244,12 @@ FROM (SELECT A.*,
 			    )
 	</insert>
 	
+	<!-- 이미 참여중인 멤버인지 체크 -->
+	<select id="requestChk" resultType="int">
+		select count(*) from groupmember where user_no = #{user_no} and group_no = #{group_no}
+	</select>
+	
+	
 	<!-- 신청 수락 -->
 	<insert id="requestOk">
 		insert into groupmember (group_no,
@@ -258,12 +264,6 @@ FROM (SELECT A.*,
 	<select id="getStudyGroupDetail" resultType="StudyGroupVO">
 		select * from studygroup where group_no = #{group_no}
 	</select>
-
-	<!-- 신청 거절 -->
-	<delete id="requestNo">
-		delete from request
-		where user_no = #{user_no}
-	</delete>
 	
 	<select id="getMemberTotal" resultType="int">
 		select count(*) from groupmember where group_no = #{group_no}
@@ -301,5 +301,116 @@ FROM (SELECT A.*,
 		   set 	place = #{place}, content = #{content}
 		 where todo_no = #{todo_no}		 
   	</update>
+  	
+  	<select id="like_count_chk" resultType="int">
+  		select count(*) from likecount where user_no = #{user_no} and group_no = #{group_no}
+  	</select>
+  	
+  	<insert id="like_count_reg">
+  		insert into likecount (user_no, group_no) values (#{user_no}, #{group_no})
+  	</insert>
+  	
+  	<select id="like_count" resultType="int">
+  		select count(*) from likecount where group_no = #{group_no}
+  	</select>
+  	
+  	<delete id="like_delete">
+  		delete from likecount where user_no = #{user_no} and group_no = #{group_no}
+  	</delete>
+  	
+  	<delete id="req_delete">
+  		delete from request where user_no = #{user_no} and group_no = #{group_no}
+  	</delete>
+  	
+  	<delete id="groupSecession">
+  		delete from groupmember where group_no = #{group_no} and user_no = #{user_no}
+  	</delete>
+  	
+  	<!-- *****그룹 메인게시판 SQL***** -->
+	
+	<insert id="gb_regist">
+		      insert into group_board(title, content, user_name, user_no)
+      		  values (#{title}, #{content}, #{user_name}, #{user_no})
+	</insert>
+	
+	<select id="gb_getList" resultType="GroupBoardVO">
+		<!-- select * from free_board order by free_board_no desc -->
+		select *
+		from (select A.*, @ROWNUM := @ROWNUM + 1 AS RN
+			  FROM (SELECT *
+					FROM group_board
+					WHERE
+					1 = 1
+					<if test="searchKeyword  != null">
+						AND(
+						title like '%${searchKeyword}%'
+						OR
+						content like '%${searchKeyword}%'
+						OR
+						user_name like '%${searchKeyword}%')
+					</if>
+		            order by group_board_no desc) A, (select @ROWNUM := 0) D  
+		) B where 1 = 1
+		<![CDATA[
+		AND
+		RN > (#{page}-1) * #{amount} AND RN <= #{page} * #{amount}
+		]]>
+	</select>
+	
+	<select id="gb_getTotal" resultType="int">
+		select count(*) as total from group_board
+		where
+		1 = 1
+		<if test="searchKeyword  != null">
+		AND
+		(
+		title like '%${searchKeyword}%'
+		OR
+		content like '%${searchKeyword}%'
+		OR
+		user_name like '%${searchKeyword}%'
+		)
+		</if>
+	</select>
+	
+	<select id="gb_getUpdateList" resultType="GroupBoardVO">
+		select * from group_board where group_board_no = #{group_board_no}
+	</select>
+	
+	<update id="gb_update">
+		update group_board
+   			set title = #{title},
+   				content = #{content}
+   		where group_board_no = #{group_board_no}
+	</update>
+	
+	<delete id="gb_delete">
+		delete from group_board where group_board_no = #{group_board_no}
+	</delete>
+	
+	<insert id="gc_regist">
+		insert into group_comment(user_no, user_name, comment_contents, group_board_no)
+      	values (#{user_no}, #{user_name}, #{comment_contents}, #{group_board_no})
+	</insert>
+	
+	<select id="gc_getList" resultType="GroupCommentsVO">
+		select 
+				*,
+				(select uu.filepath from user_upload uu where uu.user_no = a.user_no) as filepath
+		 	from 
+		 		group_comment a
+		 	where 
+		 		group_board_no = #{group_board_no}
+	</select>
+	
+	<delete id="gc_delete">
+		delete from group_comment where comment_no = #{comment_no}
+	</delete>
+	
+	<update id="gc_UpdateContents">
+		update group_comment
+   			set comment_contents = #{comment_contents}
+   		where comment_no = #{comment_no}
+	</update>
   	
 </mapper>

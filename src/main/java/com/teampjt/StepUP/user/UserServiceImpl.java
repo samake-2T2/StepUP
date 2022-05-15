@@ -131,9 +131,16 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public UserVO emailserch(UserVO vo) {
+	public int emailserch(UserVO vo) {
 		
 		return userMapper.emailserch(vo);
+	}
+
+
+	@Override
+	public int getUser(UserVO vo) {
+		
+		return userMapper.getUser(vo);
 	}
 
 

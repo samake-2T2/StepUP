@@ -52,7 +52,7 @@
 			<span style="font-size: 20px; background-color: pink"> 참여인원: [[${mtotal}]]/[[${groupVO.group_participant_amount}]]명 </span>
 			</div>
 
-			<div class="detail_boxbtn">
+			<div class="detail_boxbtn" th:if="${groupVO.group_leader_name} != ${session.user_name}">
 				<button class="detail_btn2" type="button">
 				<a th:href="@{/group/groupApplication(group_no=${groupVO.group_no})}" style="color : white">참여신청</a> </button>
 			</div>

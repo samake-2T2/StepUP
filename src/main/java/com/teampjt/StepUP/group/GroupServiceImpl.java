@@ -10,9 +10,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.teampjt.StepUP.command.GroupBoardVO;
+import com.teampjt.StepUP.command.GroupCommentsVO;
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupMemberVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
+import com.teampjt.StepUP.command.LikeCountVO;
 import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.SearchCategoryVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
@@ -182,9 +185,9 @@ public class GroupServiceImpl implements GroupService {
 
 
 	@Override
-	public int nameChk(StudyGroupVO vo) {
+	public int nameChk(String group_name) {
 
-		return groupMapper.nameChk(vo);
+		return groupMapper.nameChk(group_name);
 	}
 
 
@@ -211,12 +214,6 @@ public class GroupServiceImpl implements GroupService {
 	public int requestOk(GroupMemberVO vo) {
 
 		return groupMapper.requestOk(vo);
-	}
-
-	@Override
-	public int requestNo(RequestVO vo) {
-		
-		return groupMapper.requestNo(vo);
 	}
 
 	@Override
@@ -287,6 +284,176 @@ public class GroupServiceImpl implements GroupService {
 	public ArrayList<GroupNoticeVO> getNoticeView(int group_no) {
 		
 		return groupMapper.getNoticeView(group_no);
+	}
+
+
+
+
+
+	@Override
+	public int like_count_chk(LikeCountVO vo) {
+		
+		return groupMapper.like_count_chk(vo);
+	}
+
+
+
+
+
+	@Override
+	public int like_count_reg(LikeCountVO vo) {
+		
+		return groupMapper.like_count_reg(vo);
+	}
+
+
+
+
+
+	@Override
+	public int like_count(LikeCountVO vo) {
+		
+		return groupMapper.like_count(vo);
+	}
+
+
+
+
+
+	@Override
+	public int like_delete(LikeCountVO vo) {
+		
+		return groupMapper.like_delete(vo);
+	}
+
+
+
+
+
+	@Override
+	public int requestChk(GroupMemberVO vo) {
+
+		return groupMapper.requestChk(vo);
+	}
+
+
+
+
+
+	@Override
+	public int req_delete(RequestVO vo) {
+
+		return groupMapper.req_delete(vo);
+	}
+
+
+
+
+
+	@Override
+	public int groupSecession(GroupMemberVO vo) {
+
+		return groupMapper.groupSecession(vo);
+	}
+
+
+
+
+
+	@Override
+	public int gb_regist(GroupBoardVO vo) {
+		
+		return groupMapper.gb_regist(vo);
+	}
+
+
+
+
+
+	@Override
+	public ArrayList<GroupBoardVO> gb_getList(Criteria cri) {
+
+		return groupMapper.gb_getList(cri);
+	}
+
+
+
+
+
+	@Override
+	public int gb_getTotal(Criteria cri) {
+
+		return groupMapper.gb_getTotal(cri);
+	}
+
+
+
+
+
+	@Override
+	public GroupBoardVO gb_getUpdateList(int group_board_no) {
+		
+		return groupMapper.gb_getUpdateList(group_board_no);
+	}
+
+
+
+
+
+	@Override
+	public int gb_update(GroupBoardVO vo) {
+
+		return groupMapper.gb_update(vo);
+	}
+
+
+
+
+
+	@Override
+	public int gb_delete(GroupBoardVO vo) {
+
+		return groupMapper.gb_delete(vo);
+	}
+
+
+
+
+
+	@Override
+	public int gc_regist(GroupCommentsVO vo) {
+		
+		return groupMapper.gc_regist(vo);
+	}
+
+
+
+
+
+	@Override
+	public ArrayList<GroupCommentsVO> gc_getList(GroupCommentsVO vo) {
+
+		return groupMapper.gc_getList(vo);
+	}
+
+
+
+
+
+	@Override
+	public int gc_delete(GroupCommentsVO vo) {
+		
+		return groupMapper.gc_delete(vo);
+	}
+
+
+
+
+
+	@Override
+	public int gc_UpdateContents(GroupCommentsVO vo) {
+
+		return groupMapper.gc_UpdateContents(vo);
 	}
 
 

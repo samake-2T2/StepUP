@@ -1,13 +1,16 @@
 package com.teampjt.StepUP.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.apache.ibatis.annotations.Param;
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,9 +24,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.teampjt.StepUP.command.GroupBoardVO;
+import com.teampjt.StepUP.command.GroupCommentsVO;
 import com.teampjt.StepUP.command.GroupDetailCommentVO;
 import com.teampjt.StepUP.command.GroupMemberVO;
 import com.teampjt.StepUP.command.GroupNoticeVO;
+import com.teampjt.StepUP.command.LikeCountVO;
 import com.teampjt.StepUP.command.RequestVO;
 import com.teampjt.StepUP.command.StudyGroupVO;
 import com.teampjt.StepUP.command.ToDoListVO;
@@ -47,6 +53,8 @@ public class GroupController {
 	public String groupApplication(@RequestParam("group_no") int group_no,
 								   Model model) {
 		
+		
+		
 		model.addAttribute("group_no", group_no);
 		return "group/groupApplication";
 	}
@@ -56,11 +64,15 @@ public class GroupController {
 							Criteria cri,
 							Model model) {
 		
-		StudyGroupVO vo = groupService.getStudyGroupDetail(group_no);
+		StudyGroupVO SGvo = groupService.getStudyGroupDetail(group_no);
 		ArrayList<GroupNoticeVO> list1 = groupService.getNoticeView(group_no);
+		LikeCountVO LKvo = LikeCountVO.builder().group_no(group_no).build();
+		int like = groupService.like_count(LKvo);
 		
-		model.addAttribute("SGvo", vo);
+		
+		model.addAttribute("SGvo", SGvo);
 		model.addAttribute("GNlist", list1);
+		model.addAttribute("like", like);
 		
 		return "group/groupMain";
 	}
@@ -76,9 +88,7 @@ public class GroupController {
 							Model model) {
 		
 		ArrayList<Integer> list1 = groupService.getMyGroupNoList1(user_no);
-		System.out.println(list1.toString());
 		ArrayList<Integer> list2 = groupService.getMyGroupNoList2(user_no);
-		System.out.println(list2.toString());
 		
 		ArrayList<StudyGroupVO> list = new ArrayList<>();
 		
@@ -119,41 +129,66 @@ public class GroupController {
 	
 	//신청 수락
 	@PostMapping("/request_ok")
-	public String request_ok(GroupMemberVO vo,
-							 RedirectAttributes RA) {
+	@ResponseBody
+	public Map<String, Object> request_ok(GroupMemberVO vo) {
 		
-		System.out.println(vo.toString());
+		System.out.println(vo.toString()); 
 		
+		Map<String, Object> map = new HashMap<>();
 		
-		int result = groupService.requestOk(vo);
+		RequestVO RQvo = RequestVO.builder()
+				 		.user_no(vo.getUser_no())
+				 		.group_no(vo.getGroup_no())
+				 		.build();
 		
-		RA.addFlashAttribute("group_no", vo.getGroup_no() );
+		// 이미 해당 그룹에 가입중인 멤버인지 확인
+		int result = groupService.requestChk(vo);
 		
-		if(result == 1) { 
-			RA.addFlashAttribute("msg", vo.getUser_name() + "님이 등록 되었습니다.");
-	
-		} else { 
-			RA.addFlashAttribute("msg", "등록에 실패했습니다. 관리자에게 문의하세요.");
+		if(result >= 1) {
+			ArrayList<RequestVO> list = userService.getApplyList(vo.getGroup_no());
+			map.put("list", list);
+			map.put("result", result);
+			
+			return map;
+		} else {
+			groupService.requestOk(vo);
+			groupService.req_delete(RQvo);
+			ArrayList<RequestVO> list = userService.getApplyList(vo.getGroup_no());
+			System.out.println(list.toString());
+			map.put("list", list);
+			map.put("result", result);
+			
+			return map;
 		}
-		return "redirect:/group/groupRegList";
 	}
 	//신청 거절
 	@PostMapping("/request_no")
-	public String request_no(RequestVO vo,
-			                 RedirectAttributes RA) {
+	@ResponseBody
+	public Map<String, Object> request_no(RequestVO vo) {
 		
-		System.out.println(vo.toString());
+		System.out.println(vo.toString());  
 		
-		int result = groupService.requestNo(vo);
+		int result = groupService.req_delete(vo);
 		System.out.println(result);
 		
-		if(result == 1) {
-			RA.addFlashAttribute("msg", "가입이 거절되었습니다.");
-		} else {
-			RA.addFlashAttribute("msg", "가입 거절에 실패했습니다.");
-		}
+		ArrayList<RequestVO> list = userService.getApplyList(vo.getGroup_no());
+		System.out.println(list.toString());
+
+		Map<String, Object> map = new HashMap<>();
 		
-		return "redirect:/group/groupRegList";
+		if(result == 1) {
+			map.put("result", result);
+			map.put("list", list);
+			map.put("msg", "거절되었습니다.");
+			
+			return map;
+		} else {
+			map.put("result", result);
+			map.put("list", list);
+			map.put("msg", "거절에 실패했습니다. 관리자에게 문의하세요.");
+			
+			return map;
+		}
 		
 	}
 
@@ -393,9 +428,16 @@ public class GroupController {
 	// 그룹 이름 중복체크
 	@PostMapping("/nameChk")
 	@ResponseBody
-	public int nameChk(StudyGroupVO vo) {
+	public int nameChk(@RequestParam("group_name") String group_name) {
 	
-		return groupService.nameChk(vo);
+		System.out.println(group_name);
+		
+		if(group_name == null || group_name.equals("")) {
+			return 1;
+		} else {			
+			return groupService.nameChk(group_name);
+		}
+		
 	}
 
 	// 그룹 생성폼
@@ -404,7 +446,7 @@ public class GroupController {
 			RedirectAttributes RA,
 			@RequestParam("file") MultipartFile f) {
 		
-		int result = groupService.nameChk(vo);
+		int result = groupService.nameChk(vo.getGroup_name());
 		
 		if(result == 0) {
 			// 1. 업로드된 확장자가 이미지만 가능하도록 처리
@@ -433,7 +475,11 @@ public class GroupController {
 		int result = groupService.getReqChk(reqVO);
 		System.out.println(result);
 		
-		if(result < 1) { // 가입한 이력이 없는경우
+		if(result > 0) { // 가입한 이력이 있는경우			
+			RA.addFlashAttribute("msg", "이미 가입신청한 그룹입니다");
+			
+			return "redirect:/main";
+		} else { // 이미 가입한 이력이 없는 경우
 			groupService.groupApplicationReg(reqVO);
 			
 			model.addAttribute("vo", reqVO);
@@ -449,12 +495,38 @@ public class GroupController {
 			}
 			RA.addFlashAttribute("msg", "가입요청에 성공하였습니다");
 			return "redirect:/main";
-		} else { // 이미 가입한 이력이 있는 경우
+		}
+	}
+	
+	// 그룹멤버 탈퇴
+	@GetMapping("/groupSecession")
+	public String groupSecession(@RequestParam("group_no") int group_no,
+								 @RequestParam("user_no") int user_no,
+								 RedirectAttributes RA) {
+		
+		//System.out.println(group_no);
+		//System.out.println(user_no);
+		
+		GroupMemberVO vo = GroupMemberVO.builder()
+										.group_no(group_no)
+										.user_no(user_no)
+										.build();
+		
+		int result = groupService.groupSecession(vo);
+		
+		if(result == 1) {
+			RA.addFlashAttribute("msg", "성공적으로 탈퇴되었습니다.");
 			
-				RA.addFlashAttribute("msg", "가입되어있는 그룹입니다");
+			return "redirect:/main";
+		} else {
+			RA.addFlashAttribute("msg", "탈퇴에 실패하였습니다.");
 			
 			return "redirect:/main";
 		}
+		
+		
+		
+		
 	}
 	
 	// 그룹 투두리스트 비동기 등록 폼
@@ -518,6 +590,203 @@ public class GroupController {
 		
 		
 	}
+	
+	
+	// 좋아요 버튼
+	@PostMapping("like_count")
+	@ResponseBody
+	public int like_count(LikeCountVO vo) {
+		
+		// 해당유저의 좋아요 여부 확인 메서드
+		int chk = groupService.like_count_chk(vo);
+		
+		int result = 0;
+		
+		// 종아요 여부에 따른 처리(0이면 좋아요 등록 및 카운트, 삭제후 카운트)
+		if(chk == 0) {
+			// 좋아요 등록 메서드
+			groupService.like_count_reg(vo);
+			
+			// 좋아요 갯수 카운트 메서드
+			result = groupService.like_count(vo);
+			
+			return result;
+		}else {
+			// 좋아요 취소 메서드
+			groupService.like_delete(vo);
+			
+			// 좋아요 갯수 카운트 메서드
+			result = groupService.like_count(vo);
+			
+			return result;
+		}
+		
+	}
+	
+	/////////// 그룹 전용 게시판 //////////////////////////////
+	
+		// 리스트 화면 
+		@GetMapping("/groupBoard")
+		public String freeboard_main(Model model, Criteria cri) {
+			System.out.println("search_value = "+cri);
+			//페이징 처리
+			
+			//게시물 리스트
+			//ArrayList<FreeBoardVO> list = boardService.fb_getList(cri);
+			ArrayList<GroupBoardVO> list = groupService.gb_getList(cri);
+			int total = groupService.gb_getTotal(cri);
+			PageVO pageVO = new PageVO(cri, total);
+			
+			for(int listCnt = 0;listCnt <list.size();listCnt++) {	
+				//댓글 VO 선언
+				GroupCommentsVO groupCommentsVO = new GroupCommentsVO();
+				// 댓글 VO에 해당 게시물의 고유번호를 SET
+				groupCommentsVO.setGroup_board_no(list.get(listCnt).getGroup_board_no());
+				// 게시물 고유번호로 댓글 조회
+				ArrayList<GroupCommentsVO> c_list = groupService.gc_getList( groupCommentsVO );
+				// 댓글 리스트를 게시물 VO에 SET
+				list.get(listCnt).setGroup_comments_list(c_list);
+			}
+			System.out.println("pageVO = "+pageVO);
+			// 데이터 저장
+			model.addAttribute("list", list);
+			// 페이지네이션 저장 
+			model.addAttribute("pageVO", pageVO);
+			return "group/groupBoard";
+		}
+		
+		// 글 등록 페이지
+		@GetMapping("/groupBoardReg")
+		public String groupBoardReg() {	
+			
+			return "group/groupBoardReg";
+		}
+		
+		// 글 등록 기능 
+		@PostMapping("/boardForm")
+		public String boardForm(GroupBoardVO vo, RedirectAttributes RA,
+							    HttpSession session) {
+			//유저확인 (로그아웃 상태에서 글등록 안 들어가는지 확인 필요!!!!!!!!!!!!!!!!!!!!!!!!!!1)
+			UserVO userVO = (UserVO)session.getAttribute("userVO");  
+			if(userVO == null || userVO.getUser_no() != vo.getUser_no()) {
+				return "redirect:/group/groupBoard";
+			}
+			// 실행
+			int result = groupService.gb_regist(vo);	
+			if(result == 1) { 
+				RA.addFlashAttribute("msg", "등록되었습니다. ");
+				}else { 
+				RA.addFlashAttribute("msg", "등록실패, 관리자에게 문의하세요.");
+				}
+			return "redirect:/group/groupBoard";
+		}
+		
+		// 글 수정 (불러오기)
+		@GetMapping("/groupBoardUdt")
+		public String groupBoardUdt(GroupBoardVO vo, 
+				@RequestParam("group_board_no") int group_board_no,
+				@RequestParam("user_no")  int user_no,
+				HttpSession session, Model model) {	
+			// 실행
+			GroupBoardVO gb_VO = groupService.gb_getUpdateList(group_board_no);
+			model.addAttribute("gb_VO", gb_VO);
+			return "group/groupBoardUdt";
+		}
+		
+		//글 수정 (업데이트)
+		@PostMapping("/updateForm")
+		public String updateForm(GroupBoardVO vo, 
+								RedirectAttributes RA) {
+			// 실행
+			int result = groupService.gb_update(vo);
+			if(result == 1) { 
+				RA.addFlashAttribute("msg", "수정되었습니다. ");
+				}else { 
+				RA.addFlashAttribute("msg", "수정실패, 관리자에게 문의하세요.");
+				}
+			return "redirect:/group/groupBoard";
+		}
+		
+		//글 삭제
+		@GetMapping("/boardDelete")  
+		public String boardDelete(GroupBoardVO vo,
+								  @RequestParam("group_board_no") int group_board_no,
+								  @RequestParam("user_no")  int user_no,
+								  HttpSession session, RedirectAttributes RA) {	
+			// 실행
+			int result = groupService.gb_delete(vo);
+			if(result == 1) { 
+				RA.addFlashAttribute("msg", "삭제되었습니다. ");
+				}else { 
+				RA.addFlashAttribute("msg", "삭제실패, 관리자에게 문의하세요.");
+				}
+			return "redirect:/group/groupBoard";
+		}
+		
+		//댓글 등록
+		@PostMapping("/groupCommentForm2")
+		public String mainCommentForm(GroupCommentsVO vo,
+							  		    HttpSession session, RedirectAttributes RA) {
+			//유저확인
+			UserVO userVO = (UserVO)session.getAttribute("userVO");  
+			if(userVO == null || userVO.getUser_no() != vo.getUser_no()) {
+				System.out.println("세션없음....");
+				return "redirect:/group/groupBoard";
+			}
+			//실행
+			int result = groupService.gc_regist(vo);	
+			if(result == 1) { 
+				RA.addFlashAttribute("msg", "댓글이 등록되었습니다. ");
+				}else { 
+				RA.addFlashAttribute("msg", "등록실패, 관리자에게 문의하세요.");
+				}
+			return "redirect:/group/groupBoard";
+		}
+		
+		//댓글 삭제
+		@GetMapping("/deleteComment")
+		public String deleteComment(GroupCommentsVO vo,
+						  		    HttpSession session,
+						  		    RedirectAttributes RA) {
+			//유저확인
+//			UserVO userVO = (UserVO)session.getAttribute("userVO");  
+//			if(userVO == null || userVO.getUser_no() != mainCommentsVO.getUser_no()) {
+//				System.out.println("세션없음....");
+//				return "redirect:/board/freeboard_main";
+//			}
+			//실행
+			int result = groupService.gc_delete(vo);
+			if(result == 1) { 
+				RA.addFlashAttribute("msg", "삭제되었습니다. ");
+				}else { 
+				RA.addFlashAttribute("msg", "삭제실패, 관리자에게 문의하세요.");
+				}
+			System.out.println(result);
+			return "redirect:/group/groupBoard";
+		}
+		
+		// 댓글 수정
+		@PostMapping("/updateComment")
+		public String freeboard_update(GroupCommentsVO vo,
+			    @RequestParam("writer") int writer,
+	  		    HttpSession session, Model model,
+	  		    RedirectAttributes RA) {	
+			//유저확인
+			UserVO userVO = (UserVO)session.getAttribute("userVO");  
+			if(userVO == null || userVO.getUser_no() != vo.getUser_no()) {
+				System.out.println("세션없음....");
+				return "redirect:/board/freeboard_main";
+			}
+			int result =groupService.gc_UpdateContents(vo);
+			if(result == 1) { 
+				RA.addFlashAttribute("msg", "수정되었습니다. ");
+				}else { 
+				RA.addFlashAttribute("msg", "수정실패, 관리자에게 문의하세요.");
+				}
+			System.out.println(result);
+			return "redirect:/group/groupBoard";
+		}
+	
 	
 }
 

@@ -77,6 +77,11 @@
 }
 
 /* 버튼 */
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 
 .w-btn {
     position: relative;
@@ -90,6 +95,17 @@
     font-weight: 600;
     transition: 0.25s;
     margin: 10px 10px;
+}
+
+.w-btn2 {
+    position: relative;
+    border: none;
+    display: inline-block;
+    border-radius: 2px;
+    font-family: "paybooc-Light", sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
 }
 
 .w-btn:hover {

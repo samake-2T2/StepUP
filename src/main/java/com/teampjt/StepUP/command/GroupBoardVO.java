@@ -33,6 +33,6 @@ public class GroupBoardVO {
     private LocalDateTime regdate;
     
     //댓글 리스트
-    private ArrayList<MainCommentsVO> main_comments_list;
+    private ArrayList<GroupCommentsVO> group_comments_list;
 	
 }
