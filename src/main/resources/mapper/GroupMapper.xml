@@ -412,5 +412,9 @@ FROM (SELECT A.*,
    			set comment_contents = #{comment_contents}
    		where comment_no = #{comment_no}
 	</update>
+	
+	<select id="gb_getListview" resultType="GroupBoardVO">
+		select * from group_board order by regdate desc limit 5
+	</select>
   	
 </mapper>

@@ -153,5 +153,8 @@ public interface GroupService {
 	//댓글 업데이트
 	public int gc_UpdateContents(GroupCommentsVO vo);
 	
+	// 전용 게시판 글 미리보기
+	public ArrayList<GroupBoardVO> gb_getListview();
+	
 }
 

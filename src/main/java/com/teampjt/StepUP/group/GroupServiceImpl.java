@@ -460,6 +460,16 @@ public class GroupServiceImpl implements GroupService {
 
 
 
+	@Override
+	public ArrayList<GroupBoardVO> gb_getListview() {
+
+		return groupMapper.gb_getListview();
+	}
+
+
+
+
+
 	
 	
 	

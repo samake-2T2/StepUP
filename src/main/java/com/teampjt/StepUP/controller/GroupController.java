@@ -66,12 +66,14 @@ public class GroupController {
 		
 		StudyGroupVO SGvo = groupService.getStudyGroupDetail(group_no);
 		ArrayList<GroupNoticeVO> list1 = groupService.getNoticeView(group_no);
+		ArrayList<GroupBoardVO> list2 = groupService.gb_getListview();
 		LikeCountVO LKvo = LikeCountVO.builder().group_no(group_no).build();
 		int like = groupService.like_count(LKvo);
 		
 		
 		model.addAttribute("SGvo", SGvo);
 		model.addAttribute("GNlist", list1);
+		model.addAttribute("GBlist", list2);
 		model.addAttribute("like", like);
 		
 		return "group/groupMain";
