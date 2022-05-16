@@ -18,7 +18,7 @@ public class Criteria {
 	
 	//카테고리 검색 추가(소분류)
 	private String searchCategoryChild;
-	
+
 	//키워드 검색 추가
 	private String searchKeyword;
 	
