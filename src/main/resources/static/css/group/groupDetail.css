@@ -31,7 +31,7 @@
     margin: 0 auto;
     width: 300px;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 242px;
     padding: 20px 20px 20px 20px;
     border: 1px solid #cdcdcd;
 }
@@ -84,11 +84,11 @@
 .tag {
     font-size: 20px;
     border-radius: 10px;
-    width: 100px;
+    width: 154px;
     background-color: rgb(213, 212, 212);
     overflow: hidden;
     display: inline-block;
-    margin-left: 5px;
+    margin-left: 15px;
     text-align: center;
 }
 

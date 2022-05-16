@@ -362,8 +362,12 @@ public class GroupController {
 		StudyGroupVO groupVO = groupService.getStudyGroupDetail(group_no);
 		int mtotal = groupService.getMemberTotal(group_no);
 		
+		ArrayList<GroupDetailCommentVO> list = groupService.getGroupCommentList();
+		System.out.println(list.toString());
 		
 		
+		model.addAttribute("list", list);
+		model.addAttribute("group_no", group_no);
 		model.addAttribute("groupVO", groupVO);
 		model.addAttribute("mtotal", mtotal+1);
 		
@@ -373,27 +377,27 @@ public class GroupController {
 	
 	//댓글 등록폼
 	@PostMapping("/groupCommentForm")
-	public String groupCommentForm(GroupDetailCommentVO gdcVO,
+	public String groupCommentForm(GroupDetailCommentVO gdcVO, Model model,
 								  RedirectAttributes RA) {
 	
 		
-
 		int result = groupService.commentRegist(gdcVO);
 
+		
 		if(result == 1) {
 			RA.addFlashAttribute("msg", "댓글이 등록되었습니다"); 
 		}else {
 			RA.addFlashAttribute("msg", "댓글등록이 실패하였습니다");
 		}
 	
-		return "redirect:/group/groupDetail";
+		return "redirect:/group/groupDetail?group_no="+ gdcVO.getGroup_no();
 	}
 
 
 	//댓글 수정폼
 	@PostMapping("/groupCommentUpdate")
 	public String groupCommentUpdate(GroupDetailCommentVO gdcVO,
-									 RedirectAttributes RA) {
+									 RedirectAttributes RA ) {
 		
 		
 		int result = groupService.commentUpdate(gdcVO);
@@ -410,10 +414,12 @@ public class GroupController {
 	//댓글 삭제폼
 	@GetMapping("/groupCommentDelete")
 	public String groupCommentDelete(@RequestParam("comment_no") int comment_no,
-									 RedirectAttributes RA) {
+									 RedirectAttributes RA, @RequestParam("group_no") int group_no) {
 		
 		
 		int result = groupService.commentDelete(comment_no);
+		
+		
 		
 		if(result == 1) {
 			RA.addFlashAttribute("msg", "댓글이 삭제되었습니다");
