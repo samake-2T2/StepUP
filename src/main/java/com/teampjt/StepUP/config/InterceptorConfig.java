@@ -30,7 +30,8 @@ public class InterceptorConfig implements WebMvcConfigurer{
 		.excludePathPatterns("/user/joinForm")
 		.excludePathPatterns("/user/logout") // 패스에서 제외
 		.excludePathPatterns("/board/freeboard_main") // 패스에서 제외
-		.excludePathPatterns("/user/emailChk"); // 패스에서 제외
+		.excludePathPatterns("/user/emailChk") // 패스에서 제외
+		.excludePathPatterns("/user/kakao-login"); // 패스에서 제외
 		
 		
 

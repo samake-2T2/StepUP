@@ -33,13 +33,11 @@
                         <button type="button" class=" w-btn w-btn-indigo kakao" onclick=kakaoLogin()></button><br>
                         <div class="alert alert-danger d-none" id="alert-kakao-login"></div>
                     </div><br>
-                    <div class="form-group button">
-                        <button type="button" class=" w-btn w-btn-indigo naver"></button><br>
+                    <div class="form-group button" id="naverLogout">
+                        <button type="button" id="naverIdLogin_loginButton" class=" w-btn w-btn-indigo naver"></button><br>
                     </div><br>
                     <div class="form-group-right">
-                        <a href=""><span>가입하기</span></a>
-                        <span> | </span>
-                        <a href=""><span>비밀번호 찾기</span></a>
+                        <a href="/user/userJoin"><span>일반 회원가입</span></a>
                     </div>
                 </form>
                 <form id="form-kakao-login" method="post" action="kakao-login">
@@ -55,6 +53,7 @@
 </th:block>
 
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script>
 
 $("alert-kakao-login").addClass("d-none");
@@ -90,6 +89,55 @@ function kakaoLogin() {
 		}
     })
   }
+
+
+
+// 네이버 로그인
+const naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "ScnDmxD73zT5f5ltkhm4",
+			callbackUrl: "http://localhost:8181/user/login",
+			//loginButton: {color: "green", type: 2}
+		}
+);
+naverLogin.init(); // 로그인 설정
+
+//네이버 로그인 기능
+naverLogin.getLoginStatus(function (status) {
+	if (status) {
+		const nickName=naverLogin.user.getNickName();
+		const email=naverLogin.user.getEmail();
+
+        //닉네임을 선택하지 않으면 선택창으로 돌아갑니다.
+		if(nickName===null||nickName===undefined ){ 
+			alert("별명이 필요합니다. 정보제공을 동의해주세요.");
+			naverLogin.reprompt(); 
+			return ;  
+		}else if(email===null||email===undefined) {
+			alert("이메일이 필요합니다. 정보제공을 동의해주세요.");
+			naverLogin.reprompt(); 
+			return ;
+		} else {	        	 
+			$('#form-kakao-login input[name=email]').val(naverLogin.user.getEmail());
+			$('#form-kakao-login input[name=password]').val("naver");
+			$('#form-kakao-login input[name=user_name]').val(naverLogin.user.getNickName());
+			$('#form-kakao-login input[name=logintype]').val(1);
+			// 사용자 정보가 포함된 폼을 서버로 제출한다.
+			document.querySelector('#form-kakao-login').submit();
+     		
+			const button_area=document.getElementById('naverLogout');
+			button_area.innerHTML="<button id='btnLogout'>로그아웃</button>";
+
+			const logout=document.getElementById('btnLogout');
+			
+			logout.addEventListener('click',(e)=>{
+				naverLogin.logout();
+     			location.replace("http://localhost:8181/main");
+			})
+		}
+	}
+      
+});
 </script>
 
 </html>

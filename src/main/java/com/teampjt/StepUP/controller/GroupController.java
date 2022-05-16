@@ -134,7 +134,7 @@ public class GroupController {
 	@ResponseBody
 	public Map<String, Object> request_ok(GroupMemberVO vo) {
 		
-		System.out.println(vo.toString()); 
+		//System.out.println(vo.toString()); 
 		
 		Map<String, Object> map = new HashMap<>();
 		
@@ -156,7 +156,7 @@ public class GroupController {
 			groupService.requestOk(vo);
 			groupService.req_delete(RQvo);
 			ArrayList<RequestVO> list = userService.getApplyList(vo.getGroup_no());
-			System.out.println(list.toString());
+			// System.out.println(list.toString());
 			map.put("list", list);
 			map.put("result", result);
 			
@@ -168,13 +168,13 @@ public class GroupController {
 	@ResponseBody
 	public Map<String, Object> request_no(RequestVO vo) {
 		
-		System.out.println(vo.toString());  
+		// System.out.println(vo.toString());  
 		
 		int result = groupService.req_delete(vo);
-		System.out.println(result);
+		// System.out.println(result);
 		
 		ArrayList<RequestVO> list = userService.getApplyList(vo.getGroup_no());
-		System.out.println(list.toString());
+		// System.out.println(list.toString());
 
 		Map<String, Object> map = new HashMap<>();
 		
@@ -296,8 +296,8 @@ public class GroupController {
 			List<FieldError> list = errors.getFieldErrors();
 			
 			for(FieldError err : list) {
-				System.out.println(err.getField());
-				System.out.println(err.getDefaultMessage());
+				//System.out.println(err.getField());
+				//System.out.println(err.getDefaultMessage());
 				
 				if(err.isBindingFailure()) {//자바측 에러인 경우
 					model.addAttribute("valid_" + err.getField(), "형식을 확인하세요"); //직접 에러메세지 생성
@@ -314,7 +314,7 @@ public class GroupController {
 		
 		if(result == 1) {
 			RA.addFlashAttribute("msg", "공지가 수정되었습니다");
-			System.out.println(result);
+			//System.out.println(result);
 			
 		}else {
 			RA.addFlashAttribute("msg", "공지가 수정되지않았습니다");
@@ -347,7 +347,7 @@ public class GroupController {
 	public String groupCommentList(Model model) {
 		
 		ArrayList<GroupDetailCommentVO> list = groupService.getGroupCommentList();
-		System.out.println(list.toString());
+		//System.out.println(list.toString());
 		
 		model.addAttribute("list", list);
 		
@@ -363,7 +363,7 @@ public class GroupController {
 		int mtotal = groupService.getMemberTotal(group_no);
 		
 		ArrayList<GroupDetailCommentVO> list = groupService.getGroupCommentList();
-		System.out.println(list.toString());
+		//System.out.println(list.toString());
 		
 		
 		model.addAttribute("list", list);
@@ -438,7 +438,7 @@ public class GroupController {
 	@ResponseBody
 	public int nameChk(@RequestParam("group_name") String group_name) {
 	
-		System.out.println(group_name);
+		//System.out.println(group_name);
 		
 		if(group_name == null || group_name.equals("")) {
 			return 1;
@@ -479,9 +479,9 @@ public class GroupController {
 									   Errors errors, Model model,
 									   RedirectAttributes RA) {
 		
-		System.out.println(reqVO.toString());
+		//System.out.println(reqVO.toString());
 		int result = groupService.getReqChk(reqVO);
-		System.out.println(result);
+		//System.out.println(result);
 		
 		if(result > 0) { // 가입한 이력이 있는경우			
 			RA.addFlashAttribute("msg", "이미 가입신청한 그룹입니다");
@@ -496,8 +496,8 @@ public class GroupController {
 				List<FieldError> list = errors.getFieldErrors();
 				
 				for(FieldError err : list) {
-					System.out.println(err.getField());
-					System.out.println(err.getDefaultMessage());
+					//System.out.println(err.getField());
+					//System.out.println(err.getDefaultMessage());
 				}
 				
 			}
@@ -636,7 +636,7 @@ public class GroupController {
 		// 리스트 화면 
 		@GetMapping("/groupBoard")
 		public String freeboard_main(Model model, Criteria cri) {
-			System.out.println("search_value = "+cri);
+			//System.out.println("search_value = "+cri);
 			//페이징 처리
 			
 			//게시물 리스트
@@ -655,7 +655,7 @@ public class GroupController {
 				// 댓글 리스트를 게시물 VO에 SET
 				list.get(listCnt).setGroup_comments_list(c_list);
 			}
-			System.out.println("pageVO = "+pageVO);
+			//System.out.println("pageVO = "+pageVO);
 			// 데이터 저장
 			model.addAttribute("list", list);
 			// 페이지네이션 저장 
@@ -738,7 +738,7 @@ public class GroupController {
 			//유저확인
 			UserVO userVO = (UserVO)session.getAttribute("userVO");  
 			if(userVO == null || userVO.getUser_no() != vo.getUser_no()) {
-				System.out.println("세션없음....");
+				//System.out.println("세션없음....");
 				return "redirect:/group/groupBoard";
 			}
 			//실행
@@ -769,7 +769,7 @@ public class GroupController {
 				}else { 
 				RA.addFlashAttribute("msg", "삭제실패, 관리자에게 문의하세요.");
 				}
-			System.out.println(result);
+			//System.out.println(result);
 			return "redirect:/group/groupBoard";
 		}
 		
@@ -782,7 +782,7 @@ public class GroupController {
 			//유저확인
 			UserVO userVO = (UserVO)session.getAttribute("userVO");  
 			if(userVO == null || userVO.getUser_no() != vo.getUser_no()) {
-				System.out.println("세션없음....");
+				//System.out.println("세션없음....");
 				return "redirect:/board/freeboard_main";
 			}
 			int result =groupService.gc_UpdateContents(vo);
@@ -791,7 +791,7 @@ public class GroupController {
 				}else { 
 				RA.addFlashAttribute("msg", "수정실패, 관리자에게 문의하세요.");
 				}
-			System.out.println(result);
+			//System.out.println(result);
 			return "redirect:/group/groupBoard";
 		}
 	

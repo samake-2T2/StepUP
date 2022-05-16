@@ -44,10 +44,10 @@ public class AjaxController {
 														@PathVariable("category_lv") int category_lv,
 														@PathVariable("category_detail_lv") int category_detail_lv) {
 		
-		System.out.println(category_group_id);
-		System.out.println(category_lv);
-		System.out.println(category_detail_lv);
-		System.out.println("-------------------");
+		//System.out.println(category_group_id);
+		//System.out.println(category_lv);
+		//System.out.println(category_detail_lv);
+		//System.out.println("-------------------");
 		
 		
 		//마이바티스 전달을 위해 vo에 저장
@@ -69,7 +69,7 @@ public class AjaxController {
 						  @RequestParam("filepath") String filepath) {
 		
 
-		System.out.println("uploadPath: " + uploadPath);
+		//System.out.println("uploadPath: " + uploadPath);
 		
 		File file = new File(uploadPath + "\\" + filepath + "\\" + uuid + "_" + filename);
 		

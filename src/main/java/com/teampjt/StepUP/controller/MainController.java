@@ -36,7 +36,7 @@ public class MainController {
 //		cri.setSearchCategoryChild(child_name);
 //		cri.setSearchKeyword(group_name);
 		
-		System.out.println(cri.toString());
+		//System.out.println(cri.toString());
 		
 		//페이징처리
 		ArrayList<StudyGroupVO> list = groupService.getGroupList(cri);
@@ -70,7 +70,7 @@ public class MainController {
 		cri.setSearchKeyword(map.get("group_name"));
 		
 		
-		System.out.println(cri.toString());
+		//System.out.println(cri.toString());
 		
 		//페이징처리
 		ArrayList<StudyGroupVO> list = groupService.getGroupList(cri);
@@ -84,14 +84,14 @@ public class MainController {
 		
 		//페이지네이션 저장
 		
-		System.out.println(list.toString());
+		//System.out.println(list.toString());
 		
 		HashMap<String, Object> maps = new HashMap<>();
 		maps.put("list", list);
 		maps.put("cri", cri);
 		maps.put("pageVO", pageVO);
 		
-		System.out.println(maps.toString());
+		// System.out.println(maps.toString());
 		
 		return maps;
 	}

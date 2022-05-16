@@ -118,7 +118,7 @@ public class UserServiceImpl implements UserService {
 				.build();
 
 
-		System.out.println(upvo.toString());
+		// System.out.println(upvo.toString());
 
 		int result = userMapper.registFile(upvo);
 

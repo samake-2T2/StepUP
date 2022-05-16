@@ -177,7 +177,7 @@ public class GroupServiceImpl implements GroupService {
 					.category_child_name(vo.getCategory_child_name())
 					.build();
 
-			System.out.println(groupVO.toString());
+			//System.out.println(groupVO.toString());
 
 			int result = groupMapper.groupRegist(groupVO);
 			return result;
