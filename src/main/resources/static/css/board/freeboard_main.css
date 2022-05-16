@@ -561,6 +561,19 @@
        text-decoration: none;
        color:white;
     }
+    .coment_info .comentbtn{
+
+         resize: none;
+         background-color: #663399;
+         text-decoration: none;
+         border:none;
+         padding: 6px 10px;
+
+    }
+    .coment_info .comentbtn > a{
+       text-decoration: none;
+       color:white;
+	}
    
 }
 
@@ -843,5 +856,18 @@
        text-decoration: none;
        color:white;
     }
+        .coment_info .comentbtn{
+
+         resize: none;
+         background-color: #663399;
+         text-decoration: none;
+         border:none;
+         padding: 6px 10px;
+
+    }
+    .coment_info .comentbtn > a{
+       text-decoration: none;
+       color:white;
+	}
    
 }
