@@ -38,16 +38,17 @@
 				<div class="detail_title">
 					<div class="detail_category">[[${groupVO.group_name}]]</div>
 				</div>
+				
 			</div>
 
-			<div class="tag">#[[${groupVO.category_parent_name}]]</div>
-			<div class="tag">#[[${groupVO.category_child_name}]]</div>
-
+				<div class="tag">#[[${groupVO.category_parent_name}]]</div>
+				<div class="tag">#[[${groupVO.category_child_name}]]</div>
+				
 			
 			
 			<div class="detail_subbtn"> 
-			<button class="w-btn w-btn-indigo">
-				<img src="../img/group/like.png" style="width: 20px;"> 1
+			<button class="w-btn w-btn-indigo" style="float: right">
+				<img src="../img/group/like.png" style="width: 20px; "> 1
 			</button> <br><br><br>
 			<span style="font-size: 20px; background-color: pink"> 참여인원: [[${mtotal}]]/[[${groupVO.group_participant_amount}]]명 </span>
 			</div>
@@ -91,7 +92,7 @@
 							</div>
 							<input name="user_name" type="hidden" th:value="${session.userVO} != null ? ${session.userVO.user_name}">
 							<input name="user_no" type="hidden"   th:value="${session.userVO} != null ? ${session.userVO.user_no}">
-							<input name="group_no" type="hidden"   th:value="${session.GroupDetailCommentVO} != null ? ${session.GroupDetailCommentVO.group_no}">
+							<input name="group_no" type="hidden"   th:value="${group_no}">
 						</form>
 					</div>
 
@@ -104,14 +105,19 @@
 						<div class="reply-content">
 							<div class="reply-group">
 								<strong>[[${commentVO.user_name}]]</strong> <small>[[${commentVO.comment_regdate}]]</small> 
-								<a href="#" class="replyUpadteBtn" th:if="${commentVO.user_name == session.userVO.user_name}" >
-									<i class="glyhpicon glyphicon-pencil"></i>수정
+								
+								<a href="#" class="replyUpadteBtn" th:if="${commentVO.user_name == session.userVO.user_name}"  >
+									<i class="glyhpicon glyphicon-pencil" th:value="${group_no}"></i>수정
 								</a> 
+								
 								<form action="groupCommentDelete" method="post">
+								
+								<p></p>
 								<a th:href="@{/group/groupCommentDelete(comment_no=${commentVO.comment_no})}" 
 								th:if="${commentVO.user_name == session.userVO.user_name}"style="float: right" >
-									<i class="glyhpicon glyphicon-remove"></i>삭제
+									<i class="glyhpicon glyphicon-remove" ></i>삭제
 								</a>
+							
 								</form>
 							</div>
 							<p>[[${commentVO.comment_content}]]</p>
@@ -120,8 +126,8 @@
 					<form action="groupCommentUpdate" method="post" class="r_contentsx1" style="display: none; ">
 							<input type="hidden" name="comment_no" th:value="${commentVO.comment_no}" >
 	                    	 <textarea name="comment_content"  style="width: 100%;">[[${commentVO.comment_content}]]</textarea>
-	                     	 <button type="submit" class="re-coment-btn" >
-	                     	 <a>수정하기</a>
+	                     	 <button type="submit" class="re-coment-btn" style="background-color: #663399; text-decoration: none;">
+	                     	 <a  style="color: white;">수정하기</a>
 	                     	 </button>
 	                </form>
 	                     
