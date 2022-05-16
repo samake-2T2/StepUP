@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/user/user_login.css">
 </head>
 
-<th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .container-login} ) }">
+<th:block th:replace="~{./include/basicLayout :: setContent( ~{:: .container-login} ) }">
 
     <!-- <div style="position: sticky; top: 42px; left: 0;">.....</div> -->
     <div class="container-login">
@@ -96,7 +96,7 @@ function kakaoLogin() {
 const naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "ScnDmxD73zT5f5ltkhm4",
-			callbackUrl: "http://localhost:8181/user/login",
+			callbackUrl: "http://stepup.pe.kr/user/login",
 			//loginButton: {color: "green", type: 2}
 		}
 );
@@ -132,7 +132,7 @@ naverLogin.getLoginStatus(function (status) {
 			
 			logout.addEventListener('click',(e)=>{
 				naverLogin.logout();
-     			location.replace("http://localhost:8181/main");
+     			location.replace("http://stepup.pe.kr/main");
 			})
 		}
 	}

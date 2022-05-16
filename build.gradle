@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.5.12'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-	id 'war'
+	//id 'war'
 }
 
 group = 'com.teampjt'
@@ -29,7 +29,7 @@ dependencies {
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.projectlombok:lombok'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	//providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	// mybatis 적용
 	implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.2.0'

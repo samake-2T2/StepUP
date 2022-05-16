@@ -24,6 +24,11 @@ public class MainController {
 	@Autowired
 	public GroupService groupService;
 	
+	@GetMapping("/")
+	public String welcome() {
+		return "/main";
+	}
+	
 	@GetMapping("/main")
 	public void main(Model model, 
 			         Criteria cri //,

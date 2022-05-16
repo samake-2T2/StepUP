@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
 	//폴더생성함수
 	public String makeFolder(String folderName) {
 
-		File file = new File(useruploadPath + "\\" + folderName);
+		File file = new File(useruploadPath + "/" + folderName);
 		if(file.exists() == false ) { //폴도가 존재하면 true, 존재하지 않으면 false
 			file.mkdir(); //폴더가 생성
 		}
@@ -89,7 +89,7 @@ public class UserServiceImpl implements UserService {
 
 		//1. 파일명 추출
 		String originName = f.getOriginalFilename();
-		String filename = originName.substring(originName.lastIndexOf("\\") + 1);
+		String filename = originName.substring(originName.lastIndexOf("/") + 1);
 
 
 		//2. 업로드 된 파일을 폴더별로 저장(파일생성)
@@ -99,7 +99,7 @@ public class UserServiceImpl implements UserService {
 		String uuid = UUID.randomUUID().toString();
 
 		// 최종경로
-		String email = useruploadPath + "\\" + filepath + "\\" + uuid + "_" + filename;
+		String email = useruploadPath + "/" + filepath + "/" + uuid + "_" + filename;
 
 
 		try {

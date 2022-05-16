@@ -35,7 +35,7 @@ public class GroupServiceImpl implements GroupService {
 	//폴더생성함수
 	public String makeFolder(String folderName) {
 
-		File file = new File(uploadPath + "\\" + folderName ); //java.io (업로드 경로 \\ 폴더명 )
+		File file = new File(uploadPath + "/" + folderName ); //java.io (업로드 경로 \\ 폴더명 )
 		if(file.exists() == false ) { //폴더가 존재하면 true, 존재하지 않으면 false
 			file.mkdir(); //폴더가 생성
 		}
@@ -144,7 +144,7 @@ public class GroupServiceImpl implements GroupService {
 
 			// 1. 파일명추출(브라우저별로 다를 수 있기 때문에 \\ 기준으로 파일명 추출)
 			String originName = f.getOriginalFilename();
-			String filename = originName.substring(originName.lastIndexOf("\\") + 1);
+			String filename = originName.substring(originName.lastIndexOf("/") + 1);
 
 			// 2. 업로드 된 파일을 폴더별로 저장(파일생성)
 			String filepath = makeFolder(vo.getGroup_name());
@@ -153,7 +153,7 @@ public class GroupServiceImpl implements GroupService {
 			String uuid = UUID.randomUUID().toString();
 
 			// 최종경로
-			String savename = uploadPath + "\\" + filepath + "\\" + uuid + "_" + filename;
+			String savename = uploadPath + "/" + filepath + "/" + uuid + "_" + filename;
 
 			// 업로드 진행
 			try {

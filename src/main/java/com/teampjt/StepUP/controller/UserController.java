@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.mysql.cj.Session;
 import com.teampjt.StepUP.command.UserVO;
-import com.teampjt.StepUP.command.userUploadVO;
 import com.teampjt.StepUP.user.UserService;
 
 @Controller
