@@ -90,7 +90,9 @@ create table groupnotice (
     groupnotice_content varchar(500) not null, ##내용
     groupnotice_regdate timestamp default now(), ##작성일자
     groupnotice_count int, ##조회수
-    group_no int not null
+    group_no int not null,
+    group_leader_name varchar(20)
+    
 );
 
 ##그룹 상세정보 댓글 테이블 

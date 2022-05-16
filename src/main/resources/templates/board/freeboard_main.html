@@ -78,14 +78,14 @@
 		                    								<input type="hidden" name="writer" th:value="${vo.user_no}">
 		                    								<input type="hidden" name="comment_no" th:value="${vo2.comment_no}">
 		                    								<input type="hidden" name="free_board_no" th:value="${vo2.free_board_no}">
-	                                                        <div class="w_photo"><img th:src="${vo2.filepath}"></div>
+	                                                        
 		                                                        <div class="w_info">[[${vo2.user_name}]]    &nbsp;
 		                                                        	<span class="w_regdate"><span> 
 		                                                        	| 
 		                                                        	</span> &nbsp [[${#temporals.format(vo2.comment_regdate, 'yy-MM-dd')}]] </span> 
-		                                                        	<th:block th:if="${vo2.user_no == session.user_no}"> 
-				                                                        <button type="button" class="re-coment" ><a>수정</a></button>
-				                                                        <button type="button"><a th:href="@{/board/deleteComment(comment_no=${vo2.comment_no}, user_no=${vo.user_no})}">삭제</a></button>
+		                                                        	<th:block th:if="${vo2.user_no == session.user_no}" class="recoments"> 
+				                                                        <button type="button" class="re-coment comentbtn" ><a>수정</a></button>
+				                                                        <button type="button" class="comentbtn"><a th:href="@{/board/deleteComment(comment_no=${vo2.comment_no}, user_no=${vo.user_no})}">삭제</a></button>
 				                                                    </th:block>
 				                                                    <!-- <th:block th:if="${session.user_no != null}">
 				                                                    	<button type="button" class="re-coment2" ><a>댓글달기</a></button>
